@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='记录下自己最近看的知识点。
+HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
+查找HTML元素 通常，通过 JavaScript可以操作需要操作 HTML 元素。
+为了做到这件事情，必须首先找到该元素。有三种方法来做这件事：
+ 通过 id 找到 HTML 元素：var x=document.getElementById(“intro”); 通过标签名找到 HTML 元素：var y=document.getElementsByTagName(“p”); 通过类名找到 HTML 元素：var x=document.getElementsByClassName(“intro”);  改变HTML内容 使用 innerHTML 属性。
+&amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p1&amp;#34;).innerHTML=&amp;#34;新文本!&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 改变HTML样式 使用style
+&amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;p id=&amp;#34;p2&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p2&amp;#34;).style.color=&amp;#34;blue&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontFamily=&amp;#34;Arial&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontSize=&amp;#34;larger&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; 使用事件 &amp;lt;body&amp;gt; &amp;lt;h1 id=&amp;#34;id1&amp;#34;&amp;gt;我的标题 1&amp;lt;/h1&amp;gt; &amp;lt;button type=&amp;#34;button&amp;#34; onclick=&amp;#34;document.getElementById(&amp;#39;id1&amp;#39;).style.color=&amp;#39;red&amp;#39;&amp;#34;&amp;gt; 按钮&amp;lt;/button&amp;gt; &amp;lt;/body&amp;gt; JS中定义函数绑定事件 var funcc = function () { alert(&amp;#34;hello world&amp;#34;) } var aa = document.'><title>HTML的DOM和浏览器的BOM</title>
+
+<link rel='canonical' href='https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='HTML的DOM和浏览器的BOM'>
+<meta property='og:description' content='记录下自己最近看的知识点。
+HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
+查找HTML元素 通常，通过 JavaScript可以操作需要操作 HTML 元素。
+为了做到这件事情，必须首先找到该元素。有三种方法来做这件事：
+ 通过 id 找到 HTML 元素：var x=document.getElementById(“intro”); 通过标签名找到 HTML 元素：var y=document.getElementsByTagName(“p”); 通过类名找到 HTML 元素：var x=document.getElementsByClassName(“intro”);  改变HTML内容 使用 innerHTML 属性。
+&amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p1&amp;#34;).innerHTML=&amp;#34;新文本!&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 改变HTML样式 使用style
+&amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;p id=&amp;#34;p2&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p2&amp;#34;).style.color=&amp;#34;blue&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontFamily=&amp;#34;Arial&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontSize=&amp;#34;larger&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; 使用事件 &amp;lt;body&amp;gt; &amp;lt;h1 id=&amp;#34;id1&amp;#34;&amp;gt;我的标题 1&amp;lt;/h1&amp;gt; &amp;lt;button type=&amp;#34;button&amp;#34; onclick=&amp;#34;document.getElementById(&amp;#39;id1&amp;#39;).style.color=&amp;#39;red&amp;#39;&amp;#34;&amp;gt; 按钮&amp;lt;/button&amp;gt; &amp;lt;/body&amp;gt; JS中定义函数绑定事件 var funcc = function () { alert(&amp;#34;hello world&amp;#34;) } var aa = document.'>
+<meta property='og:url' content='https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:published_time' content='2020-05-09T17:52:32&#43;00:00'/><meta property='article:modified_time' content='2020-05-09T17:52:32&#43;00:00'/>
+<meta name="twitter:title" content="HTML的DOM和浏览器的BOM">
+<meta name="twitter:description" content="记录下自己最近看的知识点。
+HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
+查找HTML元素 通常，通过 JavaScript可以操作需要操作 HTML 元素。
+为了做到这件事情，必须首先找到该元素。有三种方法来做这件事：
+ 通过 id 找到 HTML 元素：var x=document.getElementById(“intro”); 通过标签名找到 HTML 元素：var y=document.getElementsByTagName(“p”); 通过类名找到 HTML 元素：var x=document.getElementsByClassName(“intro”);  改变HTML内容 使用 innerHTML 属性。
+&amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p1&amp;#34;).innerHTML=&amp;#34;新文本!&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 改变HTML样式 使用style
+&amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;p id=&amp;#34;p2&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p2&amp;#34;).style.color=&amp;#34;blue&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontFamily=&amp;#34;Arial&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontSize=&amp;#34;larger&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; 使用事件 &amp;lt;body&amp;gt; &amp;lt;h1 id=&amp;#34;id1&amp;#34;&amp;gt;我的标题 1&amp;lt;/h1&amp;gt; &amp;lt;button type=&amp;#34;button&amp;#34; onclick=&amp;#34;document.getElementById(&amp;#39;id1&amp;#39;).style.color=&amp;#39;red&amp;#39;&amp;#34;&amp;gt; 按钮&amp;lt;/button&amp;gt; &amp;lt;/body&amp;gt; JS中定义函数绑定事件 var funcc = function () { alert(&amp;#34;hello world&amp;#34;) } var aa = document.">
+    <link rel="shortcut icon" href="https://magren.cn/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%89%8D%E7%AB%AF/" style="background-color: #2a9d8f; color: #fff;">
+                前端
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/">HTML的DOM和浏览器的BOM</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">May 09, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>记录下自己最近看的知识点。</p>
+<!-- raw HTML omitted -->
+<h1 id="html-dom-文档对象模型">HTML DOM (文档对象模型)</h1>
+<p>概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。</p>
+<h2 id="查找html元素">查找HTML元素</h2>
+<p>通常，通过 JavaScript可以操作需要操作 HTML 元素。</p>
+<p>为了做到这件事情，必须首先找到该元素。有三种方法来做这件事：</p>
+<ul>
+<li>通过 id 找到 HTML 元素：var x=document.getElementById(“intro”);</li>
+<li>通过标签名找到 HTML 元素：var y=document.getElementsByTagName(“p”);</li>
+<li>通过类名找到 HTML 元素：var x=document.getElementsByClassName(“intro”);</li>
+</ul>
+<h2 id="改变html内容">改变HTML内容</h2>
+<p>使用 innerHTML 属性。</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;p1&#34;</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;p1&#34;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&#34;新文本!&#34;</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div><h2 id="改变html样式">改变HTML样式</h2>
+<p>使用style</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+ 
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;p1&#34;</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;p2&#34;</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;p2&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;p2&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontFamily</span><span class="o">=</span><span class="s2">&#34;Arial&#34;</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;p2&#34;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontSize</span><span class="o">=</span><span class="s2">&#34;larger&#34;</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div><h2 id="使用事件">使用事件</h2>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;id1&#34;</span><span class="p">&gt;</span>我的标题 1<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span>
+<span class="na">onclick</span><span class="o">=</span><span class="s">&#34;document.getElementById(&#39;id1&#39;).style.color=&#39;red&#39;&#34;</span><span class="p">&gt;</span>
+按钮<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div><h3 id="js中定义函数绑定事件">JS中定义函数绑定事件</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">funcc</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">)</span>
+            <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">aa</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;vv&#39;</span><span class="p">)</span>
+<span class="nx">aa</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">funcc</span>
+</code></pre></div><h3 id="利用addeventlistener">利用addEventListener</h3>
+<div class="highlight"><pre class="chroma"><code class="language-j" data-lang="j"><span class="nv">document</span><span class="o">.</span><span class="nv">getElementById</span><span class="p">(</span><span class="s">&#39;vv&#39;</span><span class="p">)</span><span class="o">.</span><span class="nv">addEventListener</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="o">,</span><span class="nv">funcc</span><span class="p">)</span><span class="o">;</span>
+
+
+<span class="nv">document</span><span class="o">.</span><span class="nv">getElementById</span><span class="p">(</span><span class="s">&#39;vv&#39;</span><span class="p">)</span><span class="o">.</span><span class="nv">addEventListener</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="o">,</span><span class="nv">function</span> <span class="p">()</span> <span class="o">{</span>
+           <span class="nv">alert</span><span class="p">(</span><span class="s">&#39;hahah&#39;</span><span class="p">)</span>
+        <span class="o">}</span><span class="p">)</span>
+</code></pre></div><h2 id="onload-和-onunload-事件">onload 和 onunload 事件</h2>
+<ul>
+<li>onload 和 onunload 事件会在用户进入或离开页面时被触发。</li>
+<li>onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。</li>
+<li>onload 和 onunload 事件可用于处理 cookie。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">body</span> <span class="nx">onload</span><span class="o">=</span><span class="s2">&#34;checkCookies()&#34;</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="kd">function</span> <span class="nx">checkCookies</span><span class="p">(){</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">cookieEnabled</span><span class="o">==</span><span class="kc">true</span><span class="p">){</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Cookies 可用&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">else</span><span class="p">{</span>
+		<span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Cookies 不可用&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+	
+<span class="o">&lt;</span><span class="err">/body&gt;</span>
+</code></pre></div><h2 id="onchange-事件">onchange 事件</h2>
+<p>onchange 事件常结合对输入字段的验证来使用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 当输入框内容改变，焦点离开输入框的时候会调用函数 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;fname&#34;</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&#34;upperCase()&#34;</span><span class="p">&gt;</span>
+</code></pre></div><h2 id="onmouseover-onmouseout和onmousedownonmouseup-事件">onmouseover ，onmouseout和onmousedown，onmouseup 事件</h2>
+<ul>
+<li>onmouseover：当鼠标移到html元素上方的时候触发事件</li>
+<li>onmouseout：当鼠标从html元素上方移开的时候触发事件</li>
+<li>onmousedown：当鼠标点下元素的时候，触发事件</li>
+<li>onmouseup：当鼠标释放按钮时，触发事件。</li>
+</ul>
+<h2 id="htmlcollection-对象">HTMLCollection 对象</h2>
+<p>概述：getElementsByTagName() 方法返回 HTMLCollection 对象。HTMLCollection 对象类似包含 HTML 元素的一个数组。集合中的元素可以通过索引(以 0 为起始位置)来访问。</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;p&#34;</span><span class="p">);</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>   <span class="c1">//访问第二个p元素
+</span></code></pre></div><h2 id="nodelist-对象">NodeList 对象</h2>
+<p>概述：NodeList 对象是一个从文档中获取的节点列表 (集合) 。</p>
+<p>通过<strong>querrySelectorAll</strong>属性来获取对象</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myNodeList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&#34;p&#34;</span><span class="p">);</span>
+</code></pre></div><p>同样通过索引的方法来访问元素。</p>
+<h2 id="nodelist和htmlcollection两者的区别">NodeList和HTMLCollection两者的区别</h2>
+<ul>
+<li>HTMLCollection 元素可以通过 name，id 或索引来获取。</li>
+<li>NodeList 只能通过索引来获取。</li>
+<li>只有 NodeList 对象有包含属性节点和文本节点。</li>
+</ul>
+<h1 id="浏览器对象模型-bom">浏览器对象模型 (BOM)</h1>
+<p>该对象表示浏览器窗口，全局变量是 window 对象的属性。全局函数是 window 对象的方法（包括document）。</p>
+<h2 id="window-尺寸">Window 尺寸</h2>
+<ul>
+<li>window.innerHeight - 浏览器窗口的内部高度(包括滚动条)</li>
+<li>window.innerWidth - 浏览器窗口的内部宽度(包括滚动条)</li>
+</ul>
+<h2 id="window-screen">Window Screen</h2>
+<ul>
+<li>screen.availWidth - 可用的屏幕宽度</li>
+<li>screen.availHeight - 可用的屏幕高度</li>
+</ul>
+<h2 id="window-location">Window Location</h2>
+<ul>
+<li>location.hostname 返回 web 主机的域名</li>
+<li>location.pathname 返回当前页面的路径和文件名</li>
+<li>location.port 返回 web 主机的端口 （80 或 443）</li>
+<li>location.protocol 返回所使用的 web 协议（http: 或 https:）</li>
+<li>location.href 返回当前页面的URL</li>
+<li>location.assign(url) 加载 URL 指定的新的 HTML 文档。 就相当于一个链接，跳转到指定的url，当前页面会转为新页面内容，可以点击后退返回上一个页面。</li>
+<li>location.replace(url) 通过加载 URL 指定的文档来替换当前文档 ，这个方法是替换当前窗口页面，前后两个页面共用一个窗口，所以是没有后退返回上一页的。</li>
+</ul>
+<h2 id="window-history">Window History</h2>
+<ul>
+<li>history.back() - 与在浏览器点击后退按钮相同</li>
+<li>history.forward() - 与在浏览器中点击向前按钮相同</li>
+</ul>
+<p><strong>在进行前进后退功能上，也可以通过history.go()方法来实现</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// go() 里面的参数表示跳转页面的个数 例如 history.go(1) 表示前进一个页面
+</span><span class="c1"></span><span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// go() 里面的参数表示跳转页面的个数 例如 history.go(-1) 表示后退一个页面
+</span><span class="c1"></span><span class="nx">history</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// go() 里面的参数为0,表示刷新页面
+</span></code></pre></div><h2 id="弹窗">弹窗</h2>
+<h3 id="警告框">警告框</h3>
+<p>alert()</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;警告框！&#34;</span><span class="p">);</span>
+</code></pre></div><h3 id="确认框">确认框</h3>
+<p>confirm()</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">confirm</span><span class="p">(</span><span class="s2">&#34;按下按钮&#34;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">r</span><span class="o">==</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">x</span><span class="o">=</span><span class="s2">&#34;你按下了\&#34;确定\&#34;按钮!&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="nx">x</span><span class="o">=</span><span class="s2">&#34;你按下了\&#34;取消\&#34;按钮!&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="提示框">提示框</h3>
+<p>prompt() - 当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">person</span><span class="o">=</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;请输入&#34;</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">person</span><span class="o">!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">person</span><span class="o">!=</span><span class="s2">&#34;&#34;</span><span class="p">){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;demo&#34;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">person</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="javascript-计时事件">JavaScript 计时事件</h2>
+<ul>
+<li>setInterval() - 间隔指定的毫秒数不停地执行指定的代码。括弧内两个参数，第一个参数是函数，第二个参数是毫秒数。</li>
+<li>setTimeout() - 在指定的毫秒数后执行指定代码。第一个参数是函数，第二个参数是毫秒数。</li>
+</ul>
+<p>关于停止计时的方法：<strong>clearInterval()</strong> 和 <strong>clearTimeout()</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myVar</span><span class="o">=</span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">myTimer</span><span class="p">()},</span><span class="mi">1000</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">myTimer</span><span class="p">(){</span>
+   <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">myStopFunction</span><span class="p">(){</span>
+    <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">myVar</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">myVar</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">myVar</span><span class="o">=</span><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">)},</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">myStopFunction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">myVar</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="cookie">Cookie</h2>
+<p>概述：Cookie 是一些数据, 存储于你电脑上的文本文件中。以键值对的形式储存。</p>
+<h3 id="创建cookie">创建Cookie</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="o">=</span><span class="s2">&#34;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT&#34;</span><span class="p">;</span> <span class="c1">//expries是该cookie的过期时间，默认情况下，cookie 在浏览器关闭时删除
+</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="o">=</span><span class="s2">&#34;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&#34;</span><span class="p">;</span> <span class="c1">//path 参数告诉浏览器 cookie 的路径。默认情况下，cookie 属于当前页面。
+</span></code></pre></div><h3 id="读取-cookie">读取 Cookie</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">;</span>
+</code></pre></div><h3 id="修改-cookie">修改 Cookie</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="o">=</span><span class="s2">&#34;username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&#34;</span><span class="p">;</span> <span class="c1">//类似创建，直接覆盖
+</span></code></pre></div><h3 id="cookie的获取">Cookie的获取</h3>
+<p>设置了新的 cookie，旧的 cookie 不会被覆盖。 新 cookie 将添加到 document.cookie 中，所以如果重新读取document.cookie，将获得如下所示的数据：
+cookie1=value; cookie2=value;</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">getCookie</span><span class="p">(</span><span class="nx">cname</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">cname</span> <span class="o">+</span> <span class="s2">&#34;=&#34;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">ca</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">ca</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> 
+  <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">ca</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">trim</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nx">c</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/">
+        
+        
+            <div class="article-image">
+                <img src="/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/pwa.a3c2a1219b031eca9b227f229c2260c7_huf7420ce1a337e90ec18894b72ee0bcce_33680_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-o8KhIZsDHsqbIn8inCJgxw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">将博客变成PWA</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/">
+        
+        
+            <div class="article-image">
+                <img src="/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/banner.c42fd2acc50a3c76a8e8ebb57e0503fa_hud3cc57fa5673d3672539d26f50f40c0d_44156_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-xC/SrMUKPHao6Ou1fgUD&#43;g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">代码帮我画像素画</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从输入URL到页面展示</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/es6%E4%B8%AD%E7%9A%84promise/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">es6中的promise</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端基础里一些杂七杂八的知识点</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'haCWLunmE0GIExpKDwuKgRuQ-MdYXbMMI',
+    appKey: 'z2mnboJz8ronHGmq7yocp3Uo',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+
+        })
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

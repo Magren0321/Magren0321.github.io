@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='无聊刷知乎的时候发现了一个前端设计的宝藏网站awwwards，对上面大佬实现的网站表示望洋兴叹，
+但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
+在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
+pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
+// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。'><title>Vue下监听页面滚动以及移动端触摸事件</title>
+
+<link rel='canonical' href='https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Vue下监听页面滚动以及移动端触摸事件'>
+<meta property='og:description' content='无聊刷知乎的时候发现了一个前端设计的宝藏网站awwwards，对上面大佬实现的网站表示望洋兴叹，
+但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
+在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
+pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
+// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。'>
+<meta property='og:url' content='https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='Vue' /><meta property='article:published_time' content='2020-08-27T23:30:42&#43;00:00'/><meta property='article:modified_time' content='2020-08-27T23:30:42&#43;00:00'/>
+<meta name="twitter:title" content="Vue下监听页面滚动以及移动端触摸事件">
+<meta name="twitter:description" content="无聊刷知乎的时候发现了一个前端设计的宝藏网站awwwards，对上面大佬实现的网站表示望洋兴叹，
+但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
+在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
+pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
+// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。">
+    <link rel="shortcut icon" href="https://magren.cn/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vue/" style="background-color: #2a9d8f; color: #fff;">
+                Vue
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/">Vue下监听页面滚动以及移动端触摸事件</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Aug 27, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>无聊刷知乎的时候发现了一个前端设计的宝藏网站<a class="link" href="https://www.awwwards.com/"  target="_blank" rel="noopener"
+    >awwwards</a>，对上面大佬实现的网站表示望洋兴叹，<br>
+但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。</p>
+<!-- raw HTML omitted -->
+<p>在上面看到了Rally大佬写的<a class="link" href="https://globekit.co/"  target="_blank" rel="noopener"
+    >GlobeKit</a>,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。</p>
+<h1 id="pc端鼠标滚动监听">pc端鼠标滚动监听</h1>
+<h2 id="监听">监听</h2>
+<p>根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 浏览器兼容      
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">((</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;firefox&#34;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMMouseScroll&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">scrollFun</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;mousewheel&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">scrollFun</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+   <span class="p">}</span> 
+ <span class="p">}</span>
+</code></pre></div><h2 id="获取滚动事件的信息">获取滚动事件的信息</h2>
+<p>通过传递的event对象获取滚动的属性</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"> <span class="c1">//滚动翻页
+</span><span class="c1"></span><span class="nx">scrollFun</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动
+</span><span class="c1"></span>  <span class="c1">// DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
+</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">delta</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span> <span class="o">||</span> <span class="p">(</span><span class="o">-</span><span class="nx">event</span><span class="p">.</span><span class="nx">wheelDelta</span><span class="p">);</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+       <span class="c1">// 向下滚动
+</span><span class="c1"></span>       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;向下滚动&#34;</span><span class="p">)</span>
+     <span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="c1">//向上滚动
+</span><span class="c1"></span>         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;向上滚动&#34;</span><span class="p">)</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div><h1 id="移动端的touch事件">移动端的touch事件</h1>
+<p>移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。
+为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。</p>
+<ul>
+<li>touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。</li>
+<li>touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间，调用preventDefault()事件可以阻止滚动。</li>
+<li>touchend事件：当手指从屏幕上离开的时候触发。</li>
+</ul>
+<h2 id="事件添加">事件添加</h2>
+<p>双引号里是调用的方法</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;main&#34;</span> <span class="err">@</span><span class="nx">touchstart</span><span class="o">=</span><span class="s2">&#34;touchstart($event)&#34;</span> <span class="err">@</span><span class="nx">touchend</span><span class="o">=</span><span class="s2">&#34;touchend($event)&#34;</span><span class="o">&gt;</span>
+</code></pre></div><h2 id="信息的获取">信息的获取</h2>
+<p>通过传递的$event对象获取触摸事件的信息
+例：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">touchstart</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">startY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span> <span class="c1">//获取触摸点的Y轴坐标
+</span><span class="c1"></span><span class="p">}</span>
+<span class="nx">touchend</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">moveEndY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span> <span class="c1">//获取松开手时Y轴的坐标
+</span><span class="c1"></span>    <span class="p">......</span>
+<span class="p">}</span>
+</code></pre></div><p>这样通过两个坐标的相减，我们通过正负即可判断用户的上下滑动。</p>
+<p>传递过来的对象包括了三个用于跟踪触摸的属性：</p>
+<ul>
+<li>touches：表示当前跟踪的触摸操作的touch对象的数组。</li>
+<li>targetTouches：特定于事件目标的Touch对象的数组。</li>
+<li>changeTouches：表示自上次触摸以来发生了什么改变的Touch对象的数组。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+            <a href="/tags/vue/">Vue</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue Typescript下axios的封装和使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/%E5%85%B3%E4%BA%8Ecloudmusic/">
+        
+        
+            <div class="article-image">
+                <img src="/%E5%85%B3%E4%BA%8Ecloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-&#43;NznaNJ7iZYMeYMBlXjbFg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于CloudMusic</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/vue%E4%B8%8B%E7%9A%84eventbus/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue下的EventBus</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于HG地图</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">用vue实现的期末作业</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'haCWLunmE0GIExpKDwuKgRuQ-MdYXbMMI',
+    appKey: 'z2mnboJz8ronHGmq7yocp3Uo',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+
+        })
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

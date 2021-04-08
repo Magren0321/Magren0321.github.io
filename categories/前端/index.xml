@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端 on Magren&#39;s Blog</title>
+    <link>https://magren.cn/categories/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on Magren&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 03 Apr 2021 22:14:21 +0800</lastBuildDate><atom:link href="https://magren.cn/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>将博客变成PWA</title>
+      <link>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</link>
+      <pubDate>Sat, 03 Apr 2021 22:14:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</guid>
+      <description>我是少数派的一个读者，成为少数派已经419天。
+从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
+但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
+ 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
+ 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
+PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
+纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
+好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
+将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
+添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>代码帮我画像素画</title>
+      <link>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</link>
+      <pubDate>Thu, 25 Feb 2021 16:33:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</guid>
+      <description>这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。
+甚至把自己的电脑壁纸也换成了像素风。很有感觉😝  
+想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
+思路⭐  使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点  其实就是小的图片放大，会感觉到糊的效果。
+Code💻 禁止浏览器的平滑处理其实就是是否抗锯齿。
+用正则表达式限制输入框只能输入0-100，意味着让图片缩放的百分比（100就是没有缩放，达不到像素化的效果）
+const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小  let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理  ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来  ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小  ctx.</description>
+    </item>
+    
+    <item>
+      <title>从输入URL到页面展示</title>
+      <link>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</link>
+      <pubDate>Sun, 08 Nov 2020 23:12:57 +0000</pubDate>
+      
+      <guid>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</guid>
+      <description>最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。
+总的过程如下：
+ 输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束  输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
+DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，得到主机名对应的IP地址的过程就叫做域名解析。 DNS解析的过程其实就是为了寻找哪台机器上有需要的资源，实际上充当了一个翻译的身份，将输入的网址转换成IP地址。 以下是DNS的一个查找顺序：
+ 浏览器缓存：向浏览器缓存中读取访问记录 操作系统缓存：查找在系统运行内存中的缓存 host文件：查找本地硬盘的host文件 路由器缓存：部分路由器会缓存访问过的域名 ISP（互联网服务提供商）DNS缓存：在本地查找不到的情况下，ISP会在当前服务器的缓存中查找 根DNS服务器：根域名收到请求，判断是哪台服务器管理，并返回顶级DNS服务器的IP给请求者。  在查找完以后本地DNS服务器向域名的解析服务器发起请求，本地服务器将IP地址返回给电脑，并将对应关系保存在缓存中。
+拓展： DNS的查询方式：
+ 递归：局部DNS服务器负责向其他DNS服务器查询（一般先向该域名的根域服务器查询，接着一级一级向下查询），结果返回给局部DNS服务器后再由其返回个客户端。 迭代：局部DNS服务器把能解析该域名的其他DNS服务器的IP地址给客户端DNS程序，再由该程序向这些DNS服务器查询（用于局部DNS服务器不能回答客户机DNS查询时）。  DNS优化方法：
+ DNS缓存 DNS负载均衡  为啥需要：当每次请求的资源都在同一台机器上时，机器可能承受不过来而崩掉。 原理：为一个主机名配置多个IP地址，在应答查询饿时候对每个查询以DNS文件中记录的IP地址按顺序返回不同的结果，将访问引导到不同的机器上去。    建立TCP链接 拿到IP地址后就是通过三次握手来建立TCP链接了。
+ 第一次握手：客户端发送SYN（同步序列编号）包到服务器，并且进入SYN_SENT状态，等待服务器确认。 第二次握手：服务器收到SYN包后确认，同时自己也发送一个SYN包，即SYN+ACK包，服务器进入SYN_RECE状态 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送一个确认包ACK，发送完毕后客户端和服务器进入ESTABLISHED状态。  拓展： 为啥三次握手：为了防止已经失效的链接请求报文突然传送到了服务端因而产生错误。
+发送HTTP请求 建立TCP连接后客户端发起HTTP请求，HTTP报文包含三个部分：
+ 请求行：请求方法+URL+协议/版本 请求报头：传递请求的附加信息和客户端自身的信息 请求正文：需要传递的数据  服务器永久重定向 服务器给浏览器响应一个301永久重定向响应，例如访问http://google.com/ 会自动跳转到 http://www.google.com/
+目的：
+ 这样就会把访问带www的和不带www的地址归到同一个网站排名下，网站在搜索链接的排名下就不会降低。 用不同的地址会导致缓存的良好性变差，一个页面有多个名字的时候可能会在缓存中出现多次。  服务器处理请求并且返回HTTP报文 后端从固定的端口接收到TCP报文后，会对TCP进行处理，对HTTP协议进行解析，按照报文格式进一步封装成HTTP Request对象，供上层使用。 HTTP响应由4个部分组成：</description>
+    </item>
+    
+    <item>
+      <title>es6中的promise</title>
+      <link>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</link>
+      <pubDate>Wed, 27 May 2020 21:29:47 +0000</pubDate>
+      
+      <guid>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</guid>
+      <description>Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。
+有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。
+Promise也有一些缺点：
+ 首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。 如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。 当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。  promise的特点  对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。 一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise的对象状态改变，要么是成功，要么就是失败，只要发生这两种情况，状态就会凝固，称为resolvd（已定型）。改变发生后，再添加回调函数，也是会得到这个结果。  用法 创造Promise实例 Promise对象是一个构造函数，用来生成Promise实例。
+const promise = new Promise(function(resolve, reject) { if (/* 异步操作成功 */){ resolve(value); } else { reject(error); } });  resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
+  reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+ then方法 接着用then方法指定resolved状态和rejected状态的回调函数：
+promise.then(function(value) { // success }, function(error) { // failure }); 第一个函数是状态对象变为rejected的调用，第二个是resolved的调用，第二个函数是可选的。
+then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。因此可以采用链式写法，即then方法后面再调用另一个then方法。
+promise.then(function(value) { }.then(function (comments) { console.log(&amp;#34;resolved: &amp;#34;, comments); }, function (err){ console.</description>
+    </item>
+    
+    <item>
+      <title>HTML的DOM和浏览器的BOM</title>
+      <link>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</link>
+      <pubDate>Sat, 09 May 2020 17:52:32 +0000</pubDate>
+      
+      <guid>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</guid>
+      <description>记录下自己最近看的知识点。
+HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
+查找HTML元素 通常，通过 JavaScript可以操作需要操作 HTML 元素。
+为了做到这件事情，必须首先找到该元素。有三种方法来做这件事：
+ 通过 id 找到 HTML 元素：var x=document.getElementById(“intro”); 通过标签名找到 HTML 元素：var y=document.getElementsByTagName(“p”); 通过类名找到 HTML 元素：var x=document.getElementsByClassName(“intro”);  改变HTML内容 使用 innerHTML 属性。
+&amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p1&amp;#34;).innerHTML=&amp;#34;新文本!&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 改变HTML样式 使用style
+&amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;p id=&amp;#34;p2&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p2&amp;#34;).style.color=&amp;#34;blue&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontFamily=&amp;#34;Arial&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontSize=&amp;#34;larger&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; 使用事件 &amp;lt;body&amp;gt; &amp;lt;h1 id=&amp;#34;id1&amp;#34;&amp;gt;我的标题 1&amp;lt;/h1&amp;gt; &amp;lt;button type=&amp;#34;button&amp;#34; onclick=&amp;#34;document.getElementById(&amp;#39;id1&amp;#39;).style.color=&amp;#39;red&amp;#39;&amp;#34;&amp;gt; 按钮&amp;lt;/button&amp;gt; &amp;lt;/body&amp;gt; JS中定义函数绑定事件 var funcc = function () { alert(&amp;#34;hello world&amp;#34;) } var aa = document.</description>
+    </item>
+    
+    <item>
+      <title>前端基础里一些杂七杂八的知识点</title>
+      <link>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <pubDate>Sat, 02 May 2020 16:34:16 +0000</pubDate>
+      
+      <guid>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <description>其实在大一就有学习前端的想法，也就多多少少了解了一点html和css，但是那时候身在安卓方向，就还是以安卓为主，也没有坚持下去。
+工程师嘛，无论是什么工程师，局限于一个领域上所学到的东西肯定是有限的，it界那么大，总得看看别的地方。
+如果硬要说我想成为什么工程师，我希望我能成为一个全栈工程师吧（有能力的话
+杂七杂八的要点 这里主要是记了一些我需要重要理解或者容易忘记的知识点。没有一个固定的逻辑顺序。
+定位問題 最常用的两个：absolute 和 relative
+ absolut: 脱离原来的位置定位。对最近有定位的父级进行定位，假如没有则相对文档进行定位。 relative: 保留原来的位置进行定位。相对自己原来的位置定位。  z-index: 改变元素的层面，代表该元素的Z轴，默认是0。
+当元素使用float属性定义元素往哪个方向浮动的时候，需要后面的元素不再继续浮动在后面的时候，可用：
+.nav::after{ content:&amp;#34;&amp;#34;; display:block; clear:both; } 字体  当字体超出长度，为了页面整洁美观，多余的字体用……表示：  .product-buyer-name { overflow: hidden; /*隐藏超出单元格的部分。*/ text-overflow: ellipsis; /*文字超出部分用省略号*/ white-space: nowrap; /*保证无论单元格（TD）中文本内容有多少，都不会自动换行，此时多余的内容会在水平方向撑破单元格*/ }   网页上的一些小图标 我一直以为，在网页上的一些小图标是通过插入img来显示的，但是再深入一点了解到，类似淘宝网上的tab栏的小图标是通过一个自定义显示出来的。 这里我规划到了字体类是因为当我们需要显示部分字体，但是电脑上没有该字体的时候是无法显示的，这里我们就要用一样的方法，将这个字体的资源加载进去，达到一个显示他人电脑字体不存在也依然可以看到该字体的效果。
+ 淘宝网tab栏 
+  那么这种字体资源还有图标资源该怎么来呢，当然是， Google或者百度啦 在阿里巴巴矢量图标库上有挺多资源，我们在里面挑选我们需要的资源并且加入购物车后下载源码
+ 阿里巴巴矢量图标库   加入购物车 
+下载到的源码里有资源的文件以及他一个css的demo，在使用上我们先拷贝资源文件后。
+ 拷贝项目下面生成的font-face  @font-face {font-family: &amp;#39;iconfont&amp;#39;; src: url(&amp;#39;iconfont.eot&amp;#39;); src: url(&amp;#39;iconfont.eot?#iefix&amp;#39;) format(&amp;#39;embedded-opentype&amp;#39;), url(&amp;#39;iconfont.</description>
+    </item>
+    
+  </channel>
+</rss>

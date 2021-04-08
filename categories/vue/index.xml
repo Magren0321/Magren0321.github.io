@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on Magren&#39;s Blog</title>
+    <link>https://magren.cn/categories/vue/</link>
+    <description>Recent content in Vue on Magren&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 28 Jan 2021 16:33:21 +0800</lastBuildDate><atom:link href="https://magren.cn/categories/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于CloudMusic</title>
+      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</link>
+      <pubDate>Thu, 28 Jan 2021 16:33:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</guid>
+      <description>前言 这个项目是我某天在宿舍听歌想到的，从16年注册网易云到现在都有五年的时间了，虽然这个平台现在越来越让我失望，但是听了五年了都听出感情来了，就在这个假期里面花了将近一个月磨磨蹭蹭写出来这个项目。至于为什么写的是移动端页面嘛，是因为那时候我听歌是用着我的手机听的……所以模仿的UI也是安卓版网易云音乐的UI。虽然功能没有全部实现，但是比较核心的播放页面还是做出来了，这篇博客也是记录一下这个项目的至今的实现过程还有一些坑。
+项目基于Vue + Typescript + Vuetify UI实现。
+项目地址：CloudMusic
+已经实现的功能：
+ 登录 获取歌单 创建歌单 删除/取消收藏歌单 播放歌曲 排行榜 每日推荐 推荐歌单  项目截图：    
+  
+播放 这个可以说是核心功能，毕竟一个听歌的平台不能听歌就说不过去了。
+首先歌曲的选择可以来自歌单，可以来自发现页的轮播图，还可以来自播放页面的选择，然后控制歌曲的播放暂停既可以从其他页面下方的播放tab控制，又可以在播放的页面进行控制，如果使用Prop和Emit实在是太多太乱了，所以我这里使用了Vuex。
+ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+ 其实就是把我们需要的组件共享状态抽取出来，以一个全局单例模式管理，然后我们可以在任何一个组件下通过Vuex来修改其状态或者值。
+于是我将所选的歌曲ID，以及当前播放的歌单信息，ID传进了Vuex，在播放页面只需要监听Vuex中歌曲id的变化，即可播放新的歌曲；监听Vuex中是否暂停的状态，来控制audio组件暂停或者播放。
+播放进度 进度条我用的是Vuetify UI中的slider组件，通过v-model来设定其值。
+在audio中通过 @timeupdate 来监听audio当前的播放时间戳，接着与播放总时长相除并乘以100得到当前播放进度的百分比，接着赋值给slider组件即可，进度条左边的时间也是通过当前播放的时间戳转换成的时间。
+但是这里会有个问题，就是需要通过移动滑块来修改播放的进度，在刚刚@timeupdate绑定的方法中只是单向的将进度赋值给滑块，并且在音乐播放的时候这个方法是一直在运行的，这样无论我怎样移动滑块，滑块都会立马就瞬移到了当前的播放位置，所以这里还得加一个监听是否正在移动滑块的方法，当移动滑块的时候不将当前播放的进度赋值给滑块，然后当我松手的时候将滑块当前的进度转换成时间戳赋值回给audio的播放时间。
+我的解决办法是给滑块组件引入了 @mousedown 和 @mouseup，当鼠标按下的时候将一个变量赋值为true，抬起的时候为false，修改@timeupdate中的方法，设定其只有在该变量为false的时候才会对滑块组件赋值，但是滑动滑块的时候也得修改当前的播放时间，所以给滑块组件引入了 @change ，当手动更改了滑块的值的时候会触发该方法，在这个方法里面对audio的播放进度进行修改。
+ 
+歌词实现 从后台获取的歌词是一个字符串，但是每行歌词都用了\n标识，所以将字符串以\n分割可以得到每行的歌词，每行歌词里中括号里面的是时间，还得将每句歌词以中括号进行分割，最后将时间转换成时间戳，与歌词放在一块做为一个类放入数组中。
+设置一个索引，用于记录是第几行歌词，通过offsetHeight获取到歌词组件的高度来确认歌词中线所在的位置，通过索引乘以每行歌词的高度来判断是否滚动。
+其实就是给外部的div设置超出隐藏，然后通过修改mragin-top来实现一个滚动的效果，而margin-top的值是由中线的高度减去索引乘以每行歌词的高度来决定。同时可以通过transition属性来设定其改变的时间。
+例如：transition: margin-top 1s;
+表示的就是说margin-top属性会在一秒内完成。
+关于Vue的自定义指令 在制作的过程中我想实现个功能就是点击某个组件以外的位置的时候隐藏该组件，即点击的不是该组件的时候会执行一个方法。
+我查资料的时候发现vue并没有这么一个指令，但是我可以通过自己去自定义这么一个指令来实现这个功能。
+首先看看一个自定义的指令对象的钩子函数：
+ bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。 inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。 update：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下) componentUpdated：指令所在组件的 VNode 及其子 VNode 全部更新后调用。 unbind：只调用一次，指令与元素解绑时调用。  接着钩子函数中都有以下几个参数：</description>
+    </item>
+    
+    <item>
+      <title>Vue下的EventBus</title>
+      <link>https://magren.cn/vue%E4%B8%8B%E7%9A%84eventbus/</link>
+      <pubDate>Mon, 12 Oct 2020 11:21:03 +0000</pubDate>
+      
+      <guid>https://magren.cn/vue%E4%B8%8B%E7%9A%84eventbus/</guid>
+      <description>EventBus是用于Vue中组件通信的一种方式，常见的父子组件沟通方式有emit和props。
+但假如跨组件传参沟通，或者是兄弟姐妹组件之间的传参沟通，使用EventBus或者Vuex就可以避免很多重复的props和emit。
+Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBus比较适用于小型的项目，不是太复杂的事件。
+使用 EventBus实际上只是一个Vue的实例，接着分别调用这个实例的事件触发和监听来实现通信和参数传递。主要是下面四种方法：
+ $on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件  一般页面created的時候就注册监听，当组件销毁时取消监听。
+创建一个EventBus 其实就是创建一个Vue的实例
+import Vue from &amp;#39;vue&amp;#39;; // 使用 Event Bus const bus = new Vue(); export default bus; 在我们需要发送事件以及接收事件的组件中引入。
+import bus from &amp;#39;../common/bus&amp;#39;; 监听 在需要监听的组件中的created中使用bus监听
+created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去  doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
+// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.</description>
+    </item>
+    
+    <item>
+      <title>Vue下监听页面滚动以及移动端触摸事件</title>
+      <link>https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Thu, 27 Aug 2020 23:30:42 +0000</pubDate>
+      
+      <guid>https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</guid>
+      <description>无聊刷知乎的时候发现了一个前端设计的宝藏网站awwwards，对上面大佬实现的网站表示望洋兴叹，
+但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
+在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
+pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
+// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。</description>
+    </item>
+    
+    <item>
+      <title>Vue Typescript下axios的封装和使用</title>
+      <link>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 12 Aug 2020 14:45:50 +0000</pubDate>
+      
+      <guid>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</guid>
+      <description>8月到了，一个莫名其妙的机遇也砸到了脸上，提着行李一个人跑到了广州跟一个毕业的师兄搞创业的项目，怀着点点的不安以及兴奋，迈出离开学校的第一步。
+由于就住在办公室的一间房里，出门即工作，开始了朝五晚九的工作生活，晚上的时候就折腾自己的项目，有点梦回星空时候夏训营的感觉，很累也充实。每天也在掉头发以及烦恼吃什么
+自己写的华广地图给自家eo发了一份玩，结果给征收了，上线成了星空的产品，并且要求再进行完善 😟 想了下干脆给每个地点的marker添加一个点击事件，点击后可以看到该地点的详细介绍，不过每个地方都要图片，放在本地太大了，可能会造成卡顿，遂决定放在服务器上，于是重新看了一遍axios同时自己学着网上的一些教程做了一个封装，并解决了跨域的问题。
+封装axios import axios, { AxiosRequestConfig, AxiosResponse } from &amp;#39;axios&amp;#39; const showStatus = (status: number) =&amp;gt; { let message = &amp;#39;&amp;#39; switch (status) { case 400: message = &amp;#39;请求错误(400)&amp;#39; break case 401: message = &amp;#39;未授权，请重新登录(401)&amp;#39; break case 403: message = &amp;#39;拒绝访问(403)&amp;#39; break case 404: message = &amp;#39;请求出错(404)&amp;#39; break case 408: message = &amp;#39;请求超时(408)&amp;#39; break case 500: message = &amp;#39;服务器错误(500)&amp;#39; break case 501: message = &amp;#39;服务未实现(501)&amp;#39; break case 502: message = &amp;#39;网络错误(502)&amp;#39; break case 503: message = &amp;#39;服务不可用(503)&amp;#39; break case 504: message = &amp;#39;网络超时(504)&amp;#39; break case 505: message = &amp;#39;HTTP版本不受支持(505)&amp;#39; break default: message = `连接出错(${status})!</description>
+    </item>
+    
+    <item>
+      <title>关于HG地图</title>
+      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</link>
+      <pubDate>Thu, 30 Jul 2020 14:53:09 +0000</pubDate>
+      
+      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</guid>
+      <description>最近都在学习前端的路上缓慢前进，在了解了Vue后就开始学习Typescript，每次学习到新东西的时候都会忍不住用新的东西去做一个自己感兴趣的东西，可能自己觉得这样子很Coooooooooooool！👊
+之前偶然间也看到了吉珠的地图，觉得很优秀，碰巧我们学校没有相关的产品，只有一张画出来图片地图，稍加思索
+ 考虑到了便携性，决定放在移动端使用 要可以标示出学校的设施地点 校巴的路线以及上下车地点 要有产品的介绍还有学校的介绍 最好能够看到学校实景  加上自己之前学了vue，便打算结合vue来写，说干就干，起飞！✈️
+然后第一天就翻车在了创建项目上。
+一开始装的Vue的版本是2.x版本，创建新项目的webpack版本是3.6的，使用Typescript的时候会提示需要升级webpack到4.x版本，一开始并没有考虑太多，它提示啥问题就Google啥问题怎么解决（面向搜索引擎编程），大致看了一圈，都是卸载旧版的依赖装新的依赖，同时修改配置，但是他们的教程基本都不一样，唯一一样的地方就是都很复杂，也不知道咋选，就挑了个顺眼的就开始照着写，结果失败了……后面发现Vue3.x版本开始都已经开始适配Typescript了，即创建项目的时候就可以选择是否使用Typescript，同时自动给你配置好……啊这。
+旧版本Vue卸载！
+ npm uninstall vue-cli -g
+ 最新版本Vue安装！
+ npm install -g @vue/cli
+ 再来一遍，起飞！✈️
+项目地址：HgMap 地图链接：华广地图
+环境依赖  vue/cli 4.4.6 typescript element-ui：ui组件 vue-class-component：类装饰器 vue-property-decorator：基于 vue 组织里 vue-class-component 所做的拓展 vue2-svg-icon：SVG图标组件 地图资源来自高德地图api  注：由于vue-cli 4版本不自带vue.config.js，故需自行在根目录创建并且配置，否则打包项目会找不到静态资源。
+Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
+&amp;lt;script lang=&amp;#34;ts&amp;#34;&amp;gt; ··· &amp;lt;/script&amp;gt; 创建组件 import { Component, Prop, Vue, Watch } from &amp;#39;vue-property-decorator&amp;#39;; @Component export default class Test extends Vue { } 组件的引入 import Mapmenu from &amp;#39;@/components/Mapmenu.</description>
+    </item>
+    
+    <item>
+      <title>用vue实现的期末作业</title>
+      <link>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</link>
+      <pubDate>Fri, 10 Jul 2020 13:28:29 +0000</pubDate>
+      
+      <guid>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</guid>
+      <description>终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。
+最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。
+其实主要的还是自己没怎么听，嘿嘿。
+零 这个学期我们有一门课是软件工程，幸运的是这门课没有期末考，不幸的是这个老师要我们写6000字的论文（6000字啊！）。 论文是从几个题目里面挑一个来写，基于好写容易理解同时谷歌/百度后有很多样板以方便我们copy的原则，我们小组选了学生学籍管理系统。 老师：“这次作业不查重，你们也不用把这个项目实现，只要模仿我给你们的样板把他写出来就好了” 前面6000字给我带来的冲击小了一半，虽然我文笔挺差，但是我复制粘贴起来真的不含糊。
+就这样我殚精竭虑地想着方法来混过这一次作业。 但是人有时候偷着懒，却又对别人的努力感到惶恐不安。 快到截止的时间我准备动手的时候，舍友突然在我们的舍友群里信息轰炸。 “xx真的把他们选的项目做出来了喂！” “什么东西？” “就是软件工程那个” 我也可以赞叹一句，然后就接着躺在床上刷手机，安稳混过这个期末。退一步海阔天空，但是忍一时越想越气。
+ Somebody has to win, so why not be me?
+ 我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
+一、面向搜索引擎编程 说实话，因为这是第一次是实际上手，所以我早就想到肯定会踩到很多坑，但是我没想到一上来就给了我一个下马威。
+页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
+首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
+以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+ 登陆界面 
+传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
+query传参以及接收 传参
+this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
+this.$route.query.id params传参以及接收 传参
+this.$router.push({ name: &#39;Home&#39;, params: { id: res.</description>
+    </item>
+    
+  </channel>
+</rss>

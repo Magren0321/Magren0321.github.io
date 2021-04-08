@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。
+最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。
+其实主要的还是自己没怎么听，嘿嘿。
+零 这个学期我们有一门课是软件工程，幸运的是这门课没有期末考，不幸的是这个老师要我们写6000字的论文（6000字啊！）。 论文是从几个题目里面挑一个来写，基于好写容易理解同时谷歌/百度后有很多样板以方便我们copy的原则，我们小组选了学生学籍管理系统。 老师：“这次作业不查重，你们也不用把这个项目实现，只要模仿我给你们的样板把他写出来就好了” 前面6000字给我带来的冲击小了一半，虽然我文笔挺差，但是我复制粘贴起来真的不含糊。
+就这样我殚精竭虑地想着方法来混过这一次作业。 但是人有时候偷着懒，却又对别人的努力感到惶恐不安。 快到截止的时间我准备动手的时候，舍友突然在我们的舍友群里信息轰炸。 “xx真的把他们选的项目做出来了喂！” “什么东西？” “就是软件工程那个” 我也可以赞叹一句，然后就接着躺在床上刷手机，安稳混过这个期末。退一步海阔天空，但是忍一时越想越气。
+ Somebody has to win, so why not be me?
+ 我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
+一、面向搜索引擎编程 说实话，因为这是第一次是实际上手，所以我早就想到肯定会踩到很多坑，但是我没想到一上来就给了我一个下马威。
+页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
+首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
+以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+ 登陆界面 
+传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
+query传参以及接收 传参
+this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
+this.$route.query.id params传参以及接收 传参
+this.$router.push({ name: &#39;Home&#39;, params: { id: res.'><title>用vue实现的期末作业</title>
+
+<link rel='canonical' href='https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='用vue实现的期末作业'>
+<meta property='og:description' content='终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。
+最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。
+其实主要的还是自己没怎么听，嘿嘿。
+零 这个学期我们有一门课是软件工程，幸运的是这门课没有期末考，不幸的是这个老师要我们写6000字的论文（6000字啊！）。 论文是从几个题目里面挑一个来写，基于好写容易理解同时谷歌/百度后有很多样板以方便我们copy的原则，我们小组选了学生学籍管理系统。 老师：“这次作业不查重，你们也不用把这个项目实现，只要模仿我给你们的样板把他写出来就好了” 前面6000字给我带来的冲击小了一半，虽然我文笔挺差，但是我复制粘贴起来真的不含糊。
+就这样我殚精竭虑地想着方法来混过这一次作业。 但是人有时候偷着懒，却又对别人的努力感到惶恐不安。 快到截止的时间我准备动手的时候，舍友突然在我们的舍友群里信息轰炸。 “xx真的把他们选的项目做出来了喂！” “什么东西？” “就是软件工程那个” 我也可以赞叹一句，然后就接着躺在床上刷手机，安稳混过这个期末。退一步海阔天空，但是忍一时越想越气。
+ Somebody has to win, so why not be me?
+ 我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
+一、面向搜索引擎编程 说实话，因为这是第一次是实际上手，所以我早就想到肯定会踩到很多坑，但是我没想到一上来就给了我一个下马威。
+页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
+首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
+以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+ 登陆界面 
+传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
+query传参以及接收 传参
+this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
+this.$route.query.id params传参以及接收 传参
+this.$router.push({ name: &#39;Home&#39;, params: { id: res.'>
+<meta property='og:url' content='https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='项目' /><meta property='article:tag' content='作业' /><meta property='article:published_time' content='2020-07-10T13:28:29&#43;00:00'/><meta property='article:modified_time' content='2020-07-10T13:28:29&#43;00:00'/>
+<meta name="twitter:title" content="用vue实现的期末作业">
+<meta name="twitter:description" content="终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。
+最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。
+其实主要的还是自己没怎么听，嘿嘿。
+零 这个学期我们有一门课是软件工程，幸运的是这门课没有期末考，不幸的是这个老师要我们写6000字的论文（6000字啊！）。 论文是从几个题目里面挑一个来写，基于好写容易理解同时谷歌/百度后有很多样板以方便我们copy的原则，我们小组选了学生学籍管理系统。 老师：“这次作业不查重，你们也不用把这个项目实现，只要模仿我给你们的样板把他写出来就好了” 前面6000字给我带来的冲击小了一半，虽然我文笔挺差，但是我复制粘贴起来真的不含糊。
+就这样我殚精竭虑地想着方法来混过这一次作业。 但是人有时候偷着懒，却又对别人的努力感到惶恐不安。 快到截止的时间我准备动手的时候，舍友突然在我们的舍友群里信息轰炸。 “xx真的把他们选的项目做出来了喂！” “什么东西？” “就是软件工程那个” 我也可以赞叹一句，然后就接着躺在床上刷手机，安稳混过这个期末。退一步海阔天空，但是忍一时越想越气。
+ Somebody has to win, so why not be me?
+ 我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
+一、面向搜索引擎编程 说实话，因为这是第一次是实际上手，所以我早就想到肯定会踩到很多坑，但是我没想到一上来就给了我一个下马威。
+页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
+首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
+以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+ 登陆界面 
+传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
+query传参以及接收 传参
+this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
+this.$route.query.id params传参以及接收 传参
+this.$router.push({ name: &#39;Home&#39;, params: { id: res.">
+    <link rel="shortcut icon" href="https://magren.cn/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vue/" style="background-color: #2a9d8f; color: #fff;">
+                Vue
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/">用vue实现的期末作业</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jul 10, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。<br>
+最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。<br>
+其实主要的还是自己没怎么听，嘿嘿。</p>
+<!-- raw HTML omitted -->
+<h1 id="零">零</h1>
+<p>这个学期我们有一门课是软件工程，幸运的是这门课没有期末考，不幸的是这个老师要我们写6000字的论文（6000字啊！）。
+论文是从几个题目里面挑一个来写，基于好写容易理解同时谷歌/百度后有很多样板以方便我们copy的原则，我们小组选了学生学籍管理系统。
+老师：“这次作业不查重，你们也不用把这个项目实现，只要模仿我给你们的样板把他写出来就好了”
+前面6000字给我带来的冲击小了一半，虽然我文笔挺差，但是我复制粘贴起来真的不含糊。</p>
+<p>就这样我殚精竭虑地想着方法来混过这一次作业。
+但是人有时候偷着懒，却又对别人的努力感到惶恐不安。
+快到截止的时间我准备动手的时候，舍友突然在我们的舍友群里信息轰炸。
+“xx真的把他们选的项目做出来了喂！”
+“什么东西？”
+“就是软件工程那个”
+我也可以赞叹一句，然后就接着躺在床上刷手机，安稳混过这个期末。退一步海阔天空，但是忍一时越想越气。</p>
+<blockquote>
+<p>Somebody has to win, so why not be me?</p>
+</blockquote>
+<p>我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰</p>
+<h1 id="一面向搜索引擎编程">一、面向搜索引擎编程</h1>
+<p>说实话，因为这是第一次是实际上手，所以我早就想到肯定会踩到很多坑，但是我没想到一上来就给了我一个下马威。</p>
+<h2 id="页面最上方存在白条问题">页面最上方存在白条问题</h2>
+<p>我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。
+最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。</p>
+<p>首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容，
+然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。
+接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。
+在index.js里面，将我们写好的组件发布成路由。</p>
+<p>以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？
+于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。</p>
+<pre><code>&lt;template&gt;
+  &lt;div id=&quot;app&quot; style=&quot;margin: 0px;&quot;&gt;
+    &lt;router-view/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre><p>因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。</p>
+<p><figure style="flex-grow: 184; flex-basis: 442px">
+		<a href="/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login.png" data-size="800x434"><img src="/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login.png"
+				srcset="/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_480x0_resize_box_2.png 480w, /%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_1024x0_resize_box_2.png 1024w"
+				width="800"
+				height="434"
+				loading="lazy"
+				alt="登陆界面">
+		</a>
+		
+		<figcaption>登陆界面</figcaption>
+		
+	</figure></p>
+<h2 id="传参问题">传参问题</h2>
+<p>首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params</p>
+<h3 id="query传参以及接收">query传参以及接收</h3>
+<p>传参</p>
+<pre><code>this.$router.push({
+       path: '/Home',
+       query: {
+         id: res.objectId,
+       }
+     })
+</code></pre><p>接收</p>
+<pre><code>this.$route.query.id
+</code></pre><h3 id="params传参以及接收">params传参以及接收</h3>
+<p>传参</p>
+<pre><code>this.$router.push({
+       name: 'Home',
+       params: {
+         id: res.objectId,
+       }
+     })
+</code></pre><p>接收</p>
+<pre><code>this.$route.params.id
+</code></pre><p><strong>params传参的时候，push里的路径只能是填写name，params只能通过name来引入路由，如果写成了path则接收参数页面会显示undefind</strong>
+另外要说的是，query相当于get请求，可以在跳转后的地址栏上看到参数，而params则相当于post，地址栏看不到传递的参数。</p>
+<p>好的那么跳转页面传参的方法我已经知道了，但是当我满怀期待的传了个对象的时候，接收到的数据却是：’[object object]’。
+啊？？？遂检查了下他的类型，就是一个String……
+我对象呢？我对象呢！</p>
+<p>也是通过谷歌后解决，在传递之前先把对象转换成json字符串：</p>
+<pre><code>JSON.stringify(res); 
+</code></pre><p>然后再接收的页面将json字符串转换回对象</p>
+<pre><code>JSON.parse(this.$route.query.res)
+</code></pre><h2 id="关于v-bind和v-model">关于v-bind和v-model</h2>
+<p>这两个东西在我赶这个项目的时候经常出现，也让我经常把这两个搞混，毕竟都是绑定数据。</p>
+<h3 id="v-bind">v-bind</h3>
+<p>v-bind只能实现一个单向的绑定，即从model到view，无法实现双向绑定。
+可用来绑定文本：</p>
+<pre><code>&lt;p&gt;{{message}}&lt;/p&gt;
+&lt;p v-bind=&quot;message&quot;&gt;&lt;/p&gt;
+</code></pre><p>也可用来绑定属性：</p>
+<pre><code>&lt;img v-bind:src=&quot;res&quot;&gt;
+</code></pre><h3 id="v-model">v-model</h3>
+<p>v-model可以实现双向的绑定，但是他有个限制就是只能用于表单当中。
+绑定text：</p>
+<pre><code>&lt;input type=&quot;text&quot; v-model=&quot;val&quot; /&gt;
+</code></pre><p>绑定radio：</p>
+<pre><code>&lt;input type=&quot;radio&quot; value=&quot;one&quot; v-model=&quot;radioResult&quot; /&gt;
+&lt;input type=&quot;radio&quot; value=&quot;two&quot; v-model=&quot;radioResult&quot; /&gt;
+</code></pre><p>在这里radioResult的值，随着单选框的点击，会成one或two</p>
+<h2 id="点击图片更换图片">点击图片更换图片</h2>
+<p>这个功能有点取巧，一开始我还傻傻的转不过脑子来，后面看了别人实现才觉得妙啊……
+首先我们写一个图片的标签，以及一个文件选择的标签，同时给图片添加一个点击监听事件：</p>
+<pre><code>&lt;img  v-bind:src=&quot;icon&quot; @click=&quot;selectIcon&quot; class=&quot;icon&quot;&gt;
+</code></pre><p>接着我们要隐藏我们的文件选择的标签，即设置display样式，同时用ref属性注册一个引用信息，方便在方法中调用，还有设置change事件。如果需要多选的话可以设置multiple属性：</p>
+<pre><code>&lt;input type=&quot;file&quot; ref=&quot;btn_file&quot; @change=&quot;getFile&quot; style=&quot;display:none&quot;&gt;
+</code></pre><p>这个时候是只能看见我们的图片但是看不到我们的文件选择按钮的，在图片点击后触发的方法中，我们通过$refs引用我们的文件选择按钮，同时触发它：</p>
+<pre><code>selectIcon: function(){
+          let selectFile = this.$refs.btn_file;
+          selectFile.click();
+      }
+</code></pre><p>这个时候我们的文件选择就会触发，选择我们的图片后会触发其change事件：</p>
+<pre><code>getFile: function(){
+           this.file = event.target.files[0];
+           //判断选中文件的格式
+           if(this.file.type!=&quot;image/png&quot;&amp;&amp;this.file.type!=&quot;image/bmp&quot;&amp;&amp;this.file.type!=&quot;image/jpeg&quot;&amp;&amp;this.file.type!=&quot;image/jpg&quot;){
+               window.alert(&quot;仅支持png、bmp、jpeg、jpg文件&quot;);
+               return;
+           }
+           //该方法返回一个DOMString包含了一个对象URL，该URL指定文件的内容。
+           this.icon = window.URL.createObjectURL(this.file);
+       }
+</code></pre><p>限制文件上传的类型其实也可以在标签中添加accept属性，即：<strong>accept=“image/gif, image/jpeg”</strong>。
+假如不限制图像格式的话也可以写成： <strong>accept=&ldquo;image/*&quot;</strong>
+但是accept这个属性并不建议使用，因为一方面在部分浏览器上会响应很慢或者不支持，并且有时候还是可以选择到指定格式之外的文件。
+应通过js验证或者后台服务器判断。</p>
+<h2 id="组件中引用别的组件同时传递数据">组件中引用别的组件同时传递数据</h2>
+<p>在做项目的首页的时候我需要通过点击旁边的菜单栏不同的栏目，在右边的界面中呈现不同的界面，于是我就想到了通过点击然后切换右边不同的子组件。
+写好一个组件后，我首先得把它引用到当前的组件中：
+<strong>import selectClass from &lsquo;…/components/selectClass’</strong>
+接着在components声明：</p>
+<pre><code>components: {
+  selectClass
+},
+</code></pre><p>在data中声明：</p>
+<pre><code>data(){
+  return{
+    ···
+    selectClass:'selectClass',
+    ···
+  }
+}
+</code></pre><p>在需要的地方中用is引入就好了：</p>
+<pre><code>&lt;div :is=&quot;contentView&quot; &gt;&lt;/div&gt;
+</code></pre><p>接下来就是要从父组件中传参到子组件，有几种传递方式，我这里选用的是props
+通过v-bind将动态props绑定到父组件的数据，父组件的数据发生改变，子组件也会随之改变：</p>
+<pre><code>&lt;div :is=&quot;contentView&quot;   v-bind:objectId=&quot;objectId&quot;&gt;&lt;/div&gt;
+</code></pre><p>接着在子组件中，用props获取：</p>
+<pre><code>&lt;script&gt;
+  export default{
+    props:['objectId']
+    data(){
+      return{
+
+      }
+    }
+  },
+  ······
+&lt;/srcipt&gt;
+</code></pre><p>接着我们就可以在子组件中通过this.objectId来调用父组件中传来的参数了。</p>
+<h1 id="二最后">二、最后</h1>
+<p>因为这是三天赶出来的东西（要交上去了），所以我对自己第一次用vue写的这个项目还是比较满意的（嘿嘿），但是就目前来看的话应该还有很多可以优化的东西，仔细想想应该趁热打铁，深一点了解后再去学别的东西吧，还有自己在css样式上不是非常熟练，果然看看是不行的，亲自写一遍总是可以踩到非常多的坑，不能自满。</p>
+<p>这次的期末作业事件应该可以说是一个混子被迫运营吧。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+            <a href="/tags/%E9%A1%B9%E7%9B%AE/">项目</a>
+        
+            <a href="/tags/%E4%BD%9C%E4%B8%9A/">作业</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/%E5%85%B3%E4%BA%8Ecloudmusic/">
+        
+        
+            <div class="article-image">
+                <img src="/%E5%85%B3%E4%BA%8Ecloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-&#43;NznaNJ7iZYMeYMBlXjbFg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于CloudMusic</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue Typescript下axios的封装和使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于HG地图</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/vue%E4%B8%8B%E7%9A%84eventbus/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue下的EventBus</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue下监听页面滚动以及移动端触摸事件</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'haCWLunmE0GIExpKDwuKgRuQ-MdYXbMMI',
+    appKey: 'z2mnboJz8ronHGmq7yocp3Uo',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+
+        })
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

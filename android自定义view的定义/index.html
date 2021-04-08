@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='自定义 View 就是通过继承 View 或者 View 的子类，并在新的类里面实现相应的处理逻辑（重写相应的方法），以达到自己想要的效果。
+ 分类  自定义ViewGroup：自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。 自定义view: 在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。  构造函数 无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。
+public class TestView extends View { /** * 在java代码里new的时候会用到 * @param context */ public TestView(Context context) { super(context); } /** * 在xml布局文件中使用时自动调用 * @param context */ public TestView(Context context, @Nullable AttributeSet attrs) { super(context, attrs); } /** * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr */ public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); } /** * 只有在API版本&amp;gt;21时才会用到 * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr * @param defStyleRes */ @RequiresApi(api = Build.'><title>Android自定义view的定义</title>
+
+<link rel='canonical' href='https://magren.cn/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Android自定义view的定义'>
+<meta property='og:description' content='自定义 View 就是通过继承 View 或者 View 的子类，并在新的类里面实现相应的处理逻辑（重写相应的方法），以达到自己想要的效果。
+ 分类  自定义ViewGroup：自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。 自定义view: 在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。  构造函数 无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。
+public class TestView extends View { /** * 在java代码里new的时候会用到 * @param context */ public TestView(Context context) { super(context); } /** * 在xml布局文件中使用时自动调用 * @param context */ public TestView(Context context, @Nullable AttributeSet attrs) { super(context, attrs); } /** * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr */ public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); } /** * 只有在API版本&amp;gt;21时才会用到 * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr * @param defStyleRes */ @RequiresApi(api = Build.'>
+<meta property='og:url' content='https://magren.cn/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Android' /><meta property='article:published_time' content='2020-04-14T15:16:34&#43;00:00'/><meta property='article:modified_time' content='2020-04-14T15:16:34&#43;00:00'/>
+<meta name="twitter:title" content="Android自定义view的定义">
+<meta name="twitter:description" content="自定义 View 就是通过继承 View 或者 View 的子类，并在新的类里面实现相应的处理逻辑（重写相应的方法），以达到自己想要的效果。
+ 分类  自定义ViewGroup：自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。 自定义view: 在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。  构造函数 无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。
+public class TestView extends View { /** * 在java代码里new的时候会用到 * @param context */ public TestView(Context context) { super(context); } /** * 在xml布局文件中使用时自动调用 * @param context */ public TestView(Context context, @Nullable AttributeSet attrs) { super(context, attrs); } /** * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr */ public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); } /** * 只有在API版本&amp;gt;21时才会用到 * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr * @param defStyleRes */ @RequiresApi(api = Build.">
+    <link rel="shortcut icon" href="https://magren.cn/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                Android
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/">Android自定义view的定义</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 14, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <blockquote>
+<p>自定义 View 就是通过继承 View 或者 View 的子类，并在新的类里面实现相应的处理逻辑（重写相应的方法），以达到自己想要的效果。</p>
+</blockquote>
+<h1 id="分类">分类</h1>
+<ul>
+<li>自定义ViewGroup：自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。</li>
+<li>自定义view: 在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。</li>
+</ul>
+<h1 id="构造函数">构造函数</h1>
+<p>无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestView</span> <span class="kd">extends</span> <span class="n">View</span> <span class="o">{</span>
+    <span class="cm">/**
+</span><span class="cm">     * 在java代码里new的时候会用到
+</span><span class="cm">     * @param context
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 在xml布局文件中使用时自动调用
+</span><span class="cm">     * @param context
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用
+</span><span class="cm">     * @param context
+</span><span class="cm">     * @param attrs
+</span><span class="cm">     * @param defStyleAttr
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">);</span>
+    <span class="o">}</span>
+
+
+    <span class="cm">/**
+</span><span class="cm">     * 只有在API版本&gt;21时才会用到
+</span><span class="cm">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用
+</span><span class="cm">     * @param context
+</span><span class="cm">     * @param attrs
+</span><span class="cm">     * @param defStyleAttr
+</span><span class="cm">     * @param defStyleRes
+</span><span class="cm">     */</span>
+    <span class="nd">@RequiresApi</span><span class="o">(</span><span class="n">api</span> <span class="o">=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">LOLLIPOP</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleRes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">,</span> <span class="n">defStyleRes</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h1 id="绘制过程">绘制过程</h1>
+<ul>
+<li>测量</li>
+<li>布局</li>
+<li>绘制</li>
+<li>提供接口</li>
+</ul>
+<h2 id="测量阶段">测量阶段</h2>
+<ul>
+<li>View的父View通过调用View的measure()方法将父View对View尺寸要求传进来。</li>
+<li>View的measure()方法进行一些前置和优化工作</li>
+<li>调用onMeasure()方法，在方法中根据业务需求进行相应的逻辑处理。在自定义 ViewGroup 的 onMeasure() 方法中，ViewGroup 会递归调用子 View 的 measure() 方法，并通过 measure() 将 ViewGroup 对子 View 的尺寸要求 对自己的尺寸要求和自己的可用空间计算出自己对子 View 的尺寸要求）传入，对子 View 进行测量，并把测量结果临时保存，以便在布局阶段使用。ViewGroup 会根据子 View 的实际尺寸计算出自己的期望尺寸，并通过 setMeasuredDimension() 方法告知父 View（ViewGroup 的父 View） 自己的期望尺寸。</li>
+<li>方法里调用**setMeasuredDimension()**方法告知父View自己的期望尺寸</li>
+</ul>
+<p>onMeasure()计算View的期望尺寸的方法：</p>
+<ul>
+<li>参考父 View 的对 View 的尺寸要求和实际业务需求计算出 View 的期望尺寸：
+<ul>
+<li>解析 widthMeasureSpec；</li>
+<li>解析 heightMeasureSpec；</li>
+<li>将「根据实际业务需求计算出 View 的尺寸」根据「父 View 的对 View 的尺寸要求」进行相应的修正得出 View 的期望尺寸（通过调用 resolveSize() 方法)</li>
+</ul>
+</li>
+<li>通过 setMeasuredDimension() 保存 View 的期望尺寸（实际上是通过 setMeasuredDimension() 告知父 View 自己的期望尺寸</li>
+</ul>
+<p><strong>onMeasure() ：</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onMeasure</span><span class="o">(</span><span class="kt">int</span> <span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">heightMeasureSpec</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">widthsize</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getSize</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">);</span>      <span class="c1">//取出宽度的确切数值
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">widthmode</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">);</span>      <span class="c1">//取出宽度的测量模式
+</span><span class="c1"></span>    
+    <span class="kt">int</span> <span class="n">heightsize</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getSize</span><span class="o">(</span><span class="n">heightMeasureSpec</span><span class="o">);</span>    <span class="c1">//取出高度的确切数值
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">heightmode</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">heightMeasureSpec</span><span class="o">);</span>    <span class="c1">//取出高度的测量模式
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></div><p>widthMeasureSpec 和 heightMeasureSpec 这两个 int 类型的参数其实不是宽和高， 而是由宽、高和各自方向上对应的测量模式来合成的一个值</p>
+<h2 id="布局阶段">布局阶段</h2>
+<ol>
+<li>父View通过调用View的Layout方法将View的实际尺寸传给View</li>
+<li>View在Layout方法中调用setFramne()方法保存</li>
+<li>setFrame()方法中又会调用onSizeChanged()方法告知开发者View的尺寸修改了</li>
+<li>View的Layout()方法调用View的onLayout()方法，它是一个空实现。但是在ViewGroup中，这里会调用子View的Layout()方法，将子View的实际尺寸传给他们，让子View保存实际尺寸。<strong>在自定义ViewGroup中需要重写该方法。</strong></li>
+</ol>
+<h2 id="绘制阶段">绘制阶段</h2>
+<ul>
+<li>draw() ，总调度方法，会调用绘制背景的方法，绘制主题的方法，绘制前景的方法和绘制子View的方法</li>
+<li>onDraw() ，绘制View主体内容的方法</li>
+<li>dispatchDraw()，绘制子View的方法，在自定义ViewGroup中会调用ViewGroup.drawChild()方法，这个方法会调用每个子View的View.draw()</li>
+<li>drawBackground()，绘制背景的方法，不可重写，只能通过xml布局文件或者setBackground()方法来设置背景。</li>
+<li>onDrawForegound()，绘制View前景的方法，绘制主体内容之上的东西的时候在该方法中实现。</li>
+</ul>
+<h2 id="提供接口">提供接口</h2>
+<p>写一些控制View或者监听View某些状态。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/android/">Android</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的EventBus使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/rxjava%E7%9A%84compositedisposable/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rxjava的CompositeDisposable</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android%E7%9A%84rxjava2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的rxjava2</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android Activity生命周期</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/%E8%AF%B4%E8%AF%B4android%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E6%BA%A2%E5%87%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">说说Android的内存泄露和溢出</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'haCWLunmE0GIExpKDwuKgRuQ-MdYXbMMI',
+    appKey: 'z2mnboJz8ronHGmq7yocp3Uo',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+
+        })
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='RxJava是利用观察者模式来实现一些列的操作，所以对于观察者模式中的观察者，被观察者，以及订阅、事件需要有一个了解。
+Observable：在观察者模式中称为“被观察者”； Observer：观察者模式中的“观察者”，可接收Observable发送的数据； subscribe：订阅，观察者与被观察者，通过Observable的subscribe()方法进行订阅； Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的区别，不同的是 Subscriber要与Flowable(也是一种被观察者)联合使用，Obsesrver用于订阅Observable，而Subscriber用于订阅Flowable.
+观察者模式 rxjava的实现主要是通过观察者模式实现的。
+A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感,需要在 B 变化的一瞬间做出反应. 在程序的观察者模式，观察者不需要时刻盯着被观察者,而是采用注册或者称为订阅的方式，告诉被观察者：我需要你的某某状态，你要在它变化的时候通知我 同时我们也可以多个观察者对应一个被观察者
+其实在android中也有很多自带的观察者模式。最明显的莫过于点击事件。说个最简单的例子，点击按钮后弹一个Toast。那么，我们在点击按钮的时候，告知系统，此时，我需要弹一个吐司。那么就这么弹出来了。那么，这个时候问题来了。我是否需要实时去监听这个按钮呢？答案是不需要的。这就和前面的举例有的差距了。换句话说。我只要在此按钮进行点击时进行监听就可以了。这种操作被称为订阅。也就是说Button通过setOnClickListener对OnclickListener进行了订阅了操作，来监听onclick方法。
+基本使用 rxjava的基本实现主要是三点：
+ 初始化 Observable （被观察者） 初始化 Observe（观察者） 建立两者之间的订阅关系  创建Observable Observable&amp;lt;String&amp;gt; observable = Observable.create(new ObservableOnSubscribe&amp;lt;String&amp;gt;() { @Override public void subscribe(ObservableEmitter&amp;lt;String&amp;gt; e) throws Exception { e.onNext(&amp;#34;hello world&amp;#34;); e.onComplete(); //调用complete后下面将不再接受事件  } }); 创建Observe Observer&amp;lt;String&amp;gt;observer=new Observer&amp;lt;String&amp;gt;() { @Override public void onSubscribe(Disposable d) { Log.i(&amp;#34;rxjava&amp;#34;, &amp;#34;onSubscribe: &amp;#34; &#43; d); } @Override public void onNext(String string) { Log.'><title>Android的rxjava2</title>
+
+<link rel='canonical' href='https://magren.cn/android%E7%9A%84rxjava2/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Android的rxjava2'>
+<meta property='og:description' content='RxJava是利用观察者模式来实现一些列的操作，所以对于观察者模式中的观察者，被观察者，以及订阅、事件需要有一个了解。
+Observable：在观察者模式中称为“被观察者”； Observer：观察者模式中的“观察者”，可接收Observable发送的数据； subscribe：订阅，观察者与被观察者，通过Observable的subscribe()方法进行订阅； Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的区别，不同的是 Subscriber要与Flowable(也是一种被观察者)联合使用，Obsesrver用于订阅Observable，而Subscriber用于订阅Flowable.
+观察者模式 rxjava的实现主要是通过观察者模式实现的。
+A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感,需要在 B 变化的一瞬间做出反应. 在程序的观察者模式，观察者不需要时刻盯着被观察者,而是采用注册或者称为订阅的方式，告诉被观察者：我需要你的某某状态，你要在它变化的时候通知我 同时我们也可以多个观察者对应一个被观察者
+其实在android中也有很多自带的观察者模式。最明显的莫过于点击事件。说个最简单的例子，点击按钮后弹一个Toast。那么，我们在点击按钮的时候，告知系统，此时，我需要弹一个吐司。那么就这么弹出来了。那么，这个时候问题来了。我是否需要实时去监听这个按钮呢？答案是不需要的。这就和前面的举例有的差距了。换句话说。我只要在此按钮进行点击时进行监听就可以了。这种操作被称为订阅。也就是说Button通过setOnClickListener对OnclickListener进行了订阅了操作，来监听onclick方法。
+基本使用 rxjava的基本实现主要是三点：
+ 初始化 Observable （被观察者） 初始化 Observe（观察者） 建立两者之间的订阅关系  创建Observable Observable&amp;lt;String&amp;gt; observable = Observable.create(new ObservableOnSubscribe&amp;lt;String&amp;gt;() { @Override public void subscribe(ObservableEmitter&amp;lt;String&amp;gt; e) throws Exception { e.onNext(&amp;#34;hello world&amp;#34;); e.onComplete(); //调用complete后下面将不再接受事件  } }); 创建Observe Observer&amp;lt;String&amp;gt;observer=new Observer&amp;lt;String&amp;gt;() { @Override public void onSubscribe(Disposable d) { Log.i(&amp;#34;rxjava&amp;#34;, &amp;#34;onSubscribe: &amp;#34; &#43; d); } @Override public void onNext(String string) { Log.'>
+<meta property='og:url' content='https://magren.cn/android%E7%9A%84rxjava2/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Android' /><meta property='article:published_time' content='2020-03-13T14:59:35&#43;00:00'/><meta property='article:modified_time' content='2020-03-13T14:59:35&#43;00:00'/>
+<meta name="twitter:title" content="Android的rxjava2">
+<meta name="twitter:description" content="RxJava是利用观察者模式来实现一些列的操作，所以对于观察者模式中的观察者，被观察者，以及订阅、事件需要有一个了解。
+Observable：在观察者模式中称为“被观察者”； Observer：观察者模式中的“观察者”，可接收Observable发送的数据； subscribe：订阅，观察者与被观察者，通过Observable的subscribe()方法进行订阅； Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的区别，不同的是 Subscriber要与Flowable(也是一种被观察者)联合使用，Obsesrver用于订阅Observable，而Subscriber用于订阅Flowable.
+观察者模式 rxjava的实现主要是通过观察者模式实现的。
+A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感,需要在 B 变化的一瞬间做出反应. 在程序的观察者模式，观察者不需要时刻盯着被观察者,而是采用注册或者称为订阅的方式，告诉被观察者：我需要你的某某状态，你要在它变化的时候通知我 同时我们也可以多个观察者对应一个被观察者
+其实在android中也有很多自带的观察者模式。最明显的莫过于点击事件。说个最简单的例子，点击按钮后弹一个Toast。那么，我们在点击按钮的时候，告知系统，此时，我需要弹一个吐司。那么就这么弹出来了。那么，这个时候问题来了。我是否需要实时去监听这个按钮呢？答案是不需要的。这就和前面的举例有的差距了。换句话说。我只要在此按钮进行点击时进行监听就可以了。这种操作被称为订阅。也就是说Button通过setOnClickListener对OnclickListener进行了订阅了操作，来监听onclick方法。
+基本使用 rxjava的基本实现主要是三点：
+ 初始化 Observable （被观察者） 初始化 Observe（观察者） 建立两者之间的订阅关系  创建Observable Observable&amp;lt;String&amp;gt; observable = Observable.create(new ObservableOnSubscribe&amp;lt;String&amp;gt;() { @Override public void subscribe(ObservableEmitter&amp;lt;String&amp;gt; e) throws Exception { e.onNext(&amp;#34;hello world&amp;#34;); e.onComplete(); //调用complete后下面将不再接受事件  } }); 创建Observe Observer&amp;lt;String&amp;gt;observer=new Observer&amp;lt;String&amp;gt;() { @Override public void onSubscribe(Disposable d) { Log.i(&amp;#34;rxjava&amp;#34;, &amp;#34;onSubscribe: &amp;#34; &#43; d); } @Override public void onNext(String string) { Log.">
+    <link rel="shortcut icon" href="https://magren.cn/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                Android
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/android%E7%9A%84rxjava2/">Android的rxjava2</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Mar 13, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>RxJava是利用观察者模式来实现一些列的操作，所以对于观察者模式中的观察者，被观察者，以及订阅、事件需要有一个了解。</p>
+<p>Observable：在观察者模式中称为“被观察者”；
+Observer：观察者模式中的“观察者”，可接收Observable发送的数据；
+subscribe：订阅，观察者与被观察者，通过Observable的subscribe()方法进行订阅；
+Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的区别，不同的是 Subscriber要与Flowable(也是一种被观察者)联合使用，Obsesrver用于订阅Observable，而Subscriber用于订阅Flowable.</p>
+<h1 id="观察者模式">观察者模式</h1>
+<p>rxjava的实现主要是通过观察者模式实现的。</p>
+<p>A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感,需要在 B 变化的一瞬间做出反应.
+在程序的观察者模式，观察者不需要时刻盯着被观察者,而是采用注册或者称为订阅的方式，告诉被观察者：我需要你的某某状态，你要在它变化的时候通知我
+同时我们也可以多个观察者对应一个被观察者</p>
+<p>其实在android中也有很多自带的观察者模式。最明显的莫过于点击事件。说个最简单的例子，点击按钮后弹一个Toast。那么，我们在点击按钮的时候，告知系统，此时，我需要弹一个吐司。那么就这么弹出来了。那么，这个时候问题来了。我是否需要实时去监听这个按钮呢？答案是不需要的。这就和前面的举例有的差距了。换句话说。我只要在此按钮进行点击时进行监听就可以了。这种操作被称为订阅。也就是说Button通过setOnClickListener对OnclickListener进行了订阅了操作，来监听onclick方法。</p>
+<h1 id="基本使用">基本使用</h1>
+<p>rxjava的基本实现主要是三点：</p>
+<ul>
+<li>初始化 Observable （被观察者）</li>
+<li>初始化 Observe（观察者）</li>
+<li>建立两者之间的订阅关系</li>
+</ul>
+<h2 id="创建observable">创建Observable</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Observable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">observable</span> <span class="o">=</span> <span class="n">Observable</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">ObservableOnSubscribe</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">subscribe</span><span class="o">(</span><span class="n">ObservableEmitter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">onNext</span><span class="o">(</span><span class="s">&#34;hello world&#34;</span><span class="o">);</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">onComplete</span><span class="o">();</span> <span class="c1">//调用complete后下面将不再接受事件
+</span><span class="c1"></span>            <span class="o">}</span>
+        <span class="o">});</span>
+</code></pre></div><h2 id="创建observe">创建Observe</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="n">observer</span><span class="o">=</span><span class="k">new</span> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSubscribe</span><span class="o">(</span><span class="n">Disposable</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onSubscribe: &#34;</span> <span class="o">+</span> <span class="n">d</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">String</span> <span class="n">string</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onNext: &#34;</span> <span class="o">+</span> <span class="n">string</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onError: &#34;</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
+            <span class="o">}</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onComplete</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onComplete: &#34;</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+</code></pre></div><ul>
+<li>onSubscribe：它会在事件还未发送之前被调用，可以用来做一些准备操作。而里面的Disposable则是用来切断上下游的关系的。</li>
+<li>onNext：普通的事件。将要处理的事件添加到队列中。</li>
+<li>onError：事件队列异常，在事件处理过程中出现异常情况时，此方法会被调用。同时队列将会终止，也就是不允许在有事件发出。</li>
+<li>onComplete：事件队列完成。rxjava不仅把每个事件单独处理。而且会把他们当成一个队列。当不再有onNext事件发出时，需要触发onComplete方法作为完成标识。</li>
+</ul>
+<h2 id="创建订阅">创建订阅</h2>
+<p>observable.subscribe(observer);</p>
+<h2 id="结果">结果</h2>
+<p>先调用onSubscribe，然后走了onNext，最后以onComplete收尾：
+<figure style="flex-grow: 269; flex-basis: 645px">
+		<a href="/android%E7%9A%84rxjava2/rxjava_result.png" data-size="775x288"><img src="/android%E7%9A%84rxjava2/rxjava_result.png"
+				srcset="/android%E7%9A%84rxjava2/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_480x0_resize_box_2.png 480w, /android%E7%9A%84rxjava2/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_1024x0_resize_box_2.png 1024w"
+				width="775"
+				height="288"
+				loading="lazy"
+				alt="输出结果">
+		</a>
+		
+		<figcaption>输出结果</figcaption>
+		
+	</figure></p>
+<h1 id="线程的调度">线程的调度</h1>
+<ul>
+<li>subscribeOn() 指定的是发射事件的线程，observerOn 指定的就是订阅者接收事件的线程。</li>
+<li>多次指定发射事件的线程只有第一次指定的有效，也就是说多次调用 subscribeOn() 只有第一次的有效，其余的会被忽略。</li>
+<li>但多次指定订阅者接收线程是可以的，也就是说每调用一次 observerOn()，下游的线程就会切换一次。</li>
+</ul>
+<p>rxjava中已经内置了一些线程供我们选择：</p>
+<ul>
+<li>Schedulers.io() 代表io操作的线程, 通常用于网络,读写文件等io密集型的操作</li>
+<li>Schedulers.computation() 代表CPU计算密集型的操作, 例如需要大量计算的操作</li>
+<li>Schedulers.newThread() 代表一个常规的新线程</li>
+<li>AndroidSchedulers.mainThread() 代表Android的主线程</li>
+</ul>
+<h2 id="例子">例子：</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Observable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">observable</span> <span class="o">=</span> <span class="n">Observable</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">ObservableOnSubscribe</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">subscribe</span><span class="o">(</span><span class="n">ObservableEmitter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">onNext</span><span class="o">(</span><span class="s">&#34;hello world   &#34;</span><span class="o">+</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">onComplete</span><span class="o">();</span> <span class="c1">//调用complete后下面将不再接受事件
+</span><span class="c1"></span>            <span class="o">}</span>
+        <span class="o">}).</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span> <span class="c1">//切换到主线程
+</span><span class="c1"></span>                <span class="o">.</span><span class="na">doOnNext</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+                        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span><span class="s">&#34;主线程   &#34;</span><span class="o">+</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+                    <span class="o">}</span>
+                <span class="o">})</span>
+                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">io</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">doOnNext</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+                        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span><span class="s">&#34;thread   &#34;</span><span class="o">+</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
+</code></pre></div><h2 id="结果-1">结果</h2>
+<pre><code>2020-03-13 17:06:23.873 8760-8760/com.example.rxjava_test I/rxjava: onSubscribe: io.reactivex.internal.operators.observable.ObservableDoOnEach$DoOnEachObserver@92153c7
+2020-03-13 17:06:23.980 8760-8760/com.example.rxjava_test I/rxjava: 主线程   main
+2020-03-13 17:06:23.982 8760-8826/com.example.rxjava_test I/rxjava: thread   RxCachedThreadScheduler-1
+2020-03-13 17:06:23.982 8760-8826/com.example.rxjava_test I/rxjava: onNext: hello world   RxNewThreadScheduler-1
+2020-03-13 17:06:23.982 8760-8826/com.example.rxjava_test I/rxjava: onComplete:
+</code></pre><h1 id="结合rxjava和retorfit">结合rxjava和retorfit</h1>
+<h2 id="创建接收服务器返回数据的类">创建接收服务器返回数据的类</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TranslationBean</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">errorCode</span><span class="o">;</span> <span class="c1">//错误返回码
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">query</span><span class="o">;</span>     <span class="c1">//源语言
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">translation</span><span class="o">;</span> <span class="c1">//翻译结果
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">basicEntity</span> <span class="n">basic</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="n">web</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">tSpeakUrl</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">basicEntity</span> <span class="o">{</span>
+        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;us-phonetic&#34;</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">usPhonetic</span><span class="o">;</span>  <span class="c1">//英式音标
+</span><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;uk-speech&#34;</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">ukSpeech</span><span class="o">;</span>    <span class="c1">//美式发音
+</span><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;us-speech&#34;</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">usSpeech</span><span class="o">;</span>  <span class="c1">//英式发音
+</span><span class="c1"></span>        <span class="kd">private</span> <span class="n">String</span> <span class="n">phonetic</span><span class="o">;</span>   <span class="c1">//默认音标
+</span><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;uk-phonetic&#34;</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">ukPhonetic</span><span class="o">;</span>   <span class="c1">//美式英标
+</span><span class="c1"></span>
+        <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">explains</span><span class="o">;</span>  <span class="c1">//基本释义
+</span><span class="c1"></span>
+
+        <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getExplains</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">explains</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setExplains</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">explains</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">explains</span> <span class="o">=</span> <span class="n">explains</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPhonetic</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">phonetic</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">phonetic</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">phonetic</span> <span class="o">=</span> <span class="n">phonetic</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUkPhonetic</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">ukPhonetic</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUkPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">ukPhonetic</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">ukPhonetic</span> <span class="o">=</span> <span class="n">ukPhonetic</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsPhonetic</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">usPhonetic</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">usPhonetic</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">usPhonetic</span> <span class="o">=</span> <span class="n">usPhonetic</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUkSpeech</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">ukSpeech</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUkSpeech</span><span class="o">(</span><span class="n">String</span> <span class="n">ukSpeech</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">ukSpeech</span> <span class="o">=</span> <span class="n">ukSpeech</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsSpeech</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">usSpeech</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsSpeech</span><span class="o">(</span><span class="n">String</span> <span class="n">usSpeech</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">usSpeech</span> <span class="o">=</span> <span class="n">usSpeech</span><span class="o">;</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebEntity</span> <span class="o">{</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">key</span><span class="o">;</span>
+        <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">value</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setKey</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setValue</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">key</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setQuery</span><span class="o">(</span><span class="n">String</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setErrorCode</span><span class="o">(</span><span class="kt">int</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">errorCode</span> <span class="o">=</span> <span class="n">errorCode</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTranslation</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">translation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">translation</span> <span class="o">=</span> <span class="n">translation</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setWeb</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="n">web</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">web</span> <span class="o">=</span> <span class="n">web</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getQuery</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">query</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getErrorCode</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">errorCode</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getTranslation</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">translation</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="nf">getWeb</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">web</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">basicEntity</span> <span class="nf">getBasic</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">basic</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBasic</span><span class="o">(</span><span class="n">basicEntity</span> <span class="n">basic</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">basic</span> <span class="o">=</span> <span class="n">basic</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">settSpeakUrl</span><span class="o">(</span><span class="n">String</span> <span class="n">tSpeakUrl</span><span class="o">){</span> <span class="k">this</span><span class="o">.</span><span class="na">tSpeakUrl</span> <span class="o">=</span> <span class="n">tSpeakUrl</span><span class="o">;}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">gettSpeakUrl</span><span class="o">(){</span> <span class="k">return</span> <span class="n">tSpeakUrl</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="创建用于描述网络请求的接口">创建用于描述网络请求的接口</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">networkApi</span> <span class="o">{</span>
+    <span class="nd">@GET</span><span class="o">(</span><span class="s">&#34;api?&#34;</span><span class="o">)</span>
+    <span class="n">Observable</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;</span> <span class="nf">translateYouDao</span><span class="o">(</span>
+            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;q&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">q</span><span class="o">,</span>
+            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;from&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">from</span><span class="o">,</span>
+            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;to&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">to</span><span class="o">,</span>
+            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;appKey&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">appKey</span><span class="o">,</span> <span class="c1">//应用ID
+</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;salt&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">salt</span><span class="o">,</span>  <span class="c1">//UUID
+</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">sign</span><span class="o">,</span>  <span class="c1">//应用ID+input+salt+curtime+应用密钥 。 input= q前10个字符+q长度+q后10个字符（q的长度&gt;=20） 或input = 字符串
+</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;signType&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">signType</span><span class="o">,</span> <span class="c1">//签名类型
+</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;curtime&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">curtime</span> <span class="c1">//时间戳
+</span><span class="c1"></span>    <span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="创建retorfit">创建Retorfit</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">netWork</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">networkApi</span> <span class="n">sContactsApi</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">OkHttpClient</span> <span class="n">okHttpClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Converter</span><span class="o">.</span><span class="na">Factory</span> <span class="n">gsonConverterFactory</span> <span class="o">=</span> <span class="n">GsonConverterFactory</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">CallAdapter</span><span class="o">.</span><span class="na">Factory</span> <span class="n">rxJavaCallAdapterFactory</span> <span class="o">=</span> <span class="n">RxJava2CallAdapterFactory</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ApiClientHolder</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">netWork</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">netWork</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">netWork</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ApiClientHolder</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">networkApi</span> <span class="nf">getDataService</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">sContactsApi</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Retrofit</span> <span class="n">retrofit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Retrofit</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">client</span><span class="o">(</span><span class="n">okHttpClient</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">baseUrl</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">BASE_URL</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addConverterFactory</span><span class="o">(</span><span class="n">gsonConverterFactory</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addCallAdapterFactory</span><span class="o">(</span><span class="n">rxJavaCallAdapterFactory</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+            <span class="n">sContactsApi</span> <span class="o">=</span> <span class="n">retrofit</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">networkApi</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">sContactsApi</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div><h2 id="使用">使用</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@SuppressLint</span><span class="o">(</span><span class="s">&#34;CheckResult&#34;</span><span class="o">)</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">netConnection</span><span class="o">(</span><span class="n">String</span> <span class="n">q</span><span class="o">,</span><span class="n">String</span> <span class="n">from</span><span class="o">,</span><span class="n">String</span> <span class="n">to</span><span class="o">,</span><span class="n">String</span> <span class="n">salt</span><span class="o">,</span><span class="n">String</span> <span class="n">sign</span><span class="o">,</span><span class="n">String</span> <span class="n">curtime</span><span class="o">){</span>
+       <span class="n">netWork</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDataService</span><span class="o">()</span>
+               <span class="o">.</span><span class="na">translateYouDao</span><span class="o">(</span><span class="n">q</span><span class="o">,</span><span class="n">from</span><span class="o">,</span><span class="n">to</span><span class="o">,</span><span class="n">appID</span><span class="o">,</span><span class="n">salt</span><span class="o">,</span><span class="n">sign</span><span class="o">,</span><span class="n">signType</span><span class="o">,</span><span class="n">curtime</span><span class="o">)</span>
+               <span class="o">.</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span> <span class="c1">//发起的执行在一个新的线程
+</span><span class="c1"></span>               <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span> <span class="c1">//结果的执行在主线程
+</span><span class="c1"></span>               <span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;()</span> <span class="o">{</span>
+                   <span class="nd">@Override</span>
+                   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">TranslationBean</span> <span class="n">translationBean</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+                       <span class="c1">//对接收到数据的类进行处理
+</span><span class="c1"></span>                   <span class="o">}</span>
+               <span class="o">});</span>
+   <span class="o">}</span>
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/android/">Android</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的EventBus使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android自定义view的定义</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/rxjava%E7%9A%84compositedisposable/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rxjava的CompositeDisposable</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android Activity生命周期</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/%E8%AF%B4%E8%AF%B4android%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E6%BA%A2%E5%87%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">说说Android的内存泄露和溢出</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'haCWLunmE0GIExpKDwuKgRuQ-MdYXbMMI',
+    appKey: 'z2mnboJz8ronHGmq7yocp3Uo',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+
+        })
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>
