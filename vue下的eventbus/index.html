@@ -39,7 +39,7 @@ import Vue from &amp;#39;vue&amp;#39;; // 使用 Event Bus const bus = new Vue()
 import bus from &amp;#39;../common/bus&amp;#39;; 监听 在需要监听的组件中的created中使用bus监听
 created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去  doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
 // 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.">
-    <link rel="shortcut icon" href="https://magren.cn/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="#ZgotmplZ" />
 
         <link rel="manifest" href="/manifest.json">
     </head>

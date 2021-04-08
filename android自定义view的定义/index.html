@@ -18,7 +18,7 @@ public class TestView extends View { /** * 在java代码里new的时候会用到
 <meta name="twitter:description" content="自定义 View 就是通过继承 View 或者 View 的子类，并在新的类里面实现相应的处理逻辑（重写相应的方法），以达到自己想要的效果。
  分类  自定义ViewGroup：自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。 自定义view: 在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。  构造函数 无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。
 public class TestView extends View { /** * 在java代码里new的时候会用到 * @param context */ public TestView(Context context) { super(context); } /** * 在xml布局文件中使用时自动调用 * @param context */ public TestView(Context context, @Nullable AttributeSet attrs) { super(context, attrs); } /** * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr */ public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); } /** * 只有在API版本&amp;gt;21时才会用到 * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr * @param defStyleRes */ @RequiresApi(api = Build.">
-    <link rel="shortcut icon" href="https://magren.cn/img/charizard_huaccf1fa05315e1cd99468898bad8018f_191573_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="#ZgotmplZ" />
 
         <link rel="manifest" href="/manifest.json">
     </head>
