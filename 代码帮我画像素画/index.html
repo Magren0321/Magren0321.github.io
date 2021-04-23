@@ -31,7 +31,7 @@ Code💻 禁止浏览器的平滑处理其实就是是否抗锯齿。
 用正则表达式限制输入框只能输入0-100，意味着让图片缩放的百分比（100就是没有缩放，达不到像素化的效果）
 const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小  let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理  ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来  ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小  ctx."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/banner.png' />
-    <link rel="shortcut icon" href="/img/Charizard_hu774304a8cf776eef0748c0d7fc73cbb5_37988_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="https://magren.cn/img/Charizard_hu774304a8cf776eef0748c0d7fc73cbb5_37988_300x0_resize_box_2.png" />
 
         <link rel="manifest" href="/manifest.json">
     </head>
