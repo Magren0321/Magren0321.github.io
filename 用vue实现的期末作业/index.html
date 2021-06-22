@@ -12,13 +12,13 @@
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
- 登陆界面 
+&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+登陆界面
 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
-this.$route.query.id params传参以及接收 传参
-this.$router.push({ name: &#39;Home&#39;, params: { id: res.'><title>用vue实现的期末作业</title>
+this.$router.push({path: &#39;/Home&#39;,query: {id: res.objectId,}})接收
+this.$route.query.idparams传参以及接收 传参
+this.$router.push({name: &#39;Home&#39;,params: {id: res.'><title>用vue实现的期末作业</title>
 
 <link rel='canonical' href='https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/'>
 
@@ -34,13 +34,13 @@ this.$router.push({ name: &#39;Home&#39;, params: { id: res.'><title>用vue实�
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
- 登陆界面 
+&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+登陆界面
 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
-this.$route.query.id params传参以及接收 传参
-this.$router.push({ name: &#39;Home&#39;, params: { id: res.'>
+this.$router.push({path: &#39;/Home&#39;,query: {id: res.objectId,}})接收
+this.$route.query.idparams传参以及接收 传参
+this.$router.push({name: &#39;Home&#39;,params: {id: res.'>
 <meta property='og:url' content='https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/'>
 <meta property='og:site_name' content='Magren&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='项目' /><meta property='article:tag' content='作业' /><meta property='article:published_time' content='2020-07-10T13:28:29&#43;00:00'/><meta property='article:modified_time' content='2020-07-10T13:28:29&#43;00:00'/>
@@ -56,13 +56,13 @@ this.$router.push({ name: &#39;Home&#39;, params: { id: res.'>
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
- 登陆界面 
+&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+登陆界面
 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
-this.$route.query.id params传参以及接收 传参
-this.$router.push({ name: &#39;Home&#39;, params: { id: res.">
+this.$router.push({path: &#39;/Home&#39;,query: {id: res.objectId,}})接收
+this.$route.query.idparams传参以及接收 传参
+this.$router.push({name: &#39;Home&#39;,params: {id: res.">
     <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
 
         <link rel="manifest" href="/manifest.json">
@@ -615,6 +615,12 @@ this.$router.push({ name: &#39;Home&#39;, params: { id: res.">
             }
             show_date_time();
         </script>
+
+        
+        <div>
+            <a href='https://beian.miit.gov.cn/#/Integrated/index'>粤ICP备2021050784号</a>
+        </div>
+        
     </section>
     
     <section class="powerby">

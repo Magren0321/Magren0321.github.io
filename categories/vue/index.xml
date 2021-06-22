@@ -17,8 +17,8 @@
 项目基于Vue + Typescript + Vuetify UI实现。
 项目地址：CloudMusic
 已经实现的功能：
- 登录 获取歌单 创建歌单 删除/取消收藏歌单 播放歌曲 排行榜 每日推荐 推荐歌单  项目截图：    
-  
+ 登录 获取歌单 创建歌单 删除/取消收藏歌单 播放歌曲 排行榜 每日推荐 推荐歌单  项目截图： 
+
 播放 这个可以说是核心功能，毕竟一个听歌的平台不能听歌就说不过去了。
 首先歌曲的选择可以来自歌单，可以来自发现页的轮播图，还可以来自播放页面的选择，然后控制歌曲的播放暂停既可以从其他页面下方的播放tab控制，又可以在播放的页面进行控制，如果使用Prop和Emit实在是太多太乱了，所以我这里使用了Vuex。
  Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
@@ -28,7 +28,7 @@
 在audio中通过 @timeupdate 来监听audio当前的播放时间戳，接着与播放总时长相除并乘以100得到当前播放进度的百分比，接着赋值给slider组件即可，进度条左边的时间也是通过当前播放的时间戳转换成的时间。
 但是这里会有个问题，就是需要通过移动滑块来修改播放的进度，在刚刚@timeupdate绑定的方法中只是单向的将进度赋值给滑块，并且在音乐播放的时候这个方法是一直在运行的，这样无论我怎样移动滑块，滑块都会立马就瞬移到了当前的播放位置，所以这里还得加一个监听是否正在移动滑块的方法，当移动滑块的时候不将当前播放的进度赋值给滑块，然后当我松手的时候将滑块当前的进度转换成时间戳赋值回给audio的播放时间。
 我的解决办法是给滑块组件引入了 @mousedown 和 @mouseup，当鼠标按下的时候将一个变量赋值为true，抬起的时候为false，修改@timeupdate中的方法，设定其只有在该变量为false的时候才会对滑块组件赋值，但是滑动滑块的时候也得修改当前的播放时间，所以给滑块组件引入了 @change ，当手动更改了滑块的值的时候会触发该方法，在这个方法里面对audio的播放进度进行修改。
- 
+
 歌词实现 从后台获取的歌词是一个字符串，但是每行歌词都用了\n标识，所以将字符串以\n分割可以得到每行的歌词，每行歌词里中括号里面的是时间，还得将每句歌词以中括号进行分割，最后将时间转换成时间戳，与歌词放在一块做为一个类放入数组中。
 设置一个索引，用于记录是第几行歌词，通过offsetHeight获取到歌词组件的高度来确认歌词中线所在的位置，通过索引乘以每行歌词的高度来判断是否滚动。
 其实就是给外部的div设置超出隐藏，然后通过修改mragin-top来实现一个滚动的效果，而margin-top的值是由中线的高度减去索引乘以每行歌词的高度来决定。同时可以通过transition属性来设定其改变的时间。
@@ -123,13 +123,13 @@ Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
- 登陆界面 
+&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+登陆界面
 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({ path: &#39;/Home&#39;, query: { id: res.objectId, } }) 接收
-this.$route.query.id params传参以及接收 传参
-this.$router.push({ name: &#39;Home&#39;, params: { id: res.</description>
+this.$router.push({path: &#39;/Home&#39;,query: {id: res.objectId,}})接收
+this.$route.query.idparams传参以及接收 传参
+this.$router.push({name: &#39;Home&#39;,params: {id: res.</description>
     </item>
     
   </channel>

@@ -312,14 +312,14 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
 
 <span class="c1">//根据id删除一条数据
 </span><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/delete&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)=&gt;{</span>
+    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="mi">_</span><span class="nx">id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)=&gt;{</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
     <span class="p">})</span>
 <span class="p">})</span>
 
 <span class="c1">//获取一条数据
 </span><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="mi">_</span><span class="nx">id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
         <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="s2">&#34;没有任何数据存在&#34;</span><span class="p">)</span>
         <span class="p">}</span>
@@ -338,7 +338,7 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
     <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">){</span>
         <span class="nx">Student</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="nx">Student</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span> <span class="mi">_</span><span class="nx">id</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="nx">Student</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="s2">&#34;数据不存在&#34;</span><span class="p">);</span>
       <span class="p">}</span>
@@ -518,6 +518,12 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
             }
             show_date_time();
         </script>
+
+        
+        <div>
+            <a href='https://beian.miit.gov.cn/#/Integrated/index'>粤ICP备2021050784号</a>
+        </div>
+        
     </section>
     
     <section class="powerby">
