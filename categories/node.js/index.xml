@@ -6,7 +6,18 @@
     <description>Recent content in Node.js on Magren&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 19 Oct 2020 23:17:34 +0000</lastBuildDate><atom:link href="https://magren.cn/categories/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Jul 2021 12:57:21 +0800</lastBuildDate><atom:link href="https://magren.cn/categories/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Puppeteer爬取Github指北</title>
+      <link>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</link>
+      <pubDate>Wed, 07 Jul 2021 12:57:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</guid>
+      <description>介绍  puppeteer 是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景。
+ 使用 安装  npm install puppeteer-chromium-resolver &amp;ndash;save
+ 生成/关闭浏览器 const browser = await (puppeteer.launch({ args: [&amp;#39;--no-sandbox&amp;#39;, &amp;#39;--disable-setuid-sandbox&amp;#39;], //如果是访问https页面 此属性会忽略https错误  ignoreHTTPSErrors: true, headless: true, //改为true则是无头模式，不显示浏览器，在无界面的环境中运行 Chrome  })); //关闭  browser.close(); 生成新的tab并且跳转 const page = await browser.newPage(); await page.goto(&amp;#39;https://github.com/&amp;#39;+name+&amp;#39;?tab=repositories&amp;#39;); //跳转到github某个用户的仓库页 在控制台中执行函数（ evaluate() ） //获取当页的所有项目url，同时有下一页仓库的url的话也获取  const rep = await page.evaluate(()=&amp;gt;{ const url = document.querySelectorAll(&amp;#39;.wb-break-all &amp;gt; a&amp;#39;); const next = document.querySelector(&amp;#39;.BtnGroup &amp;gt; a&amp;#39;); let urlList = undefined; let nextUrl = undefined; if(url !</description>
+    </item>
+    
     <item>
       <title>node.js&#43;express写接口</title>
       <link>https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/</link>
