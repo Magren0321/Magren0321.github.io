@@ -188,7 +188,7 @@
     &gt;getGithub&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;调用例子：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;localhost:4000/getGithub?name=Magren0321&lt;/p&gt;
+&lt;p&gt;http://localhost:4000/getAllContributions/Magren0321&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;返回数据示例：
 &lt;figure style=&#34;flex-grow: 182; flex-basis: 437px&#34;&gt;
