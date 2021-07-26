@@ -224,7 +224,10 @@
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;dateList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Github api还有一些奇奇怪怪的地方就不总结了……&lt;br&gt;
+比如返回一个空的数组，但是我输出其length居然是2，用直接请求发现是里面放了两个换行😵&lt;br&gt;
+只能找多几个数据测试😔&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>将博客变成PWA</title>
