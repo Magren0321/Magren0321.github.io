@@ -6,125 +6,176 @@
         <description>Recent content on Magren&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Wed, 07 Jul 2021 12:57:21 +0800</lastBuildDate><atom:link href="https://magren.cn/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>2020，遗憾是惊喜的序曲</title>
-        <link>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</link>
-        <pubDate>Thu, 31 Dec 2020 20:17:01 +0000</pubDate>
+        <lastBuildDate>Fri, 30 Jul 2021 14:00:21 +0800</lastBuildDate><atom:link href="https://magren.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于Github Report 👨‍🚀</title>
+        <link>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</link>
+        <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
         
-        <guid>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</guid>
-        <description>&lt;img src="https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg" alt="Featured image of post 2020，遗憾是惊喜的序曲" /&gt;&lt;p&gt;博客不知不觉就写一年了。
-试着对自己过去一年进行一个复盘，就像瑞·达利欧所说的：&lt;/p&gt;
+        <guid>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</guid>
+        <description>&lt;img src="https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/github_bg.jpg" alt="Featured image of post 关于Github Report 👨‍🚀" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言🛸&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;生活中的大多数东西都不过是「同类情况的重演」。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;得学着从过去中汲取经验。&lt;/p&gt;
-&lt;h1 id=&#34;2020&#34;&gt;2020&lt;/h1&gt;
-&lt;h2 id=&#34;健康&#34;&gt;健康&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;无论啥时候健康总是首位，1月中旬的时候终于把横在身体里三年的两根钢板拆掉了，熬过来了后想想好像也没什么，虽然当时好像痛的很厉害😅&lt;/li&gt;
-&lt;li&gt;疫情返校后有在学校里断断续续地跑步，最长的一次不停地跑了八公里🏃&lt;/li&gt;
-&lt;li&gt;后面也有买瑜伽垫来做俯卧撑+仰卧起坐+深蹲。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;可惜以上的项目随着考试月的到来以及天气降温全部停掉了🐷&lt;/p&gt;
-&lt;p&gt;&lt;figure style=&#34;flex-grow: 45; flex-basis: 109px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run.png&#34; data-size=&#34;267x583&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_1024x0_resize_box_2.png 1024w&#34;
-				width=&#34;267&#34;
-				height=&#34;583&#34;
+&lt;p&gt;Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，&lt;del&gt;在之前抄别人代码交作业，&lt;/del&gt; 在之前使用Puppeteer尝试爬取了Github的部分数据，&lt;del&gt;于是脑子一抽，&lt;/del&gt; 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。&lt;/p&gt;
+&lt;p&gt;项目地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/github_report&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github Report&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login.png&#34;
+				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
 				&gt;
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;继续学习着Vue和小程序，稍微看了一点点的node.js，但是都不算精。&lt;/li&gt;
-&lt;li&gt;前不久买了本JavaScript高级程序设计看，希望能在这个假期里面啃完。&lt;/li&gt;
-&lt;li&gt;也在试着用自己新学到的东西去敲点小东西出来，除了学到东西外更多的是给我带来了一些成就感。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;学习就是要静下心来，好好沉淀（然而还是很菜）。🎯&lt;/p&gt;
-&lt;h2 id=&#34;设备&#34;&gt;设备&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;入了个茶轴的Anne pro2，60%布局+蓝牙真的让我体验到了无线的便利以及轻巧。&lt;/li&gt;
-&lt;li&gt;当全世界在讨论2077的时候我才购入了动物森友会，跟着她一块岛建中。&lt;/li&gt;
-&lt;li&gt;买了零件亲自给5s更换电池以及排线，梦回高中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;figure style=&#34;flex-grow: 100; flex-basis: 240px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_1024x0_resize_box_2.png 1024w&#34;
-				width=&#34;269&#34;
-				height=&#34;269&#34;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome.png&#34;
+				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
 				&gt;
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;figure style=&#34;flex-grow: 100; flex-basis: 240px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_1024x0_resize_box_2.png 1024w&#34;
-				width=&#34;269&#34;
-				height=&#34;269&#34;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo.png&#34;
+				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
 				&gt;
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;感情&#34;&gt;感情&lt;/h2&gt;
-&lt;p&gt;突然就一年多了。
-越来越了解彼此，
-这一年里一起去了挺多地方，也在一起努力着
-还是希望能好好的一直在一块🌟&lt;/p&gt;
-&lt;p&gt;&lt;figure style=&#34;flex-grow: 101; flex-basis: 243px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33.png&#34; data-size=&#34;271x267&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33_hu20b35df017a50075406828d44e0e539e_107745_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33_hu20b35df017a50075406828d44e0e539e_107745_1024x0_resize_box_2.png 1024w&#34;
-				width=&#34;271&#34;
-				height=&#34;267&#34;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions.png&#34;
+				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;1920&#34;
+				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
 				&gt;
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;日常&#34;&gt;日常&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;日常就是折腾。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;疫情在家想给电脑加多根内存条，心血来潮想换换硅脂，结果拧螺丝拧上头导致风扇的一颗螺丝拧花了取不下来。
-祸不单行，电脑的电源也坏了……遂又买了电源自己换。&lt;/p&gt;
-&lt;p&gt;前不久考试那段时间电脑开机以及读取机械硬盘里的数据非常慢，甚至直接卡死……重装系统等各种操作才排查出来是我的机械硬盘坏了，遂拆掉去网上买了个固态，又是突然的心血来潮给自己电脑装了个Ubuntu，但是用不惯，一天后就换回来了。&lt;/p&gt;
-&lt;p&gt;这台电脑从windows-&amp;gt;macos-&amp;gt;windows-&amp;gt;ubuntu-&amp;gt;windows，真的是玩了个遍。&lt;/p&gt;
-&lt;h1 id=&#34;2021&#34;&gt;2021&lt;/h1&gt;
-&lt;h2 id=&#34;出行&#34;&gt;出行&lt;/h2&gt;
-&lt;p&gt;疫情期间+封校让这一年的出行基本都泡汤了，希望明年能多出去走走，见识见识。
-对于不怎么学校的我，先不说出省了，能把广州好玩的地方逛完就不错了。🤔&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 逛遍广州&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;能力&#34;&gt;能力&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 学习React和Angular&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 啃掉JavaScript高级程序设计、深入浅出node.js等书籍&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 做些新东西，为开源做贡献&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;健康-1&#34;&gt;健康&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 养成锻炼的习惯&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 给我早睡！&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;生活&#34;&gt;生活&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 培养一门新的特长&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;最后&#34;&gt;最后&lt;/h1&gt;
-&lt;p&gt;2020虽然充满遗憾，但还是要充满对生活的热情。人间值得，未来可期。
-遗憾会是惊喜的序曲。&lt;/p&gt;
-&lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg&#34; data-size=&#34;2308x1733&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final_hu43edec84879d041a8e90779a22103c7d_187386_480x0_resize_q75_box.jpg 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final_hu43edec84879d041a8e90779a22103c7d_187386_1024x0_resize_q75_box.jpg 1024w&#34;
-				width=&#34;2308&#34;
-				height=&#34;1733&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;nescss&#34;&gt;NES.css🚀&lt;/h1&gt;
+&lt;p&gt;NES是20世纪80年代末、90年代初进入中国，是80后最早接触的游戏机，俗称红白机，这是一台使用8位处理器的游戏主机，而NES.css是一款NES风格（8位机）的CSS框架，也是一款像素风的CSS元件库,它没有任何 JavaScript 依赖,只包含CSS。&lt;/p&gt;
+&lt;p&gt;NES.css提供的组件样式很对我胃口，它还提供了一些很好玩的像素icon。NES.css在默认里只有英文字体是像素风格的，如果是需要别的语言也是像素风格的话，需要自行去下载字体。&lt;/p&gt;
+&lt;p&gt;👀具体使用参考看官方文档：&lt;a class=&#34;link&#34; href=&#34;https://github.com/nostalgic-css/NES.css&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NES.css&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;react-spring&#34;&gt;React-spring🌏&lt;/h1&gt;
+&lt;p&gt;在最一开始我就想做一个整页滚动的效果，我每个页面都是100vh，隐藏掉滚动条后监听鼠标滚动（移动端监听touch），滚动执行的方法是整个页面上滑或则下滑100vh（使用margin-top，超出的部分隐藏，并且设置transition来使其有一个动画的效果），同时用时间戳实现了一个节流（单位时间内只执行一次某个方法），以防止用户频繁滚动✍：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;throttle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;pre&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(...&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;pre&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+          &lt;span class=&#34;nx&#34;&gt;pre&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;now&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+          &lt;span class=&#34;nx&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;apply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+ &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果是有的，但是又感觉有点普通了🤨，接着翻到React-spring文档里看到了Parallax，Parallax可以创建一个可以滚动的容器，然后使用ParallaxLayer包含内容，并且可以设置其偏移量以及速度，就是可以制造视差滚动（页面上很多的元素在相互独立地滚动着），觉得挺好看就立马采用了😆。&lt;/p&gt;
+&lt;p&gt;在网上有看到过使用background-attachment（背景图像的位置是在视口内固定，还是随着包含它的区块滚动），以及transform（通过设置translateZ，滚动的上下距离也就不一样）来实现，但是看react-spring中的Parallax是使用js实现的，通过监听滚动，实时使用translate设定位置🤔&lt;/p&gt;
+&lt;p&gt;有时间得要好好看下，文档在这👉：&lt;a class=&#34;link&#34; href=&#34;https://react-spring.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;React-spring&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;react-hook&#34;&gt;React Hook📡&lt;/h1&gt;
+&lt;p&gt;既然是使用了react的函数式组件，那么肯定就绕不开它的钩子函数了。说几个我常用的吧。&lt;/p&gt;
+&lt;h2 id=&#34;usestate&#34;&gt;useState&lt;/h2&gt;
+&lt;p&gt;为函数式组件引入state，这个函数返回一个数组，数组第一个元素是变量，第二个元素是一个方法，用于改变变量，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 声明一个叫 “count” 的 state 变量
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;useeffect&#34;&gt;useEffect&lt;/h2&gt;
+&lt;p&gt;useEffet这个钩子函数可以说是替换了componentDidMount, componentDidUpdate, componentWillUnmount 这三个生命周期，在组件第一次渲染的时候也会执行useEffect()，具体✍：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;useEffect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;//等价于 componentDidMount
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// return等价于 componentWillUnmount 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+
+    &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// 依赖列表，当变更时候，执行useEffent()，等价于 componentDidUpdate
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;usecontext&#34;&gt;useContext&lt;/h2&gt;
+&lt;p&gt;useContext()可以使用在组件之间需要共享状态的情况下，不必显式地通过组件树的逐层传递 props&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;themes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;light&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;foreground&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;#000000&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;#eeeeee&amp;#34;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;dark&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;foreground&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;#ffffff&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;#222222&amp;#34;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ThemeContext&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;React&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;createContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;themes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;light&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;App&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ThemeContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Provider&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;themes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;dark&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Toolbar&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/ThemeContext.Provider&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// 子级
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Toolbar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;props&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ThemedButton&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// 孙级或更多级
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ThemedButton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;theme&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ThemeContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;button&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;theme&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;theme&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;foreground&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;I&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;am&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;styled&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;by&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;theme&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;useref&#34;&gt;useRef&lt;/h2&gt;
+&lt;p&gt;useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。&lt;/p&gt;
+&lt;p&gt;返回的 ref 对象在组件的整个生命周期内持续存在，类似于一个 class 的实例属性，其可以很方便地保存任何可变值。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;TextInputWithFocusButton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;inputEl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useRef&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;intervalRef&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useRef&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;onButtonClick&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// `current` 指向已挂载到 DOM 上的文本输入元素
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;inputEl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;current&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;focus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+
+  &lt;span class=&#34;nx&#34;&gt;useEffect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setInterval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// ...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;intervalRef&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;current&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;clearInterval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;intervalRef&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;current&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ref&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;inputEl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;button&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;onClick&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;onButtonClick&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Focus&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;the&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/button&amp;gt;&lt;/span&gt;
+
+      &lt;span class=&#34;c1&#34;&gt;// ...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;最后&#34;&gt;最后🔭&lt;/h1&gt;
+&lt;p&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://github.com/nostalgic-css/NES.css&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NES.css&lt;/a&gt;以及&lt;a class=&#34;link&#34; href=&#34;https://react-spring.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;React-spring&lt;/a&gt;🙏&lt;/p&gt;
+&lt;p&gt;这是我个人的心血来潮的学习项目，有改善的地方或者bug欢迎交流🙌&lt;/p&gt;
+&lt;p&gt;如果这个东西能够帮到你见识到或学到点什么就是我的荣幸🔮&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -872,6 +923,127 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 &lt;p&gt;从长远角度看的话，写的博文越多hugo的优势越明显。&lt;/p&gt;
 &lt;p&gt;但其实我只是想弄来玩玩而已。&lt;/p&gt;
 &lt;p&gt;Just for fun。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>2020，遗憾是惊喜的序曲</title>
+        <link>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</link>
+        <pubDate>Thu, 31 Dec 2020 20:17:01 +0000</pubDate>
+        
+        <guid>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</guid>
+        <description>&lt;img src="https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg" alt="Featured image of post 2020，遗憾是惊喜的序曲" /&gt;&lt;p&gt;博客不知不觉就写一年了。
+试着对自己过去一年进行一个复盘，就像瑞·达利欧所说的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;生活中的大多数东西都不过是「同类情况的重演」。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;得学着从过去中汲取经验。&lt;/p&gt;
+&lt;h1 id=&#34;2020&#34;&gt;2020&lt;/h1&gt;
+&lt;h2 id=&#34;健康&#34;&gt;健康&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;无论啥时候健康总是首位，1月中旬的时候终于把横在身体里三年的两根钢板拆掉了，熬过来了后想想好像也没什么，虽然当时好像痛的很厉害😅&lt;/li&gt;
+&lt;li&gt;疫情返校后有在学校里断断续续地跑步，最长的一次不停地跑了八公里🏃&lt;/li&gt;
+&lt;li&gt;后面也有买瑜伽垫来做俯卧撑+仰卧起坐+深蹲。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可惜以上的项目随着考试月的到来以及天气降温全部停掉了🐷&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 45; flex-basis: 109px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run.png&#34; data-size=&#34;267x583&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run.png&#34;
+				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;267&#34;
+				height=&#34;583&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;继续学习着Vue和小程序，稍微看了一点点的node.js，但是都不算精。&lt;/li&gt;
+&lt;li&gt;前不久买了本JavaScript高级程序设计看，希望能在这个假期里面啃完。&lt;/li&gt;
+&lt;li&gt;也在试着用自己新学到的东西去敲点小东西出来，除了学到东西外更多的是给我带来了一些成就感。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;学习就是要静下心来，好好沉淀（然而还是很菜）。🎯&lt;/p&gt;
+&lt;h2 id=&#34;设备&#34;&gt;设备&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;入了个茶轴的Anne pro2，60%布局+蓝牙真的让我体验到了无线的便利以及轻巧。&lt;/li&gt;
+&lt;li&gt;当全世界在讨论2077的时候我才购入了动物森友会，跟着她一块岛建中。&lt;/li&gt;
+&lt;li&gt;买了零件亲自给5s更换电池以及排线，梦回高中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 100; flex-basis: 240px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame.png&#34;
+				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;269&#34;
+				height=&#34;269&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 100; flex-basis: 240px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s.png&#34;
+				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;269&#34;
+				height=&#34;269&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;感情&#34;&gt;感情&lt;/h2&gt;
+&lt;p&gt;突然就一年多了。
+越来越了解彼此，
+这一年里一起去了挺多地方，也在一起努力着
+还是希望能好好的一直在一块🌟&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 101; flex-basis: 243px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33.png&#34; data-size=&#34;271x267&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33.png&#34;
+				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33_hu20b35df017a50075406828d44e0e539e_107745_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33_hu20b35df017a50075406828d44e0e539e_107745_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;271&#34;
+				height=&#34;267&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;日常&#34;&gt;日常&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;日常就是折腾。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;疫情在家想给电脑加多根内存条，心血来潮想换换硅脂，结果拧螺丝拧上头导致风扇的一颗螺丝拧花了取不下来。
+祸不单行，电脑的电源也坏了……遂又买了电源自己换。&lt;/p&gt;
+&lt;p&gt;前不久考试那段时间电脑开机以及读取机械硬盘里的数据非常慢，甚至直接卡死……重装系统等各种操作才排查出来是我的机械硬盘坏了，遂拆掉去网上买了个固态，又是突然的心血来潮给自己电脑装了个Ubuntu，但是用不惯，一天后就换回来了。&lt;/p&gt;
+&lt;p&gt;这台电脑从windows-&amp;gt;macos-&amp;gt;windows-&amp;gt;ubuntu-&amp;gt;windows，真的是玩了个遍。&lt;/p&gt;
+&lt;h1 id=&#34;2021&#34;&gt;2021&lt;/h1&gt;
+&lt;h2 id=&#34;出行&#34;&gt;出行&lt;/h2&gt;
+&lt;p&gt;疫情期间+封校让这一年的出行基本都泡汤了，希望明年能多出去走走，见识见识。
+对于不怎么学校的我，先不说出省了，能把广州好玩的地方逛完就不错了。🤔&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 逛遍广州&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;能力&#34;&gt;能力&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 学习React和Angular&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 啃掉JavaScript高级程序设计、深入浅出node.js等书籍&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 做些新东西，为开源做贡献&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;健康-1&#34;&gt;健康&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 养成锻炼的习惯&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 给我早睡！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;生活&#34;&gt;生活&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 培养一门新的特长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;最后&#34;&gt;最后&lt;/h1&gt;
+&lt;p&gt;2020虽然充满遗憾，但还是要充满对生活的热情。人间值得，未来可期。
+遗憾会是惊喜的序曲。&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg&#34; data-size=&#34;2308x1733&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg&#34;
+				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final_hu43edec84879d041a8e90779a22103c7d_187386_480x0_resize_q75_box.jpg 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final_hu43edec84879d041a8e90779a22103c7d_187386_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;2308&#34;
+				height=&#34;1733&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
 </description>
         </item>
         <item>

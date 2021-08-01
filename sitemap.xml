@@ -2,14 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</loc>
-    <lastmod>2020-12-31T20:17:01+00:00</lastmod>
-  </url><url>
     <loc>https://magren.cn/categories/</loc>
-    <lastmod>2021-07-07T12:57:21+08:00</lastmod>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/</loc>
-    <lastmod>2021-07-07T12:57:21+08:00</lastmod>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/post/</loc>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/react/</loc>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/categories/react/</loc>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/</loc>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</loc>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/categories/node.js/</loc>
     <lastmod>2021-07-07T12:57:21+08:00</lastmod>
@@ -17,16 +35,7 @@
     <loc>https://magren.cn/tags/node.js/</loc>
     <lastmod>2021-07-07T12:57:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/post/</loc>
-    <lastmod>2021-07-07T12:57:21+08:00</lastmod>
-  </url><url>
     <loc>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</loc>
-    <lastmod>2021-07-07T12:57:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/</loc>
-    <lastmod>2021-07-07T12:57:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2021-07-07T12:57:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/categories/%E5%89%8D%E7%AB%AF/</loc>
@@ -50,19 +59,10 @@
     <loc>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</loc>
     <lastmod>2021-02-25T16:33:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/tags/react/</loc>
-    <lastmod>2021-02-10T18:11:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/categories/react/</loc>
-    <lastmod>2021-02-10T18:11:21+08:00</lastmod>
-  </url><url>
     <loc>https://magren.cn/tags/typescript/</loc>
     <lastmod>2021-02-10T18:11:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</loc>
-    <lastmod>2021-02-10T18:11:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2021-02-10T18:11:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/vue/</loc>
@@ -79,6 +79,9 @@
   </url><url>
     <loc>https://magren.cn/tags/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2021-01-08T14:54:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</loc>
+    <lastmod>2020-12-31T20:17:01+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-12-31T20:17:01+00:00</lastmod>
