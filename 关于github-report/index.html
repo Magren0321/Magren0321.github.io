@@ -384,7 +384,20 @@
 </span><span class="c1"></span>    <span class="o">&lt;</span><span class="err">/&gt;</span>
   <span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div><h1 id="最后">最后🔭</h1>
+</code></pre></div><h2 id="warning-">Warning 🔒</h2>
+<ul>
+<li>✅只在最顶层使用Hook（不要在循环、条件或嵌套函数中使用Hook）</li>
+<li>✅在React函数中调用Hook</li>
+<li>✅在自定义Hook中调用其他Hook</li>
+</ul>
+<p>以上是React Hook文档中的规则，原因就是React内部并不是真正保存state，它是通过调用顺序来跟踪state。</p>
+<p>也就是说 <strong>多个useState的调用是借由一个链表来维护的，通过索引来实现对多个state的识别。</strong> 如果在if/else中调用Hook，当函数组件重新执行的时候可能会改变调用顺序，会导致错误。</p>
+<p>这个过程：</p>
+<ul>
+<li>第一次渲染，根据 useState 顺序，逐个声明 state 并且将其放入全局 Array 中。每次声明 state，都要将 cursor 增加 1。</li>
+<li>每个事件都有对应游标的state值，任何state事件触发，都会修改state数组中对应的state值，触发再次渲染。cursor 被重置为 0。按照 useState 的声明顺序，依次拿出最新的 state 的值，视图更新。</li>
+</ul>
+<h1 id="最后">最后🔭</h1>
 <p>感谢<a class="link" href="https://github.com/nostalgic-css/NES.css"  target="_blank" rel="noopener"
     >NES.css</a>以及<a class="link" href="https://react-spring.io/"  target="_blank" rel="noopener"
     >React-spring</a>🙏</p>
