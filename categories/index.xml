@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Magren&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 30 Jul 2021 14:00:21 +0800</lastBuildDate><atom:link href="https://magren.cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Nov 2021 10:14:21 +0800</lastBuildDate><atom:link href="https://magren.cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日常</title>
+      <link>https://magren.cn/categories/%E6%97%A5%E5%B8%B8/</link>
+      <pubDate>Wed, 24 Nov 2021 10:14:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/categories/%E6%97%A5%E5%B8%B8/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>React</title>
       <link>https://magren.cn/categories/react/</link>
@@ -31,15 +40,6 @@
       <pubDate>Sat, 03 Apr 2021 22:14:21 +0800</pubDate>
       
       <guid>https://magren.cn/categories/%E5%89%8D%E7%AB%AF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>日常</title>
-      <link>https://magren.cn/categories/%E6%97%A5%E5%B8%B8/</link>
-      <pubDate>Sun, 21 Mar 2021 14:00:21 +0800</pubDate>
-      
-      <guid>https://magren.cn/categories/%E6%97%A5%E5%B8%B8/</guid>
       <description></description>
     </item>
     
