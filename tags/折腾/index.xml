@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 08 Jan 2021 14:54:21 +0800</lastBuildDate><atom:link href="https://magren.cn/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>博客迁移至Hugo</title>
-      <link>https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/</link>
+      <link>https://magren.cn/move-to-hugo/</link>
       <pubDate>Fri, 08 Jan 2021 14:54:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/</guid>
+      <guid>https://magren.cn/move-to-hugo/</guid>
       <description>先说说为啥要迁移 在这之前用的是hexo + next主题，然后自己心血来潮加了网易云的外链还有live 2d，tag cloud这些东西，也有人说过挺好看的，但是自己看多了就觉得有点花里胡哨，而且当我在网上查阅东西进到别人博客的时候，看到的基本都是hexo + next……有点审美疲劳。
 但也很容易理解，hexo比较容易上手而且比较稳定，有着功能齐全并且成熟的主题（说的就是Next），这个时候我的眼光放到了hugo上。
 Hugo 依靠Go语言进行开发，并且号称世界上最快的构建网站工具，究竟有多快我也不知道，但是我用hexo生成静态网页的时候还需要等，用hugo就没有等过，给我的感觉就是我敲完命令回车的那一刻他就好了……

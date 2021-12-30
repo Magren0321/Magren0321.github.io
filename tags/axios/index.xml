@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 12 Aug 2020 14:45:50 +0000</lastBuildDate><atom:link href="https://magren.cn/tags/axios/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vue Typescript下axios的封装和使用</title>
-      <link>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</link>
+      <link>https://magren.cn/vue-ts-axios/</link>
       <pubDate>Wed, 12 Aug 2020 14:45:50 +0000</pubDate>
       
-      <guid>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://magren.cn/vue-ts-axios/</guid>
       <description>8月到了，一个莫名其妙的机遇也砸到了脸上，提着行李一个人跑到了广州跟一个毕业的师兄搞创业的项目，怀着点点的不安以及兴奋，迈出离开学校的第一步。
 由于就住在办公室的一间房里，出门即工作，开始了朝五晚九的工作生活，晚上的时候就折腾自己的项目，有点梦回星空时候夏训营的感觉，很累也充实。每天也在掉头发以及烦恼吃什么
 自己写的华广地图给自家eo发了一份玩，结果给征收了，上线成了星空的产品，并且要求再进行完善 😟 想了下干脆给每个地点的marker添加一个点击事件，点击后可以看到该地点的详细介绍，不过每个地方都要图片，放在本地太大了，可能会造成卡顿，遂决定放在服务器上，于是重新看了一遍axios同时自己学着网上的一些教程做了一个封装，并解决了跨域的问题。

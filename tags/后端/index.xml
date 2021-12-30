@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 19 Oct 2020 23:17:34 +0000</lastBuildDate><atom:link href="https://magren.cn/tags/%E5%90%8E%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>node.js&#43;express写接口</title>
-      <link>https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/</link>
+      <link>https://magren.cn/node-express/</link>
       <pubDate>Mon, 19 Oct 2020 23:17:34 +0000</pubDate>
       
-      <guid>https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/</guid>
+      <guid>https://magren.cn/node-express/</guid>
       <description>前一段时间学习了node.js操作mongoDB数据库，现在追加一篇写接口的记录。
 链接数据库 在项目根目录下安装Mongoose
  npm install mongoose &amp;ndash;save
@@ -23,10 +23,10 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
     
     <item>
       <title>node.js &#43; MongoDB</title>
-      <link>https://magren.cn/node.js-mongodb/</link>
+      <link>https://magren.cn/node-mongodb/</link>
       <pubDate>Wed, 16 Sep 2020 23:26:09 +0000</pubDate>
       
-      <guid>https://magren.cn/node.js-mongodb/</guid>
+      <guid>https://magren.cn/node-mongodb/</guid>
       <description>最近开学事情逐渐多了起来，星空、康课还有学校的课程……一切都开始逐渐步入正轨，唯独我的学习之路还在跑偏。
 经常会停下来不知道学什么，也提不起动力学，担心自己学的东西派不上用场，也担心自己半途而废。
 也难怪有万事开头难这种说法了。

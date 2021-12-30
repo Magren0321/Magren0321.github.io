@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我是少数派的一个读者，成为少数派已经419天。
+从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
+但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
+ 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
+ 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
+PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
+纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
+好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
+将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
+添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;.'><title>将博客变成PWA</title>
+
+<link rel='canonical' href='https://magren.cn/be-pwa/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='将博客变成PWA'>
+<meta property='og:description' content='我是少数派的一个读者，成为少数派已经419天。
+从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
+但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
+ 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
+ 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
+PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
+纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
+好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
+将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
+添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;.'>
+<meta property='og:url' content='https://magren.cn/be-pwa/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='博客' /><meta property='article:published_time' content='2021-04-03T22:14:21&#43;08:00'/><meta property='article:modified_time' content='2021-04-03T22:14:21&#43;08:00'/><meta property='og:image' content='https://magren.cn/be-pwa/pwa.png' />
+<meta name="twitter:title" content="将博客变成PWA">
+<meta name="twitter:description" content="我是少数派的一个读者，成为少数派已经419天。
+从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
+但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
+ 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
+ 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
+PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
+纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
+好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
+将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
+添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://magren.cn/be-pwa/pwa.png' />
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/be-pwa/">
+                <img src="/be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_800x0_resize_box_2.png"
+                        srcset="/be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_800x0_resize_box_2.png 800w, /be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_1600x0_resize_box_2.png 1600w"
+                        width="800" 
+                        height="388" 
+                        loading="lazy"
+                        alt="Featured image of post 将博客变成PWA" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%89%8D%E7%AB%AF/" style="background-color: #2a9d8f; color: #fff;">
+                前端
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/be-pwa/">将博客变成PWA</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 03, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>我是<a class="link" href="https://sspai.com/"  target="_blank" rel="noopener"
+    >少数派</a>的一个读者，<strong>成为少数派已经419天</strong>。</p>
+<p>从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。</p>
+<p>但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个<strong>更优解</strong>。</p>
+<blockquote>
+<p>继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。</p>
+<p>好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。</p>
+</blockquote>
+<p>关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……</p>
+<h1 id="关于pwa">关于PWA</h1>
+<p>PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。</p>
+<p>PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。</p>
+<p>纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。</p>
+<p>好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。</p>
+<h1 id="将自己的博客变成pwa">将自己的博客变成PWA</h1>
+<p>在体验过<a class="link" href="https://pwa.sspai.com/"  target="_blank" rel="noopener"
+    >少数派的PWA</a>后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。</p>
+<h2 id="添加-manifestjson">添加 manifest.json</h2>
+<p>这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下<a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest"  target="_blank" rel="noopener"
+    >MDN</a>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&#34;dir&#34;</span><span class="o">:</span> <span class="s2">&#34;ltr&#34;</span><span class="p">,</span> <span class="c1">//指定名称、短名称和描述成员的主文本方向
+</span><span class="c1"></span>    <span class="s2">&#34;lang&#34;</span><span class="o">:</span> <span class="s2">&#34;zh-cn&#34;</span><span class="p">,</span> <span class="c1">//语言
+</span><span class="c1"></span>    <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;Magren&#39;s Blog&#34;</span><span class="p">,</span> <span class="c1">//名字
+</span><span class="c1"></span>    <span class="s2">&#34;short_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Magren&#39;s Blog&#34;</span><span class="p">,</span> <span class="c1">//短名称
+</span><span class="c1"></span>    <span class="s2">&#34;theme_color&#34;</span><span class="o">:</span> <span class="s2">&#34;#ffffff&#34;</span><span class="p">,</span> <span class="c1">//主题颜色
+</span><span class="c1"></span>    <span class="s2">&#34;background_color&#34;</span><span class="o">:</span> <span class="s2">&#34;#d4d4d4&#34;</span><span class="p">,</span> <span class="c1">//启动时闪屏的背景颜色
+</span><span class="c1"></span>    <span class="s2">&#34;display&#34;</span><span class="o">:</span> <span class="s2">&#34;standalone&#34;</span><span class="p">,</span> <span class="c1">//定义开发人员对Web应用程序的首选显示模式。
+</span><span class="c1"></span>    <span class="s2">&#34;start_url&#34;</span><span class="o">:</span> <span class="s2">&#34;./index.html&#34;</span><span class="p">,</span> <span class="c1">//开始加载的url
+</span><span class="c1"></span>    <span class="s2">&#34;icons&#34;</span><span class="o">:</span> <span class="p">[</span> <span class="c1">//程序图标
+</span><span class="c1"></span>      <span class="p">{</span>
+        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar152.png&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;152x152&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar192.png&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;192x192&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar384.png&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;384x384&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar512.png&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;512x512&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&#34;splash_pages&#34;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+</code></pre></div><p>接着就要在我们的HTML文件中引入啦，如果你也是博客的话就去翻翻你的主题文件夹，在里面找下吧。</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;manifest&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;manifest.json&#34;</span> <span class="p">/&gt;</span> 
+</code></pre></div><h2 id="添加-service-worker">添加 Service Worker</h2>
+<p>这个API是用来实现页面缓存和离线，还有后台通知，不过因为这就是我的一个个人博客，所以我没有加上通知的功能。</p>
+<p>首先判断浏览器是否支持serviceWorker，如果支持则调用函数来注册站点的service worker，service worker 只是一个驻留在我们的 app 内的一个 JavaScript 文件。</p>
+<p>在html的页面下加上：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">    <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="k">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">scope</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">})</span>
+                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">registration</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// 注册成功
+</span><span class="c1"></span>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ServiceWorker registration successful&#39;</span><span class="p">);</span>
+                    <span class="p">})</span>
+                    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// 注册失败:(
+</span><span class="c1"></span>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ServiceWorker registration failed&#39;</span><span class="p">);</span>
+                    <span class="p">});</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div><p>接着是sw.js，即我们的serviceWorker，这里可以定义需要缓存的路径, 以及需要缓存的静态文件的列表, 这个列表也可以通过 Webpack 插件生成，我这里就只缓存了首页。</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//监听service worker事件
+</span><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">homePage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Request</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+        <span class="c1">//请求首页并将首页存入缓存
+</span><span class="c1"></span>        <span class="nx">fetch</span><span class="p">(</span><span class="nx">homePage</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//建立cache-homePage缓存
+</span><span class="c1"></span>            <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">homePage</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">}));</span>
+<span class="p">});</span>
+
+<span class="c1">//请求页面
+</span><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span>
+        <span class="nx">fetch</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//请求失败，从缓存中读取缓存的页面
+</span><span class="c1"></span>            <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">}));</span>
+<span class="p">});</span>
+
+<span class="c1">//刷新首页
+</span><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;refreshHomePage&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//将刷新后的页面缓存
+</span><span class="c1"></span>        <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">offlinePage</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div><h1 id="最后">最后</h1>
+<p>最后说说如何使用pwa吧，在手机上，只需通过支持的浏览器（如 Chrome以及小米自带的浏览器）访问 PWA 页面地址，Chrome会在加载完页面后弹出添加页面的提示，如果没有的话（如IOS的Safari），需要手动点击浏览器的更多，然后直接添加到桌面上即可。</p>
+<p>PC端的话Chrome的右上角（网页链接的最右端）有一个下载按钮，点击后就会添加到电脑桌面。如果要卸载的话只是删除电脑桌面的快捷方式是不可以的，需要打开来然后在PWA页面的上方点击卸载按钮。
+<figure style="flex-grow: 46; flex-basis: 110px">
+		<a href="/be-pwa/blog1.png" data-size="1080x2340"><img src="/be-pwa/blog1.png"
+				srcset="/be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_480x0_resize_box_2.png 480w, /be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_1024x0_resize_box_2.png 1024w"
+				width="1080"
+				height="2340"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure><figure style="flex-grow: 46; flex-basis: 110px">
+		<a href="/be-pwa/blog2.png" data-size="1080x2340"><img src="/be-pwa/blog2.png"
+				srcset="/be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_480x0_resize_box_2.png 480w, /be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_1024x0_resize_box_2.png 1024w"
+				width="1080"
+				height="2340"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+            <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/pixel/">
+        
+        
+            <div class="article-image">
+                <img src="/pixel/banner.c42fd2acc50a3c76a8e8ebb57e0503fa_hud3cc57fa5673d3672539d26f50f40c0d_44156_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-xC/SrMUKPHao6Ou1fgUD&#43;g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">代码帮我画像素画</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/inputUrl/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从输入URL到页面展示</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/web-promise/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">es6中的promise</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/web-dom-and-bom/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HTML的DOM和浏览器的BOM</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/web-knowledge/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端基础里一些杂七杂八的知识点</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=' 这两天开始放寒假，在家呆着也是呆着，遂决定找星空以前Android方向大佬写的项目学习下，看看别人代码的结构以及有什么方法可以降低代码的耦合度，然后在师兄的项目里接触到了BaseActivity，在这里记录一下
+'><title>Android基类的设计</title>
+
+<link rel='canonical' href='https://magren.cn/android-base-class/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Android基类的设计'>
+<meta property='og:description' content=' 这两天开始放寒假，在家呆着也是呆着，遂决定找星空以前Android方向大佬写的项目学习下，看看别人代码的结构以及有什么方法可以降低代码的耦合度，然后在师兄的项目里接触到了BaseActivity，在这里记录一下
+'>
+<meta property='og:url' content='https://magren.cn/android-base-class/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Android' /><meta property='article:published_time' content='2020-01-09T16:16:20&#43;00:00'/><meta property='article:modified_time' content='2020-01-09T16:16:20&#43;00:00'/>
+<meta name="twitter:title" content="Android基类的设计">
+<meta name="twitter:description" content=" 这两天开始放寒假，在家呆着也是呆着，遂决定找星空以前Android方向大佬写的项目学习下，看看别人代码的结构以及有什么方法可以降低代码的耦合度，然后在师兄的项目里接触到了BaseActivity，在这里记录一下
+">
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                Android
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/android-base-class/">Android基类的设计</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jan 09, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <blockquote>
+<p>这两天开始放寒假，在家呆着也是呆着，遂决定找星空以前Android方向大佬写的项目学习下，看看别人代码的结构以及有什么方法可以降低代码的耦合度，然后在师兄的项目里接触到了BaseActivity，在这里记录一下</p>
+</blockquote>
+<h1 id="为什么设计基类">为什么设计基类</h1>
+<ul>
+<li>方便代码编写，减少重复代码和冗余逻辑，优化代码</li>
+<li>优化程序架构，降低耦合度，方便拓展、修改</li>
+<li>版面更干净，减少了诸如生命周期日志等重复逻辑的占用版面</li>
+</ul>
+<h1 id="设计的基本思路">设计的基本思路</h1>
+<ul>
+<li>生命周期的调试日志输出</li>
+<li>绑定视图</li>
+<li>常用OnClick方法</li>
+<li>Back方法，Toast以及Activity等操作</li>
+<li>常用第三方工具（ButterKnife等）</li>
+<li>标题栏是否显示，是否全屏，初始化数据等</li>
+</ul>
+<h1 id="具体基类的封装">具体基类的封装</h1>
+<h2 id="baseactivity">BaseActivity</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseActivity</span><span class="o">&lt;</span><span class="n">P</span> <span class="kd">extends</span> <span class="n">BasePresenter</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span>
+        <span class="kd">implements</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">)</span>
+    <span class="n">Toolbar</span> <span class="n">mToolbar</span><span class="o">;</span>
+
+    <span class="n">Unbinder</span> <span class="n">bind</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 进度对话框
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="n">ProgressDialog</span> <span class="n">mProgressDialog</span><span class="o">;</span>
+    <span class="cm">/**
+</span><span class="cm">     * 泛型确定Presenter
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="n">P</span> <span class="n">mPresenter</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="c1">// 设置为竖屏
+</span><span class="c1"></span>        <span class="n">setRequestedOrientation</span><span class="o">(</span><span class="n">ActivityInfo</span><span class="o">.</span><span class="na">SCREEN_ORIENTATION_PORTRAIT</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">bindLayout</span><span class="o">());</span>
+        <span class="c1">// ButterKnife绑定布局
+</span><span class="c1"></span>        <span class="n">bind</span> <span class="o">=</span> <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">createPresenter</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// 调用Presenter初始化方法
+</span><span class="c1"></span>            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 准备数据
+</span><span class="c1"></span>        <span class="n">prepareData</span><span class="o">();</span>
+        <span class="c1">// 初始化标题栏
+</span><span class="c1"></span>        <span class="n">initToolbar</span><span class="o">();</span>
+        <span class="c1">// 初始化视图
+</span><span class="c1"></span>        <span class="n">initView</span><span class="o">();</span>
+        <span class="c1">// 初始化数据
+</span><span class="c1"></span>        <span class="n">initData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="c1">// 初始化事件监听
+</span><span class="c1"></span>        <span class="n">initEvent</span><span class="o">();</span>
+    <span class="o">}</span>
+
+
+    <span class="cm">/**
+</span><span class="cm">     * 创建Presenter
+</span><span class="cm">     *
+</span><span class="cm">     * @return 泛型Presenter
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">P</span> <span class="nf">createPresenter</span><span class="o">();</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 实现BasePresenter接口的setPresenter方法
+</span><span class="cm">     *
+</span><span class="cm">     * @param presenter createPresenter()创建的Presenter
+</span><span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">presenter</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化Toolbar
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initToolbar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">setSupportActionBar</span><span class="o">(</span><span class="n">mToolbar</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 设置Toolbar标题
+</span><span class="cm">     *
+</span><span class="cm">     * @param title 标题
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarTitle</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">getSupportActionBar</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 设置Toolbar显示返回按钮及标题
+</span><span class="cm">     *
+</span><span class="cm">     * @param title 标题
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarBackEnable</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">getSupportActionBar</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setDisplayHomeAsUpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setHomeAsUpIndicator</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_arrow_white_24dp</span><span class="o">);</span>
+            <span class="n">setToolbarTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 绑定布局
+</span><span class="cm">     *
+</span><span class="cm">     * @return 布局文件的资源ID
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">();</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 准备数据（从Intent获取上一个界面传过来的数据或其他需要初始化的数据）
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">();</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化视图，findViewById等等
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">();</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化数据，从本地或服务器开始获取数据
+</span><span class="cm">     *
+</span><span class="cm">     * @param savedInstanceState 界面非正常销毁时保存的数据
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化事件监听，setOnClickListener等等
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">();</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 实现BaseView的showToast(CharSequence msg)
+</span><span class="cm">     *
+</span><span class="cm">     * @param msg 吐司显示的信息
+</span><span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 实现BaseView的showToast(int msgId)
+</span><span class="cm">     *
+</span><span class="cm">     * @param msgId 吐司显示的字符串资源id
+</span><span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">msgId</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 实现BaseView的showLoadingDialog(CharSequence msg)
+</span><span class="cm">     * 显示加载对话框
+</span><span class="cm">     *
+</span><span class="cm">     * @param msg 对话框的提示内容
+</span><span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mProgressDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgressDialog</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
+            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 实现BaseView的hideLoadingDialog()
+</span><span class="cm">     * 隐藏加载对话框
+</span><span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">isShowing</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * Activity销毁时清理资源
+</span><span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ButterKnife解除绑定
+</span><span class="c1"></span>        <span class="n">bind</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span>
+        <span class="c1">// 销毁Presenter
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 隐藏键盘
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideKeyboard</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">getCurrentFocus</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">view</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">((</span><span class="n">InputMethodManager</span><span class="o">)</span> <span class="n">getSystemService</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">INPUT_METHOD_SERVICE</span><span class="o">)).</span>
+                    <span class="n">hideSoftInputFromWindow</span><span class="o">(</span><span class="n">view</span><span class="o">.</span><span class="na">getWindowToken</span><span class="o">(),</span> <span class="n">InputMethodManager</span><span class="o">.</span><span class="na">HIDE_NOT_ALWAYS</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+        <span class="c1">// （仅有Activity的应用中SDK自动调用，不需要单独写）
+</span><span class="c1"></span>        <span class="c1">// 保证 onPageEnd 在onPause之前调用,因为 onPause 中会保存信息。
+</span><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageEnd</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPause</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+        <span class="c1">//统计页面(仅有Activity的应用中SDK自动调用，不需要单独写。)
+</span><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageStart</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+        <span class="c1">//统计时长
+</span><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onResume</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onOptionsItemSelected</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getItemId</span><span class="o">()</span> <span class="o">==</span> <span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">home</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">finish</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onOptionsItemSelected</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="basefragment">BaseFragment</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseFragment</span><span class="o">&lt;</span><span class="n">P</span> <span class="kd">extends</span> <span class="n">BasePresenter</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Fragment</span>
+        <span class="kd">implements</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">)</span>
+    <span class="n">Toolbar</span> <span class="n">mToolbar</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">Unbinder</span> <span class="n">mUnbinder</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="n">P</span> <span class="n">mPresenter</span><span class="o">;</span>
+
+    <span class="kd">protected</span> <span class="n">ProgressDialog</span> <span class="n">mProgressDialog</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="n">ActionBar</span> <span class="n">mActionbar</span><span class="o">;</span>
+
+    <span class="nd">@Nullable</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="n">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="n">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">ViewGroup</span> <span class="n">container</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">createPresenter</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="n">View</span> <span class="n">root</span> <span class="o">=</span> <span class="n">inflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">bindLayout</span><span class="o">(),</span> <span class="n">container</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="n">mUnbinder</span> <span class="o">=</span> <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">root</span><span class="o">);</span>
+        <span class="n">prepareData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">initToolbar</span><span class="o">();</span>
+        <span class="c1">// 初始化视图
+</span><span class="c1"></span>        <span class="n">initView</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+        <span class="n">initData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">initEvent</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">P</span> <span class="nf">createPresenter</span><span class="o">();</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">presenter</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 准备数据
+</span><span class="cm">     *
+</span><span class="cm">     * @param savedInstanceState
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 绑定fragment的布局文件
+</span><span class="cm">     *
+</span><span class="cm">     * @return
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">();</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化数据
+</span><span class="cm">     *
+</span><span class="cm">     * @param savedInstanceState
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化界面
+</span><span class="cm">     *
+</span><span class="cm">     * @param rootView
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">(</span><span class="n">View</span> <span class="n">rootView</span><span class="o">);</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化事件监听器
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">();</span>
+
+
+    <span class="cm">/**
+</span><span class="cm">     * 初始化Toolbar
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initToolbar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">((</span><span class="n">AppCompatActivity</span><span class="o">)</span> <span class="n">getActivity</span><span class="o">()).</span><span class="na">setSupportActionBar</span><span class="o">(</span><span class="n">mToolbar</span><span class="o">);</span>
+        <span class="n">mActionbar</span> <span class="o">=</span> <span class="o">((</span><span class="n">AppCompatActivity</span><span class="o">)</span> <span class="n">getActivity</span><span class="o">()).</span><span class="na">getSupportActionBar</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 设置Toolbar标题
+</span><span class="cm">     *
+</span><span class="cm">     * @param title 标题
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarTitle</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mActionbar</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 设置Toolbar显示返回按钮及标题
+</span><span class="cm">     *
+</span><span class="cm">     * @param title 标题
+</span><span class="cm">     */</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarBackEnable</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mActionbar</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setDisplayHomeAsUpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setHomeAsUpIndicator</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_arrow_white_24dp</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">APP</span><span class="o">.</span><span class="na">getAppContext</span><span class="o">(),</span> <span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">APP</span><span class="o">.</span><span class="na">getAppContext</span><span class="o">(),</span> <span class="n">msgId</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mProgressDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgressDialog</span><span class="o">(</span><span class="n">getContext</span><span class="o">());</span>
+            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">isShowing</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDetach</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">mUnbinder</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDetach</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroyView</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroyView</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageStart</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageEnd</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div><h2 id="basepresenter">BasePresenter</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BasePresenter</span> <span class="o">{</span>
+
+    <span class="kt">void</span> <span class="nf">onStart</span><span class="o">();</span>
+
+    <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">();</span>
+
+<span class="o">}</span>
+</code></pre></div><h2 id="baseview">BaseView</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">);</span>
+
+    <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">);</span>
+
+    <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">);</span>
+
+    <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">);</span>
+
+    <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">();</span>
+
+<span class="o">}</span>
+</code></pre></div><h2 id="impl类">Impl类</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BasePresenterImpl</span> <span class="kd">implements</span> <span class="n">BasePresenter</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="n">CompositeDisposable</span> <span class="n">mSubscriptions</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompositeDisposable</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="app类">APP类</h2>
+<blockquote>
+<p>用于获取全局的context</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">APP</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Context</span> <span class="n">appContext</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">exitTime</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 获取Application的Context
+</span><span class="cm">     *
+</span><span class="cm">     * @return 全局Context
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Context</span> <span class="nf">getAppContext</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">appContext</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+        <span class="n">appContext</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 退出APP
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">exitApp</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">exitTime</span> <span class="o">&gt;</span> <span class="n">2000</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">getAppContext</span><span class="o">(),</span> <span class="n">appContext</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">text_press_again</span><span class="o">));</span>
+            <span class="n">exitTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Process</span><span class="o">.</span><span class="na">killProcess</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Process</span><span class="o">.</span><span class="na">myPid</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h1 id="具体使用">具体使用</h1>
+<h2 id="contract-契约类">Contract 契约类</h2>
+<blockquote>
+<p>契约类用于定义同一个界面的view和presenter的接口，通过规范的方法命名或注释，可以清晰的看到整个页面的逻辑。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">myContract</span> <span class="o">{</span>
+
+    <span class="kd">interface</span> <span class="nc">View</span> <span class="kd">extends</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">Presenter</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">interface</span> <span class="nc">Presenter</span> <span class="kd">extends</span> <span class="n">BasePresenter</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="presenter">Presenter</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SamplePresenter</span> <span class="kd">extends</span> <span class="n">BasePresenterImpl</span> <span class="kd">implements</span> <span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="n">mView</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">SamplePresenter</span><span class="o">(</span><span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mView</span> <span class="o">=</span> <span class="n">view</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">mView</span><span class="o">.</span><span class="na">setPresenter</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h2 id="activiy">Activiy</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleActivity</span> <span class="kd">extends</span> <span class="n">BaseActivity</span><span class="o">&lt;</span><span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="o">{</span>
+
+    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_sample_text</span><span class="o">)</span>
+    <span class="n">TextView</span> <span class="n">mTvSample</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span> <span class="nf">createPresenter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">SamplePresenter</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//TODO:添加视图，记得添加androidmanifest
+</span><span class="c1"></span>        <span class="k">return</span> <span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_sample</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//TODO:准备数据 比如：从数据库加载数据，或者网络请求数据等等
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//TODO:初始化视图 比如：recycleview的准备，添加adapter等等
+</span><span class="c1"></span>        <span class="n">mTvSample</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&#34;这是一个sample&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//TODO:初始化数据 比如：将数据加入到view中
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//TODO:初始化事件监听 比如：增加监听器，下拉刷新，加载更多等等
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/android/">Android</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/android-eventbuts/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的EventBus使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-custom-view/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android自定义view的定义</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/rxjava-composite-disposable/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rxjava的CompositeDisposable</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-rxjava/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的rxjava2</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-life-cycle/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android Activity生命周期</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

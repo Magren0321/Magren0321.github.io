@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 16 Apr 2020 15:43:52 +0000</lastBuildDate><atom:link href="https://magren.cn/categories/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android的EventBus使用</title>
-      <link>https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/</link>
+      <link>https://magren.cn/android-eventbuts/</link>
       <pubDate>Thu, 16 Apr 2020 15:43:52 +0000</pubDate>
       
-      <guid>https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://magren.cn/android-eventbuts/</guid>
       <description>这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
 这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
 网址在下面：
@@ -28,10 +28,10 @@ EventBus概述 EventBus是一个Android事件发布/订阅框架，通过解耦�
     
     <item>
       <title>Android自定义view的定义</title>
-      <link>https://magren.cn/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/</link>
+      <link>https://magren.cn/android-custom-view/</link>
       <pubDate>Tue, 14 Apr 2020 15:16:34 +0000</pubDate>
       
-      <guid>https://magren.cn/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/</guid>
+      <guid>https://magren.cn/android-custom-view/</guid>
       <description>自定义 View 就是通过继承 View 或者 View 的子类，并在新的类里面实现相应的处理逻辑（重写相应的方法），以达到自己想要的效果。
  分类  自定义ViewGroup：自定义ViewGroup一般是利用现有的组件根据特定的布局方式来组成新的组件，大多继承自ViewGroup或各种Layout，包含有子View。 自定义view: 在没有现成的View，需要自己实现的时候，就使用自定义View，一般继承自View，SurfaceView或其他的View，不包含子View。  构造函数 无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。
 public class TestView extends View { /** * 在java代码里new的时候会用到 * @param context */ public TestView(Context context) { super(context); } /** * 在xml布局文件中使用时自动调用 * @param context */ public TestView(Context context, @Nullable AttributeSet attrs) { super(context, attrs); } /** * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr */ public TestView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) { super(context, attrs, defStyleAttr); } /** * 只有在API版本&amp;gt;21时才会用到 * 不会自动调用，如果有默认style时，在第二个构造函数中调用 * @param context * @param attrs * @param defStyleAttr * @param defStyleRes */ @RequiresApi(api = Build.</description>
@@ -39,10 +39,10 @@ public class TestView extends View { /** * 在java代码里new的时候会用到
     
     <item>
       <title>Rxjava的CompositeDisposable</title>
-      <link>https://magren.cn/rxjava%E7%9A%84compositedisposable/</link>
+      <link>https://magren.cn/rxjava-composite-disposable/</link>
       <pubDate>Sun, 29 Mar 2020 15:13:03 +0000</pubDate>
       
-      <guid>https://magren.cn/rxjava%E7%9A%84compositedisposable/</guid>
+      <guid>https://magren.cn/rxjava-composite-disposable/</guid>
       <description>之前在学习Rxjava的时候发现仍有部分知识点自己遗漏了，不够严谨，在这里补充多一个知识点。那就是CompositeDisposable类。
 在用Rxjava配合Retorfit的时候，发送请求，拿到数据后我们要让数据显示在视图中的时候往往会刷新页面，但假如，我们发送请求出去的时候网络比较差，返回数据比较慢，然后我们又手快的关闭了当前这个Activity，那RxJava当拿到返回的数据的时候去刷新界面就会报空指针异常了。就是说，请求过程中，我们的UI层Destroy的时候，不及时取消订阅，就会造成内存泄漏。这里就要用到我们的CompositeDisposable。
 使用 使用的方法大致就是三步：
@@ -51,10 +51,10 @@ public class TestView extends View { /** * 在java代码里new的时候会用到
     
     <item>
       <title>Android的rxjava2</title>
-      <link>https://magren.cn/android%E7%9A%84rxjava2/</link>
+      <link>https://magren.cn/android-rxjava/</link>
       <pubDate>Fri, 13 Mar 2020 14:59:35 +0000</pubDate>
       
-      <guid>https://magren.cn/android%E7%9A%84rxjava2/</guid>
+      <guid>https://magren.cn/android-rxjava/</guid>
       <description>RxJava是利用观察者模式来实现一些列的操作，所以对于观察者模式中的观察者，被观察者，以及订阅、事件需要有一个了解。
 Observable：在观察者模式中称为“被观察者”； Observer：观察者模式中的“观察者”，可接收Observable发送的数据； subscribe：订阅，观察者与被观察者，通过Observable的subscribe()方法进行订阅； Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的区别，不同的是 Subscriber要与Flowable(也是一种被观察者)联合使用，Obsesrver用于订阅Observable，而Subscriber用于订阅Flowable.
 观察者模式 rxjava的实现主要是通过观察者模式实现的。
@@ -66,10 +66,10 @@ A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感
     
     <item>
       <title>Android Activity生命周期</title>
-      <link>https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <link>https://magren.cn/android-life-cycle/</link>
       <pubDate>Fri, 06 Mar 2020 14:36:01 +0000</pubDate>
       
-      <guid>https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <guid>https://magren.cn/android-life-cycle/</guid>
       <description>先上Google提供的经典图，是对Activity生命周期各个阶段之间导航转换的直观展现。
 Activity类提供了六个核心回调：onCreate()、onStart()、onResume()、onPause()、onStop()和onDestroy()。
 生命周期
@@ -83,10 +83,10 @@ Activity类提供了六个核心回调：onCreate()、onStart()、onResume()、o
     
     <item>
       <title>说说Android的内存泄露和溢出</title>
-      <link>https://magren.cn/%E8%AF%B4%E8%AF%B4android%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E6%BA%A2%E5%87%BA/</link>
+      <link>https://magren.cn/android-memory/</link>
       <pubDate>Sun, 01 Mar 2020 14:27:13 +0000</pubDate>
       
-      <guid>https://magren.cn/%E8%AF%B4%E8%AF%B4android%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E6%BA%A2%E5%87%BA/</guid>
+      <guid>https://magren.cn/android-memory/</guid>
       <description>虽然在大学以来学习了一年多的安卓，已经可以完成一部分的需求，但是在Android这方面的底层知识和一些概念我应该不算非常了解，借着这个长假的机会打算好好熟悉下。
 Android内存泄漏 内存泄漏是指保存了不可能再被访问的变量引用，导致垃圾回收器无法回收内存。 也就是说： 在Java中有些对象的生命周期是有限的，当它们完成了特定的逻辑后会被回收，但是，如果在对象的生命周期本该被回收时，这个对象仍然还被别的对象所持有引用，那么就会导致内存泄漏。 具体例子：
 public class LeakAct extends Activity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.aty_leak); test(); } public void test() { new Thread(new Runnable() { @Override public void run() { while (true) { try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); } }z } }).start(); } } test是一个非静态内部类，当我们finish的时候，该实例不会真正销毁，GC机制也不会进行该实例的垃圾回收，因为***匿名内部类和非静态内部类持有外部类的强引用， ***也就是说test持有外部activity的强引用，而thread内部while(true)是死循环，线程不会停止，对外部activity的强引用也不会消失。这样就造成了内存泄漏。
@@ -98,10 +98,10 @@ public class LeakAct extends Activity { @Override protected void onCreate(Bundle
     
     <item>
       <title>关于starTranslation</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Estartranslation/</link>
+      <link>https://magren.cn/about-star-translation/</link>
       <pubDate>Mon, 03 Feb 2020 16:16:20 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Estartranslation/</guid>
+      <guid>https://magren.cn/about-star-translation/</guid>
       <description>&lt;p&gt;这个项目其实去年就有写了，但是那时候没有用到基类，然后用的是网易云有道翻译的sdk，耦合方面也不是做的很好，在寒假这段时间便把它重构了一遍，
 同时用上了rxjava2和retorfit来进行网络的请求以及用上了ButterKnife。这个项目就当作自己的一个学习吧，后面还有什么可以优化的地方再逐步更新。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -112,10 +112,10 @@ public class LeakAct extends Activity { @Override protected void onCreate(Bundle
     
     <item>
       <title>Android基类的设计</title>
-      <link>https://magren.cn/android%E5%9F%BA%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://magren.cn/android-base-class/</link>
       <pubDate>Thu, 09 Jan 2020 16:16:20 +0000</pubDate>
       
-      <guid>https://magren.cn/android%E5%9F%BA%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://magren.cn/android-base-class/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这两天开始放寒假，在家呆着也是呆着，遂决定找星空以前Android方向大佬写的项目学习下，看看别人代码的结构以及有什么方法可以降低代码的耦合度，然后在师兄的项目里接触到了BaseActivity，在这里记录一下&lt;/p&gt;
 &lt;/blockquote&gt;</description>

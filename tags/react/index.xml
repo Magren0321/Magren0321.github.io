@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 30 Jul 2021 14:00:21 +0800</lastBuildDate><atom:link href="https://magren.cn/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于Github Report 👨‍🚀</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</link>
+      <link>https://magren.cn/about-github-report/</link>
       <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</guid>
+      <guid>https://magren.cn/about-github-report/</guid>
       <description>前言🛸  GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。
  Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，曾用它抄别人代码来度过作业的危机， 在之前使用Puppeteer尝试爬取了Github的部分数据，于是脑子一抽， 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。
 项目地址：Github Report
@@ -34,10 +34,10 @@ useState 为函数式组件引入state，这个函数返回一个数组，数组
     
     <item>
       <title>关于ChatRoom</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</link>
+      <link>https://magren.cn/about-chatroom/</link>
       <pubDate>Wed, 10 Feb 2021 18:11:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</guid>
+      <guid>https://magren.cn/about-chatroom/</guid>
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom

@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://magren.cn/2021-summary/</loc>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
+  </url><url>
     <loc>https://magren.cn/categories/</loc>
-    <lastmod>2021-11-24T10:14:21+08:00</lastmod>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/</loc>
-    <lastmod>2021-11-24T10:14:21+08:00</lastmod>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/post/</loc>
-    <lastmod>2021-11-24T10:14:21+08:00</lastmod>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/</loc>
-    <lastmod>2021-11-24T10:14:21+08:00</lastmod>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/</loc>
+    <loc>https://magren.cn/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/2021-job-wanted/</loc>
     <lastmod>2021-11-24T10:14:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/%E5%B7%A5%E4%BD%9C/</loc>
-    <lastmod>2021-11-24T10:14:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2021-11-24T10:14:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/categories/%E6%97%A5%E5%B8%B8/</loc>
@@ -32,7 +41,7 @@
     <loc>https://magren.cn/categories/react/</loc>
     <lastmod>2021-07-30T14:00:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</loc>
+    <loc>https://magren.cn/about-github-report/</loc>
     <lastmod>2021-07-30T14:00:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
@@ -47,7 +56,7 @@
     <loc>https://magren.cn/tags/node.js/</loc>
     <lastmod>2021-07-07T12:57:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</loc>
+    <loc>https://magren.cn/puppeteer-get-github/</loc>
     <lastmod>2021-07-07T12:57:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/categories/%E5%89%8D%E7%AB%AF/</loc>
@@ -56,19 +65,19 @@
     <loc>https://magren.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-04-03T22:14:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</loc>
+    <loc>https://magren.cn/be-pwa/</loc>
     <lastmod>2021-04-03T22:14:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/</loc>
+    <loc>https://magren.cn/my-21st-birthday/</loc>
     <lastmod>2021-03-21T14:00:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</loc>
+    <loc>https://magren.cn/pixel/</loc>
     <lastmod>2021-02-25T16:33:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/typescript/</loc>
     <lastmod>2021-02-10T18:11:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</loc>
+    <loc>https://magren.cn/about-chatroom/</loc>
     <lastmod>2021-02-10T18:11:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/vue/</loc>
@@ -77,22 +86,16 @@
     <loc>https://magren.cn/categories/vue/</loc>
     <lastmod>2021-01-28T16:33:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</loc>
+    <loc>https://magren.cn/about-cloudmusic/</loc>
     <lastmod>2021-01-28T16:33:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/</loc>
+    <loc>https://magren.cn/move-to-hugo/</loc>
     <lastmod>2021-01-08T14:54:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2021-01-08T14:54:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</loc>
-    <lastmod>2020-12-31T20:17:01+00:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2020-12-31T20:17:01+00:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/%E6%80%BB%E7%BB%93/</loc>
+    <loc>https://magren.cn/2020-summary/</loc>
     <lastmod>2020-12-31T20:17:01+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/http/</loc>
@@ -101,13 +104,13 @@
     <loc>https://magren.cn/tags/javascript/</loc>
     <lastmod>2020-11-08T23:12:57+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</loc>
+    <loc>https://magren.cn/inputUrl/</loc>
     <lastmod>2020-11-08T23:12:57+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/mongodb/</loc>
     <lastmod>2020-10-19T23:17:34+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/</loc>
+    <loc>https://magren.cn/node-express/</loc>
     <lastmod>2020-10-19T23:17:34+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/%E5%90%8E%E7%AB%AF/</loc>
@@ -116,46 +119,46 @@
     <loc>https://magren.cn/tags/%E6%98%9F%E7%A9%BA/</loc>
     <lastmod>2020-10-14T00:25:54+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/</loc>
+    <loc>https://magren.cn/starry-sky/</loc>
     <lastmod>2020-10-14T00:25:54+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/vue%E4%B8%8B%E7%9A%84eventbus/</loc>
+    <loc>https://magren.cn/vue-eventbus/</loc>
     <lastmod>2020-10-12T11:21:03+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/node.js-mongodb/</loc>
+    <loc>https://magren.cn/node-mongodb/</loc>
     <lastmod>2020-09-16T23:26:09+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2020-09-16T23:26:09+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</loc>
+    <loc>https://magren.cn/vue-roll/</loc>
     <lastmod>2020-08-27T23:30:42+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/axios/</loc>
     <lastmod>2020-08-12T14:45:50+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://magren.cn/vue-ts-axios/</loc>
     <lastmod>2020-08-12T14:45:50+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</loc>
+    <loc>https://magren.cn/about-hgmap/</loc>
     <lastmod>2020-07-30T14:53:09+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/</loc>
+    <loc>https://magren.cn/two-years-of-college/</loc>
     <lastmod>2020-07-15T16:11:42+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2020-07-10T13:28:29+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</loc>
+    <loc>https://magren.cn/vue-homework/</loc>
     <lastmod>2020-07-10T13:28:29+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</loc>
+    <loc>https://magren.cn/web-promise/</loc>
     <lastmod>2020-05-27T21:29:47+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</loc>
+    <loc>https://magren.cn/web-dom-and-bom/</loc>
     <lastmod>2020-05-09T17:52:32+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
+    <loc>https://magren.cn/web-knowledge/</loc>
     <lastmod>2020-05-02T16:34:16+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/android/</loc>
@@ -164,28 +167,28 @@
     <loc>https://magren.cn/categories/android/</loc>
     <lastmod>2020-04-16T15:43:52+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://magren.cn/android-eventbuts/</loc>
     <lastmod>2020-04-16T15:43:52+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/</loc>
+    <loc>https://magren.cn/android-custom-view/</loc>
     <lastmod>2020-04-14T15:16:34+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/rxjava%E7%9A%84compositedisposable/</loc>
+    <loc>https://magren.cn/rxjava-composite-disposable/</loc>
     <lastmod>2020-03-29T15:13:03+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/android%E7%9A%84rxjava2/</loc>
+    <loc>https://magren.cn/android-rxjava/</loc>
     <lastmod>2020-03-13T14:59:35+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <loc>https://magren.cn/android-life-cycle/</loc>
     <lastmod>2020-03-06T14:36:01+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E8%AF%B4%E8%AF%B4android%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E6%BA%A2%E5%87%BA/</loc>
+    <loc>https://magren.cn/android-memory/</loc>
     <lastmod>2020-03-01T14:27:13+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/%E5%85%B3%E4%BA%8Estartranslation/</loc>
+    <loc>https://magren.cn/about-star-translation/</loc>
     <lastmod>2020-02-03T16:16:20+00:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/android%E5%9F%BA%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1/</loc>
+    <loc>https://magren.cn/android-base-class/</loc>
     <lastmod>2020-01-09T16:16:20+00:00</lastmod>
   </url><url>
     <loc>https://magren.cn/about/</loc>

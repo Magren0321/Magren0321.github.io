@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='之前在学习Rxjava的时候发现仍有部分知识点自己遗漏了，不够严谨，在这里补充多一个知识点。那就是CompositeDisposable类。
+在用Rxjava配合Retorfit的时候，发送请求，拿到数据后我们要让数据显示在视图中的时候往往会刷新页面，但假如，我们发送请求出去的时候网络比较差，返回数据比较慢，然后我们又手快的关闭了当前这个Activity，那RxJava当拿到返回的数据的时候去刷新界面就会报空指针异常了。就是说，请求过程中，我们的UI层Destroy的时候，不及时取消订阅，就会造成内存泄漏。这里就要用到我们的CompositeDisposable。
+使用 使用的方法大致就是三步：
+ ui层创建的时候，实例化我们的CompositeDisposable类。 把订阅返回的disposable对象加入到我们的管理器中。 ui层销毁的时候清空订阅对象。  创建ui的时候实例化 @Override public void onStart() { if (mSubscriptions == null) { mSubscriptions = new CompositeDisposable(); } } 添加disposable对象 netWork.getInstance().getDataService() .translateYouDao(q,from,to,appID,salt,sign,signType,curtime) .subscribeOn(Schedulers.newThread()) .observeOn(AndroidSchedulers.mainThread()) .subscribe(new Observer&amp;lt;TranslationBean&amp;gt;() { @Override public void onSubscribe(Disposable d) { mSubscriptions.add(d); //这里添加到容器中  } @Override public void onNext(TranslationBean translationBean) { List&amp;lt;TranslationBean&amp;gt; list_word = new ArrayList&amp;lt;&amp;gt;(); list_word.add(translationBean); mView.showResult(list_word); } @Override public void onError(Throwable e) { mView.showConnection(); } @Override public void onComplete() { } }); ui层销毁时候解除订阅 @Override public void onDestroy() { if (mSubscriptions !'><title>Rxjava的CompositeDisposable</title>
+
+<link rel='canonical' href='https://magren.cn/rxjava-composite-disposable/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Rxjava的CompositeDisposable'>
+<meta property='og:description' content='之前在学习Rxjava的时候发现仍有部分知识点自己遗漏了，不够严谨，在这里补充多一个知识点。那就是CompositeDisposable类。
+在用Rxjava配合Retorfit的时候，发送请求，拿到数据后我们要让数据显示在视图中的时候往往会刷新页面，但假如，我们发送请求出去的时候网络比较差，返回数据比较慢，然后我们又手快的关闭了当前这个Activity，那RxJava当拿到返回的数据的时候去刷新界面就会报空指针异常了。就是说，请求过程中，我们的UI层Destroy的时候，不及时取消订阅，就会造成内存泄漏。这里就要用到我们的CompositeDisposable。
+使用 使用的方法大致就是三步：
+ ui层创建的时候，实例化我们的CompositeDisposable类。 把订阅返回的disposable对象加入到我们的管理器中。 ui层销毁的时候清空订阅对象。  创建ui的时候实例化 @Override public void onStart() { if (mSubscriptions == null) { mSubscriptions = new CompositeDisposable(); } } 添加disposable对象 netWork.getInstance().getDataService() .translateYouDao(q,from,to,appID,salt,sign,signType,curtime) .subscribeOn(Schedulers.newThread()) .observeOn(AndroidSchedulers.mainThread()) .subscribe(new Observer&amp;lt;TranslationBean&amp;gt;() { @Override public void onSubscribe(Disposable d) { mSubscriptions.add(d); //这里添加到容器中  } @Override public void onNext(TranslationBean translationBean) { List&amp;lt;TranslationBean&amp;gt; list_word = new ArrayList&amp;lt;&amp;gt;(); list_word.add(translationBean); mView.showResult(list_word); } @Override public void onError(Throwable e) { mView.showConnection(); } @Override public void onComplete() { } }); ui层销毁时候解除订阅 @Override public void onDestroy() { if (mSubscriptions !'>
+<meta property='og:url' content='https://magren.cn/rxjava-composite-disposable/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Android' /><meta property='article:published_time' content='2020-03-29T15:13:03&#43;00:00'/><meta property='article:modified_time' content='2020-03-29T15:13:03&#43;00:00'/>
+<meta name="twitter:title" content="Rxjava的CompositeDisposable">
+<meta name="twitter:description" content="之前在学习Rxjava的时候发现仍有部分知识点自己遗漏了，不够严谨，在这里补充多一个知识点。那就是CompositeDisposable类。
+在用Rxjava配合Retorfit的时候，发送请求，拿到数据后我们要让数据显示在视图中的时候往往会刷新页面，但假如，我们发送请求出去的时候网络比较差，返回数据比较慢，然后我们又手快的关闭了当前这个Activity，那RxJava当拿到返回的数据的时候去刷新界面就会报空指针异常了。就是说，请求过程中，我们的UI层Destroy的时候，不及时取消订阅，就会造成内存泄漏。这里就要用到我们的CompositeDisposable。
+使用 使用的方法大致就是三步：
+ ui层创建的时候，实例化我们的CompositeDisposable类。 把订阅返回的disposable对象加入到我们的管理器中。 ui层销毁的时候清空订阅对象。  创建ui的时候实例化 @Override public void onStart() { if (mSubscriptions == null) { mSubscriptions = new CompositeDisposable(); } } 添加disposable对象 netWork.getInstance().getDataService() .translateYouDao(q,from,to,appID,salt,sign,signType,curtime) .subscribeOn(Schedulers.newThread()) .observeOn(AndroidSchedulers.mainThread()) .subscribe(new Observer&amp;lt;TranslationBean&amp;gt;() { @Override public void onSubscribe(Disposable d) { mSubscriptions.add(d); //这里添加到容器中  } @Override public void onNext(TranslationBean translationBean) { List&amp;lt;TranslationBean&amp;gt; list_word = new ArrayList&amp;lt;&amp;gt;(); list_word.add(translationBean); mView.showResult(list_word); } @Override public void onError(Throwable e) { mView.showConnection(); } @Override public void onComplete() { } }); ui层销毁时候解除订阅 @Override public void onDestroy() { if (mSubscriptions !">
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                Android
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/rxjava-composite-disposable/">Rxjava的CompositeDisposable</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Mar 29, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>之前在学习Rxjava的时候发现仍有部分知识点自己遗漏了，不够严谨，在这里补充多一个知识点。那就是CompositeDisposable类。</p>
+<!-- raw HTML omitted -->
+<p>在用Rxjava配合Retorfit的时候，发送请求，拿到数据后我们要让数据显示在视图中的时候往往会刷新页面，但假如，我们发送请求出去的时候网络比较差，返回数据比较慢，然后我们又手快的关闭了当前这个Activity，那RxJava当拿到返回的数据的时候去刷新界面就会报空指针异常了。就是说，请求过程中，我们的UI层Destroy的时候，不及时取消订阅，就会造成内存泄漏。这里就要用到我们的<strong>CompositeDisposable</strong>。</p>
+<h1 id="使用">使用</h1>
+<p>使用的方法大致就是三步：</p>
+<ul>
+<li>ui层创建的时候，实例化我们的CompositeDisposable类。</li>
+<li>把订阅返回的disposable对象加入到我们的管理器中。</li>
+<li>ui层销毁的时候清空订阅对象。</li>
+</ul>
+<h2 id="创建ui的时候实例化">创建ui的时候实例化</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+       <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+           <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompositeDisposable</span><span class="o">();</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+</code></pre></div><h2 id="添加disposable对象">添加disposable对象</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">netWork</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDataService</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">translateYouDao</span><span class="o">(</span><span class="n">q</span><span class="o">,</span><span class="n">from</span><span class="o">,</span><span class="n">to</span><span class="o">,</span><span class="n">appID</span><span class="o">,</span><span class="n">salt</span><span class="o">,</span><span class="n">sign</span><span class="o">,</span><span class="n">signType</span><span class="o">,</span><span class="n">curtime</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSubscribe</span><span class="o">(</span><span class="n">Disposable</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>   <span class="c1">//这里添加到容器中
+</span><span class="c1"></span>                    <span class="o">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">TranslationBean</span> <span class="n">translationBean</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">List</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;</span> <span class="n">list_word</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+                        <span class="n">list_word</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">translationBean</span><span class="o">);</span>
+                        <span class="n">mView</span><span class="o">.</span><span class="na">showResult</span><span class="o">(</span><span class="n">list_word</span><span class="o">);</span>
+                    <span class="o">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">mView</span><span class="o">.</span><span class="na">showConnection</span><span class="o">();</span>
+                    <span class="o">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onComplete</span><span class="o">()</span> <span class="o">{</span>
+
+                    <span class="o">}</span>
+                <span class="o">});</span>
+</code></pre></div><h2 id="ui层销毁时候解除订阅">ui层销毁时候解除订阅</h2>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div><h1 id="总结">总结</h1>
+<p>一些细节上的地方自己没能发现，还是得多看看别人代码，遇到不知道用来干嘛的类说不定就是自己忽略掉的地方。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/android/">Android</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/android-eventbuts/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的EventBus使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-custom-view/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android自定义view的定义</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-rxjava/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的rxjava2</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-life-cycle/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android Activity生命周期</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-memory/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">说说Android的内存泄露和溢出</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

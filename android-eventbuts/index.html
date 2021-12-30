@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
+这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
+网址在下面：
+ 阿里巴巴Android开发手册
+ 估摸是我接触的太少的缘故，在一开始的第一条我就懵掉了
+  【强制】Activity 间的数据通信，对于数据量比较大的，避免使用 Intent &#43; Parcelable 的方式，可以考虑 EventBus 等替代方案，以免造成 TransactionTooLargeException。   这个EventBus……是啥？？？
+EventBus概述 EventBus是一个Android事件发布/订阅框架，通过解耦发布者和订阅者简化Android事件传递，这里的事件可以理解为消息。事件传递既可以用于Android四大组件间通讯，也可以用于异步线程和主线程间通讯等。 传统的事件传递方式包括：Handler、BroadcastReceiver、Interface回调，相比之下EventBus的有点是代码简洁，使用简单，并将事件发布和 订阅充分解耦。
+在这里面，又有三个对象：
+ 事件Event：就是消息，分为一般事件和Sticky（黏性）事件，Sticky事件的特殊在于，当事件发布后，再有订阅者订阅该类型事件，依然能收到该类型 事件的最近的一个Sticky事件 订阅者Subscriber：订阅事件的对象，当发布者发布事件猴，EventBus会执行订阅者的事件响应函数。订阅者通过register接口订阅某个事件类型，unregister接口退订 发布者：发布事件的对象，通过post接口发布事件，黏性事件通过postSticky  Github地址：EventBus
+使用 道理我都懂，但是我得知道它是怎么用的，不然日后复制起来粘贴在哪都不知道，于是我在网上找到了它的使用方法。
+一般事件 自定义一个事件类 public class Event { String message; public Event(String message){ this.message = message; } public String getMessage() { return message; } } 在需要接收消息的页面注册 EventBus.getDefault().register(this); 接收消息的方法 @Subscribe(threadMode = ThreadMode.MAIN) public void getEvent(Event event) { msg = event.'><title>Android的EventBus使用</title>
+
+<link rel='canonical' href='https://magren.cn/android-eventbuts/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Android的EventBus使用'>
+<meta property='og:description' content='这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
+这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
+网址在下面：
+ 阿里巴巴Android开发手册
+ 估摸是我接触的太少的缘故，在一开始的第一条我就懵掉了
+  【强制】Activity 间的数据通信，对于数据量比较大的，避免使用 Intent &#43; Parcelable 的方式，可以考虑 EventBus 等替代方案，以免造成 TransactionTooLargeException。   这个EventBus……是啥？？？
+EventBus概述 EventBus是一个Android事件发布/订阅框架，通过解耦发布者和订阅者简化Android事件传递，这里的事件可以理解为消息。事件传递既可以用于Android四大组件间通讯，也可以用于异步线程和主线程间通讯等。 传统的事件传递方式包括：Handler、BroadcastReceiver、Interface回调，相比之下EventBus的有点是代码简洁，使用简单，并将事件发布和 订阅充分解耦。
+在这里面，又有三个对象：
+ 事件Event：就是消息，分为一般事件和Sticky（黏性）事件，Sticky事件的特殊在于，当事件发布后，再有订阅者订阅该类型事件，依然能收到该类型 事件的最近的一个Sticky事件 订阅者Subscriber：订阅事件的对象，当发布者发布事件猴，EventBus会执行订阅者的事件响应函数。订阅者通过register接口订阅某个事件类型，unregister接口退订 发布者：发布事件的对象，通过post接口发布事件，黏性事件通过postSticky  Github地址：EventBus
+使用 道理我都懂，但是我得知道它是怎么用的，不然日后复制起来粘贴在哪都不知道，于是我在网上找到了它的使用方法。
+一般事件 自定义一个事件类 public class Event { String message; public Event(String message){ this.message = message; } public String getMessage() { return message; } } 在需要接收消息的页面注册 EventBus.getDefault().register(this); 接收消息的方法 @Subscribe(threadMode = ThreadMode.MAIN) public void getEvent(Event event) { msg = event.'>
+<meta property='og:url' content='https://magren.cn/android-eventbuts/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Android' /><meta property='article:published_time' content='2020-04-16T15:43:52&#43;00:00'/><meta property='article:modified_time' content='2020-04-16T15:43:52&#43;00:00'/>
+<meta name="twitter:title" content="Android的EventBus使用">
+<meta name="twitter:description" content="这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
+这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。
+网址在下面：
+ 阿里巴巴Android开发手册
+ 估摸是我接触的太少的缘故，在一开始的第一条我就懵掉了
+  【强制】Activity 间的数据通信，对于数据量比较大的，避免使用 Intent &#43; Parcelable 的方式，可以考虑 EventBus 等替代方案，以免造成 TransactionTooLargeException。   这个EventBus……是啥？？？
+EventBus概述 EventBus是一个Android事件发布/订阅框架，通过解耦发布者和订阅者简化Android事件传递，这里的事件可以理解为消息。事件传递既可以用于Android四大组件间通讯，也可以用于异步线程和主线程间通讯等。 传统的事件传递方式包括：Handler、BroadcastReceiver、Interface回调，相比之下EventBus的有点是代码简洁，使用简单，并将事件发布和 订阅充分解耦。
+在这里面，又有三个对象：
+ 事件Event：就是消息，分为一般事件和Sticky（黏性）事件，Sticky事件的特殊在于，当事件发布后，再有订阅者订阅该类型事件，依然能收到该类型 事件的最近的一个Sticky事件 订阅者Subscriber：订阅事件的对象，当发布者发布事件猴，EventBus会执行订阅者的事件响应函数。订阅者通过register接口订阅某个事件类型，unregister接口退订 发布者：发布事件的对象，通过post接口发布事件，黏性事件通过postSticky  Github地址：EventBus
+使用 道理我都懂，但是我得知道它是怎么用的，不然日后复制起来粘贴在哪都不知道，于是我在网上找到了它的使用方法。
+一般事件 自定义一个事件类 public class Event { String message; public Event(String message){ this.message = message; } public String getMessage() { return message; } } 在需要接收消息的页面注册 EventBus.getDefault().register(this); 接收消息的方法 @Subscribe(threadMode = ThreadMode.MAIN) public void getEvent(Event event) { msg = event.">
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                Android
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/android-eventbuts/">Android的EventBus使用</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Apr 16, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。</p>
+<!-- raw HTML omitted -->
+<p>这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。</p>
+<p>网址在下面：</p>
+<blockquote>
+<p><a class="link" href="https://edu.aliyun.com/course/813?spm=5176.10731460.0.0.6a8739f4neg819"  target="_blank" rel="noopener"
+    >阿里巴巴Android开发手册</a></p>
+</blockquote>
+<p>估摸是我接触的太少的缘故，在一开始的第一条我就懵掉了</p>
+<blockquote>
+<ol>
+<li>【强制】Activity 间的数据通信，对于数据量比较大的，避免使用 Intent + Parcelable 的方式，可以考虑 EventBus 等替代方案，以免造成 TransactionTooLargeException。</li>
+</ol>
+</blockquote>
+<p>这个<strong>EventBus</strong>……是啥？？？</p>
+<h1 id="eventbus概述">EventBus概述</h1>
+<p>EventBus是一个Android事件发布/订阅框架，通过解耦发布者和订阅者简化Android事件传递，这里的事件可以理解为消息。事件传递既可以用于Android四大组件间通讯，也可以用于异步线程和主线程间通讯等。
+传统的事件传递方式包括：Handler、BroadcastReceiver、Interface回调，相比之下EventBus的有点是代码简洁，使用简单，并将事件发布和 订阅充分解耦。</p>
+<p>在这里面，又有三个对象：</p>
+<ul>
+<li><strong>事件Event</strong>：就是消息，分为一般事件和Sticky（黏性）事件，Sticky事件的特殊在于，当事件发布后，再有订阅者订阅该类型事件，依然能收到该类型 事件的最近的一个Sticky事件</li>
+<li><strong>订阅者Subscriber</strong>：订阅事件的对象，当发布者发布事件猴，EventBus会执行订阅者的事件响应函数。订阅者通过register接口订阅某个事件类型，unregister接口退订</li>
+<li><strong>发布者</strong>：发布事件的对象，通过post接口发布事件，黏性事件通过postSticky</li>
+</ul>
+<p>Github地址：<a class="link" href="https://github.com/greenrobot/EventBus"  target="_blank" rel="noopener"
+    >EventBus</a></p>
+<h1 id="使用">使用</h1>
+<p>道理我都懂，但是我得知道它是怎么用的，不然日后复制起来粘贴在哪都不知道，于是我在网上找到了它的使用方法。</p>
+<h2 id="一般事件">一般事件</h2>
+<h3 id="自定义一个事件类">自定义一个事件类</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+    <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+
+
+    <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="在需要接收消息的页面注册">在需要接收消息的页面注册</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">register</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</code></pre></div><h3 id="接收消息的方法">接收消息的方法</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Subscribe</span><span class="o">(</span><span class="n">threadMode</span> <span class="o">=</span> <span class="n">ThreadMode</span><span class="o">.</span><span class="na">MAIN</span><span class="o">)</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getEvent</span><span class="o">(</span><span class="n">Event</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">msg</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">getMessage</span><span class="o">();</span>
+       <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+   <span class="o">}</span>
+</code></pre></div><h3 id="发送事件">发送事件</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@OnClick</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_return</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">renturnActivity</span><span class="o">(){</span>
+        <span class="c1">//发送事件
+</span><span class="c1"></span>        <span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">post</span><span class="o">(</span><span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="s">&#34;Magren&#34;</span><span class="o">));</span>
+        <span class="n">finish</span><span class="o">();</span>
+    <span class="o">}</span>
+</code></pre></div><h3 id="在注册的页面销毁的时候反注册">在注册的页面销毁的时候反注册</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+        <span class="c1">//反注册
+</span><span class="c1"></span>        <span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">unregister</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div><p>通过上面的方法，实现了在MainActivity中注册EventBus事件，然后写好响应事件的方法，当跳转到另一个Activity，点击按钮向MainActivity发送Event事件，同时我们回到MainActivity的时候发现我们的事件已经接收到并且呈现了出来。</p>
+<p>MainActivit:
+<img src="evenetMain1.png" alt=""  /></p>
+<p>SendMainActivity:
+<figure style="flex-grow: 54; flex-basis: 130px">
+		<a href="/android-eventbuts/eventSend.png" data-size="387x710"><img src="/android-eventbuts/eventSend.png"
+				srcset="/android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_480x0_resize_box_2.png 480w, /android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_1024x0_resize_box_2.png 1024w"
+				width="387"
+				height="710"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<p>返回MainActivity：
+<figure style="flex-grow: 54; flex-basis: 130px">
+		<a href="/android-eventbuts/eventMain2.png" data-size="387x710"><img src="/android-eventbuts/eventMain2.png"
+				srcset="/android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_480x0_resize_box_2.png 480w, /android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_1024x0_resize_box_2.png 1024w"
+				width="387"
+				height="710"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<p>这是一般事件的使用方法，但是我想的传递数据是在当前Activity向下一个Activity传递数据并且在下一个Activity使用，但是我用上面的方法去实现的时候发现并不能派上用场，后面我才清楚了这里得用上我们的黏性事件。</p>
+<h2 id="sticky事件">Sticky事件</h2>
+<h3 id="自定义一个事件类-1">自定义一个事件类</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+    <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+
+
+    <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="在需要接收消息的页面注册-1">在需要接收消息的页面注册</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">register</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</code></pre></div><h3 id="接收消息的方法-1">接收消息的方法</h3>
+<p>此时多了sticky = true</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Subscribe</span><span class="o">(</span><span class="n">sticky</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span><span class="n">threadMode</span> <span class="o">=</span> <span class="n">ThreadMode</span><span class="o">.</span><span class="na">MAIN</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getEvent</span><span class="o">(</span><span class="n">Event</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="na">getMessage</span><span class="o">();</span>
+        <span class="n">tv</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div><h3 id="发送事件-1">发送事件</h3>
+<p>先发送消息后进行Activity的跳转，注意这里是postSticky，发送黏性事件</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@OnClick</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">bt_return</span><span class="o">)</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">renturnActivity</span><span class="o">(){</span>
+       <span class="c1">//发送事件
+</span><span class="c1"></span>       <span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">postSticky</span><span class="o">(</span><span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="s">&#34;Magren&#34;</span><span class="o">));</span>
+       <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="o">(</span><span class="k">this</span><span class="o">,</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+       <span class="n">startActivity</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+
+   <span class="o">}</span>
+</code></pre></div><h3 id="在注册的页面销毁的时候反注册-1">在注册的页面销毁的时候反注册</h3>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+        <span class="c1">//反注册
+</span><span class="c1"></span>        <span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">unregister</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div><p>这时候我们就可以实现直接向下一个Activity发送事件并且在里面获取并使用了。</p>
+<p>1.SendActivity
+<figure style="flex-grow: 54; flex-basis: 130px">
+		<a href="/android-eventbuts/eventSend.png" data-size="387x710"><img src="/android-eventbuts/eventSend.png"
+				srcset="/android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_480x0_resize_box_2.png 480w, /android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_1024x0_resize_box_2.png 1024w"
+				width="387"
+				height="710"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<p>2.MainActivity
+<figure style="flex-grow: 54; flex-basis: 130px">
+		<a href="/android-eventbuts/eventMain2.png" data-size="387x710"><img src="/android-eventbuts/eventMain2.png"
+				srcset="/android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_480x0_resize_box_2.png 480w, /android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_1024x0_resize_box_2.png 1024w"
+				width="387"
+				height="710"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<h2 id="eventbus处理事件的线程">EventBus处理事件的线程</h2>
+<p>上面我们的注解@Subscribe(threadMode = ThreadMode.MAIN)里面用了ThreadMode.MAIN这个模式，其实表示的是这个函数在主线程里面进行，EventBus给我们提供了总共有4中线程模式</p>
+<ul>
+<li>ThreadMode.MAIN：表示无论事件是在哪个线程发布出来的，该事件订阅方法onEvent都会在UI线程中执行，这个在Android中是非常有用的，因为在Android中只能在UI线程中更新UI，所有在此模式下的方法是不能执行耗时操作的。</li>
+<li>ThreadMode.POSTING：表示事件在哪个线程中发布出来的，事件订阅函数onEvent就会在这个线程中运行，也就是说发布事件和接收事件在同一个线程。使用这个方法时，在onEvent方法中不能执行耗时操作，如果执行耗时操作容易导致事件分发延迟。</li>
+<li>ThreadMode.BACKGROUND：表示如果事件在UI线程中发布出来的，那么订阅函数onEvent就会在子线程中运行，如果事件本来就是在子线程中发布出来的，那么订阅函数直接在该子线程中执行。</li>
+<li>ThreadMode.AYSNC：使用这个模式的订阅函数，那么无论事件在哪个线程发布，都会创建新的子线程来执行订阅函数</li>
+</ul>
+<h1 id="注意点">注意点</h1>
+<ul>
+<li>注册一般写在onCreate或者onStart中，尽量不要写在onResume，可能出现多次注册，多次注册会出现报错以及APP闪退</li>
+<li>取消注册一定写在onDestory,写在onStop可能会引发异常，同时检查或许会导致页面退出的情况，及时取消注册</li>
+<li>注册前可以先判断是否已经注册</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(!</span><span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">isRegistered</span><span class="o">(</span><span class="k">this</span><span class="o">))</span> <span class="o">{</span>
+    <span class="n">EventBus</span><span class="o">.</span><span class="na">getDefault</span><span class="o">().</span><span class="na">register</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div><ul>
+<li>未声明threadMode的时候默认线程模式是ThreadMode.POSTING</li>
+</ul>
+<p>以上就是我从网上总结的部分EventBus的使用以及自己的实操，每次随便逛逛都可以发现我不懂的知识点，任重道远</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/android/">Android</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/android-custom-view/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android自定义view的定义</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/rxjava-composite-disposable/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rxjava的CompositeDisposable</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-rxjava/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的rxjava2</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-life-cycle/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android Activity生命周期</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-memory/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">说说Android的内存泄露和溢出</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

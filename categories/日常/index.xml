@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 24 Nov 2021 10:14:21 +0800</lastBuildDate><atom:link href="https://magren.cn/categories/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于我在2021年求职给卷烂的一些事</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/</link>
+      <link>https://magren.cn/2021-job-wanted/</link>
       <pubDate>Wed, 24 Nov 2021 10:14:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/</guid>
+      <guid>https://magren.cn/2021-job-wanted/</guid>
       <description>往年师兄师姐找工作的时候，我看着感觉挺轻松，但是今年到了自己的时候，才发现根本不是那么一回事……
  春招 三月开始大部分互联网公司开始开启暑期实习的招聘，自己也一头扎进了跟各路神仙大牛拼卷的校招中。
 有着早点跑出学校去实习就业的这种意识多亏了我的一个师兄，在我大二的时候就催着我快点投简历，也告诉我有很多公司有日常实习这种渠道，奈何本人不争气，硬生生的还是拖到了大三下学期😅
@@ -59,10 +59,10 @@
     
     <item>
       <title>写在自己21岁生日</title>
-      <link>https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/</link>
+      <link>https://magren.cn/my-21st-birthday/</link>
       <pubDate>Sun, 21 Mar 2021 14:00:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/</guid>
+      <guid>https://magren.cn/my-21st-birthday/</guid>
       <description>21岁  达成成就：与第三旋臂边缘的一颗蓝色星球上的碳基生物一起度过了该行星在所在恒星系内的二十一次公转。
  老实说，从20岁开始我对自己生日这件事的态度已经由激动转为了焦虑。
 20岁前我盼望着快点长大，憧憬外面的生活，不想拘泥于当下，但是20岁开始，接触了外面的社会，焦虑工作以及自己一事无成，很多事想做好也用力去做好，但是结果还是差强人意。
@@ -85,10 +85,10 @@
     
     <item>
       <title>博客迁移至Hugo</title>
-      <link>https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/</link>
+      <link>https://magren.cn/move-to-hugo/</link>
       <pubDate>Fri, 08 Jan 2021 14:54:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/</guid>
+      <guid>https://magren.cn/move-to-hugo/</guid>
       <description>先说说为啥要迁移 在这之前用的是hexo + next主题，然后自己心血来潮加了网易云的外链还有live 2d，tag cloud这些东西，也有人说过挺好看的，但是自己看多了就觉得有点花里胡哨，而且当我在网上查阅东西进到别人博客的时候，看到的基本都是hexo + next……有点审美疲劳。
 但也很容易理解，hexo比较容易上手而且比较稳定，有着功能齐全并且成熟的主题（说的就是Next），这个时候我的眼光放到了hugo上。
 Hugo 依靠Go语言进行开发，并且号称世界上最快的构建网站工具，究竟有多快我也不知道，但是我用hexo生成静态网页的时候还需要等，用hugo就没有等过，给我的感觉就是我敲完命令回车的那一刻他就好了……
@@ -110,10 +110,10 @@ hugo 解压完后只需要将其添加到环境变量中即可。
     
     <item>
       <title>那一片璀璨耀眼的星空</title>
-      <link>https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/</link>
+      <link>https://magren.cn/starry-sky/</link>
       <pubDate>Wed, 14 Oct 2020 00:25:54 +0000</pubDate>
       
-      <guid>https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/</guid>
+      <guid>https://magren.cn/starry-sky/</guid>
       <description>大学期间最值得分享的事情我想就是星空了吧，
 贯彻了我大学生活的一半，也是我程序员道路上的启蒙。
 也留下来过想将星空在前两年带给我的技术还有启发去回馈给星空，希望能延续下去，让下一代有更好的资源。 但是当选择一条路的时候，根本无法预知它的曲折程度。 梳理了一下自己在星空这两年多的历程，也是写了个流水账，是为了能够记录这段非常宝贵的时光，也是希望对后辈以及一些迷茫和踌躇的朋友有一些帮助。
@@ -142,10 +142,10 @@ hugo 解压完后只需要将其添加到环境变量中即可。
     
     <item>
       <title>在大学里连滚带爬的两年</title>
-      <link>https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/</link>
+      <link>https://magren.cn/two-years-of-college/</link>
       <pubDate>Wed, 15 Jul 2020 16:11:42 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/</guid>
+      <guid>https://magren.cn/two-years-of-college/</guid>
       <description>过完这个暑假自己就是大三的学生了。
 曾经大一的时候觉得大三离自己挺遥远，实习工作远在天边，但是现在全都近在眼前。
 自己的设备更新了一批，要学习的知识换了又换，星空的换届，师兄师姐的毕业……很多事情都变了，唯一不变的是我依然那么菜，一如既往。

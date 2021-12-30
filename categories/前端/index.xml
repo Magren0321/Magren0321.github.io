@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 03 Apr 2021 22:14:21 +0800</lastBuildDate><atom:link href="https://magren.cn/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>将博客变成PWA</title>
-      <link>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</link>
+      <link>https://magren.cn/be-pwa/</link>
       <pubDate>Sat, 03 Apr 2021 22:14:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</guid>
+      <guid>https://magren.cn/be-pwa/</guid>
       <description>我是少数派的一个读者，成为少数派已经419天。
 从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
 但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
@@ -30,10 +30,10 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
     
     <item>
       <title>代码帮我画像素画</title>
-      <link>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</link>
+      <link>https://magren.cn/pixel/</link>
       <pubDate>Thu, 25 Feb 2021 16:33:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</guid>
+      <guid>https://magren.cn/pixel/</guid>
       <description>这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。
 甚至把自己的电脑壁纸也换成了像素风。很有感觉😝 
 想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
@@ -45,10 +45,10 @@ const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = im
     
     <item>
       <title>从输入URL到页面展示</title>
-      <link>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</link>
+      <link>https://magren.cn/inputUrl/</link>
       <pubDate>Sun, 08 Nov 2020 23:12:57 +0000</pubDate>
       
-      <guid>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</guid>
+      <guid>https://magren.cn/inputUrl/</guid>
       <description>最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。
 总的过程如下：
  输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束  输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
@@ -66,10 +66,10 @@ DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映�
     
     <item>
       <title>es6中的promise</title>
-      <link>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</link>
+      <link>https://magren.cn/web-promise/</link>
       <pubDate>Wed, 27 May 2020 21:29:47 +0000</pubDate>
       
-      <guid>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</guid>
+      <guid>https://magren.cn/web-promise/</guid>
       <description>Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。
 有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。
 Promise也有一些缺点：
@@ -84,10 +84,10 @@ promise.then(function(value) { }.then(function (comments) { console.log(&amp;#34
     
     <item>
       <title>HTML的DOM和浏览器的BOM</title>
-      <link>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</link>
+      <link>https://magren.cn/web-dom-and-bom/</link>
       <pubDate>Sat, 09 May 2020 17:52:32 +0000</pubDate>
       
-      <guid>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</guid>
+      <guid>https://magren.cn/web-dom-and-bom/</guid>
       <description>记录下自己最近看的知识点。
 HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
 查找HTML元素 通常，通过 JavaScript可以操作需要操作 HTML 元素。
@@ -99,10 +99,10 @@ HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创�
     
     <item>
       <title>前端基础里一些杂七杂八的知识点</title>
-      <link>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <link>https://magren.cn/web-knowledge/</link>
       <pubDate>Sat, 02 May 2020 16:34:16 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <guid>https://magren.cn/web-knowledge/</guid>
       <description>其实在大一就有学习前端的想法，也就多多少少了解了一点html和css，但是那时候身在安卓方向，就还是以安卓为主，也没有坚持下去。
 工程师嘛，无论是什么工程师，局限于一个领域上所学到的东西肯定是有限的，it界那么大，总得看看别的地方。
 如果硬要说我想成为什么工程师，我希望我能成为一个全栈工程师吧（有能力的话

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。
+总的过程如下：
+ 输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束  输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
+DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，得到主机名对应的IP地址的过程就叫做域名解析。 DNS解析的过程其实就是为了寻找哪台机器上有需要的资源，实际上充当了一个翻译的身份，将输入的网址转换成IP地址。 以下是DNS的一个查找顺序：
+ 浏览器缓存：向浏览器缓存中读取访问记录 操作系统缓存：查找在系统运行内存中的缓存 host文件：查找本地硬盘的host文件 路由器缓存：部分路由器会缓存访问过的域名 ISP（互联网服务提供商）DNS缓存：在本地查找不到的情况下，ISP会在当前服务器的缓存中查找 根DNS服务器：根域名收到请求，判断是哪台服务器管理，并返回顶级DNS服务器的IP给请求者。  在查找完以后本地DNS服务器向域名的解析服务器发起请求，本地服务器将IP地址返回给电脑，并将对应关系保存在缓存中。
+拓展： DNS的查询方式：
+ 递归：局部DNS服务器负责向其他DNS服务器查询（一般先向该域名的根域服务器查询，接着一级一级向下查询），结果返回给局部DNS服务器后再由其返回个客户端。 迭代：局部DNS服务器把能解析该域名的其他DNS服务器的IP地址给客户端DNS程序，再由该程序向这些DNS服务器查询（用于局部DNS服务器不能回答客户机DNS查询时）。  DNS优化方法：
+ DNS缓存 DNS负载均衡  为啥需要：当每次请求的资源都在同一台机器上时，机器可能承受不过来而崩掉。 原理：为一个主机名配置多个IP地址，在应答查询饿时候对每个查询以DNS文件中记录的IP地址按顺序返回不同的结果，将访问引导到不同的机器上去。    建立TCP链接 拿到IP地址后就是通过三次握手来建立TCP链接了。
+ 第一次握手：客户端发送SYN（同步序列编号）包到服务器，并且进入SYN_SENT状态，等待服务器确认。 第二次握手：服务器收到SYN包后确认，同时自己也发送一个SYN包，即SYN&#43;ACK包，服务器进入SYN_RECE状态 第三次握手：客户端收到服务器的SYN&#43;ACK包，向服务器发送一个确认包ACK，发送完毕后客户端和服务器进入ESTABLISHED状态。  拓展： 为啥三次握手：为了防止已经失效的链接请求报文突然传送到了服务端因而产生错误。
+发送HTTP请求 建立TCP连接后客户端发起HTTP请求，HTTP报文包含三个部分：
+ 请求行：请求方法&#43;URL&#43;协议/版本 请求报头：传递请求的附加信息和客户端自身的信息 请求正文：需要传递的数据  服务器永久重定向 服务器给浏览器响应一个301永久重定向响应，例如访问http://google.com/ 会自动跳转到 http://www.google.com/
+目的：
+ 这样就会把访问带www的和不带www的地址归到同一个网站排名下，网站在搜索链接的排名下就不会降低。 用不同的地址会导致缓存的良好性变差，一个页面有多个名字的时候可能会在缓存中出现多次。  服务器处理请求并且返回HTTP报文 后端从固定的端口接收到TCP报文后，会对TCP进行处理，对HTTP协议进行解析，按照报文格式进一步封装成HTTP Request对象，供上层使用。 HTTP响应由4个部分组成：'><title>从输入URL到页面展示</title>
+
+<link rel='canonical' href='https://magren.cn/inputUrl/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='从输入URL到页面展示'>
+<meta property='og:description' content='最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。
+总的过程如下：
+ 输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束  输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
+DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，得到主机名对应的IP地址的过程就叫做域名解析。 DNS解析的过程其实就是为了寻找哪台机器上有需要的资源，实际上充当了一个翻译的身份，将输入的网址转换成IP地址。 以下是DNS的一个查找顺序：
+ 浏览器缓存：向浏览器缓存中读取访问记录 操作系统缓存：查找在系统运行内存中的缓存 host文件：查找本地硬盘的host文件 路由器缓存：部分路由器会缓存访问过的域名 ISP（互联网服务提供商）DNS缓存：在本地查找不到的情况下，ISP会在当前服务器的缓存中查找 根DNS服务器：根域名收到请求，判断是哪台服务器管理，并返回顶级DNS服务器的IP给请求者。  在查找完以后本地DNS服务器向域名的解析服务器发起请求，本地服务器将IP地址返回给电脑，并将对应关系保存在缓存中。
+拓展： DNS的查询方式：
+ 递归：局部DNS服务器负责向其他DNS服务器查询（一般先向该域名的根域服务器查询，接着一级一级向下查询），结果返回给局部DNS服务器后再由其返回个客户端。 迭代：局部DNS服务器把能解析该域名的其他DNS服务器的IP地址给客户端DNS程序，再由该程序向这些DNS服务器查询（用于局部DNS服务器不能回答客户机DNS查询时）。  DNS优化方法：
+ DNS缓存 DNS负载均衡  为啥需要：当每次请求的资源都在同一台机器上时，机器可能承受不过来而崩掉。 原理：为一个主机名配置多个IP地址，在应答查询饿时候对每个查询以DNS文件中记录的IP地址按顺序返回不同的结果，将访问引导到不同的机器上去。    建立TCP链接 拿到IP地址后就是通过三次握手来建立TCP链接了。
+ 第一次握手：客户端发送SYN（同步序列编号）包到服务器，并且进入SYN_SENT状态，等待服务器确认。 第二次握手：服务器收到SYN包后确认，同时自己也发送一个SYN包，即SYN&#43;ACK包，服务器进入SYN_RECE状态 第三次握手：客户端收到服务器的SYN&#43;ACK包，向服务器发送一个确认包ACK，发送完毕后客户端和服务器进入ESTABLISHED状态。  拓展： 为啥三次握手：为了防止已经失效的链接请求报文突然传送到了服务端因而产生错误。
+发送HTTP请求 建立TCP连接后客户端发起HTTP请求，HTTP报文包含三个部分：
+ 请求行：请求方法&#43;URL&#43;协议/版本 请求报头：传递请求的附加信息和客户端自身的信息 请求正文：需要传递的数据  服务器永久重定向 服务器给浏览器响应一个301永久重定向响应，例如访问http://google.com/ 会自动跳转到 http://www.google.com/
+目的：
+ 这样就会把访问带www的和不带www的地址归到同一个网站排名下，网站在搜索链接的排名下就不会降低。 用不同的地址会导致缓存的良好性变差，一个页面有多个名字的时候可能会在缓存中出现多次。  服务器处理请求并且返回HTTP报文 后端从固定的端口接收到TCP报文后，会对TCP进行处理，对HTTP协议进行解析，按照报文格式进一步封装成HTTP Request对象，供上层使用。 HTTP响应由4个部分组成：'>
+<meta property='og:url' content='https://magren.cn/inputUrl/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='JavaScript' /><meta property='article:tag' content='http' /><meta property='article:published_time' content='2020-11-08T23:12:57&#43;00:00'/><meta property='article:modified_time' content='2020-11-08T23:12:57&#43;00:00'/>
+<meta name="twitter:title" content="从输入URL到页面展示">
+<meta name="twitter:description" content="最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。
+总的过程如下：
+ 输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束  输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
+DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，得到主机名对应的IP地址的过程就叫做域名解析。 DNS解析的过程其实就是为了寻找哪台机器上有需要的资源，实际上充当了一个翻译的身份，将输入的网址转换成IP地址。 以下是DNS的一个查找顺序：
+ 浏览器缓存：向浏览器缓存中读取访问记录 操作系统缓存：查找在系统运行内存中的缓存 host文件：查找本地硬盘的host文件 路由器缓存：部分路由器会缓存访问过的域名 ISP（互联网服务提供商）DNS缓存：在本地查找不到的情况下，ISP会在当前服务器的缓存中查找 根DNS服务器：根域名收到请求，判断是哪台服务器管理，并返回顶级DNS服务器的IP给请求者。  在查找完以后本地DNS服务器向域名的解析服务器发起请求，本地服务器将IP地址返回给电脑，并将对应关系保存在缓存中。
+拓展： DNS的查询方式：
+ 递归：局部DNS服务器负责向其他DNS服务器查询（一般先向该域名的根域服务器查询，接着一级一级向下查询），结果返回给局部DNS服务器后再由其返回个客户端。 迭代：局部DNS服务器把能解析该域名的其他DNS服务器的IP地址给客户端DNS程序，再由该程序向这些DNS服务器查询（用于局部DNS服务器不能回答客户机DNS查询时）。  DNS优化方法：
+ DNS缓存 DNS负载均衡  为啥需要：当每次请求的资源都在同一台机器上时，机器可能承受不过来而崩掉。 原理：为一个主机名配置多个IP地址，在应答查询饿时候对每个查询以DNS文件中记录的IP地址按顺序返回不同的结果，将访问引导到不同的机器上去。    建立TCP链接 拿到IP地址后就是通过三次握手来建立TCP链接了。
+ 第一次握手：客户端发送SYN（同步序列编号）包到服务器，并且进入SYN_SENT状态，等待服务器确认。 第二次握手：服务器收到SYN包后确认，同时自己也发送一个SYN包，即SYN&#43;ACK包，服务器进入SYN_RECE状态 第三次握手：客户端收到服务器的SYN&#43;ACK包，向服务器发送一个确认包ACK，发送完毕后客户端和服务器进入ESTABLISHED状态。  拓展： 为啥三次握手：为了防止已经失效的链接请求报文突然传送到了服务端因而产生错误。
+发送HTTP请求 建立TCP连接后客户端发起HTTP请求，HTTP报文包含三个部分：
+ 请求行：请求方法&#43;URL&#43;协议/版本 请求报头：传递请求的附加信息和客户端自身的信息 请求正文：需要传递的数据  服务器永久重定向 服务器给浏览器响应一个301永久重定向响应，例如访问http://google.com/ 会自动跳转到 http://www.google.com/
+目的：
+ 这样就会把访问带www的和不带www的地址归到同一个网站排名下，网站在搜索链接的排名下就不会降低。 用不同的地址会导致缓存的良好性变差，一个页面有多个名字的时候可能会在缓存中出现多次。  服务器处理请求并且返回HTTP报文 后端从固定的端口接收到TCP报文后，会对TCP进行处理，对HTTP协议进行解析，按照报文格式进一步封装成HTTP Request对象，供上层使用。 HTTP响应由4个部分组成：">
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%89%8D%E7%AB%AF/" style="background-color: #2a9d8f; color: #fff;">
+                前端
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/inputUrl/">从输入URL到页面展示</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Nov 08, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。<br>
+总的过程如下：</p>
+<ul>
+<li>输入URL</li>
+<li>DNS解析</li>
+<li>建立TCP链接</li>
+<li>发送HTTP请求</li>
+<li>服务器永久重定向</li>
+<li>服务器处理请求并返回一个HTTP响应</li>
+<li>浏览器显示HTML</li>
+<li>链接结束</li>
+</ul>
+<!-- raw HTML omitted -->
+<h1 id="输入url">输入URL</h1>
+<p>URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。
+其组成为：<strong>协议：//主机名:端口号/路径/;参数?查询#信息片段</strong></p>
+<h1 id="dns解析">DNS解析</h1>
+<p>DNS（域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，得到主机名对应的IP地址的过程就叫做域名解析。
+DNS解析的过程其实就是为了寻找哪台机器上有需要的资源，实际上充当了一个翻译的身份，将输入的网址转换成IP地址。
+以下是DNS的一个查找顺序：</p>
+<ul>
+<li>浏览器缓存：向浏览器缓存中读取访问记录</li>
+<li>操作系统缓存：查找在系统运行内存中的缓存</li>
+<li>host文件：查找本地硬盘的host文件</li>
+<li>路由器缓存：部分路由器会缓存访问过的域名</li>
+<li>ISP（互联网服务提供商）DNS缓存：在本地查找不到的情况下，ISP会在当前服务器的缓存中查找</li>
+<li>根DNS服务器：根域名收到请求，判断是哪台服务器管理，并返回顶级DNS服务器的IP给请求者。</li>
+</ul>
+<p>在查找完以后本地DNS服务器向域名的解析服务器发起请求，本地服务器将IP地址返回给电脑，并将对应关系保存在缓存中。</p>
+<p><strong>拓展：</strong>
+<strong>DNS的查询方式：</strong></p>
+<ul>
+<li><strong>递归</strong>：局部DNS服务器负责向其他DNS服务器查询（一般先向该域名的根域服务器查询，接着一级一级向下查询），结果返回给局部DNS服务器后再由其返回个客户端。</li>
+<li><strong>迭代</strong>：局部DNS服务器把能解析该域名的其他DNS服务器的IP地址给客户端DNS程序，再由该程序向这些DNS服务器查询（用于局部DNS服务器不能回答客户机DNS查询时）。</li>
+</ul>
+<p><strong>DNS优化方法：</strong></p>
+<ul>
+<li>DNS缓存</li>
+<li>DNS负载均衡
+<ul>
+<li>为啥需要：当每次请求的资源都在同一台机器上时，机器可能承受不过来而崩掉。</li>
+<li>原理：为一个主机名配置多个IP地址，在应答查询饿时候对每个查询以DNS文件中记录的IP地址按顺序返回不同的结果，将访问引导到不同的机器上去。</li>
+</ul>
+</li>
+</ul>
+<h1 id="建立tcp链接">建立TCP链接</h1>
+<p>拿到IP地址后就是通过三次握手来建立TCP链接了。</p>
+<ul>
+<li>第一次握手：客户端发送<strong>SYN（同步序列编号）包</strong>到服务器，并且进入<strong>SYN_SENT</strong>状态，等待服务器确认。</li>
+<li>第二次握手：服务器收到SYN包后确认，同时自己也发送一个SYN包，即<strong>SYN+ACK包</strong>，服务器进入<strong>SYN_RECE</strong>状态</li>
+<li>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送一个确认包ACK，发送完毕后客户端和服务器进入<strong>ESTABLISHED</strong>状态。</li>
+</ul>
+<p><strong>拓展：</strong>
+为啥三次握手：为了防止已经失效的链接请求报文突然传送到了服务端因而产生错误。</p>
+<h1 id="发送http请求">发送HTTP请求</h1>
+<p>建立TCP连接后客户端发起HTTP请求，HTTP报文包含三个部分：</p>
+<ul>
+<li>请求行：请求方法+URL+协议/版本</li>
+<li>请求报头：传递请求的附加信息和客户端自身的信息</li>
+<li>请求正文：需要传递的数据</li>
+</ul>
+<h1 id="服务器永久重定向">服务器永久重定向</h1>
+<p>服务器给浏览器响应一个301永久重定向响应，例如访问<strong><a href="http://google.com/">http://google.com/</a></strong> 会自动跳转到 <strong><a href="http://www.google.com/">http://www.google.com/</a></strong></p>
+<p><strong>目的</strong>：</p>
+<ul>
+<li>这样就会把访问带www的和不带www的地址归到同一个网站排名下，网站在搜索链接的排名下就不会降低。</li>
+<li>用不同的地址会导致缓存的良好性变差，一个页面有多个名字的时候可能会在缓存中出现多次。</li>
+</ul>
+<h1 id="服务器处理请求并且返回http报文">服务器处理请求并且返回HTTP报文</h1>
+<p>后端从固定的端口接收到TCP报文后，会对TCP进行处理，对HTTP协议进行解析，按照报文格式进一步封装成HTTP Request对象，供上层使用。
+HTTP响应由4个部分组成：</p>
+<ul>
+<li>状态行：协议版本、状态代码、状态描述</li>
+<li>响应头：由键值对组成，每行一对，用“:”分割</li>
+<li>空行： 分割请求数据</li>
+<li>响应正文</li>
+</ul>
+<p><strong>拓展：</strong>
+在大一点的网站中会将请求到反向代理中，将同一应用部署到多台服务器上，将大量用户请求分配给多台机器处理。
+即客户端先请求到Nginx，Nginx再请求应用服务器，最后将结果返回客户端。</p>
+<h1 id="浏览器显示html">浏览器显示HTML</h1>
+<p>浏览器显示HTMl是一个边解析边渲染的过程，大致的过程为：</p>
+<ul>
+<li>解析HTML文件构建DOM树</li>
+<li>解析CSS文件构建渲染树</li>
+<li>浏览器开始布局渲染树并将其绘制到屏幕上</li>
+</ul>
+<p><strong>拓展：</strong>
+<strong>关于reflow(回流)和repaint(重绘)</strong>：</p>
+<ul>
+<li>DOM节点中的各个元素都是以盒模型的形式存在，浏览器计算其位置、大小等属性的这个过程称之为reflow。</li>
+<li>当这些属性都确定下来后，浏览器开始绘制内容，这个绘制的过程称之为repaint。</li>
+</ul>
+<p>reflow和repaint在页面首次加载的时候是肯定要经历的，但是这两个过程都是十分消耗性能，应该尽可能减少。
+<strong>js解析以及执行机制：</strong>
+当解析过程中遇到JS文件时，HTML文档会挂起渲染的线程，然后等待js文件加载并且解析完毕（由于js有可能会修改DOM，例如document.write），故平时js代码也是放在html的末尾。
+js解析是由浏览器中的js解析引擎完成，js是单线程运行，但是像IO读写等任务比较耗时，所以需要一种机制可以先执行排在后面的任务，即同步任务和异步任务。
+<strong>js的执行机制可以看做成一个主线程+一个任务队列。</strong>
+<strong>同步任务是放在主线程上的任务，在主线程上形成一个栈；</strong>
+<strong>异步任务是放在任务队列中的任务，有了运行结果就会在任务队列中放置一个事件；</strong>
+<strong>脚本先运行栈，然后从任务队列中提取事件，运行里面的任务。</strong>
+这个过程不断循环，也被称为<strong>事件循环</strong>。</p>
+<h1 id="链接结束">链接结束</h1>
+<p>现在页面为了优化请求耗时，一般都会持续着TCP的链接，而TCP链接断开的时机是当前页面关闭的时候。
+接下来就是四次挥手断开TCP链接：</p>
+<ul>
+<li>主机发送一个FIN，主机进入<strong>FIN_WAIT_1</strong>状态。</li>
+<li>服务端收到FIN后，发送一个ACK给主机，确认序号为收到序号+1，服务端进入<strong>CLOSE_WAIT</strong>状态。</li>
+<li>服务端发送一个FIN报文，用来关闭数据传送，并且进入<strong>LAST_ACK</strong>状态。</li>
+<li>主机收到FIN后，进入TIME_WAIT状态，接着发送一个ACK给服务端，确保服务端收到自己的ACK报文后进入<strong>CLOSED</strong>状态</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+            <a href="/tags/javascript/">JavaScript</a>
+        
+            <a href="/tags/http/">http</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/be-pwa/">
+        
+        
+            <div class="article-image">
+                <img src="/be-pwa/pwa.a3c2a1219b031eca9b227f229c2260c7_huf7420ce1a337e90ec18894b72ee0bcce_33680_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-o8KhIZsDHsqbIn8inCJgxw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">将博客变成PWA</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/pixel/">
+        
+        
+            <div class="article-image">
+                <img src="/pixel/banner.c42fd2acc50a3c76a8e8ebb57e0503fa_hud3cc57fa5673d3672539d26f50f40c0d_44156_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-xC/SrMUKPHao6Ou1fgUD&#43;g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">代码帮我画像素画</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/web-promise/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">es6中的promise</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/web-dom-and-bom/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HTML的DOM和浏览器的BOM</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/web-knowledge/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端基础里一些杂七杂八的知识点</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

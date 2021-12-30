@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='最近开学事情逐渐多了起来，星空、康课还有学校的课程……一切都开始逐渐步入正轨，唯独我的学习之路还在跑偏。
+经常会停下来不知道学什么，也提不起动力学，担心自己学的东西派不上用场，也担心自己半途而废。
+也难怪有万事开头难这种说法了。
+但是一旦行动起来，忙起来的时候就会感到充实。只要动起来，无论结果怎样，都总比没有尝试过的好。
+但行好事，莫问前程
+我也纠结过是学习用node.js还是Java去操作后端数据库。 有的人说学node.js，前端工程师都要会这个；也有的人说学java，去学ssm，学spring全家桶；还有的人说node.js没有前途； 最后在网上看到了一个答案， 他说：程序员本身不该受语言的约束，更不该受框架的约束。什么样的场景用什么样的工具。 所谓的没有前途一直都是错误的使用正确的工具。 你得有一颗拿c&#43;&#43;造宇宙飞船的心。🚀
+node.js是什么？ 根据官方的说法：
+ Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
+ Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。 Node.js再加上一系列的c/c&#43;&#43;套件，成功的让我们的服务器端也可以执行JavaScript。
+环境安装 node.js安装 下载地址：Node.js官网下载
+MongoDB数据库 下载地址：MongoDB官网下载
+启动服务 在MongoDB文件夹下的bin目录下用命令行输入：.\mongo 来启动服务
+可视化工具 Robo3T 用于可视化操作MongoDB数据库，下载地址：Robo3T
+express Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
+express脚手架 express脚手架安装：
+ npm install -g express-generator
+ 创建express项目：'><title>node.js &#43; MongoDB</title>
+
+<link rel='canonical' href='https://magren.cn/node-mongodb/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='node.js &#43; MongoDB'>
+<meta property='og:description' content='最近开学事情逐渐多了起来，星空、康课还有学校的课程……一切都开始逐渐步入正轨，唯独我的学习之路还在跑偏。
+经常会停下来不知道学什么，也提不起动力学，担心自己学的东西派不上用场，也担心自己半途而废。
+也难怪有万事开头难这种说法了。
+但是一旦行动起来，忙起来的时候就会感到充实。只要动起来，无论结果怎样，都总比没有尝试过的好。
+但行好事，莫问前程
+我也纠结过是学习用node.js还是Java去操作后端数据库。 有的人说学node.js，前端工程师都要会这个；也有的人说学java，去学ssm，学spring全家桶；还有的人说node.js没有前途； 最后在网上看到了一个答案， 他说：程序员本身不该受语言的约束，更不该受框架的约束。什么样的场景用什么样的工具。 所谓的没有前途一直都是错误的使用正确的工具。 你得有一颗拿c&#43;&#43;造宇宙飞船的心。🚀
+node.js是什么？ 根据官方的说法：
+ Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
+ Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。 Node.js再加上一系列的c/c&#43;&#43;套件，成功的让我们的服务器端也可以执行JavaScript。
+环境安装 node.js安装 下载地址：Node.js官网下载
+MongoDB数据库 下载地址：MongoDB官网下载
+启动服务 在MongoDB文件夹下的bin目录下用命令行输入：.\mongo 来启动服务
+可视化工具 Robo3T 用于可视化操作MongoDB数据库，下载地址：Robo3T
+express Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
+express脚手架 express脚手架安装：
+ npm install -g express-generator
+ 创建express项目：'>
+<meta property='og:url' content='https://magren.cn/node-mongodb/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='node.js' /><meta property='article:tag' content='mongoDB' /><meta property='article:tag' content='数据库' /><meta property='article:tag' content='后端' /><meta property='article:published_time' content='2020-09-16T23:26:09&#43;00:00'/><meta property='article:modified_time' content='2020-09-16T23:26:09&#43;00:00'/>
+<meta name="twitter:title" content="node.js &#43; MongoDB">
+<meta name="twitter:description" content="最近开学事情逐渐多了起来，星空、康课还有学校的课程……一切都开始逐渐步入正轨，唯独我的学习之路还在跑偏。
+经常会停下来不知道学什么，也提不起动力学，担心自己学的东西派不上用场，也担心自己半途而废。
+也难怪有万事开头难这种说法了。
+但是一旦行动起来，忙起来的时候就会感到充实。只要动起来，无论结果怎样，都总比没有尝试过的好。
+但行好事，莫问前程
+我也纠结过是学习用node.js还是Java去操作后端数据库。 有的人说学node.js，前端工程师都要会这个；也有的人说学java，去学ssm，学spring全家桶；还有的人说node.js没有前途； 最后在网上看到了一个答案， 他说：程序员本身不该受语言的约束，更不该受框架的约束。什么样的场景用什么样的工具。 所谓的没有前途一直都是错误的使用正确的工具。 你得有一颗拿c&#43;&#43;造宇宙飞船的心。🚀
+node.js是什么？ 根据官方的说法：
+ Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
+ Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。 Node.js再加上一系列的c/c&#43;&#43;套件，成功的让我们的服务器端也可以执行JavaScript。
+环境安装 node.js安装 下载地址：Node.js官网下载
+MongoDB数据库 下载地址：MongoDB官网下载
+启动服务 在MongoDB文件夹下的bin目录下用命令行输入：.\mongo 来启动服务
+可视化工具 Robo3T 用于可视化操作MongoDB数据库，下载地址：Robo3T
+express Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
+express脚手架 express脚手架安装：
+ npm install -g express-generator
+ 创建express项目：">
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/node.js/" style="background-color: #2a9d8f; color: #fff;">
+                Node.js
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/node-mongodb/">node.js &#43; MongoDB</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Sep 16, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>最近开学事情逐渐多了起来，星空、康课还有学校的课程……一切都开始逐渐步入正轨，唯独我的学习之路还在跑偏。<br>
+经常会停下来不知道学什么，也提不起动力学，担心自己学的东西派不上用场，也担心自己半途而废。<br>
+也难怪有万事开头难这种说法了。<br>
+但是一旦行动起来，忙起来的时候就会感到充实。只要动起来，无论结果怎样，都总比没有尝试过的好。<br>
+<strong>但行好事，莫问前程</strong></p>
+<!-- raw HTML omitted -->
+<p>我也纠结过是学习用node.js还是Java去操作后端数据库。
+有的人说学node.js，前端工程师都要会这个；也有的人说学java，去学ssm，学spring全家桶；还有的人说node.js没有前途；
+最后在网上看到了一个答案，
+<strong>他说：程序员本身不该受语言的约束，更不该受框架的约束。什么样的场景用什么样的工具。</strong>
+所谓的没有前途一直都是错误的使用正确的工具。
+你得有一颗拿c++造宇宙飞船的心。🚀</p>
+<h1 id="nodejs是什么">node.js是什么？</h1>
+<p>根据官方的说法：</p>
+<blockquote>
+<p>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.</p>
+</blockquote>
+<p>Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。
+Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也可以执行JavaScript。</p>
+<h1 id="环境安装">环境安装</h1>
+<h2 id="nodejs安装">node.js安装</h2>
+<p>下载地址：<a class="link" href="http://nodejs.cn/download/"  target="_blank" rel="noopener"
+    >Node.js官网下载</a></p>
+<h2 id="mongodb数据库">MongoDB数据库</h2>
+<p>下载地址：<a class="link" href="https://www.mongodb.com/try/download/community"  target="_blank" rel="noopener"
+    >MongoDB官网下载</a></p>
+<h3 id="启动服务">启动服务</h3>
+<p>在MongoDB文件夹下的bin目录下用命令行输入：<strong>.\mongo</strong> 来启动服务</p>
+<h2 id="可视化工具-robo3t">可视化工具 Robo3T</h2>
+<p>用于可视化操作MongoDB数据库，下载地址：<a class="link" href="https://robomongo.org/download"  target="_blank" rel="noopener"
+    >Robo3T</a></p>
+<h1 id="express">express</h1>
+<p>Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。</p>
+<h2 id="express脚手架">express脚手架</h2>
+<p>express脚手架安装：</p>
+<blockquote>
+<p>npm install -g express-generator</p>
+</blockquote>
+<p>创建express项目：</p>
+<blockquote>
+<p>express test</p>
+</blockquote>
+<blockquote>
+<p>cd test</p>
+</blockquote>
+<blockquote>
+<p>npm install</p>
+</blockquote>
+<p>运行：</p>
+<blockquote>
+<p>npm start</p>
+</blockquote>
+<p>浏览器访问：</p>
+<blockquote>
+<p>http://localhost:3000/</p>
+</blockquote>
+<h2 id="express脚手架引入babel">express脚手架引入babel</h2>
+<p>引入babel是为了转译 ECMAScript 2015+ 至可兼容浏览器的版本，说白了就是为了让我们使用ES6。</p>
+<h3 id="依赖">依赖</h3>
+<p>修改后记得执行npm install以更新依赖包。</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+  <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;test&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;version&#34;</span><span class="o">:</span> <span class="s2">&#34;0.0.0&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;private&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&#34;start&#34;</span><span class="o">:</span> <span class="s2">&#34;node ./index.js&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;devstart&#34;</span><span class="o">:</span> <span class="s2">&#34;nodemon ./index.js&#34;</span>
+  <span class="p">},</span>
+  <span class="s2">&#34;dependencies&#34;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&#34;babel&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.23.0&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-cli&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.24.1&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-core&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.24.0&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-preset-es2015&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.24.0&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-preset-stage-3&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.22.0&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-register&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.24.0&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;cookie-parser&#34;</span><span class="o">:</span> <span class="s2">&#34;~1.4.4&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;debug&#34;</span><span class="o">:</span> <span class="s2">&#34;~2.6.9&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;express&#34;</span><span class="o">:</span> <span class="s2">&#34;~4.16.1&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;http-errors&#34;</span><span class="o">:</span> <span class="s2">&#34;~1.6.3&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;jade&#34;</span><span class="o">:</span> <span class="s2">&#34;~1.11.0&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;mongoose&#34;</span><span class="o">:</span> <span class="s2">&#34;^5.10.5&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;morgan&#34;</span><span class="o">:</span> <span class="s2">&#34;~1.9.1&#34;</span>
+  <span class="p">},</span>
+  <span class="s2">&#34;devDependencies&#34;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&#34;babel-plugin-transform-async-to-generator&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.24.1&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-plugin-transform-es2015-classes&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.24.1&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-plugin-transform-es2015-modules-commonjs&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.24.1&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;babel-plugin-transform-export-extensions&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.22.0&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="新建babelrc于根目录">新建.babelrc于根目录</h3>
+<p>文件代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+  	<span class="s2">&#34;presets&#34;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;stage-3&#34;</span><span class="p">],</span>
+  	<span class="s2">&#34;plugins&#34;</span><span class="o">:</span> <span class="p">[</span>
+  		<span class="s2">&#34;transform-async-to-generator&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;transform-es2015-modules-commonjs&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;transform-export-extensions&#34;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="新建indexjs于根目录">新建index.js于根目录</h3>
+<p>文件代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;babel-core/register&#39;</span><span class="p">);</span>
+<span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./bin/www&#39;</span><span class="p">);</span>
+</code></pre></div><p>此时语法支持import等es6语法。</p>
+<h1 id="nodejs操作mongodb数据库">node.js操作MongoDB数据库</h1>
+<h2 id="依赖-1">依赖</h2>
+<p>在项目根目录下安装Mongoose</p>
+<blockquote>
+<p>npm install mongoose &ndash;save</p>
+</blockquote>
+<h2 id="链接数据库">链接数据库</h2>
+<p>利用mongoose来链接MongoDB
+在项目中创建<strong>db.js</strong>文件：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017/test&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useNewUrlParser</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">;</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;open&#39;</span> <span class="p">,()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+    <span class="s1">&#39;连接数据库成功&#39;</span>
+  <span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span>
+     <span class="s1">&#39;Error in MongoDb connection: &#39;</span> <span class="o">+</span> <span class="nx">error</span>
+    <span class="p">);</span>
+    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+        <span class="s1">&#39;数据库断开，重新连接数据库&#39;</span>
+    <span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">db</span><span class="p">;</span>
+</code></pre></div><p>接着在app.js中引入</p>
+<pre><code>import db from './mongodb/db';
+</code></pre><p>这个时候运行项目会在MongoDB中创建一个test的库，但是由于里面没有数据所以并不会显示出来。</p>
+<h2 id="添加数据">添加数据</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//引入模块
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">db</span> <span class="nx">from</span> <span class="s1">&#39;./mongodb/db&#39;</span><span class="p">;</span>
+<span class="c1">// 创建schema
+</span><span class="c1">// schema是MongoDB里的一个集合，也可以说是库中的一张表
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">testSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+   <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+   <span class="nx">age</span><span class="o">:</span> <span class="nb">Number</span>
+<span class="p">})</span>
+
+<span class="c1">// 通过connection和schema创建model
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">testModel</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">,</span> <span class="nx">testSchema</span><span class="p">);</span>
+
+
+<span class="c1">// 通过实例化model创建文档
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">testModel</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Magren&#39;</span><span class="p">,</span>
+    <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span>
+<span class="p">})</span>
+
+<span class="c1">// 将文档插入到数据库，save方法返回一个Promise对象。
+</span><span class="c1"></span><span class="nx">test</span><span class="p">.</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">doc</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">doc</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div><p>添加成功后MongoDB数据库里会多了test1这么一个表，同时表中会多了一条name为Magren，age为20的数据。</p>
+<h2 id="读取数据">读取数据</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//引入模块
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">db</span> <span class="nx">from</span> <span class="s1">&#39;./mongodb/db&#39;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">testSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+   <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+   <span class="nx">age</span><span class="o">:</span> <span class="nb">Number</span>
+<span class="p">})</span>
+
+<span class="kd">let</span> <span class="nx">testModel</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">,</span> <span class="nx">testSchema</span><span class="p">);</span>
+
+<span class="c1">//查询条件，查询name为Magren的记录，格式为键值对
+</span><span class="c1">//查询条件为空的时候即查询该表中的全部数据
+</span><span class="c1"></span><span class="nx">testModel</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Magren&#39;</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">doc</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">doc</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div><p>为了复用代码，降低耦合度，一般将Schema以及Model模块的代码单独出来。</p>
+<h2 id="更新数据">更新数据</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//引入模块
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">db</span> <span class="nx">from</span> <span class="s1">&#39;./mongodb/db&#39;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">testSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+   <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+   <span class="nx">age</span><span class="o">:</span> <span class="nb">Number</span>
+<span class="p">})</span>
+
+<span class="kd">let</span> <span class="nx">testModel</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">,</span> <span class="nx">testSchema</span><span class="p">);</span>
+
+<span class="c1">//第一个参数是查询条件，找到name为Magren这条数据
+</span><span class="c1">//第二个参数是要修改的值
+</span><span class="c1"></span><span class="nx">testModel</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Magren&#39;</span><span class="p">},{</span><span class="nx">age</span><span class="o">:</span> <span class="mi">18</span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)=&gt;{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div><h2 id="删除数据">删除数据</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//引入模块
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">db</span> <span class="nx">from</span> <span class="s1">&#39;./mongodb/db&#39;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">testSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+   <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+   <span class="nx">age</span><span class="o">:</span> <span class="nb">Number</span>
+<span class="p">})</span>
+
+<span class="kd">let</span> <span class="nx">testModel</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">,</span> <span class="nx">testSchema</span><span class="p">);</span>
+
+<span class="c1">//删除name为Magren的数据
+</span><span class="c1"></span><span class="nx">testModel</span><span class="p">.</span><span class="nx">removeMany</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Magren&#39;</span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)=&gt;{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div><h1 id="最后">最后</h1>
+<p>现在只是学习了基本的node.js对MongoDB数据库的操作，改天尝试做一个小项目，部署到服务器上，感觉又会踩很多坑……
+但如果没有实践也只是纸上谈兵，加紧自己学习的脚步吧。
+毕竟都已经大三了啊。✊</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/node.js/">node.js</a>
+        
+            <a href="/tags/mongodb/">mongodb</a>
+        
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+        
+            <a href="/tags/%E5%90%8E%E7%AB%AF/">后端</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/node-express/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">node.js&#43;express写接口</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

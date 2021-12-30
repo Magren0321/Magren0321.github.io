@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='先上Google提供的经典图，是对Activity生命周期各个阶段之间导航转换的直观展现。
+Activity类提供了六个核心回调：onCreate()、onStart()、onResume()、onPause()、onStop()和onDestroy()。
+生命周期
+说明  在正常的情况下，Activity从启动到结束会按以下的顺序经历整个生命周期：onCreate()-&amp;gt;onStart()-&amp;gt;onResume()-&amp;gt;onPause()-&amp;gt;onStop()-&amp;gt;onDestory()。 onCreate():系统首次创建Activity的时候触发，可以做一些初始化的工作，比如初始化Activity所需要的数据，还有调用setContentView加载界面布局资源。 onRestart()：表示Activity正在重新启动。一般情况下，当当前Activity从不可见重新变为可见状态时，onRestart就会被调用。这种情形一般是用户行为导致的，比如用户按Home键切换到桌面或打开了另一个新的Activity，接着用户又回到了这个Actvity。 onStart(): 表示Activity正在被启动，即将开始，这时Activity已经出现了，**但是还没有出现在前台，无法与用户交互。**这个时候可以理解为Activity已经显示出来，但是我们还看不到。 onResume():表示Activity已经可见了，并且出现在前台并开始活动。需要和onStart()对比，onStart的时候Activity还在后台，onResume的时候Activity才显示到前台。 onPause():表示 Activity正在停止，仍可见，正常情况下，紧接着onStop就会被调，onPause中不能进行耗时操作，会影响到新Activity的显示。因为onPause必须执行完，新的Activity的onResume才会执行。 onStop():表示Activity即将停止，不可见，位于后台。可以做稍微重量级的回收工作，同样不能太耗时。 onDestory():表示Activity即将销毁，这是Activity生命周期的最后一个回调，可以做一些回收工作和最终的资源回收。  几种普遍情况 从A页面Activity跳转到B页面Activity，然后关闭B页面Activity，回到A页面Activity  针对开启的B页面Activity，第一次启动，回调如下：onCreate()-&amp;gt;onStart()-&amp;gt;onResume() 用户打开B页面Activiy的时候，A页面的Activity处于不可见的回调如下：onPause()-&amp;gt;onStop() 再次从B页面回到A页面原Activity时，A页面从不可见到可见回调如下：onRestart()-&amp;gt;onStart()-&amp;gt;onResume() 按back键回退时，B页面Activity回调如下：onPause()-&amp;gt;onStop()-&amp;gt;onDestory() 按Home键切换到桌面后又回到A页面该Actitivy，回调如下：onPause()-&amp;gt;onStop()-&amp;gt;onRestart()-&amp;gt;onStart()-&amp;gt;onResume() 调用finish()方法后，回调如下：onDestory()(以在onCreate()方法中调用为例，不同方法中回调不同，通常都是在onCreate()方法中调用)  Activity的三种运行状态 Resumed（活动状态）  又叫Running状态，这个Activity正在屏幕上显示，并且有用户焦点。这个很好理解，就是用户正在操作的那个界面。
+ Paused（暂停状态）  这是一个比较不常见的状态。这个Activity在屏幕上是可见的，但是并不是在屏幕最前端的那个Activity。比如有另一个非全屏或者透明的Activity是Resumed状态，没有完全遮盖这个Activity。
+ Stopped（停止状态）  当Activity完全不可见时，此时Activity还在后台运行，仍然在内存中保留Activity的状态，并不是完全销毁。这个也很好理解，当跳转的另外一个界面，之前的界面还在后台，按回退按钮还会恢复原来的状态，大部分软件在打开的时候，直接按Home键，并不会关闭它，此时的Activity就是Stopped状态。
+ 部分流程分支  启动Activity: onCreate()—&amp;gt;onStart()—&amp;gt;onResume()，Activity进入运行状态。 Activity退居后台: 当前Activity转到新的Activity界面或按Home键回到主屏： onPause()—&amp;gt;onStop()，进入停滞状态。 Activity返回前台: onRestart()—&amp;gt;onStart()—&amp;gt;onResume()，再次回到运行状态。 Activity退居后台，且系统内存不足， 系统会杀死这个后台状态的Activity（此时这个Activity引用仍然处在任务栈中，只是这个时候引用指向的对象已经为null），若再次回到这个Activity,则会走onCreate()–&amp;gt;onStart()—&amp;gt;onResume()(将重新走一次Activity的初始化生命周期) 锁屏：onPause()-&amp;gt;onStop() 解锁：onStart()-&amp;gt;onResume()  横竖屏下切换 第一种情况，销毁当前的Activity： 在横竖屏切换的过程中，Activity会先销毁后重建，也应该避免这种情况。 这里有两个回调：
+ onSaveInstanceState和onRestoreInstanceState。 在Activity由于异常情况下终止时，系统会调用onSaveInstanceState来保存当前Activity的状态。这个方法的调用是在onStop之前，它和onPause没有既定的时序关系，该方法只在Activity被异常终止的情况下调用。当异常终止的Activity被重建以后，系统会调用onRestoreInstanceState，并且把Activity销毁时onSaveInstanceState方法所保存的Bundle对象参数同时传递给onRestoreInstanceState和onCreate方法。因此，可以通过onRestoreInstanceState方法来恢复Activity的状态，该方法的调用时机是在onStart之后。其中onCreate和onRestoreInstanceState方法来恢复Activity的状态的区别： onRestoreInstanceState回调则表明其中Bundle对象非空，不用加非空判断。onCreate需要非空判断。建议使用onRestoreInstanceState。 简单来说，这个过程Activity的生命周期为：onPause()-&amp;gt;onSaveInstanceState()-&amp;gt; onStop()-&amp;gt;onDestroy()-&amp;gt;onCreate()-&amp;gt;onStart()-&amp;gt;onRestoreInstanceState-&amp;gt;onResume()  第二种情况，当前的Activity 不销毁，但是我们需要设置Activity的属性： 可以通过在AndroidManifest文件的Activity中指定如下属性：
+&amp;lt;activity android:name=&amp;#34;.'><title>Android Activity生命周期</title>
+
+<link rel='canonical' href='https://magren.cn/android-life-cycle/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Android Activity生命周期'>
+<meta property='og:description' content='先上Google提供的经典图，是对Activity生命周期各个阶段之间导航转换的直观展现。
+Activity类提供了六个核心回调：onCreate()、onStart()、onResume()、onPause()、onStop()和onDestroy()。
+生命周期
+说明  在正常的情况下，Activity从启动到结束会按以下的顺序经历整个生命周期：onCreate()-&amp;gt;onStart()-&amp;gt;onResume()-&amp;gt;onPause()-&amp;gt;onStop()-&amp;gt;onDestory()。 onCreate():系统首次创建Activity的时候触发，可以做一些初始化的工作，比如初始化Activity所需要的数据，还有调用setContentView加载界面布局资源。 onRestart()：表示Activity正在重新启动。一般情况下，当当前Activity从不可见重新变为可见状态时，onRestart就会被调用。这种情形一般是用户行为导致的，比如用户按Home键切换到桌面或打开了另一个新的Activity，接着用户又回到了这个Actvity。 onStart(): 表示Activity正在被启动，即将开始，这时Activity已经出现了，**但是还没有出现在前台，无法与用户交互。**这个时候可以理解为Activity已经显示出来，但是我们还看不到。 onResume():表示Activity已经可见了，并且出现在前台并开始活动。需要和onStart()对比，onStart的时候Activity还在后台，onResume的时候Activity才显示到前台。 onPause():表示 Activity正在停止，仍可见，正常情况下，紧接着onStop就会被调，onPause中不能进行耗时操作，会影响到新Activity的显示。因为onPause必须执行完，新的Activity的onResume才会执行。 onStop():表示Activity即将停止，不可见，位于后台。可以做稍微重量级的回收工作，同样不能太耗时。 onDestory():表示Activity即将销毁，这是Activity生命周期的最后一个回调，可以做一些回收工作和最终的资源回收。  几种普遍情况 从A页面Activity跳转到B页面Activity，然后关闭B页面Activity，回到A页面Activity  针对开启的B页面Activity，第一次启动，回调如下：onCreate()-&amp;gt;onStart()-&amp;gt;onResume() 用户打开B页面Activiy的时候，A页面的Activity处于不可见的回调如下：onPause()-&amp;gt;onStop() 再次从B页面回到A页面原Activity时，A页面从不可见到可见回调如下：onRestart()-&amp;gt;onStart()-&amp;gt;onResume() 按back键回退时，B页面Activity回调如下：onPause()-&amp;gt;onStop()-&amp;gt;onDestory() 按Home键切换到桌面后又回到A页面该Actitivy，回调如下：onPause()-&amp;gt;onStop()-&amp;gt;onRestart()-&amp;gt;onStart()-&amp;gt;onResume() 调用finish()方法后，回调如下：onDestory()(以在onCreate()方法中调用为例，不同方法中回调不同，通常都是在onCreate()方法中调用)  Activity的三种运行状态 Resumed（活动状态）  又叫Running状态，这个Activity正在屏幕上显示，并且有用户焦点。这个很好理解，就是用户正在操作的那个界面。
+ Paused（暂停状态）  这是一个比较不常见的状态。这个Activity在屏幕上是可见的，但是并不是在屏幕最前端的那个Activity。比如有另一个非全屏或者透明的Activity是Resumed状态，没有完全遮盖这个Activity。
+ Stopped（停止状态）  当Activity完全不可见时，此时Activity还在后台运行，仍然在内存中保留Activity的状态，并不是完全销毁。这个也很好理解，当跳转的另外一个界面，之前的界面还在后台，按回退按钮还会恢复原来的状态，大部分软件在打开的时候，直接按Home键，并不会关闭它，此时的Activity就是Stopped状态。
+ 部分流程分支  启动Activity: onCreate()—&amp;gt;onStart()—&amp;gt;onResume()，Activity进入运行状态。 Activity退居后台: 当前Activity转到新的Activity界面或按Home键回到主屏： onPause()—&amp;gt;onStop()，进入停滞状态。 Activity返回前台: onRestart()—&amp;gt;onStart()—&amp;gt;onResume()，再次回到运行状态。 Activity退居后台，且系统内存不足， 系统会杀死这个后台状态的Activity（此时这个Activity引用仍然处在任务栈中，只是这个时候引用指向的对象已经为null），若再次回到这个Activity,则会走onCreate()–&amp;gt;onStart()—&amp;gt;onResume()(将重新走一次Activity的初始化生命周期) 锁屏：onPause()-&amp;gt;onStop() 解锁：onStart()-&amp;gt;onResume()  横竖屏下切换 第一种情况，销毁当前的Activity： 在横竖屏切换的过程中，Activity会先销毁后重建，也应该避免这种情况。 这里有两个回调：
+ onSaveInstanceState和onRestoreInstanceState。 在Activity由于异常情况下终止时，系统会调用onSaveInstanceState来保存当前Activity的状态。这个方法的调用是在onStop之前，它和onPause没有既定的时序关系，该方法只在Activity被异常终止的情况下调用。当异常终止的Activity被重建以后，系统会调用onRestoreInstanceState，并且把Activity销毁时onSaveInstanceState方法所保存的Bundle对象参数同时传递给onRestoreInstanceState和onCreate方法。因此，可以通过onRestoreInstanceState方法来恢复Activity的状态，该方法的调用时机是在onStart之后。其中onCreate和onRestoreInstanceState方法来恢复Activity的状态的区别： onRestoreInstanceState回调则表明其中Bundle对象非空，不用加非空判断。onCreate需要非空判断。建议使用onRestoreInstanceState。 简单来说，这个过程Activity的生命周期为：onPause()-&amp;gt;onSaveInstanceState()-&amp;gt; onStop()-&amp;gt;onDestroy()-&amp;gt;onCreate()-&amp;gt;onStart()-&amp;gt;onRestoreInstanceState-&amp;gt;onResume()  第二种情况，当前的Activity 不销毁，但是我们需要设置Activity的属性： 可以通过在AndroidManifest文件的Activity中指定如下属性：
+&amp;lt;activity android:name=&amp;#34;.'>
+<meta property='og:url' content='https://magren.cn/android-life-cycle/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Android' /><meta property='article:published_time' content='2020-03-06T14:36:01&#43;00:00'/><meta property='article:modified_time' content='2020-03-06T14:36:01&#43;00:00'/>
+<meta name="twitter:title" content="Android Activity生命周期">
+<meta name="twitter:description" content="先上Google提供的经典图，是对Activity生命周期各个阶段之间导航转换的直观展现。
+Activity类提供了六个核心回调：onCreate()、onStart()、onResume()、onPause()、onStop()和onDestroy()。
+生命周期
+说明  在正常的情况下，Activity从启动到结束会按以下的顺序经历整个生命周期：onCreate()-&amp;gt;onStart()-&amp;gt;onResume()-&amp;gt;onPause()-&amp;gt;onStop()-&amp;gt;onDestory()。 onCreate():系统首次创建Activity的时候触发，可以做一些初始化的工作，比如初始化Activity所需要的数据，还有调用setContentView加载界面布局资源。 onRestart()：表示Activity正在重新启动。一般情况下，当当前Activity从不可见重新变为可见状态时，onRestart就会被调用。这种情形一般是用户行为导致的，比如用户按Home键切换到桌面或打开了另一个新的Activity，接着用户又回到了这个Actvity。 onStart(): 表示Activity正在被启动，即将开始，这时Activity已经出现了，**但是还没有出现在前台，无法与用户交互。**这个时候可以理解为Activity已经显示出来，但是我们还看不到。 onResume():表示Activity已经可见了，并且出现在前台并开始活动。需要和onStart()对比，onStart的时候Activity还在后台，onResume的时候Activity才显示到前台。 onPause():表示 Activity正在停止，仍可见，正常情况下，紧接着onStop就会被调，onPause中不能进行耗时操作，会影响到新Activity的显示。因为onPause必须执行完，新的Activity的onResume才会执行。 onStop():表示Activity即将停止，不可见，位于后台。可以做稍微重量级的回收工作，同样不能太耗时。 onDestory():表示Activity即将销毁，这是Activity生命周期的最后一个回调，可以做一些回收工作和最终的资源回收。  几种普遍情况 从A页面Activity跳转到B页面Activity，然后关闭B页面Activity，回到A页面Activity  针对开启的B页面Activity，第一次启动，回调如下：onCreate()-&amp;gt;onStart()-&amp;gt;onResume() 用户打开B页面Activiy的时候，A页面的Activity处于不可见的回调如下：onPause()-&amp;gt;onStop() 再次从B页面回到A页面原Activity时，A页面从不可见到可见回调如下：onRestart()-&amp;gt;onStart()-&amp;gt;onResume() 按back键回退时，B页面Activity回调如下：onPause()-&amp;gt;onStop()-&amp;gt;onDestory() 按Home键切换到桌面后又回到A页面该Actitivy，回调如下：onPause()-&amp;gt;onStop()-&amp;gt;onRestart()-&amp;gt;onStart()-&amp;gt;onResume() 调用finish()方法后，回调如下：onDestory()(以在onCreate()方法中调用为例，不同方法中回调不同，通常都是在onCreate()方法中调用)  Activity的三种运行状态 Resumed（活动状态）  又叫Running状态，这个Activity正在屏幕上显示，并且有用户焦点。这个很好理解，就是用户正在操作的那个界面。
+ Paused（暂停状态）  这是一个比较不常见的状态。这个Activity在屏幕上是可见的，但是并不是在屏幕最前端的那个Activity。比如有另一个非全屏或者透明的Activity是Resumed状态，没有完全遮盖这个Activity。
+ Stopped（停止状态）  当Activity完全不可见时，此时Activity还在后台运行，仍然在内存中保留Activity的状态，并不是完全销毁。这个也很好理解，当跳转的另外一个界面，之前的界面还在后台，按回退按钮还会恢复原来的状态，大部分软件在打开的时候，直接按Home键，并不会关闭它，此时的Activity就是Stopped状态。
+ 部分流程分支  启动Activity: onCreate()—&amp;gt;onStart()—&amp;gt;onResume()，Activity进入运行状态。 Activity退居后台: 当前Activity转到新的Activity界面或按Home键回到主屏： onPause()—&amp;gt;onStop()，进入停滞状态。 Activity返回前台: onRestart()—&amp;gt;onStart()—&amp;gt;onResume()，再次回到运行状态。 Activity退居后台，且系统内存不足， 系统会杀死这个后台状态的Activity（此时这个Activity引用仍然处在任务栈中，只是这个时候引用指向的对象已经为null），若再次回到这个Activity,则会走onCreate()–&amp;gt;onStart()—&amp;gt;onResume()(将重新走一次Activity的初始化生命周期) 锁屏：onPause()-&amp;gt;onStop() 解锁：onStart()-&amp;gt;onResume()  横竖屏下切换 第一种情况，销毁当前的Activity： 在横竖屏切换的过程中，Activity会先销毁后重建，也应该避免这种情况。 这里有两个回调：
+ onSaveInstanceState和onRestoreInstanceState。 在Activity由于异常情况下终止时，系统会调用onSaveInstanceState来保存当前Activity的状态。这个方法的调用是在onStop之前，它和onPause没有既定的时序关系，该方法只在Activity被异常终止的情况下调用。当异常终止的Activity被重建以后，系统会调用onRestoreInstanceState，并且把Activity销毁时onSaveInstanceState方法所保存的Bundle对象参数同时传递给onRestoreInstanceState和onCreate方法。因此，可以通过onRestoreInstanceState方法来恢复Activity的状态，该方法的调用时机是在onStart之后。其中onCreate和onRestoreInstanceState方法来恢复Activity的状态的区别： onRestoreInstanceState回调则表明其中Bundle对象非空，不用加非空判断。onCreate需要非空判断。建议使用onRestoreInstanceState。 简单来说，这个过程Activity的生命周期为：onPause()-&amp;gt;onSaveInstanceState()-&amp;gt; onStop()-&amp;gt;onDestroy()-&amp;gt;onCreate()-&amp;gt;onStart()-&amp;gt;onRestoreInstanceState-&amp;gt;onResume()  第二种情况，当前的Activity 不销毁，但是我们需要设置Activity的属性： 可以通过在AndroidManifest文件的Activity中指定如下属性：
+&amp;lt;activity android:name=&amp;#34;.">
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                Android
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/android-life-cycle/">Android Activity生命周期</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Mar 06, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>先上Google提供的经典图，是对Activity生命周期各个阶段之间导航转换的直观展现。<br>
+Activity类提供了六个核心回调：<strong>onCreate()</strong>、<strong>onStart()</strong>、<strong>onResume()</strong>、<strong>onPause()</strong>、<strong>onStop()<strong>和</strong>onDestroy()</strong>。<br>
+<figure style="flex-grow: 76; flex-basis: 183px">
+		<a href="/android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" data-size="545x711"><img src="/android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png"
+				srcset="/android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_hu7d2fa6bc8b57b5766ca8f16c90e00936_66148_480x0_resize_box_2.png 480w, /android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_hu7d2fa6bc8b57b5766ca8f16c90e00936_66148_1024x0_resize_box_2.png 1024w"
+				width="545"
+				height="711"
+				loading="lazy"
+				alt="生命周期">
+		</a>
+		
+		<figcaption>生命周期</figcaption>
+		
+	</figure></p>
+<!-- raw HTML omitted -->
+<h1 id="说明">说明</h1>
+<ul>
+<li>在正常的情况下，Activity从启动到结束会按以下的顺序经历整个生命周期：onCreate()-&gt;onStart()-&gt;onResume()-&gt;onPause()-&gt;onStop()-&gt;onDestory()。</li>
+<li>onCreate():系统首次创建Activity的时候触发，可以做一些初始化的工作，比如初始化Activity所需要的数据，还有调用setContentView加载界面布局资源。</li>
+<li>onRestart()：表示Activity正在重新启动。一般情况下，当当前Activity从不可见重新变为可见状态时，onRestart就会被调用。这种情形一般是用户行为导致的，比如用户按Home键切换到桌面或打开了另一个新的Activity，接着用户又回到了这个Actvity。</li>
+<li>onStart(): 表示Activity正在被启动，即将开始，这时Activity已经出现了，**但是还没有出现在前台，无法与用户交互。**这个时候可以理解为Activity已经显示出来，但是我们还看不到。</li>
+<li>onResume():表示Activity已经可见了，并且出现在前台并开始活动。需要和onStart()对比，onStart的时候Activity还在后台，onResume的时候Activity才显示到前台。</li>
+<li>onPause():表示 Activity正在停止，仍可见，正常情况下，紧接着onStop就会被调，<strong>onPause中不能进行耗时操作，会影响到新Activity的显示。因为onPause必须执行完，新的Activity的onResume才会执行。</strong></li>
+<li>onStop():表示Activity即将停止，不可见，位于后台。可以做稍微重量级的回收工作，同样不能太耗时。</li>
+<li>onDestory():表示Activity即将销毁，这是Activity生命周期的最后一个回调，可以做一些回收工作和最终的资源回收。</li>
+</ul>
+<h1 id="几种普遍情况">几种普遍情况</h1>
+<h2 id="从a页面activity跳转到b页面activity然后关闭b页面activity回到a页面activity">从A页面Activity跳转到B页面Activity，然后关闭B页面Activity，回到A页面Activity</h2>
+<ul>
+<li>针对开启的B页面Activity，第一次启动，回调如下：onCreate()-&gt;onStart()-&gt;onResume()</li>
+<li>用户打开B页面Activiy的时候，A页面的Activity<strong>处于不可见</strong>的回调如下：onPause()-&gt;onStop()</li>
+<li>再次从B页面回到A页面原Activity时，A页面从<strong>不可见到可见</strong>回调如下：onRestart()-&gt;onStart()-&gt;onResume()</li>
+<li>按back键回退时，B页面Activity回调如下：onPause()-&gt;onStop()-&gt;onDestory()</li>
+<li>按Home键切换到桌面后又回到A页面该Actitivy，回调如下：onPause()-&gt;onStop()-&gt;onRestart()-&gt;onStart()-&gt;onResume()</li>
+<li>调用finish()方法后，回调如下：onDestory()<strong>(以在onCreate()方法中调用为例，不同方法中回调不同，通常都是在onCreate()方法中调用)</strong></li>
+</ul>
+<h1 id="activity的三种运行状态">Activity的三种运行状态</h1>
+<h2 id="resumed活动状态">Resumed（活动状态）</h2>
+<blockquote>
+<p>又叫Running状态，这个Activity正在屏幕上显示，并且有用户焦点。这个很好理解，就是用户正在操作的那个界面。</p>
+</blockquote>
+<h2 id="paused暂停状态">Paused（暂停状态）</h2>
+<blockquote>
+<p>这是一个比较不常见的状态。这个Activity在屏幕上是可见的，但是并不是在屏幕最前端的那个Activity。比如有另一个非全屏或者透明的Activity是Resumed状态，没有完全遮盖这个Activity。</p>
+</blockquote>
+<h2 id="stopped停止状态">Stopped（停止状态）</h2>
+<blockquote>
+<p>当Activity完全不可见时，此时Activity还在后台运行，仍然在内存中保留Activity的状态，并不是完全销毁。这个也很好理解，当跳转的另外一个界面，之前的界面还在后台，按回退按钮还会恢复原来的状态，大部分软件在打开的时候，直接按Home键，并不会关闭它，此时的Activity就是Stopped状态。</p>
+</blockquote>
+<h1 id="部分流程分支">部分流程分支</h1>
+<ul>
+<li>启动Activity: onCreate()—&gt;onStart()—&gt;onResume()，Activity进入运行状态。</li>
+<li>Activity退居后台: 当前Activity转到新的Activity界面或按Home键回到主屏： onPause()—&gt;onStop()，进入停滞状态。</li>
+<li>Activity返回前台: onRestart()—&gt;onStart()—&gt;onResume()，再次回到运行状态。</li>
+<li>Activity退居后台，且系统内存不足， 系统会杀死这个后台状态的Activity（此时这个Activity引用仍然处在任务栈中，只是这个时候引用指向的对象已经为null），若再次回到这个Activity,则会走onCreate()–&gt;onStart()—&gt;onResume()(将重新走一次Activity的初始化生命周期)</li>
+<li>锁屏：onPause()-&gt;onStop()</li>
+<li>解锁：onStart()-&gt;onResume()</li>
+</ul>
+<h1 id="横竖屏下切换">横竖屏下切换</h1>
+<h2 id="第一种情况销毁当前的activity">第一种情况，销毁当前的Activity：</h2>
+<p>在横竖屏切换的过程中，Activity会先销毁后重建，也应该避免这种情况。
+这里有两个回调：</p>
+<ul>
+<li>onSaveInstanceState和onRestoreInstanceState。</li>
+<li>在Activity由于异常情况下终止时，系统会调用onSaveInstanceState来保存当前Activity的状态。这个方法的调用是在onStop之前，它和onPause没有既定的时序关系，该方法只在Activity被异常终止的情况下调用。当异常终止的Activity被重建以后，系统会调用onRestoreInstanceState，并且把Activity销毁时onSaveInstanceState方法所保存的Bundle对象参数同时传递给onRestoreInstanceState和onCreate方法。因此，可以通过onRestoreInstanceState方法来恢复Activity的状态，该方法的调用时机是在onStart之后。其中onCreate和onRestoreInstanceState方法来恢复Activity的状态的区别： onRestoreInstanceState回调则表明其中Bundle对象非空，不用加非空判断。onCreate需要非空判断。建议使用onRestoreInstanceState。</li>
+<li>简单来说，这个过程Activity的生命周期为：onPause()-&gt;onSaveInstanceState()-&gt; onStop()-&gt;onDestroy()-&gt;onCreate()-&gt;onStart()-&gt;onRestoreInstanceState-&gt;onResume()</li>
+</ul>
+<h2 id="第二种情况当前的activity-不销毁但是我们需要设置activity的属性">第二种情况，当前的Activity 不销毁，但是我们需要设置Activity的属性：</h2>
+<p>可以通过在AndroidManifest文件的Activity中指定如下属性：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">activity</span>
+    <span class="n">android</span><span class="o">:</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;.activity.VideoDetailActivity&#34;</span>
+    <span class="n">android</span><span class="o">:</span><span class="n">configChanges</span><span class="o">=</span><span class="s">&#34;orientation|keyboardHidden|screenSize&#34;</span>
+    <span class="n">android</span><span class="o">:</span><span class="n">screenOrientation</span><span class="o">=</span><span class="s">&#34;portrait&#34;</span><span class="o">/&gt;</span>
+</code></pre></div><p>通过回调下面的方法，避免横竖屏切换的时候Activity的销毁和重建：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onConfigurationChanged</span><span class="o">(</span><span class="n">Configuration</span> <span class="n">newConfig</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onConfigurationChanged</span><span class="o">(</span><span class="n">newConfig</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div><h1 id="当资源不足的时候保留activity的优先级顺序">当资源不足的时候，保留Activity的优先级顺序：</h1>
+<ul>
+<li>前台Activity——正在和用户交互的Activity，优先级最高。</li>
+<li>可见但非前台Activity——比如Activity中弹出了一个对话框，导致Activity可见但是位于后台无法和用户交互。</li>
+<li>后台Activity——已经被暂停的Activity，比如执行了onStop，优先级最低。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/android/">Android</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/android-eventbuts/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的EventBus使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-custom-view/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android自定义view的定义</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/rxjava-composite-disposable/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rxjava的CompositeDisposable</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-rxjava/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的rxjava2</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-memory/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">说说Android的内存泄露和溢出</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

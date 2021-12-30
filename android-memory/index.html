@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='虽然在大学以来学习了一年多的安卓，已经可以完成一部分的需求，但是在Android这方面的底层知识和一些概念我应该不算非常了解，借着这个长假的机会打算好好熟悉下。
+Android内存泄漏 内存泄漏是指保存了不可能再被访问的变量引用，导致垃圾回收器无法回收内存。 也就是说： 在Java中有些对象的生命周期是有限的，当它们完成了特定的逻辑后会被回收，但是，如果在对象的生命周期本该被回收时，这个对象仍然还被别的对象所持有引用，那么就会导致内存泄漏。 具体例子：
+public class LeakAct extends Activity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.aty_leak); test(); } public void test() { new Thread(new Runnable() { @Override public void run() { while (true) { try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); } }z } }).start(); } } test是一个非静态内部类，当我们finish的时候，该实例不会真正销毁，GC机制也不会进行该实例的垃圾回收，因为***匿名内部类和非静态内部类持有外部类的强引用， ***也就是说test持有外部activity的强引用，而thread内部while(true)是死循环，线程不会停止，对外部activity的强引用也不会消失。这样就造成了内存泄漏。
+解决方案
+ 1.将内部类变成静态内部类; 2.如果有强引用Activity中的属性，则将该属性的引用方式改为弱引用; 3.在业务允许的情况下，当Activity执行onDestory时，结束这些耗时任务;
+ Android内存溢出 内存溢出指的是APP向系统申请超过最大阀值的内存请求，系统不会再分配多余的空间，从而造成内存溢出
+ 典型的例子就是加载多张大图，导致内存耗尽，可以对图片进行适当的质量压缩或者尺寸压缩。 当某个界面存在内存泄露，反复进入该界面，将导致一直有新对象创建但是无法回收，最终导致内存耗尽，造成内存溢出。  '><title>说说Android的内存泄露和溢出</title>
+
+<link rel='canonical' href='https://magren.cn/android-memory/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='说说Android的内存泄露和溢出'>
+<meta property='og:description' content='虽然在大学以来学习了一年多的安卓，已经可以完成一部分的需求，但是在Android这方面的底层知识和一些概念我应该不算非常了解，借着这个长假的机会打算好好熟悉下。
+Android内存泄漏 内存泄漏是指保存了不可能再被访问的变量引用，导致垃圾回收器无法回收内存。 也就是说： 在Java中有些对象的生命周期是有限的，当它们完成了特定的逻辑后会被回收，但是，如果在对象的生命周期本该被回收时，这个对象仍然还被别的对象所持有引用，那么就会导致内存泄漏。 具体例子：
+public class LeakAct extends Activity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.aty_leak); test(); } public void test() { new Thread(new Runnable() { @Override public void run() { while (true) { try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); } }z } }).start(); } } test是一个非静态内部类，当我们finish的时候，该实例不会真正销毁，GC机制也不会进行该实例的垃圾回收，因为***匿名内部类和非静态内部类持有外部类的强引用， ***也就是说test持有外部activity的强引用，而thread内部while(true)是死循环，线程不会停止，对外部activity的强引用也不会消失。这样就造成了内存泄漏。
+解决方案
+ 1.将内部类变成静态内部类; 2.如果有强引用Activity中的属性，则将该属性的引用方式改为弱引用; 3.在业务允许的情况下，当Activity执行onDestory时，结束这些耗时任务;
+ Android内存溢出 内存溢出指的是APP向系统申请超过最大阀值的内存请求，系统不会再分配多余的空间，从而造成内存溢出
+ 典型的例子就是加载多张大图，导致内存耗尽，可以对图片进行适当的质量压缩或者尺寸压缩。 当某个界面存在内存泄露，反复进入该界面，将导致一直有新对象创建但是无法回收，最终导致内存耗尽，造成内存溢出。  '>
+<meta property='og:url' content='https://magren.cn/android-memory/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Android' /><meta property='article:published_time' content='2020-03-01T14:27:13&#43;00:00'/><meta property='article:modified_time' content='2020-03-01T14:27:13&#43;00:00'/>
+<meta name="twitter:title" content="说说Android的内存泄露和溢出">
+<meta name="twitter:description" content="虽然在大学以来学习了一年多的安卓，已经可以完成一部分的需求，但是在Android这方面的底层知识和一些概念我应该不算非常了解，借着这个长假的机会打算好好熟悉下。
+Android内存泄漏 内存泄漏是指保存了不可能再被访问的变量引用，导致垃圾回收器无法回收内存。 也就是说： 在Java中有些对象的生命周期是有限的，当它们完成了特定的逻辑后会被回收，但是，如果在对象的生命周期本该被回收时，这个对象仍然还被别的对象所持有引用，那么就会导致内存泄漏。 具体例子：
+public class LeakAct extends Activity { @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.aty_leak); test(); } public void test() { new Thread(new Runnable() { @Override public void run() { while (true) { try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); } }z } }).start(); } } test是一个非静态内部类，当我们finish的时候，该实例不会真正销毁，GC机制也不会进行该实例的垃圾回收，因为***匿名内部类和非静态内部类持有外部类的强引用， ***也就是说test持有外部activity的强引用，而thread内部while(true)是死循环，线程不会停止，对外部activity的强引用也不会消失。这样就造成了内存泄漏。
+解决方案
+ 1.将内部类变成静态内部类; 2.如果有强引用Activity中的属性，则将该属性的引用方式改为弱引用; 3.在业务允许的情况下，当Activity执行onDestory时，结束这些耗时任务;
+ Android内存溢出 内存溢出指的是APP向系统申请超过最大阀值的内存请求，系统不会再分配多余的空间，从而造成内存溢出
+ 典型的例子就是加载多张大图，导致内存耗尽，可以对图片进行适当的质量压缩或者尺寸压缩。 当某个界面存在内存泄露，反复进入该界面，将导致一直有新对象创建但是无法回收，最终导致内存耗尽，造成内存溢出。  ">
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/android/" style="background-color: #2a9d8f; color: #fff;">
+                Android
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/android-memory/">说说Android的内存泄露和溢出</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Mar 01, 2020</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>虽然在大学以来学习了一年多的安卓，已经可以完成一部分的需求，但是在Android这方面的底层知识和一些概念我应该不算非常了解，借着这个长假的机会打算好好熟悉下。</p>
+<h1 id="android内存泄漏">Android内存泄漏</h1>
+<p><strong>内存泄漏是指保存了不可能再被访问的变量引用，导致垃圾回收器无法回收内存。</strong>
+也就是说：
+在Java中有些对象的生命周期是有限的，当它们完成了特定的逻辑后会被回收，但是，如果在对象的生命周期本该被回收时，这个对象仍然还被别的对象所持有引用，那么就会导致内存泄漏。
+具体例子：</p>
+<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LeakAct</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>  
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>    
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">aty_leak</span><span class="o">);</span>
+        <span class="n">test</span><span class="o">();</span>
+    <span class="o">}</span> 
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>    
+        <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>      
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>        
+                <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>          
+                    <span class="k">try</span> <span class="o">{</span>
+                        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">1000</span><span class="o">);</span>
+                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+                    <span class="o">}</span>
+                <span class="o">}</span><span class="n">z</span>
+            <span class="o">}</span>
+        <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>test是一个非静态内部类，当我们finish的时候，该实例不会真正销毁，GC机制也不会进行该实例的垃圾回收，因为***匿名内部类和非静态内部类持有外部类的强引用， ***也就是说test持有外部activity的强引用，而thread内部while(true)是死循环，线程不会停止，对外部activity的强引用也不会消失。这样就造成了内存泄漏。</p>
+<p><strong>解决方案</strong></p>
+<blockquote>
+<p>1.将内部类变成静态内部类;
+2.如果有强引用Activity中的属性，则将该属性的引用方式改为弱引用;
+3.在业务允许的情况下，当Activity执行onDestory时，结束这些耗时任务;</p>
+</blockquote>
+<h1 id="android内存溢出">Android内存溢出</h1>
+<p><strong>内存溢出指的是APP向系统申请超过最大阀值的内存请求，系统不会再分配多余的空间，从而造成内存溢出</strong></p>
+<ul>
+<li>典型的例子就是加载多张大图，导致内存耗尽，可以对图片进行适当的质量压缩或者尺寸压缩。</li>
+<li>当某个界面存在内存泄露，反复进入该界面，将导致一直有新对象创建但是无法回收，最终导致内存耗尽，造成内存溢出。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/android/">Android</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/android-eventbuts/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的EventBus使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-custom-view/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android自定义view的定义</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/rxjava-composite-disposable/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rxjava的CompositeDisposable</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-rxjava/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android的rxjava2</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/android-life-cycle/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Android Activity生命周期</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

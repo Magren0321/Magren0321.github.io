@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='使用React写的Github报告'><title>关于Github Report 👨‍🚀</title>
+
+<link rel='canonical' href='https://magren.cn/about-github-report/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='关于Github Report 👨‍🚀'>
+<meta property='og:description' content='使用React写的Github报告'>
+<meta property='og:url' content='https://magren.cn/about-github-report/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='React' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='项目' /><meta property='article:published_time' content='2021-07-30T14:00:21&#43;08:00'/><meta property='article:modified_time' content='2021-07-30T14:00:21&#43;08:00'/><meta property='og:image' content='https://magren.cn/about-github-report/github_bg.jpg' />
+<meta name="twitter:title" content="关于Github Report 👨‍🚀">
+<meta name="twitter:description" content="使用React写的Github报告"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://magren.cn/about-github-report/github_bg.jpg' />
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/about-github-report/">
+                <img src="/about-github-report/github_bg_hu750460e41bd6c52de3b2c596c0fc3920_51279_800x0_resize_q75_box.jpg"
+                        srcset="/about-github-report/github_bg_hu750460e41bd6c52de3b2c596c0fc3920_51279_800x0_resize_q75_box.jpg 800w, /about-github-report/github_bg_hu750460e41bd6c52de3b2c596c0fc3920_51279_1600x0_resize_q75_box.jpg 1600w"
+                        width="800" 
+                        height="450" 
+                        loading="lazy"
+                        alt="Featured image of post 关于Github Report 👨‍🚀" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/react/" style="background-color: #2a9d8f; color: #fff;">
+                React
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/about-github-report/">关于Github Report 👨‍🚀</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        使用React写的Github报告
+    </h3>
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Jul 30, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h1 id="前言">前言🛸</h1>
+<blockquote>
+<p>GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。</p>
+</blockquote>
+<p>Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，<del>曾用它抄别人代码来度过作业的危机，</del> 在之前使用Puppeteer尝试爬取了Github的部分数据，<del>于是脑子一抽，</del> 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。</p>
+<p>项目地址：<a class="link" href="https://github.com/Magren0321/github_report"  target="_blank" rel="noopener"
+    >Github Report</a></p>
+<p><figure style="flex-grow: 212; flex-basis: 510px">
+		<a href="/about-github-report/login.png" data-size="1920x902"><img src="/about-github-report/login.png"
+				srcset="/about-github-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_480x0_resize_box_2.png 480w, /about-github-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_1024x0_resize_box_2.png 1024w"
+				width="1920"
+				height="902"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<p><figure style="flex-grow: 212; flex-basis: 510px">
+		<a href="/about-github-report/welcome.png" data-size="1920x902"><img src="/about-github-report/welcome.png"
+				srcset="/about-github-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_480x0_resize_box_2.png 480w, /about-github-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_1024x0_resize_box_2.png 1024w"
+				width="1920"
+				height="902"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<p><figure style="flex-grow: 212; flex-basis: 510px">
+		<a href="/about-github-report/repinfo.png" data-size="1920x902"><img src="/about-github-report/repinfo.png"
+				srcset="/about-github-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_480x0_resize_box_2.png 480w, /about-github-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_1024x0_resize_box_2.png 1024w"
+				width="1920"
+				height="902"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<p><figure style="flex-grow: 212; flex-basis: 510px">
+		<a href="/about-github-report/contributions.png" data-size="1920x902"><img src="/about-github-report/contributions.png"
+				srcset="/about-github-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_480x0_resize_box_2.png 480w, /about-github-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_1024x0_resize_box_2.png 1024w"
+				width="1920"
+				height="902"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<h1 id="nescss">NES.css🚀</h1>
+<p>NES是20世纪80年代末、90年代初进入中国，是80后最早接触的游戏机，俗称红白机，这是一台使用8位处理器的游戏主机，而NES.css是一款NES风格（8位机）的CSS框架，也是一款像素风的CSS元件库,它没有任何 JavaScript 依赖,只包含CSS。</p>
+<p>NES.css提供的组件样式很对我胃口，它还提供了一些很好玩的像素icon。NES.css在默认里只有英文字体是像素风格的，如果是需要别的语言也是像素风格的话，需要自行去下载字体。</p>
+<p>👀具体使用参考看官方文档：<a class="link" href="https://github.com/nostalgic-css/NES.css"  target="_blank" rel="noopener"
+    >NES.css</a></p>
+<h1 id="react-spring">React-spring🌏</h1>
+<p>在最一开始我就想做一个整页滚动的效果，我每个页面都是100vh，隐藏掉滚动条后监听鼠标滚动（移动端监听touch），滚动执行的方法是整个页面上滑或则下滑100vh（使用margin-top，超出的部分隐藏，并且设置transition来使其有一个动画的效果），同时用时间戳实现了一个节流（单位时间内只执行一次某个方法），以防止用户频繁滚动✍：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"> <span class="kd">function</span> <span class="nx">throttle</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">time</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">pre</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">return</span> <span class="kd">function</span> <span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">pre</span> <span class="o">&gt;</span> <span class="nx">time</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">pre</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+          <span class="nx">event</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div><p>效果是有的，但是又感觉有点普通了🤨，接着翻到React-spring文档里看到了Parallax，Parallax可以创建一个可以滚动的容器，然后使用ParallaxLayer包含内容，并且可以设置其偏移量以及速度，就是可以制造视差滚动（页面上很多的元素在相互独立地滚动着），觉得挺好看就立马采用了😆。</p>
+<p>在网上有看到过使用background-attachment（背景图像的位置是在视口内固定，还是随着包含它的区块滚动），以及transform（通过设置translateZ，滚动的上下距离也就不一样）来实现，但是看react-spring中的Parallax是使用js实现的，通过监听滚动，实时使用translate设定位置🤔</p>
+<p>有时间得要好好看下，文档在这👉：<a class="link" href="https://react-spring.io/"  target="_blank" rel="noopener"
+    >React-spring</a></p>
+<h1 id="react-hook">React Hook📡</h1>
+<p>既然是使用了react的函数式组件，那么肯定就绕不开它的钩子函数了。说几个我常用的吧。</p>
+<h2 id="usestate">useState</h2>
+<p>为函数式组件引入state，这个函数返回一个数组，数组第一个元素是变量，第二个元素是一个方法，用于改变变量，例如：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 声明一个叫 “count” 的 state 变量
+</span><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div><h2 id="useeffect">useEffect</h2>
+<p>useEffet这个钩子函数可以说是替换了componentDidMount, componentDidUpdate, componentWillUnmount 这三个生命周期，在组件第一次渲染的时候也会执行useEffect()，具体✍：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">useEffect</span><span class="p">(</span>
+  <span class="c1">//等价于 componentDidMount
+</span><span class="c1"></span>  <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+    <span class="c1">// return等价于 componentWillUnmount 
+</span><span class="c1"></span>    <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+    <span class="p">};</span>
+  <span class="p">},</span>
+  <span class="c1">// 依赖列表，当变更时候，执行useEffent()，等价于 componentDidUpdate
+</span><span class="c1"></span>  <span class="p">[]</span>
+<span class="p">);</span>
+</code></pre></div><h2 id="usecontext">useContext</h2>
+<p>useContext()可以使用在组件之间需要共享状态的情况下，不必显式地通过组件树的逐层传递 props</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">themes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">light</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">foreground</span><span class="o">:</span> <span class="s2">&#34;#000000&#34;</span><span class="p">,</span>
+    <span class="nx">background</span><span class="o">:</span> <span class="s2">&#34;#eeeeee&#34;</span>
+  <span class="p">},</span>
+  <span class="nx">dark</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">foreground</span><span class="o">:</span> <span class="s2">&#34;#ffffff&#34;</span><span class="p">,</span>
+    <span class="nx">background</span><span class="o">:</span> <span class="s2">&#34;#222222&#34;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">ThemeContext</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createContext</span><span class="p">(</span><span class="nx">themes</span><span class="p">.</span><span class="nx">light</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">ThemeContext</span><span class="p">.</span><span class="nx">Provider</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">themes</span><span class="p">.</span><span class="nx">dark</span><span class="p">}</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Toolbar</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/ThemeContext.Provider&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 子级
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">Toolbar</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ThemedButton</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// 孙级或更多级
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">ThemedButton</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">theme</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">ThemeContext</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">style</span><span class="o">=</span><span class="p">{{</span> <span class="nx">background</span><span class="o">:</span> <span class="nx">theme</span><span class="p">.</span><span class="nx">background</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="nx">theme</span><span class="p">.</span><span class="nx">foreground</span> <span class="p">}}</span><span class="o">&gt;</span>
+      <span class="nx">I</span> <span class="nx">am</span> <span class="nx">styled</span> <span class="nx">by</span> <span class="nx">theme</span> <span class="nx">context</span><span class="o">!</span>
+    <span class="o">&lt;</span><span class="err">/button&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="useref">useRef</h2>
+<p>useRef 返回一个可变的 ref 对象，其 .current 属性被初始化为传入的参数（initialValue）。</p>
+<p>返回的 ref 对象在组件的整个生命周期内持续存在，类似于一个 class 的实例属性，其可以很方便地保存任何可变值。</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">TextInputWithFocusButton</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">inputEl</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">intervalRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">();</span>
+
+  <span class="kr">const</span> <span class="nx">onButtonClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// `current` 指向已挂载到 DOM 上的文本输入元素
+</span><span class="c1"></span>    <span class="nx">inputEl</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+  <span class="p">};</span>
+
+  <span class="nx">useEffect</span><span class="p">(</span>
+    <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// ...
+</span><span class="c1"></span>      <span class="p">});</span>
+      <span class="nx">intervalRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">intervalRef</span><span class="p">.</span><span class="nx">current</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;&gt;</span>
+      <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">inputEl</span><span class="p">}</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onButtonClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Focus</span> <span class="nx">the</span> <span class="nx">input</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+
+      <span class="c1">// ...
+</span><span class="c1"></span>    <span class="o">&lt;</span><span class="err">/&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="warning-">Warning 🔒</h2>
+<ul>
+<li>✅只在最顶层使用Hook（不要在循环、条件或嵌套函数中使用Hook）</li>
+<li>✅在React函数中调用Hook</li>
+<li>✅在自定义Hook中调用其他Hook</li>
+</ul>
+<p>以上是React Hook文档中的规则，原因就是React内部并不是真正保存state，它是通过调用顺序来跟踪state。</p>
+<p>也就是说 <strong>多个useState的调用是借由一个链表来维护的，通过索引来实现对多个state的识别。</strong> 如果在if/else中调用Hook，当函数组件重新执行的时候可能会改变调用顺序，会导致错误。</p>
+<p>这个过程：</p>
+<ul>
+<li>第一次渲染，根据 useState 顺序，逐个声明 state 并且将其放入全局 Array 中。每次声明 state，都要将 cursor 增加 1。</li>
+<li>每个事件都有对应游标的state值，任何state事件触发，都会修改state数组中对应的state值，触发再次渲染。cursor 被重置为 0。按照 useState 的声明顺序，依次拿出最新的 state 的值，视图更新。</li>
+</ul>
+<h1 id="最后">最后🔭</h1>
+<p>感谢<a class="link" href="https://github.com/nostalgic-css/NES.css"  target="_blank" rel="noopener"
+    >NES.css</a>以及<a class="link" href="https://react-spring.io/"  target="_blank" rel="noopener"
+    >React-spring</a>🙏</p>
+<p>这是我个人的心血来潮的学习项目，有改善的地方或者bug欢迎交流🙌</p>
+<p>如果这个东西能帮到你学到点什么就是我的荣幸🔮</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/react/">React</a>
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+            <a href="/tags/%E9%A1%B9%E7%9B%AE/">项目</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/about-chatroom/">
+        
+        
+            <div class="article-image">
+                <img src="/about-chatroom/chatRoom.54c172624d2ccdcbe0b272c812b4e4e9_huc88acfaa844eb1f39ff9adc202a02393_142793_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-VMFyYk0szcvgsnLIErTk6Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于ChatRoom</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/about-cloudmusic/">
+        
+        
+            <div class="article-image">
+                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-&#43;NznaNJ7iZYMeYMBlXjbFg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于CloudMusic</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/vue-ts-axios/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue Typescript下axios的封装和使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/about-hgmap/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于HG地图</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/vue-homework/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">用vue实现的期末作业</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

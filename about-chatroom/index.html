@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
+因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
+项目地址：ChatRoom
+项目截图： 
+
+
+后端 后端基于Node.js &#43; Express &#43; Socket.io &#43; MongoDB
+Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：
+Node.js&#43;express
+Node.Js操作MongoDB
+这次用的新东西就是Socket.io。
+前人的工作👇  Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
+ 即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
+在连接Socket.io的之前还得先知道WebSocket，在WebSocket问世之前，在创建拥有双向通信机制的 web 应用程序时，就只能利用 HTTP 轮询的方式，由此产生了 “短轮询” 和 “长轮询”。
+ 短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
+长轮询是对短轮询的优化，需要服务端做相应的修改来支持。但是每次请求还是都要带上HTTP请求头部，而且在长轮询的连接结束之后，服务器端积累的新消息要等到下次客户端连接时才能传递。
+ Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
+接着是Socket.io，Socket.io底层基于engine.io，封装了WebSocket，其屏蔽了底层细节，让顶层调用非常简单。同时它还支持许多种轮询机制以及其他通信方式，当环境不支持WebSocket的时候它能自动选择最佳的方式来实现网络的实时通信。
+使用 引入io设置端口后监听connect事件：
+const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001  io.'><title>关于ChatRoom</title>
+
+<link rel='canonical' href='https://magren.cn/about-chatroom/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='关于ChatRoom'>
+<meta property='og:description' content='学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
+因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
+项目地址：ChatRoom
+项目截图： 
+
+
+后端 后端基于Node.js &#43; Express &#43; Socket.io &#43; MongoDB
+Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：
+Node.js&#43;express
+Node.Js操作MongoDB
+这次用的新东西就是Socket.io。
+前人的工作👇  Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
+ 即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
+在连接Socket.io的之前还得先知道WebSocket，在WebSocket问世之前，在创建拥有双向通信机制的 web 应用程序时，就只能利用 HTTP 轮询的方式，由此产生了 “短轮询” 和 “长轮询”。
+ 短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
+长轮询是对短轮询的优化，需要服务端做相应的修改来支持。但是每次请求还是都要带上HTTP请求头部，而且在长轮询的连接结束之后，服务器端积累的新消息要等到下次客户端连接时才能传递。
+ Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
+接着是Socket.io，Socket.io底层基于engine.io，封装了WebSocket，其屏蔽了底层细节，让顶层调用非常简单。同时它还支持许多种轮询机制以及其他通信方式，当环境不支持WebSocket的时候它能自动选择最佳的方式来实现网络的实时通信。
+使用 引入io设置端口后监听connect事件：
+const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001  io.'>
+<meta property='og:url' content='https://magren.cn/about-chatroom/'>
+<meta property='og:site_name' content='Magren&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='React' /><meta property='article:tag' content='node.js' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='项目' /><meta property='article:tag' content='Typescript' /><meta property='article:published_time' content='2021-02-10T18:11:21&#43;08:00'/><meta property='article:modified_time' content='2021-02-10T18:11:21&#43;08:00'/><meta property='og:image' content='https://magren.cn/about-chatroom/chatRoom.png' />
+<meta name="twitter:title" content="关于ChatRoom">
+<meta name="twitter:description" content="学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
+因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
+项目地址：ChatRoom
+项目截图： 
+
+
+后端 后端基于Node.js &#43; Express &#43; Socket.io &#43; MongoDB
+Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：
+Node.js&#43;express
+Node.Js操作MongoDB
+这次用的新东西就是Socket.io。
+前人的工作👇  Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
+ 即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
+在连接Socket.io的之前还得先知道WebSocket，在WebSocket问世之前，在创建拥有双向通信机制的 web 应用程序时，就只能利用 HTTP 轮询的方式，由此产生了 “短轮询” 和 “长轮询”。
+ 短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
+长轮询是对短轮询的优化，需要服务端做相应的修改来支持。但是每次请求还是都要带上HTTP请求头部，而且在长轮询的连接结束之后，服务器端积累的新消息要等到下次客户端连接时才能传递。
+ Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
+接着是Socket.io，Socket.io底层基于engine.io，封装了WebSocket，其屏蔽了底层细节，让顶层调用非常简单。同时它还支持许多种轮询机制以及其他通信方式，当环境不支持WebSocket的时候它能自动选择最佳的方式来实现网络的实时通信。
+使用 引入io设置端口后监听connect事件：
+const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001  io."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://magren.cn/about-chatroom/chatRoom.png' />
+    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "light");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.body.dataset.scheme = 'dark';
+        } else {
+            document.body.dataset.scheme = 'light';
+        }
+    })();
+</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+                    <span class="emoji">🌟</span>
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
+        <h2 class="site-description">不为繁华易匠心</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='https://github.com/Magren0321'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+                
+                <span>Github</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/index.xml'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>RSS</span>
+            </a>
+        </li>
+        
+
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="https://magren.cn" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/about-chatroom/">
+                <img src="/about-chatroom/chatRoom_huc88acfaa844eb1f39ff9adc202a02393_142793_800x0_resize_box_2.png"
+                        srcset="/about-chatroom/chatRoom_huc88acfaa844eb1f39ff9adc202a02393_142793_800x0_resize_box_2.png 800w, /about-chatroom/chatRoom_huc88acfaa844eb1f39ff9adc202a02393_142793_1600x0_resize_box_2.png 1600w"
+                        width="800" 
+                        height="581" 
+                        loading="lazy"
+                        alt="Featured image of post 关于ChatRoom" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/react/" style="background-color: #2a9d8f; color: #fff;">
+                React
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/about-chatroom/">关于ChatRoom</a>
+    </h2>
+
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Feb 10, 2021</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h1 id="学习新东西">学习新东西👋</h1>
+<p>最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌</p>
+<p>因为是第一次做React，如果觉得有什么需要修改的欢迎提出<a class="link" href="https://github.com/Magren0321/ChatRoom/issues"  target="_blank" rel="noopener"
+    >Issuse</a>，也欢迎你的star⭐</p>
+<p>项目地址：<a class="link" href="https://github.com/Magren0321/ChatRoom"  target="_blank" rel="noopener"
+    >ChatRoom</a></p>
+<p>项目截图：
+<figure style="flex-grow: 166; flex-basis: 399px">
+		<a href="/about-chatroom/3.png" data-size="1259x757"><img src="/about-chatroom/3.png"
+				srcset="/about-chatroom/3_hu8c6af76c184993eaa9ea9e4c0b99dd1d_21174_480x0_resize_box_2.png 480w, /about-chatroom/3_hu8c6af76c184993eaa9ea9e4c0b99dd1d_21174_1024x0_resize_box_2.png 1024w"
+				width="1259"
+				height="757"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure><br>
+<figure style="flex-grow: 175; flex-basis: 422px">
+		<a href="/about-chatroom/2.png" data-size="1209x687"><img src="/about-chatroom/2.png"
+				srcset="/about-chatroom/2_hue5e962f3808c309b9a5d50abe260b21b_20659_480x0_resize_box_2.png 480w, /about-chatroom/2_hue5e962f3808c309b9a5d50abe260b21b_20659_1024x0_resize_box_2.png 1024w"
+				width="1209"
+				height="687"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure><br>
+<figure style="flex-grow: 194; flex-basis: 465px">
+		<a href="/about-chatroom/1.png" data-size="1574x811"><img src="/about-chatroom/1.png"
+				srcset="/about-chatroom/1_hu8e192e331c07723915c470b346f53c23_19635_480x0_resize_box_2.png 480w, /about-chatroom/1_hu8e192e331c07723915c470b346f53c23_19635_1024x0_resize_box_2.png 1024w"
+				width="1574"
+				height="811"
+				loading="lazy"
+				>
+		</a>
+		
+	</figure></p>
+<h1 id="后端">后端</h1>
+<p>后端基于Node.js + Express + Socket.io + MongoDB<br>
+Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：<br>
+<a class="link" href="https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/"  target="_blank" rel="noopener"
+    >Node.js+express</a><br>
+<a class="link" href="https://magren.cn/node.js-mongodb/"  target="_blank" rel="noopener"
+    >Node.Js操作MongoDB</a><br>
+这次用的新东西就是Socket.io。</p>
+<h2 id="前人的工作">前人的工作👇</h2>
+<blockquote>
+<p>Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server</p>
+</blockquote>
+<p>即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。<br>
+在连接Socket.io的之前还得先知道<strong>WebSocket</strong>，在WebSocket问世之前，在创建拥有双向通信机制的 web 应用程序时，就只能利用 HTTP 轮询的方式，由此产生了 “短轮询” 和 “长轮询”。</p>
+<blockquote>
+<p>短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。<br>
+长轮询是对短轮询的优化，需要服务端做相应的修改来支持。但是每次请求还是都要带上HTTP请求头部，而且在长轮询的连接结束之后，服务器端积累的新消息要等到下次客户端连接时才能传递。</p>
+</blockquote>
+<p>Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个<strong>Upgrade request</strong>经由HTTP服务器解析，且与HTTP使用一样的端口。</p>
+<p>接着是<strong>Socket.io</strong>，Socket.io底层基于<strong>engine.io</strong>，封装了WebSocket，其屏蔽了底层细节，让顶层调用非常简单。同时它还支持许多种轮询机制以及其他通信方式，当环境不支持WebSocket的时候它能自动选择最佳的方式来实现网络的实时通信。</p>
+<h2 id="使用">使用</h2>
+<p>引入io设置端口后监听connect事件：</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">).</span><span class="nx">Server</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>  
+<span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io&#39;</span><span class="p">)(</span><span class="nx">server</span><span class="p">);</span>  
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3001</span><span class="p">);</span> <span class="c1">//端口设置3001
+</span><span class="c1"></span>
+<span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">((</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">socket</span><span class="p">=&gt;{</span>
+    
+    <span class="err">………………</span>
+
+<span class="p">})</span>
+</code></pre></div><p>接着通过最重要的两个api，<strong>emit</strong>和<strong>on</strong>来发送以及监听事件</p>
+<ul>
+<li>socket.emit(eventName,[ &hellip;args])：发射（触发）一个事件</li>
+<li>socket.on(eventName, callback)：监听一个 emit 发射的事件</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//监听xxx事件，输出传进来的data对象
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">,</span><span class="nx">data</span><span class="p">=&gt;{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="c1">//发送xxx事件，传出去一个对象，里面有name属性
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">,{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;magren&#39;</span><span class="p">})</span>
+</code></pre></div><p>另外用到的方法</p>
+<ul>
+<li>socket.join(id)：加入到一个room为id的房间中</li>
+<li>socket.broadcast.to(id).emit( )：广播给room为id的除了‘我’以外的所有人</li>
+<li>io.sockets.in(id).emit( )：广播给room为id的所有人</li>
+</ul>
+<h1 id="前端">前端</h1>
+<p>前端基于React + Redux + Typescript + Antd</p>
+<p>向后台发送消息以及监听很简单，只需要引入<strong>socket.io-client</strong>，接着使用emit发送和on监听事件即可。</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">)(</span><span class="s1">&#39;ws://localhost:3001&#39;</span><span class="p">,{</span><span class="nx">transports</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;websocket&#39;</span><span class="p">]})</span>
+
+<span class="c1">//监听信息
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;chat_message&#39;</span><span class="p">,(</span><span class="nx">data</span><span class="o">:</span> <span class="nx">mesItem</span><span class="p">)=&gt;{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="nx">message</span><span class="o">:</span><span class="p">[</span><span class="nx">data</span><span class="p">,...</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">message</span><span class="p">]</span>
+  <span class="p">});</span>
+<span class="p">})</span>
+<span class="c1">//发送加入群组
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;join&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">roomId</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">match</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">roomId</span><span class="p">,</span>
+  <span class="nx">userName</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+  <span class="nx">userId</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">id</span>
+<span class="p">})</span>
+<span class="c1">//发送信息
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;mes&#39;</span><span class="p">,{</span>
+  <span class="nx">roomId</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">match</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">roomId</span><span class="p">,</span>
+  <span class="nx">userName</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+  <span class="nx">userId</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+  <span class="nx">mes</span><span class="o">:</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">msg</span>
+<span class="p">})</span>
+</code></pre></div><h2 id="关于redux">关于Redux</h2>
+<p>redux跟vuex的理念给我的感觉是一样的，同样都是一个状态管理库，并且都是保存在内存当中（刷新就会重置），定义全局state，触发后修改state。不同的地方也还是有的，Vuex的数据是可变可直接修改，Redux不可变并且是直接用新的state替换掉旧的state。</p>
+<p>这个项目用了 <strong><a class="link" href="https://github.com/reduxjs/react-redux"  target="_blank" rel="noopener"
+    >react-redux</a></strong> 和 <strong><a class="link" href="https://github.com/reduxjs/redux-thunk"  target="_blank" rel="noopener"
+    >redux-thunk</a></strong> 两个库。</p>
+<p>使用了react-redux后流程大大缩短，store的三大功能：dispatch，subscribe，getState都让它来帮我们实现了，同时它提供了Provider和Connect，前者是一个组件，后者是一个函数。<br>
+大致的流程就是Provider组件接受redux的store作为props，然后通过context往下传，connect函数收到Provider传出的store，并将state和actionCreator以props传入组件，组件就可以通过调用props里的action触发reducer函数返回新的state，connect监听到变化后调用setState更新组件并将新的state传入。</p>
+<p><strong>redux-thunk</strong>的作用：可以让 store.dispatch 变成可以接收一个函数/一个对象的中间件。</p>
+<blockquote>
+<p>让原本只能接受对象的 store.dispatch 变成可以接收对象/方法，并且如果接收了一个方法后自动执行该方法，而不触发 redux 的 store 更新。</p>
+</blockquote>
+<h1 id="最后">最后💻</h1>
+<p>感谢Google、baidu等搜索引擎和Google翻译😵<br>
+以及<a class="link" href="https://github.com/bailicangdu"  target="_blank" rel="noopener"
+    >bailicangdu</a>大佬的<a class="link" href="https://github.com/bailicangdu/react-pxq"  target="_blank" rel="noopener"
+    >react-pxq</a>项目的参考以及总结😘</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/react/">React</a>
+        
+            <a href="/tags/node.js/">node.js</a>
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+            <a href="/tags/%E9%A1%B9%E7%9B%AE/">项目</a>
+        
+            <a href="/tags/typescript/">Typescript</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+    onload="StackLaTeX()"></script>
+
+<script>
+    function StackLaTeX() {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });
+    }
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">Related contents</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/about-github-report/">
+        
+        
+            <div class="article-image">
+                <img src="/about-github-report/github_bg.7d9ef87952f3ab7d5affe9947b16018b_hu750460e41bd6c52de3b2c596c0fc3920_51279_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-fZ74eVLzq31a/&#43;mUexYBiw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于Github Report 👨‍🚀</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/about-cloudmusic/">
+        
+        
+            <div class="article-image">
+                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-&#43;NznaNJ7iZYMeYMBlXjbFg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于CloudMusic</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/vue-ts-axios/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue Typescript下axios的封装和使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/about-hgmap/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">关于HG地图</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/puppeteer-get-github/">
+        
+        
+            <div class="article-image">
+                <img src="/puppeteer-get-github/github.3bda585ceabcae86a826c57305d1ff39_hu36a1a5b23cbc9c820433c25bdd72ecfc_62891_250x150_fill_q75_box_smart1.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy" 
+                        data-key="" 
+                        data-hash="md5-O9pYXOq8roaoJsVzBdH/OQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Puppeteer爬取Github指北</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+
+    
+        
+    <div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine@^1/dist/Valine.min.js'></script>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'uJmbiosdsmHEiUfSX1dCgDcC-9Nh9j0Va',
+    appKey: '2Q75MEaXCEkyYh3WFOsDCMOV',
+    avatar: 'retro',
+    placeholder: '说点什么吧（邮箱以及网址不会被公开，但其实你不填也可以回复(๑•̀ㅂ•́)و✧）',
+    visitor: false
+})
+</script>
+
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2021 Magren&#39;s Blog
+
+        
+        <div id="days"></div>
+        </script>
+        <script language="javascript">
+        function show_date_time(){
+        window.setTimeout("show_date_time()", 1000);
+        BirthDay=new Date("01/07/2020 15:00:00");
+        today=new Date();
+        timeold=(today.getTime()-BirthDay.getTime());
+        sectimeold=timeold/1000
+        secondsold=Math.floor(sectimeold); 
+        msPerDay=24*60*60*1000
+        e_daysold=timeold/msPerDay
+        daysold=Math.floor(e_daysold);
+        e_hrsold=(e_daysold-daysold)*24;
+        hrsold=setzero(Math.floor(e_hrsold));
+        e_minsold=(e_hrsold-hrsold)*60;
+        minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+        seconds=setzero(Math.floor((e_minsold-minsold)*60));
+        document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+        }
+        function setzero(i){
+            if (i<10)
+            {i="0" + i};
+                return i;
+            }
+            show_date_time();
+        </script>
+        
+    </section>
+    
+    <section class="powerby">
+
+    
+
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.0.1">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"
+    integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin="anonymous"></script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js', {scope: '/'})
+                    .then(function (registration) {
+                        
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function (err) {
+                        
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+    
+</html>

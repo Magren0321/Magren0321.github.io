@@ -6,13 +6,167 @@
         <description>Recent content on Magren&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
-        <lastBuildDate>Wed, 24 Nov 2021 10:14:21 +0800</lastBuildDate><atom:link href="https://magren.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 30 Dec 2021 10:14:21 +0800</lastBuildDate><atom:link href="https://magren.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>2021 , 否极泰来</title>
+        <link>https://magren.cn/2021-summary/</link>
+        <pubDate>Thu, 30 Dec 2021 10:14:21 +0800</pubDate>
+        
+        <guid>https://magren.cn/2021-summary/</guid>
+        <description>&lt;img src="https://magren.cn/2021-summary/background.jpg" alt="Featured image of post 2021 , 否极泰来" /&gt;&lt;h1 id=&#34;写在前面&#34;&gt;写在前面&lt;/h1&gt;
+&lt;p&gt;或许是今年的经历比较简单，没有比去年丰富，所以感觉今年过的特别快，然后自己的总结也是不知道从哪里下笔比较好，索性想到什么就写什么吧。&lt;/p&gt;
+&lt;p&gt;在讲今年的事情之前，先看看去年立的flag完成了几个吧（虽然都忘记的差不多，处于随缘完成状态了&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2020立的flag&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 逛遍广州&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 学习React&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 啃掉JavaScript高级程序设计、深入浅出node.js等书籍&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 做些新东西，为开源做贡献&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 养成锻炼的习惯&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 给我早睡！&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 培养一门新的特长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在疫情肆虐的情况下逛遍广州已经是不太可能的了，不过依然去了一些地方，比如太古汇几十块钱的甜筒并且大排长龙真是让我印象深刻呢……🥲&lt;/p&gt;
+&lt;p&gt;这一年里面更多的是提高自己前端方面的能力，加上自己喜欢一边学一边去实现自己脑子里没什么用的idea&lt;/p&gt;
+&lt;p&gt;所以后面三个flag是达成了，美中不足的是感觉自己做的东西比较简单，没有什么亮点，没有什么拿得出手的东西，希望以后能捡起来做优化或者做重构吧。&lt;/p&gt;
+&lt;p&gt;然后锻炼……如果因为拿外卖或者吃饭需要来回宿舍六层楼也算锻炼的话，就达成了🤤&lt;/p&gt;
+&lt;p&gt;早睡……现在是01:37，今年是我上大学以来，或者说我21岁以来，熬夜最频繁，然后时长也是最长的一年，我想我需要花点时间来恢复一个良好的生物钟，至于为什么我下面会说说。&lt;/p&gt;
+&lt;p&gt;特长：下次一定！（逃&lt;/p&gt;
+&lt;h1 id=&#34;2021&#34;&gt;2021&lt;/h1&gt;
+&lt;h2 id=&#34;生活健康&#34;&gt;生活、健康&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在疫情肆虐，加各种变异新病种的情况下，很幸运没有中奖，前不久在学校打了第三针&lt;/li&gt;
+&lt;li&gt;因为忙于工作的事，所以夜跑的频率远没有去年那么高，还有养成了熬夜的坏习惯&lt;/li&gt;
+&lt;li&gt;稍微变胖了些，对于我来说是件好事，去年前年都稳定在100斤，昨天称了后发现……到105了🤧，不想再做瘦子了&lt;/li&gt;
+&lt;li&gt;在今年自己做饭的机会增多了不少，所以开始研究做饭，在 &lt;del&gt;没钱&lt;/del&gt; 有兴致的时候会下厨，但是希望自己厨艺能更好一点🤮&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 320px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2021-summary/food.jpg&#34; data-size=&#34;591x443&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-summary/food.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-summary/food_hu868d9915d0fb2e09c66cbfc33da332cb_39470_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-summary/food_hu868d9915d0fb2e09c66cbfc33da332cb_39470_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;591&#34;
+				height=&#34;443&#34;
+				loading=&#34;lazy&#34;
+				alt=&#34;摆盘不行味道也一般的一顿&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;摆盘不行味道也一般的一顿&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;工作&#34;&gt;工作&lt;/h2&gt;
+&lt;p&gt;求职以及工作这两件事占了我的2021的绝大部分，在今年春招的时候就给各路大厂打击得找不着北，跟某个大佬师兄谈心后决心再好好沉淀，去了某个公司做实习生，备战秋招。&lt;/p&gt;
+&lt;p&gt;在公司适应得很快，多亏了同事以及老大都比较平易近人，也给了我很多鼓励，我想那时候我是一个比较放松的状态，暂时忘掉了求职的压力同时也学到了些东西，但是人往高处走，我还是想趁应届生这个身份再冲冲大厂。&lt;/p&gt;
+&lt;p&gt;在秋招里因为错过了比较好的时机，加上自己没有调整好状态，感觉一直都在碰壁，有些公司哪怕面完了HR面了都没有一个好的结果，压力一直很大，经常失眠后也落得了熬夜的毛病，有时候干脆直接不睡了然后第二天吃了个早餐才睡。&lt;/p&gt;
+&lt;p&gt;为了调整自己的心态，给自己做心理建设的同时又去看了很多的电影、动漫，还有一些书来放松自己，&lt;del&gt;就差直接摆烂&lt;/del&gt;，最后在11月上了小米补招的末班车，身为米粉对这个结果也是十分满意😌，求职这件事也就告一段落。&lt;/p&gt;
+&lt;h2 id=&#34;书影视&#34;&gt;书、影视&lt;/h2&gt;
+&lt;p&gt;前面也提到了，为了调整自己的心态，我让自己去看一些电影、动漫和书来短暂转移自己的注意力，让自己从求职的压力中暂时的解放一下。&lt;/p&gt;
+&lt;h3 id=&#34;书&#34;&gt;书&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaScript高级程序设计&lt;/li&gt;
+&lt;li&gt;深入浅出Node.js&lt;/li&gt;
+&lt;li&gt;代码整洁之道&lt;/li&gt;
+&lt;li&gt;任天堂全球征服史&lt;/li&gt;
+&lt;li&gt;岩田先生&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2021-summary/book.jpg&#34; data-size=&#34;590x443&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-summary/book.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-summary/book_hu504538ae1d7811baa27fe1ca08c620e4_45635_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-summary/book_hu504538ae1d7811baa27fe1ca08c620e4_45635_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;590&#34;
+				height=&#34;443&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;影视&#34;&gt;影视&lt;/h3&gt;
+&lt;p&gt;有一些以前一直想看，但是却给自己在平时抛在脑后的电影终于补上了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pokemon（电影）&lt;/li&gt;
+&lt;li&gt;哈利波特&lt;/li&gt;
+&lt;li&gt;魯邦三世 THE FIRST&lt;/li&gt;
+&lt;li&gt;蜡笔小新（电影）&lt;/li&gt;
+&lt;li&gt;环太平洋&lt;/li&gt;
+&lt;li&gt;盗梦空间&lt;/li&gt;
+&lt;li&gt;蜘蛛侠 英雄无归（实在忍不住跟舍友一块看了枪版，国内上映了会去补票的！）&lt;/li&gt;
+&lt;li&gt;EVA 新世纪福音战士（把网上传颂的神作补了）&lt;/li&gt;
+&lt;li&gt;EVA 真心为你/Air&lt;/li&gt;
+&lt;li&gt;EVA 序&lt;/li&gt;
+&lt;li&gt;EVA 破&lt;/li&gt;
+&lt;li&gt;EVA Q&lt;/li&gt;
+&lt;li&gt;EVA 终&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;code--learning&#34;&gt;Code , Learning&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;入门前端也有一年多了，这一年重点学了Vue3、React，也用过这两者去实现点东西&lt;/li&gt;
+&lt;li&gt;熟悉了Webpack和Vite&lt;/li&gt;
+&lt;li&gt;啃了一些书，加上面试会问基础，所以把前端基础和计网又巩固了下&lt;/li&gt;
+&lt;li&gt;重新刷LeetCode，这次使用Notion将自己做过的题还有自己的方法做了笔记，虽然现在每日一题有时候还是熟练地点开题解，周赛还是给吊打，但是希望自己能坚持下去，锻炼自己思维，静待量变引起质变&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 158; flex-basis: 379px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2021-summary/Leetcode.png&#34; data-size=&#34;644x407&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-summary/Leetcode.png&#34;
+				srcset=&#34;https://magren.cn/2021-summary/Leetcode_hud30d39bbb2ea3f00ca3d279363577446_72440_480x0_resize_box_2.png 480w, https://magren.cn/2021-summary/Leetcode_hud30d39bbb2ea3f00ca3d279363577446_72440_1024x0_resize_box_2.png 1024w&#34;
+				width=&#34;644&#34;
+				height=&#34;407&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;一些有的没的想法&#34;&gt;一些有的没的想法&lt;/h2&gt;
+&lt;h3 id=&#34;保持谦逊&#34;&gt;保持谦逊&lt;/h3&gt;
+&lt;p&gt;年少时我觉得我是一个比较自负的状态，现在越长大越自卑，认识的人越多，越发现自己平庸至极，就和“&lt;strong&gt;知识越学越少&lt;/strong&gt;”一样，懂得越多，越发现自己知之甚少。&lt;/p&gt;
+&lt;p&gt;在今年求职、工作中遇到的大神，还有机缘巧合下发现的同年级专业的大佬，他们的学识还有学习的方法都会刷新我的认识，也都值得我去学习。当我有所膨胀的时候，应该是我当前所处的圈子一时让我没有了危机感，在不知道的地方一定有大神能够把我按在地上摩擦。&lt;/p&gt;
+&lt;p&gt;有了这种认知后我对我自己的平庸更加坦然，他人一天、一周搞定的东西，我可能会需要花一个月，那就多花点时间罢了，补上功欠缺的功课，没必要气馁。&lt;/p&gt;
+&lt;h3 id=&#34;多去经历&#34;&gt;多去经历&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;未经历而难以彻悟&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;很多事情不去经历是无法了解，到了今年我也才知道为什么当初师兄催着我出去实习，很多时候很多事情就像学习编程一样，得自己亲自去敲了才能够明白。&lt;/p&gt;
+&lt;p&gt;人生应该是一个不断丰富自己的过程，要去体验自己没体验过的，经历自己不曾经历的，可能这个过程很痛苦，但是熬过来后就会总能明白一些事情，再者，无论结果，一段难忘的经历本身就是一件非常有意义的事情。&lt;/p&gt;
+&lt;p&gt;&lt;figure style=&#34;flex-grow: 138; flex-basis: 333px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/2021-summary/lesson.jpg&#34; data-size=&#34;671x483&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-summary/lesson.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-summary/lesson_hufbfe8585fe19abe09d57afb786afcd9c_69521_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-summary/lesson_hufbfe8585fe19abe09d57afb786afcd9c_69521_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;671&#34;
+				height=&#34;483&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&#34;2022&#34;&gt;2022&lt;/h1&gt;
+&lt;h2 id=&#34;生活&#34;&gt;生活&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 好好睡觉&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 捡回夜跑的习惯，好好锻炼&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 保持一个好的心态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 要踏入社会啦，好好工作&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 继续在前端摸爬打滚，深入学习&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 继续做新东西，继续折腾&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; LeetCode！&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 把自己的毕业设计做好&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 学会理财&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 如果疫情好转的情况下，继续逛完广州&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 看5 ~ 10本书&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;最后&#34;&gt;最后&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;欢愉且生意，万事尽可期。&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;希望新的一年大家都能平安顺利。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;谨以此文献给自己&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>关于我在2021年求职给卷烂的一些事</title>
-        <link>https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/</link>
+        <link>https://magren.cn/2021-job-wanted/</link>
         <pubDate>Wed, 24 Nov 2021 10:14:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/</guid>
-        <description>&lt;img src="https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/notion.png" alt="Featured image of post 关于我在2021年求职给卷烂的一些事" /&gt;&lt;blockquote&gt;
+        <guid>https://magren.cn/2021-job-wanted/</guid>
+        <description>&lt;img src="https://magren.cn/2021-job-wanted/notion.png" alt="Featured image of post 关于我在2021年求职给卷烂的一些事" /&gt;&lt;blockquote&gt;
 &lt;p&gt;往年师兄师姐找工作的时候，我看着感觉挺轻松，但是今年到了自己的时候，才发现根本不是那么一回事……&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;春招&#34;&gt;春招&lt;/h1&gt;
@@ -36,8 +190,8 @@
 &lt;p&gt;尔后在阿里的面试中，我在没有了解技术背后的原理以及一些基本的概念的情况下，我没有悬念的挂掉了，面试官为了不尴尬后面都在跟我聊家常，真是为难人家了💀&lt;/p&gt;
 &lt;p&gt;人生总有起起落落，但我的人生怎么就是起起落落落落落落落落落落落落落落落落落呢&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 157; flex-basis: 377px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/dont-scold-me.jpg&#34; data-size=&#34;148x94&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/dont-scold-me.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/dont-scold-me_hud3328492e233daefc3a962992091c09a_9941_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/dont-scold-me_hud3328492e233daefc3a962992091c09a_9941_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2021-job-wanted/dont-scold-me.jpg&#34; data-size=&#34;148x94&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-job-wanted/dont-scold-me.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-job-wanted/dont-scold-me_hud3328492e233daefc3a962992091c09a_9941_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-job-wanted/dont-scold-me_hud3328492e233daefc3a962992091c09a_9941_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;148&#34;
 				height=&#34;94&#34;
 				loading=&#34;lazy&#34;
@@ -49,8 +203,8 @@
 &lt;p&gt;刷微博的时候刷到了一个非常有意思的定律，叫吸引定律，指思想集中在某一领域的时候，跟这个领域相关的人、事、物就会被它吸引而来。就是说我给自己定下明确的目标 “秋招进大厂” ，并且相信这一点，那么我秋招就可以进大厂了嘛，我一边心里觉得这挺傻逼，得相信科学，一边在Notion中给自己添加了“秋招要进大厂”这个目标&lt;/p&gt;
 &lt;p&gt;果然人到了走投无路的时候会相信玄学。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 46; flex-basis: 110px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/flag.jpg&#34; data-size=&#34;347x753&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/flag.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/flag_hu877b3dcec0772dc0364c21b560120b9d_43677_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/flag_hu877b3dcec0772dc0364c21b560120b9d_43677_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2021-job-wanted/flag.jpg&#34; data-size=&#34;347x753&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-job-wanted/flag.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-job-wanted/flag_hu877b3dcec0772dc0364c21b560120b9d_43677_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-job-wanted/flag_hu877b3dcec0772dc0364c21b560120b9d_43677_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;347&#34;
 				height=&#34;753&#34;
 				loading=&#34;lazy&#34;
@@ -73,8 +227,8 @@
 &lt;p&gt;一气呵成！
 好，今天跑来跑去挺累了，明天再努力吧😋
 &lt;figure style=&#34;flex-grow: 121; flex-basis: 292px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow.jpg&#34; data-size=&#34;448x368&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2021-job-wanted/try-harder-tomorrow.jpg&#34; data-size=&#34;448x368&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-job-wanted/try-harder-tomorrow.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-job-wanted/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-job-wanted/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;448&#34;
 				height=&#34;368&#34;
 				loading=&#34;lazy&#34;
@@ -92,8 +246,8 @@
 &lt;/blockquote&gt;
 &lt;p&gt;好嘞，今天也辛苦自己了，既然老大都这样说了，明天再努力吧
 &lt;figure style=&#34;flex-grow: 121; flex-basis: 292px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow.jpg&#34; data-size=&#34;448x368&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2021-job-wanted/try-harder-tomorrow.jpg&#34; data-size=&#34;448x368&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-job-wanted/try-harder-tomorrow.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-job-wanted/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-job-wanted/try-harder-tomorrow_hue472b0400259afb2183643ff0321233f_25318_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;448&#34;
 				height=&#34;368&#34;
 				loading=&#34;lazy&#34;
@@ -112,8 +266,8 @@
 &lt;p&gt;然后五分钟过去了，那个404依然在那里晃我的眼。&lt;br&gt;
 按耐不住，我去私聊了ui才知道，那是别人做的缺省图。
 &lt;figure style=&#34;flex-grow: 112; flex-basis: 270px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/death.jpg&#34; data-size=&#34;88x78&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/death.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/death_huab6eb01bc2f1649b9c33cd30df009715_1726_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/death_huab6eb01bc2f1649b9c33cd30df009715_1726_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2021-job-wanted/death.jpg&#34; data-size=&#34;88x78&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-job-wanted/death.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-job-wanted/death_huab6eb01bc2f1649b9c33cd30df009715_1726_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-job-wanted/death_huab6eb01bc2f1649b9c33cd30df009715_1726_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;88&#34;
 				height=&#34;78&#34;
 				loading=&#34;lazy&#34;
@@ -149,8 +303,8 @@
 &lt;p&gt;在第四天还是第五天终于约了二面，二面结束后的一个钟就oc了，还是一个我挺满意的薪资，然后谈了五分钟就发了offer😋&lt;/p&gt;
 &lt;p&gt;小米的面试体验给我的感觉也是最好的，不会的面试官都有讲解后再问下个问题，我回答的很凌乱的也是在我回答完后以专业的术语再给我复述了一遍，很喜欢这种交流。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 138; flex-basis: 331px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/offer_me.jpg&#34; data-size=&#34;1080x781&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/offer_me.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/offer_me_hu681805dd17af61ccecceb70bfa970860_69222_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%85%B3%E4%BA%8E%E6%88%91%E5%9C%A82021%E5%B9%B4%E6%B1%82%E8%81%8C%E7%BB%99%E5%8D%B7%E7%83%82%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/offer_me_hu681805dd17af61ccecceb70bfa970860_69222_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2021-job-wanted/offer_me.jpg&#34; data-size=&#34;1080x781&#34;&gt;&lt;img src=&#34;https://magren.cn/2021-job-wanted/offer_me.jpg&#34;
+				srcset=&#34;https://magren.cn/2021-job-wanted/offer_me_hu681805dd17af61ccecceb70bfa970860_69222_480x0_resize_q75_box.jpg 480w, https://magren.cn/2021-job-wanted/offer_me_hu681805dd17af61ccecceb70bfa970860_69222_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;1080&#34;
 				height=&#34;781&#34;
 				loading=&#34;lazy&#34;
@@ -167,11 +321,11 @@
         </item>
         <item>
         <title>关于Github Report 👨‍🚀</title>
-        <link>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</link>
+        <link>https://magren.cn/about-github-report/</link>
         <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</guid>
-        <description>&lt;img src="https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/github_bg.jpg" alt="Featured image of post 关于Github Report 👨‍🚀" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言🛸&lt;/h1&gt;
+        <guid>https://magren.cn/about-github-report/</guid>
+        <description>&lt;img src="https://magren.cn/about-github-report/github_bg.jpg" alt="Featured image of post 关于Github Report 👨‍🚀" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言🛸&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -179,8 +333,8 @@
 &lt;p&gt;项目地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/github_report&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Github Report&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-github-report/login.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/about-github-report/login.png&#34;
+				srcset=&#34;https://magren.cn/about-github-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_480x0_resize_box_2.png 480w, https://magren.cn/about-github-report/login_hu078d2c66e8f490b419bedab53d0aaa77_34884_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1920&#34;
 				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
@@ -189,8 +343,8 @@
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-github-report/welcome.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/about-github-report/welcome.png&#34;
+				srcset=&#34;https://magren.cn/about-github-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_480x0_resize_box_2.png 480w, https://magren.cn/about-github-report/welcome_hu56f38895c5a4ee63ed1c295c797cc4ec_192536_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1920&#34;
 				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
@@ -199,8 +353,8 @@
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-github-report/repinfo.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/about-github-report/repinfo.png&#34;
+				srcset=&#34;https://magren.cn/about-github-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_480x0_resize_box_2.png 480w, https://magren.cn/about-github-report/repinfo_hufaee5d5c7fdd643f08dab9fb2551db00_73019_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1920&#34;
 				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
@@ -209,8 +363,8 @@
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 212; flex-basis: 510px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-github-report/contributions.png&#34; data-size=&#34;1920x902&#34;&gt;&lt;img src=&#34;https://magren.cn/about-github-report/contributions.png&#34;
+				srcset=&#34;https://magren.cn/about-github-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_480x0_resize_box_2.png 480w, https://magren.cn/about-github-report/contributions_hu95693b45b1e46bea1e05fff9a1fe35f5_89379_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1920&#34;
 				height=&#34;902&#34;
 				loading=&#34;lazy&#34;
@@ -352,11 +506,11 @@
         </item>
         <item>
         <title>Puppeteer爬取Github指北</title>
-        <link>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</link>
+        <link>https://magren.cn/puppeteer-get-github/</link>
         <pubDate>Wed, 07 Jul 2021 12:57:21 +0800</pubDate>
         
-        <guid>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</guid>
-        <description>&lt;img src="https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/github.jpg" alt="Featured image of post Puppeteer爬取Github指北" /&gt;&lt;h1 id=&#34;介绍&#34;&gt;介绍&lt;/h1&gt;
+        <guid>https://magren.cn/puppeteer-get-github/</guid>
+        <description>&lt;img src="https://magren.cn/puppeteer-get-github/github.jpg" alt="Featured image of post Puppeteer爬取Github指北" /&gt;&lt;h1 id=&#34;介绍&#34;&gt;介绍&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;puppeteer 是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -415,8 +569,8 @@
 &lt;/blockquote&gt;
 &lt;p&gt;返回数据示例：
 &lt;figure style=&#34;flex-grow: 182; flex-basis: 437px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/test.png&#34; data-size=&#34;1347x739&#34;&gt;&lt;img src=&#34;https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/test.png&#34;
-				srcset=&#34;https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/test_hua0ba78c18a2d1b9edf60091ccdb30c2f_75579_480x0_resize_box_2.png 480w, https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/test_hua0ba78c18a2d1b9edf60091ccdb30c2f_75579_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/puppeteer-get-github/test.png&#34; data-size=&#34;1347x739&#34;&gt;&lt;img src=&#34;https://magren.cn/puppeteer-get-github/test.png&#34;
+				srcset=&#34;https://magren.cn/puppeteer-get-github/test_hua0ba78c18a2d1b9edf60091ccdb30c2f_75579_480x0_resize_box_2.png 480w, https://magren.cn/puppeteer-get-github/test_hua0ba78c18a2d1b9edf60091ccdb30c2f_75579_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1347&#34;
 				height=&#34;739&#34;
 				loading=&#34;lazy&#34;
@@ -454,11 +608,11 @@
         </item>
         <item>
         <title>将博客变成PWA</title>
-        <link>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</link>
+        <link>https://magren.cn/be-pwa/</link>
         <pubDate>Sat, 03 Apr 2021 22:14:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</guid>
-        <description>&lt;img src="https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/pwa.png" alt="Featured image of post 将博客变成PWA" /&gt;&lt;p&gt;我是&lt;a class=&#34;link&#34; href=&#34;https://sspai.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://magren.cn/be-pwa/</guid>
+        <description>&lt;img src="https://magren.cn/be-pwa/pwa.png" alt="Featured image of post 将博客变成PWA" /&gt;&lt;p&gt;我是&lt;a class=&#34;link&#34; href=&#34;https://sspai.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;少数派&lt;/a&gt;的一个读者，&lt;strong&gt;成为少数派已经419天&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。&lt;/p&gt;
 &lt;p&gt;但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个&lt;strong&gt;更优解&lt;/strong&gt;。&lt;/p&gt;
@@ -568,8 +722,8 @@
 &lt;p&gt;最后说说如何使用pwa吧，在手机上，只需通过支持的浏览器（如 Chrome以及小米自带的浏览器）访问 PWA 页面地址，Chrome会在加载完页面后弹出添加页面的提示，如果没有的话（如IOS的Safari），需要手动点击浏览器的更多，然后直接添加到桌面上即可。&lt;/p&gt;
 &lt;p&gt;PC端的话Chrome的右上角（网页链接的最右端）有一个下载按钮，点击后就会添加到电脑桌面。如果要卸载的话只是删除电脑桌面的快捷方式是不可以的，需要打开来然后在PWA页面的上方点击卸载按钮。
 &lt;figure style=&#34;flex-grow: 46; flex-basis: 110px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog1.png&#34; data-size=&#34;1080x2340&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog1.png&#34;
-				srcset=&#34;https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_480x0_resize_box_2.png 480w, https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/be-pwa/blog1.png&#34; data-size=&#34;1080x2340&#34;&gt;&lt;img src=&#34;https://magren.cn/be-pwa/blog1.png&#34;
+				srcset=&#34;https://magren.cn/be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_480x0_resize_box_2.png 480w, https://magren.cn/be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1080&#34;
 				height=&#34;2340&#34;
 				loading=&#34;lazy&#34;
@@ -577,8 +731,8 @@
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;figure style=&#34;flex-grow: 46; flex-basis: 110px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog2.png&#34; data-size=&#34;1080x2340&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog2.png&#34;
-				srcset=&#34;https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_480x0_resize_box_2.png 480w, https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/be-pwa/blog2.png&#34; data-size=&#34;1080x2340&#34;&gt;&lt;img src=&#34;https://magren.cn/be-pwa/blog2.png&#34;
+				srcset=&#34;https://magren.cn/be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_480x0_resize_box_2.png 480w, https://magren.cn/be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1080&#34;
 				height=&#34;2340&#34;
 				loading=&#34;lazy&#34;
@@ -590,11 +744,11 @@
         </item>
         <item>
         <title>写在自己21岁生日</title>
-        <link>https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/</link>
+        <link>https://magren.cn/my-21st-birthday/</link>
         <pubDate>Sun, 21 Mar 2021 14:00:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/</guid>
-        <description>&lt;img src="https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/birthday.png" alt="Featured image of post 写在自己21岁生日" /&gt;&lt;h1 id=&#34;21岁&#34;&gt;21岁&lt;/h1&gt;
+        <guid>https://magren.cn/my-21st-birthday/</guid>
+        <description>&lt;img src="https://magren.cn/my-21st-birthday/birthday.png" alt="Featured image of post 写在自己21岁生日" /&gt;&lt;h1 id=&#34;21岁&#34;&gt;21岁&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;达成成就：与第三旋臂边缘的一颗蓝色星球上的碳基生物一起度过了该行星在所在恒星系内的二十一次公转。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -621,8 +775,8 @@
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;生活明朗，万物可爱，人间值得，未来可期。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift1.png&#34; data-size=&#34;2048x1538&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift1.png&#34;
-				srcset=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift1_hufd61b876a3f6d3187059f3b8f24e9c4b_444508_480x0_resize_box_2.png 480w, https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift1_hufd61b876a3f6d3187059f3b8f24e9c4b_444508_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/my-21st-birthday/gift1.png&#34; data-size=&#34;2048x1538&#34;&gt;&lt;img src=&#34;https://magren.cn/my-21st-birthday/gift1.png&#34;
+				srcset=&#34;https://magren.cn/my-21st-birthday/gift1_hufd61b876a3f6d3187059f3b8f24e9c4b_444508_480x0_resize_box_2.png 480w, https://magren.cn/my-21st-birthday/gift1_hufd61b876a3f6d3187059f3b8f24e9c4b_444508_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;2048&#34;
 				height=&#34;1538&#34;
 				loading=&#34;lazy&#34;
@@ -631,8 +785,8 @@
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift2.png&#34; data-size=&#34;2048x1538&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift2.png&#34;
-				srcset=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift2_hue1995d1ec3da82607485807992a0369d_434513_480x0_resize_box_2.png 480w, https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift2_hue1995d1ec3da82607485807992a0369d_434513_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/my-21st-birthday/gift2.png&#34; data-size=&#34;2048x1538&#34;&gt;&lt;img src=&#34;https://magren.cn/my-21st-birthday/gift2.png&#34;
+				srcset=&#34;https://magren.cn/my-21st-birthday/gift2_hue1995d1ec3da82607485807992a0369d_434513_480x0_resize_box_2.png 480w, https://magren.cn/my-21st-birthday/gift2_hue1995d1ec3da82607485807992a0369d_434513_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;2048&#34;
 				height=&#34;1538&#34;
 				loading=&#34;lazy&#34;
@@ -641,8 +795,8 @@
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift3.png&#34; data-size=&#34;1280x720&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift3.png&#34;
-				srcset=&#34;https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift3_huc35bf204b5e44cc1f727b2129df668d1_163059_480x0_resize_box_2.png 480w, https://magren.cn/%E5%86%99%E5%9C%A8%E8%87%AA%E5%B7%B121%E5%B2%81%E7%94%9F%E6%97%A5/gift3_huc35bf204b5e44cc1f727b2129df668d1_163059_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/my-21st-birthday/gift3.png&#34; data-size=&#34;1280x720&#34;&gt;&lt;img src=&#34;https://magren.cn/my-21st-birthday/gift3.png&#34;
+				srcset=&#34;https://magren.cn/my-21st-birthday/gift3_huc35bf204b5e44cc1f727b2129df668d1_163059_480x0_resize_box_2.png 480w, https://magren.cn/my-21st-birthday/gift3_huc35bf204b5e44cc1f727b2129df668d1_163059_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1280&#34;
 				height=&#34;720&#34;
 				loading=&#34;lazy&#34;
@@ -654,15 +808,15 @@
         </item>
         <item>
         <title>代码帮我画像素画</title>
-        <link>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</link>
+        <link>https://magren.cn/pixel/</link>
         <pubDate>Thu, 25 Feb 2021 16:33:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</guid>
-        <description>&lt;img src="https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/banner.png" alt="Featured image of post 代码帮我画像素画" /&gt;&lt;p&gt;这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。&lt;br&gt;
+        <guid>https://magren.cn/pixel/</guid>
+        <description>&lt;img src="https://magren.cn/pixel/banner.png" alt="Featured image of post 代码帮我画像素画" /&gt;&lt;p&gt;这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。&lt;br&gt;
 甚至把自己的电脑壁纸也换成了像素风。很有感觉😝
 &lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/desktop.png&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/desktop.png&#34;
-				srcset=&#34;https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/desktop_hu0b6eb3cbb469cdce25e86a4384aae0ed_955477_480x0_resize_box_2.png 480w, https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/desktop_hu0b6eb3cbb469cdce25e86a4384aae0ed_955477_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/pixel/desktop.png&#34; data-size=&#34;1920x1080&#34;&gt;&lt;img src=&#34;https://magren.cn/pixel/desktop.png&#34;
+				srcset=&#34;https://magren.cn/pixel/desktop_hu0b6eb3cbb469cdce25e86a4384aae0ed_955477_480x0_resize_box_2.png 480w, https://magren.cn/pixel/desktop_hu0b6eb3cbb469cdce25e86a4384aae0ed_955477_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1920&#34;
 				height=&#34;1080&#34;
 				loading=&#34;lazy&#34;
@@ -721,8 +875,8 @@
 &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;效果&#34;&gt;效果👇&lt;/h1&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 98; flex-basis: 236px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/eg.png&#34; data-size=&#34;885x899&#34;&gt;&lt;img src=&#34;https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/eg.png&#34;
-				srcset=&#34;https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/eg_huef9a92e05b10a203b77039fdf1a384eb_1402857_480x0_resize_box_2.png 480w, https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/eg_huef9a92e05b10a203b77039fdf1a384eb_1402857_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/pixel/eg.png&#34; data-size=&#34;885x899&#34;&gt;&lt;img src=&#34;https://magren.cn/pixel/eg.png&#34;
+				srcset=&#34;https://magren.cn/pixel/eg_huef9a92e05b10a203b77039fdf1a384eb_1402857_480x0_resize_box_2.png 480w, https://magren.cn/pixel/eg_huef9a92e05b10a203b77039fdf1a384eb_1402857_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;885&#34;
 				height=&#34;899&#34;
 				loading=&#34;lazy&#34;
@@ -734,11 +888,11 @@
         </item>
         <item>
         <title>关于ChatRoom</title>
-        <link>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</link>
+        <link>https://magren.cn/about-chatroom/</link>
         <pubDate>Wed, 10 Feb 2021 18:11:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</guid>
-        <description>&lt;img src="https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/chatRoom.png" alt="Featured image of post 关于ChatRoom" /&gt;&lt;h1 id=&#34;学习新东西&#34;&gt;学习新东西👋&lt;/h1&gt;
+        <guid>https://magren.cn/about-chatroom/</guid>
+        <description>&lt;img src="https://magren.cn/about-chatroom/chatRoom.png" alt="Featured image of post 关于ChatRoom" /&gt;&lt;h1 id=&#34;学习新东西&#34;&gt;学习新东西👋&lt;/h1&gt;
 &lt;p&gt;最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌&lt;/p&gt;
 &lt;p&gt;因为是第一次做React，如果觉得有什么需要修改的欢迎提出&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/ChatRoom/issues&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Issuse&lt;/a&gt;，也欢迎你的star⭐&lt;/p&gt;
@@ -746,8 +900,8 @@
     &gt;ChatRoom&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;项目截图：
 &lt;figure style=&#34;flex-grow: 166; flex-basis: 399px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/3.png&#34; data-size=&#34;1259x757&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/3.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/3_hu8c6af76c184993eaa9ea9e4c0b99dd1d_21174_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/3_hu8c6af76c184993eaa9ea9e4c0b99dd1d_21174_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-chatroom/3.png&#34; data-size=&#34;1259x757&#34;&gt;&lt;img src=&#34;https://magren.cn/about-chatroom/3.png&#34;
+				srcset=&#34;https://magren.cn/about-chatroom/3_hu8c6af76c184993eaa9ea9e4c0b99dd1d_21174_480x0_resize_box_2.png 480w, https://magren.cn/about-chatroom/3_hu8c6af76c184993eaa9ea9e4c0b99dd1d_21174_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1259&#34;
 				height=&#34;757&#34;
 				loading=&#34;lazy&#34;
@@ -756,8 +910,8 @@
 		
 	&lt;/figure&gt;&lt;br&gt;
 &lt;figure style=&#34;flex-grow: 175; flex-basis: 422px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/2.png&#34; data-size=&#34;1209x687&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/2.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/2_hue5e962f3808c309b9a5d50abe260b21b_20659_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/2_hue5e962f3808c309b9a5d50abe260b21b_20659_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-chatroom/2.png&#34; data-size=&#34;1209x687&#34;&gt;&lt;img src=&#34;https://magren.cn/about-chatroom/2.png&#34;
+				srcset=&#34;https://magren.cn/about-chatroom/2_hue5e962f3808c309b9a5d50abe260b21b_20659_480x0_resize_box_2.png 480w, https://magren.cn/about-chatroom/2_hue5e962f3808c309b9a5d50abe260b21b_20659_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1209&#34;
 				height=&#34;687&#34;
 				loading=&#34;lazy&#34;
@@ -766,8 +920,8 @@
 		
 	&lt;/figure&gt;&lt;br&gt;
 &lt;figure style=&#34;flex-grow: 194; flex-basis: 465px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/1.png&#34; data-size=&#34;1574x811&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/1.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/1_hu8e192e331c07723915c470b346f53c23_19635_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/1_hu8e192e331c07723915c470b346f53c23_19635_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-chatroom/1.png&#34; data-size=&#34;1574x811&#34;&gt;&lt;img src=&#34;https://magren.cn/about-chatroom/1.png&#34;
+				srcset=&#34;https://magren.cn/about-chatroom/1_hu8e192e331c07723915c470b346f53c23_19635_480x0_resize_box_2.png 480w, https://magren.cn/about-chatroom/1_hu8e192e331c07723915c470b346f53c23_19635_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;1574&#34;
 				height=&#34;811&#34;
 				loading=&#34;lazy&#34;
@@ -868,11 +1022,11 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
         </item>
         <item>
         <title>关于CloudMusic</title>
-        <link>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</link>
+        <link>https://magren.cn/about-cloudmusic/</link>
         <pubDate>Thu, 28 Jan 2021 16:33:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</guid>
-        <description>&lt;img src="https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/banner.png" alt="Featured image of post 关于CloudMusic" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+        <guid>https://magren.cn/about-cloudmusic/</guid>
+        <description>&lt;img src="https://magren.cn/about-cloudmusic/banner.png" alt="Featured image of post 关于CloudMusic" /&gt;&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;p&gt;这个项目是我某天在宿舍听歌想到的，从16年注册网易云到现在都有五年的时间了，虽然这个平台现在越来越让我失望，但是听了五年了都听出感情来了，就在这个假期里面花了将近一个月磨磨蹭蹭写出来这个项目。至于为什么写的是移动端页面嘛，是因为那时候我听歌是用着我的手机听的……所以模仿的UI也是安卓版网易云音乐的UI。虽然功能没有全部实现，但是比较核心的播放页面还是做出来了，这篇博客也是记录一下这个项目的至今的实现过程还有一些坑。&lt;/p&gt;
 &lt;p&gt;项目基于Vue + Typescript + Vuetify UI实现。&lt;br&gt;
 项目地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/cloud-music&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -890,8 +1044,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 &lt;/ul&gt;
 &lt;p&gt;项目截图：
 &lt;figure style=&#34;flex-grow: 46; flex-basis: 111px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/1.png&#34; data-size=&#34;368x790&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/1.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/1_huc2130268517985628464e59085ef7f55_80597_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/1_huc2130268517985628464e59085ef7f55_80597_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-cloudmusic/1.png&#34; data-size=&#34;368x790&#34;&gt;&lt;img src=&#34;https://magren.cn/about-cloudmusic/1.png&#34;
+				srcset=&#34;https://magren.cn/about-cloudmusic/1_huc2130268517985628464e59085ef7f55_80597_480x0_resize_box_2.png 480w, https://magren.cn/about-cloudmusic/1_huc2130268517985628464e59085ef7f55_80597_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;368&#34;
 				height=&#34;790&#34;
 				loading=&#34;lazy&#34;
@@ -899,8 +1053,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;figure style=&#34;flex-grow: 46; flex-basis: 111px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/2.png&#34; data-size=&#34;368x794&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/2.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/2_hu9545f01c9939da23f3c442b692267681_304487_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/2_hu9545f01c9939da23f3c442b692267681_304487_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-cloudmusic/2.png&#34; data-size=&#34;368x794&#34;&gt;&lt;img src=&#34;https://magren.cn/about-cloudmusic/2.png&#34;
+				srcset=&#34;https://magren.cn/about-cloudmusic/2_hu9545f01c9939da23f3c442b692267681_304487_480x0_resize_box_2.png 480w, https://magren.cn/about-cloudmusic/2_hu9545f01c9939da23f3c442b692267681_304487_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;368&#34;
 				height=&#34;794&#34;
 				loading=&#34;lazy&#34;
@@ -908,8 +1062,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;figure style=&#34;flex-grow: 46; flex-basis: 111px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/3.png&#34; data-size=&#34;369x796&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/3.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/3_hue5a6091265c58b098ad39809ce123bbd_52812_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/3_hue5a6091265c58b098ad39809ce123bbd_52812_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-cloudmusic/3.png&#34; data-size=&#34;369x796&#34;&gt;&lt;img src=&#34;https://magren.cn/about-cloudmusic/3.png&#34;
+				srcset=&#34;https://magren.cn/about-cloudmusic/3_hue5a6091265c58b098ad39809ce123bbd_52812_480x0_resize_box_2.png 480w, https://magren.cn/about-cloudmusic/3_hue5a6091265c58b098ad39809ce123bbd_52812_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;369&#34;
 				height=&#34;796&#34;
 				loading=&#34;lazy&#34;
@@ -918,8 +1072,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 		
 	&lt;/figure&gt;&lt;br&gt;
 &lt;figure style=&#34;flex-grow: 46; flex-basis: 110px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/4.png&#34; data-size=&#34;366x792&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/4.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/4_hu38c656940c34942dbfda79b64c8df764_132123_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/4_hu38c656940c34942dbfda79b64c8df764_132123_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-cloudmusic/4.png&#34; data-size=&#34;366x792&#34;&gt;&lt;img src=&#34;https://magren.cn/about-cloudmusic/4.png&#34;
+				srcset=&#34;https://magren.cn/about-cloudmusic/4_hu38c656940c34942dbfda79b64c8df764_132123_480x0_resize_box_2.png 480w, https://magren.cn/about-cloudmusic/4_hu38c656940c34942dbfda79b64c8df764_132123_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;366&#34;
 				height=&#34;792&#34;
 				loading=&#34;lazy&#34;
@@ -927,8 +1081,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 		&lt;/a&gt;
 		
 	&lt;/figure&gt;&lt;figure style=&#34;flex-grow: 46; flex-basis: 110px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/5.png&#34; data-size=&#34;365x791&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/5.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/5_hud898fc956d5cc2ff30ea3f1fc1fa7d19_23701_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/5_hud898fc956d5cc2ff30ea3f1fc1fa7d19_23701_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-cloudmusic/5.png&#34; data-size=&#34;365x791&#34;&gt;&lt;img src=&#34;https://magren.cn/about-cloudmusic/5.png&#34;
+				srcset=&#34;https://magren.cn/about-cloudmusic/5_hud898fc956d5cc2ff30ea3f1fc1fa7d19_23701_480x0_resize_box_2.png 480w, https://magren.cn/about-cloudmusic/5_hud898fc956d5cc2ff30ea3f1fc1fa7d19_23701_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;365&#34;
 				height=&#34;791&#34;
 				loading=&#34;lazy&#34;
@@ -950,8 +1104,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 &lt;p&gt;但是这里会有个问题，就是需要通过移动滑块来修改播放的进度，在刚刚@timeupdate绑定的方法中只是单向的将进度赋值给滑块，并且在音乐播放的时候这个方法是一直在运行的，这样无论我怎样移动滑块，滑块都会立马就瞬移到了当前的播放位置，所以这里还得加一个监听是否正在移动滑块的方法，当移动滑块的时候不将当前播放的进度赋值给滑块，然后当我松手的时候将滑块当前的进度转换成时间戳赋值回给audio的播放时间。&lt;/p&gt;
 &lt;p&gt;我的解决办法是给滑块组件引入了 &lt;strong&gt;@mousedown&lt;/strong&gt; 和 &lt;strong&gt;@mouseup&lt;/strong&gt;，当鼠标按下的时候将一个变量赋值为true，抬起的时候为false，修改@timeupdate中的方法，设定其只有在该变量为false的时候才会对滑块组件赋值，但是滑动滑块的时候也得修改当前的播放时间，所以给滑块组件引入了 &lt;strong&gt;@change&lt;/strong&gt; ，当手动更改了滑块的值的时候会触发该方法，在这个方法里面对audio的播放进度进行修改。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 242; flex-basis: 580px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/6.png&#34; data-size=&#34;363x150&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/6.png&#34;
-				srcset=&#34;https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/6_hu945c82448398f1e87b7ba0c46e46f79b_7924_480x0_resize_box_2.png 480w, https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/6_hu945c82448398f1e87b7ba0c46e46f79b_7924_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/about-cloudmusic/6.png&#34; data-size=&#34;363x150&#34;&gt;&lt;img src=&#34;https://magren.cn/about-cloudmusic/6.png&#34;
+				srcset=&#34;https://magren.cn/about-cloudmusic/6_hu945c82448398f1e87b7ba0c46e46f79b_7924_480x0_resize_box_2.png 480w, https://magren.cn/about-cloudmusic/6_hu945c82448398f1e87b7ba0c46e46f79b_7924_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;363&#34;
 				height=&#34;150&#34;
 				loading=&#34;lazy&#34;
@@ -1039,11 +1193,11 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
         </item>
         <item>
         <title>博客迁移至Hugo</title>
-        <link>https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/</link>
+        <link>https://magren.cn/move-to-hugo/</link>
         <pubDate>Fri, 08 Jan 2021 14:54:21 +0800</pubDate>
         
-        <guid>https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/</guid>
-        <description>&lt;img src="https://magren.cn/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3hugo/hugo.png" alt="Featured image of post 博客迁移至Hugo" /&gt;&lt;h1 id=&#34;先说说为啥要迁移&#34;&gt;先说说为啥要迁移&lt;/h1&gt;
+        <guid>https://magren.cn/move-to-hugo/</guid>
+        <description>&lt;img src="https://magren.cn/move-to-hugo/hugo.png" alt="Featured image of post 博客迁移至Hugo" /&gt;&lt;h1 id=&#34;先说说为啥要迁移&#34;&gt;先说说为啥要迁移&lt;/h1&gt;
 &lt;p&gt;在这之前用的是hexo + next主题，然后自己心血来潮加了网易云的外链还有live 2d，tag cloud这些东西，也有人说过挺好看的，但是自己看多了就觉得有点花里胡哨，而且当我在网上查阅东西进到别人博客的时候，看到的基本都是hexo + next……有点审美疲劳。&lt;/p&gt;
 &lt;p&gt;但也很容易理解，hexo比较容易上手而且比较稳定，有着功能齐全并且成熟的主题（说的就是Next），这个时候我的眼光放到了hugo上。&lt;/p&gt;
 &lt;p&gt;Hugo 依靠Go语言进行开发，并且号称世界上最快的构建网站工具，究竟有多快我也不知道，但是我用hexo生成静态网页的时候还需要等，用hugo就没有等过，给我的感觉就是我敲完命令回车的那一刻他就好了……&lt;/p&gt;
@@ -1099,11 +1253,11 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
         </item>
         <item>
         <title>2020，遗憾是惊喜的序曲</title>
-        <link>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</link>
+        <link>https://magren.cn/2020-summary/</link>
         <pubDate>Thu, 31 Dec 2020 20:17:01 +0000</pubDate>
         
-        <guid>https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/</guid>
-        <description>&lt;img src="https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg" alt="Featured image of post 2020，遗憾是惊喜的序曲" /&gt;&lt;p&gt;博客不知不觉就写一年了。
+        <guid>https://magren.cn/2020-summary/</guid>
+        <description>&lt;img src="https://magren.cn/2020-summary/2020final.jpg" alt="Featured image of post 2020，遗憾是惊喜的序曲" /&gt;&lt;p&gt;博客不知不觉就写一年了。
 试着对自己过去一年进行一个复盘，就像瑞·达利欧所说的：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;生活中的大多数东西都不过是「同类情况的重演」。&lt;/strong&gt;&lt;/p&gt;
@@ -1118,8 +1272,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 &lt;/ul&gt;
 &lt;p&gt;可惜以上的项目随着考试月的到来以及天气降温全部停掉了🐷&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 45; flex-basis: 109px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run.png&#34; data-size=&#34;267x583&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2020-summary/keep_run.png&#34; data-size=&#34;267x583&#34;&gt;&lt;img src=&#34;https://magren.cn/2020-summary/keep_run.png&#34;
+				srcset=&#34;https://magren.cn/2020-summary/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_480x0_resize_box_2.png 480w, https://magren.cn/2020-summary/keep_run_hu08b059e82081823dbc9c18cf74d8a70b_73042_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;267&#34;
 				height=&#34;583&#34;
 				loading=&#34;lazy&#34;
@@ -1141,8 +1295,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 &lt;li&gt;买了零件亲自给5s更换电池以及排线，梦回高中。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 100; flex-basis: 240px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2020-summary/switchGame.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020-summary/switchGame.png&#34;
+				srcset=&#34;https://magren.cn/2020-summary/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_480x0_resize_box_2.png 480w, https://magren.cn/2020-summary/switchGame_hu19c40f0dde28bec74ea4e67c0954c6b5_145130_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;269&#34;
 				height=&#34;269&#34;
 				loading=&#34;lazy&#34;
@@ -1151,8 +1305,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 100; flex-basis: 240px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2020-summary/iphone5s.png&#34; data-size=&#34;269x269&#34;&gt;&lt;img src=&#34;https://magren.cn/2020-summary/iphone5s.png&#34;
+				srcset=&#34;https://magren.cn/2020-summary/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_480x0_resize_box_2.png 480w, https://magren.cn/2020-summary/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;269&#34;
 				height=&#34;269&#34;
 				loading=&#34;lazy&#34;
@@ -1166,8 +1320,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 这一年里一起去了挺多地方，也在一起努力着
 还是希望能好好的一直在一块🌟&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 101; flex-basis: 243px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33.png&#34; data-size=&#34;271x267&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33.png&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33_hu20b35df017a50075406828d44e0e539e_107745_480x0_resize_box_2.png 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/33_hu20b35df017a50075406828d44e0e539e_107745_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2020-summary/33.png&#34; data-size=&#34;271x267&#34;&gt;&lt;img src=&#34;https://magren.cn/2020-summary/33.png&#34;
+				srcset=&#34;https://magren.cn/2020-summary/33_hu20b35df017a50075406828d44e0e539e_107745_480x0_resize_box_2.png 480w, https://magren.cn/2020-summary/33_hu20b35df017a50075406828d44e0e539e_107745_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;271&#34;
 				height=&#34;267&#34;
 				loading=&#34;lazy&#34;
@@ -1190,7 +1344,7 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 &lt;/ul&gt;
 &lt;h2 id=&#34;能力&#34;&gt;能力&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 学习React和Angular&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 学习React&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 啃掉JavaScript高级程序设计、深入浅出node.js等书籍&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 做些新东西，为开源做贡献&lt;/li&gt;
 &lt;/ul&gt;
@@ -1207,8 +1361,8 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 &lt;p&gt;2020虽然充满遗憾，但还是要充满对生活的热情。人间值得，未来可期。
 遗憾会是惊喜的序曲。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg&#34; data-size=&#34;2308x1733&#34;&gt;&lt;img src=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final.jpg&#34;
-				srcset=&#34;https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final_hu43edec84879d041a8e90779a22103c7d_187386_480x0_resize_q75_box.jpg 480w, https://magren.cn/2020%E9%81%97%E6%86%BE%E6%98%AF%E6%83%8A%E5%96%9C%E7%9A%84%E5%BA%8F%E6%9B%B2/2020final_hu43edec84879d041a8e90779a22103c7d_187386_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/2020-summary/2020final.jpg&#34; data-size=&#34;2308x1733&#34;&gt;&lt;img src=&#34;https://magren.cn/2020-summary/2020final.jpg&#34;
+				srcset=&#34;https://magren.cn/2020-summary/2020final_hu43edec84879d041a8e90779a22103c7d_187386_480x0_resize_q75_box.jpg 480w, https://magren.cn/2020-summary/2020final_hu43edec84879d041a8e90779a22103c7d_187386_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;2308&#34;
 				height=&#34;1733&#34;
 				loading=&#34;lazy&#34;
@@ -1220,10 +1374,10 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
         </item>
         <item>
         <title>从输入URL到页面展示</title>
-        <link>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</link>
+        <link>https://magren.cn/inputUrl/</link>
         <pubDate>Sun, 08 Nov 2020 23:12:57 +0000</pubDate>
         
-        <guid>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</guid>
+        <guid>https://magren.cn/inputUrl/</guid>
         <description>&lt;p&gt;最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。&lt;br&gt;
 总的过程如下：&lt;/p&gt;
 &lt;ul&gt;
@@ -1339,10 +1493,10 @@ js解析是由浏览器中的js解析引擎完成，js是单线程运行，但�
         </item>
         <item>
         <title>node.js&#43;express写接口</title>
-        <link>https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/</link>
+        <link>https://magren.cn/node-express/</link>
         <pubDate>Mon, 19 Oct 2020 23:17:34 +0000</pubDate>
         
-        <guid>https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/</guid>
+        <guid>https://magren.cn/node-express/</guid>
         <description>&lt;p&gt;前一段时间学习了node.js操作mongoDB数据库，现在追加一篇写接口的记录。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;链接数据库&#34;&gt;链接数据库&lt;/h1&gt;
@@ -1477,8 +1631,8 @@ js解析是由浏览器中的js解析引擎完成，js是单线程运行，但�
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;利用postman测试&#34;&gt;利用Postman测试&lt;/h1&gt;
 &lt;h2 id=&#34;post测试&#34;&gt;POST测试：&lt;/h2&gt;
 &lt;p&gt;将POST的body设置成&lt;strong&gt;x-www-form-urlencoded&lt;/strong&gt;，下图为更新数据的接口示例： &lt;figure style=&#34;flex-grow: 165; flex-basis: 397px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_updata.png&#34; data-size=&#34;919x555&#34;&gt;&lt;img src=&#34;https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_updata.png&#34;
-				srcset=&#34;https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_480x0_resize_box_2.png 480w, https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/node-express/postman_updata.png&#34; data-size=&#34;919x555&#34;&gt;&lt;img src=&#34;https://magren.cn/node-express/postman_updata.png&#34;
+				srcset=&#34;https://magren.cn/node-express/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_480x0_resize_box_2.png 480w, https://magren.cn/node-express/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;919&#34;
 				height=&#34;555&#34;
 				loading=&#34;lazy&#34;
@@ -1491,8 +1645,8 @@ js解析是由浏览器中的js解析引擎完成，js是单线程运行，但�
 &lt;h2 id=&#34;get测试&#34;&gt;GET测试：&lt;/h2&gt;
 &lt;p&gt;下图为根据ID获取一条数据的示例
 &lt;figure style=&#34;flex-grow: 140; flex-basis: 337px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_get.png&#34; data-size=&#34;910x647&#34;&gt;&lt;img src=&#34;https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_get.png&#34;
-				srcset=&#34;https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_480x0_resize_box_2.png 480w, https://magren.cn/node.js-express%E5%86%99%E6%8E%A5%E5%8F%A3/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/node-express/postman_get.png&#34; data-size=&#34;910x647&#34;&gt;&lt;img src=&#34;https://magren.cn/node-express/postman_get.png&#34;
+				srcset=&#34;https://magren.cn/node-express/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_480x0_resize_box_2.png 480w, https://magren.cn/node-express/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;910&#34;
 				height=&#34;647&#34;
 				loading=&#34;lazy&#34;
@@ -1504,11 +1658,11 @@ js解析是由浏览器中的js解析引擎完成，js是单线程运行，但�
         </item>
         <item>
         <title>那一片璀璨耀眼的星空</title>
-        <link>https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/</link>
+        <link>https://magren.cn/starry-sky/</link>
         <pubDate>Wed, 14 Oct 2020 00:25:54 +0000</pubDate>
         
-        <guid>https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/</guid>
-        <description>&lt;img src="https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/xingkongLogo.jpg" alt="Featured image of post 那一片璀璨耀眼的星空" /&gt;&lt;p&gt;大学期间最值得分享的事情我想就是星空了吧，&lt;br&gt;
+        <guid>https://magren.cn/starry-sky/</guid>
+        <description>&lt;img src="https://magren.cn/starry-sky/xingkongLogo.jpg" alt="Featured image of post 那一片璀璨耀眼的星空" /&gt;&lt;p&gt;大学期间最值得分享的事情我想就是星空了吧，&lt;br&gt;
 贯彻了我大学生活的一半，也是我程序员道路上的启蒙。&lt;/p&gt;
 &lt;p&gt;也留下来过想将星空在前两年带给我的技术还有启发去回馈给星空，希望能延续下去，让下一代有更好的资源。
 &lt;strong&gt;但是当选择一条路的时候，根本无法预知它的曲折程度。&lt;/strong&gt;
@@ -1606,8 +1760,8 @@ js解析是由浏览器中的js解析引擎完成，js是单线程运行，但�
 陪着我&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 150; flex-basis: 362px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/xingkong.jpg&#34; data-size=&#34;4824x3195&#34;&gt;&lt;img src=&#34;https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/xingkong.jpg&#34;
-				srcset=&#34;https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/xingkong_hu8a1e0735d89ed5f29238c64ca1d77b04_8710540_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E9%82%A3%E4%B8%80%E7%89%87%E7%92%80%E7%92%A8%E8%80%80%E7%9C%BC%E7%9A%84%E6%98%9F%E7%A9%BA/xingkong_hu8a1e0735d89ed5f29238c64ca1d77b04_8710540_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/starry-sky/xingkong.jpg&#34; data-size=&#34;4824x3195&#34;&gt;&lt;img src=&#34;https://magren.cn/starry-sky/xingkong.jpg&#34;
+				srcset=&#34;https://magren.cn/starry-sky/xingkong_hu8a1e0735d89ed5f29238c64ca1d77b04_8710540_480x0_resize_q75_box.jpg 480w, https://magren.cn/starry-sky/xingkong_hu8a1e0735d89ed5f29238c64ca1d77b04_8710540_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;4824&#34;
 				height=&#34;3195&#34;
 				loading=&#34;lazy&#34;
@@ -1621,10 +1775,10 @@ js解析是由浏览器中的js解析引擎完成，js是单线程运行，但�
         </item>
         <item>
         <title>Vue下的EventBus</title>
-        <link>https://magren.cn/vue%E4%B8%8B%E7%9A%84eventbus/</link>
+        <link>https://magren.cn/vue-eventbus/</link>
         <pubDate>Mon, 12 Oct 2020 11:21:03 +0000</pubDate>
         
-        <guid>https://magren.cn/vue%E4%B8%8B%E7%9A%84eventbus/</guid>
+        <guid>https://magren.cn/vue-eventbus/</guid>
         <description>&lt;p&gt;EventBus是用于Vue中组件通信的一种方式，常见的父子组件沟通方式有emit和props。&lt;br&gt;
 但假如跨组件传参沟通，或者是兄弟姐妹组件之间的传参沟通，使用&lt;strong&gt;EventBus&lt;/strong&gt;或者&lt;strong&gt;Vuex&lt;/strong&gt;就可以避免很多重复的props和emit。&lt;br&gt;
 Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBus比较适用于小型的项目，不是太复杂的事件。&lt;/p&gt;
@@ -1674,10 +1828,10 @@ Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBu
         </item>
         <item>
         <title>node.js &#43; MongoDB</title>
-        <link>https://magren.cn/node.js-mongodb/</link>
+        <link>https://magren.cn/node-mongodb/</link>
         <pubDate>Wed, 16 Sep 2020 23:26:09 +0000</pubDate>
         
-        <guid>https://magren.cn/node.js-mongodb/</guid>
+        <guid>https://magren.cn/node-mongodb/</guid>
         <description>&lt;p&gt;最近开学事情逐渐多了起来，星空、康课还有学校的课程……一切都开始逐渐步入正轨，唯独我的学习之路还在跑偏。&lt;br&gt;
 经常会停下来不知道学什么，也提不起动力学，担心自己学的东西派不上用场，也担心自己半途而废。&lt;br&gt;
 也难怪有万事开头难这种说法了。&lt;br&gt;
@@ -1908,10 +2062,10 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
         </item>
         <item>
         <title>Vue下监听页面滚动以及移动端触摸事件</title>
-        <link>https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</link>
+        <link>https://magren.cn/vue-roll/</link>
         <pubDate>Thu, 27 Aug 2020 23:30:42 +0000</pubDate>
         
-        <guid>https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</guid>
+        <guid>https://magren.cn/vue-roll/</guid>
         <description>&lt;p&gt;无聊刷知乎的时候发现了一个前端设计的宝藏网站&lt;a class=&#34;link&#34; href=&#34;https://www.awwwards.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;awwwards&lt;/a&gt;，对上面大佬实现的网站表示望洋兴叹，&lt;br&gt;
 但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。&lt;/p&gt;
@@ -1975,10 +2129,10 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
         </item>
         <item>
         <title>Vue Typescript下axios的封装和使用</title>
-        <link>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</link>
+        <link>https://magren.cn/vue-ts-axios/</link>
         <pubDate>Wed, 12 Aug 2020 14:45:50 +0000</pubDate>
         
-        <guid>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</guid>
+        <guid>https://magren.cn/vue-ts-axios/</guid>
         <description>&lt;p&gt;8月到了，一个莫名其妙的机遇也砸到了脸上，提着行李一个人跑到了广州跟一个毕业的师兄搞创业的项目，怀着点点的不安以及兴奋，迈出离开学校的第一步。&lt;/p&gt;
 &lt;p&gt;由于就住在办公室的一间房里，出门即工作，开始了朝五晚九的工作生活，晚上的时候就折腾自己的项目，有点梦回星空时候夏训营的感觉，很累也充实。每天也在掉头发以及烦恼吃什么&lt;/p&gt;
 &lt;p&gt;自己写的华广地图给自家eo发了一份玩，结果给征收了，上线成了星空的产品，并且要求再进行完善 😟
@@ -2168,10 +2322,10 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
         </item>
         <item>
         <title>关于HG地图</title>
-        <link>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</link>
+        <link>https://magren.cn/about-hgmap/</link>
         <pubDate>Thu, 30 Jul 2020 14:53:09 +0000</pubDate>
         
-        <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</guid>
+        <guid>https://magren.cn/about-hgmap/</guid>
         <description>&lt;p&gt;最近都在学习前端的路上缓慢前进，在了解了Vue后就开始学习Typescript，每次学习到新东西的时候都会忍不住用新的东西去做一个自己感兴趣的东西，可能自己觉得这样子很Coooooooooooool！👊&lt;/p&gt;
 &lt;p&gt;之前偶然间也看到了吉珠的地图，觉得很优秀，碰巧我们学校没有相关的产品，只有一张画出来图片地图，稍加思索&lt;/p&gt;
 &lt;ul&gt;
@@ -2396,10 +2550,10 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
         </item>
         <item>
         <title>在大学里连滚带爬的两年</title>
-        <link>https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/</link>
+        <link>https://magren.cn/two-years-of-college/</link>
         <pubDate>Wed, 15 Jul 2020 16:11:42 +0000</pubDate>
         
-        <guid>https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/</guid>
+        <guid>https://magren.cn/two-years-of-college/</guid>
         <description>&lt;p&gt;过完这个暑假自己就是大三的学生了。&lt;br&gt;
 曾经大一的时候觉得大三离自己挺遥远，实习工作远在天边，但是现在全都近在眼前。&lt;br&gt;
 自己的设备更新了一批，要学习的知识换了又换，星空的换届，师兄师姐的毕业……很多事情都变了，唯一不变的是我依然那么菜，一如既往。&lt;/p&gt;
@@ -2424,8 +2578,8 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
 &lt;p&gt;大一是最投入的时候，没有什么好迷茫的，学就完事了。
 也没什么特别的理由，就是不想输。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 150; flex-basis: 360px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF.jpg&#34; data-size=&#34;6000x4000&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF_hua4ff2dd062db5f3c8ed31efd08d624a8_7243221_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF_hua4ff2dd062db5f3c8ed31efd08d624a8_7243221_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/two-years-of-college/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF.jpg&#34; data-size=&#34;6000x4000&#34;&gt;&lt;img src=&#34;https://magren.cn/two-years-of-college/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF.jpg&#34;
+				srcset=&#34;https://magren.cn/two-years-of-college/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF_hua4ff2dd062db5f3c8ed31efd08d624a8_7243221_480x0_resize_q75_box.jpg 480w, https://magren.cn/two-years-of-college/%E5%A4%A7%E4%B8%80%E6%8A%80%E6%9C%AF_hua4ff2dd062db5f3c8ed31efd08d624a8_7243221_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;6000&#34;
 				height=&#34;4000&#34;
 				loading=&#34;lazy&#34;
@@ -2472,8 +2626,8 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
 我想星空对她来说是一个十分重要的存在吧。
 借了她的算法导论到现在还放在办公室里头，也不知道还有没有机会给回她了。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 177; flex-basis: 426px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0.jpg&#34; data-size=&#34;5838x3285&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0_hu020a56e869482cf3ac036a93f6a9d7fd_9090108_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%9C%A8%E5%A4%A7%E5%AD%A6%E9%87%8C%E8%BF%9E%E6%BB%9A%E5%B8%A6%E7%88%AC%E7%9A%84%E4%B8%A4%E5%B9%B4/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0_hu020a56e869482cf3ac036a93f6a9d7fd_9090108_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/two-years-of-college/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0.jpg&#34; data-size=&#34;5838x3285&#34;&gt;&lt;img src=&#34;https://magren.cn/two-years-of-college/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0.jpg&#34;
+				srcset=&#34;https://magren.cn/two-years-of-college/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0_hu020a56e869482cf3ac036a93f6a9d7fd_9090108_480x0_resize_q75_box.jpg 480w, https://magren.cn/two-years-of-college/%E5%A4%A7%E4%BA%8C%E6%8B%9B%E6%96%B0_hu020a56e869482cf3ac036a93f6a9d7fd_9090108_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;5838&#34;
 				height=&#34;3285&#34;
 				loading=&#34;lazy&#34;
@@ -2492,10 +2646,10 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
         </item>
         <item>
         <title>用vue实现的期末作业</title>
-        <link>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</link>
+        <link>https://magren.cn/vue-homework/</link>
         <pubDate>Fri, 10 Jul 2020 13:28:29 +0000</pubDate>
         
-        <guid>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</guid>
+        <guid>https://magren.cn/vue-homework/</guid>
         <description>&lt;p&gt;终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。&lt;br&gt;
 最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。&lt;br&gt;
 其实主要的还是自己没怎么听，嘿嘿。&lt;/p&gt;
@@ -2534,8 +2688,8 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
 &amp;lt;/template&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 184; flex-basis: 442px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login.png&#34; data-size=&#34;800x434&#34;&gt;&lt;img src=&#34;https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login.png&#34;
-				srcset=&#34;https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_480x0_resize_box_2.png 480w, https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/vue-homework/vuetest_login.png&#34; data-size=&#34;800x434&#34;&gt;&lt;img src=&#34;https://magren.cn/vue-homework/vuetest_login.png&#34;
+				srcset=&#34;https://magren.cn/vue-homework/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_480x0_resize_box_2.png 480w, https://magren.cn/vue-homework/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;800&#34;
 				height=&#34;434&#34;
 				loading=&#34;lazy&#34;
@@ -2660,10 +2814,10 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
         </item>
         <item>
         <title>es6中的promise</title>
-        <link>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</link>
+        <link>https://magren.cn/web-promise/</link>
         <pubDate>Wed, 27 May 2020 21:29:47 +0000</pubDate>
         
-        <guid>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</guid>
+        <guid>https://magren.cn/web-promise/</guid>
         <description>&lt;p&gt;&lt;strong&gt;Promise&lt;/strong&gt;，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。&lt;/p&gt;
@@ -2790,8 +2944,8 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
 所以怎么还没说怎么解决嗷？？？&lt;/p&gt;
 &lt;p&gt;在搜到的文章里面大部分都是后端配合设置一个请求权限，但是我这是野生的api。。。我还腆着脸去要求别人做这做那哦？
 &lt;figure style=&#34;flex-grow: 100; flex-basis: 240px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/shuidajiao.jpg&#34; data-size=&#34;198x198&#34;&gt;&lt;img src=&#34;https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/shuidajiao.jpg&#34;
-				srcset=&#34;https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/shuidajiao_hu90ed8cab306e0d25f6539cdb6eee21e9_7462_480x0_resize_q75_box.jpg 480w, https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/shuidajiao_hu90ed8cab306e0d25f6539cdb6eee21e9_7462_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/web-promise/shuidajiao.jpg&#34; data-size=&#34;198x198&#34;&gt;&lt;img src=&#34;https://magren.cn/web-promise/shuidajiao.jpg&#34;
+				srcset=&#34;https://magren.cn/web-promise/shuidajiao_hu90ed8cab306e0d25f6539cdb6eee21e9_7462_480x0_resize_q75_box.jpg 480w, https://magren.cn/web-promise/shuidajiao_hu90ed8cab306e0d25f6539cdb6eee21e9_7462_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;198&#34;
 				height=&#34;198&#34;
 				loading=&#34;lazy&#34;
@@ -2815,10 +2969,10 @@ Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也�
         </item>
         <item>
         <title>HTML的DOM和浏览器的BOM</title>
-        <link>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</link>
+        <link>https://magren.cn/web-dom-and-bom/</link>
         <pubDate>Sat, 09 May 2020 17:52:32 +0000</pubDate>
         
-        <guid>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</guid>
+        <guid>https://magren.cn/web-dom-and-bom/</guid>
         <description>&lt;p&gt;记录下自己最近看的知识点。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h1 id=&#34;html-dom-文档对象模型&#34;&gt;HTML DOM (文档对象模型)&lt;/h1&gt;
@@ -3029,10 +3183,10 @@ cookie1=value; cookie2=value;&lt;/p&gt;
         </item>
         <item>
         <title>前端基础里一些杂七杂八的知识点</title>
-        <link>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+        <link>https://magren.cn/web-knowledge/</link>
         <pubDate>Sat, 02 May 2020 16:34:16 +0000</pubDate>
         
-        <guid>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+        <guid>https://magren.cn/web-knowledge/</guid>
         <description>&lt;p&gt;其实在大一就有学习前端的想法，也就多多少少了解了一点html和css，但是那时候身在安卓方向，就还是以安卓为主，也没有坚持下去。&lt;br&gt;
 工程师嘛，无论是什么工程师，局限于一个领域上所学到的东西肯定是有限的，it界那么大，总得看看别的地方。&lt;br&gt;
 如果硬要说我想成为什么工程师，我希望我能成为一个全栈工程师吧（有能力的话&lt;/p&gt;
@@ -3067,8 +3221,8 @@ cookie1=value; cookie2=value;&lt;/p&gt;
 我一直以为，在网页上的一些小图标是通过插入img来显示的，但是再深入一点了解到，类似淘宝网上的tab栏的小图标是通过一个自定义显示出来的。
 这里我规划到了字体类是因为当我们需要显示部分字体，但是电脑上没有该字体的时候是无法显示的，这里我们就要用一样的方法，将这个字体的资源加载进去，达到一个显示他人电脑字体不存在也依然可以看到该字体的效果。&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 1020; flex-basis: 2448px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/tao_tab.png&#34; data-size=&#34;653x64&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/tao_tab.png&#34;
-				srcset=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/tao_tab_hu5d2dd147d8584bbbddda2d05686e67d9_13435_480x0_resize_box_2.png 480w, https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/tao_tab_hu5d2dd147d8584bbbddda2d05686e67d9_13435_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/web-knowledge/tao_tab.png&#34; data-size=&#34;653x64&#34;&gt;&lt;img src=&#34;https://magren.cn/web-knowledge/tao_tab.png&#34;
+				srcset=&#34;https://magren.cn/web-knowledge/tao_tab_hu5d2dd147d8584bbbddda2d05686e67d9_13435_480x0_resize_box_2.png 480w, https://magren.cn/web-knowledge/tao_tab_hu5d2dd147d8584bbbddda2d05686e67d9_13435_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;653&#34;
 				height=&#34;64&#34;
 				loading=&#34;lazy&#34;
@@ -3084,8 +3238,8 @@ cookie1=value; cookie2=value;&lt;/p&gt;
 &lt;strong&gt;Google或者百度啦&lt;/strong&gt;
 在阿里巴巴矢量图标库上有挺多资源，我们在里面挑选我们需要的资源并且加入购物车后下载源码&lt;/p&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 130; flex-basis: 312px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_icon.jpg&#34; data-size=&#34;1196x920&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_icon.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_icon_hu6a8ffcc812a594aa64f1eb84ec1afb0b_91796_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_icon_hu6a8ffcc812a594aa64f1eb84ec1afb0b_91796_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/web-knowledge/albb_icon.jpg&#34; data-size=&#34;1196x920&#34;&gt;&lt;img src=&#34;https://magren.cn/web-knowledge/albb_icon.jpg&#34;
+				srcset=&#34;https://magren.cn/web-knowledge/albb_icon_hu6a8ffcc812a594aa64f1eb84ec1afb0b_91796_480x0_resize_q75_box.jpg 480w, https://magren.cn/web-knowledge/albb_icon_hu6a8ffcc812a594aa64f1eb84ec1afb0b_91796_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;1196&#34;
 				height=&#34;920&#34;
 				loading=&#34;lazy&#34;
@@ -3096,8 +3250,8 @@ cookie1=value; cookie2=value;&lt;/p&gt;
 		
 	&lt;/figure&gt;
 &lt;figure style=&#34;flex-grow: 137; flex-basis: 328px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_buy.jpg&#34; data-size=&#34;1140x832&#34;&gt;&lt;img src=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_buy.jpg&#34;
-				srcset=&#34;https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_buy_hu6a8ffcc812a594aa64f1eb84ec1afb0b_43013_480x0_resize_q75_box.jpg 480w, https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/albb_buy_hu6a8ffcc812a594aa64f1eb84ec1afb0b_43013_1024x0_resize_q75_box.jpg 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/web-knowledge/albb_buy.jpg&#34; data-size=&#34;1140x832&#34;&gt;&lt;img src=&#34;https://magren.cn/web-knowledge/albb_buy.jpg&#34;
+				srcset=&#34;https://magren.cn/web-knowledge/albb_buy_hu6a8ffcc812a594aa64f1eb84ec1afb0b_43013_480x0_resize_q75_box.jpg 480w, https://magren.cn/web-knowledge/albb_buy_hu6a8ffcc812a594aa64f1eb84ec1afb0b_43013_1024x0_resize_q75_box.jpg 1024w&#34;
 				width=&#34;1140&#34;
 				height=&#34;832&#34;
 				loading=&#34;lazy&#34;
@@ -3203,10 +3357,10 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
         </item>
         <item>
         <title>Android的EventBus使用</title>
-        <link>https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/</link>
+        <link>https://magren.cn/android-eventbuts/</link>
         <pubDate>Thu, 16 Apr 2020 15:43:52 +0000</pubDate>
         
-        <guid>https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/</guid>
+        <guid>https://magren.cn/android-eventbuts/</guid>
         <description>&lt;p&gt;这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;这两天在网上想着找Android系统学习的路线，然后发现了阿里云上的阿里巴巴Android开发手册，虽然网上已经有免费下载的地方了，不过凭着不能白嫖的感觉，我还是花钱支持了下，其实就卖一块钱，而且还有一份考试证书的资格，总的来说还是很舒服的。&lt;/p&gt;
@@ -3277,8 +3431,8 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
 &lt;img src=&#34;evenetMain1.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;SendMainActivity:
 &lt;figure style=&#34;flex-grow: 54; flex-basis: 130px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend.png&#34;
-				srcset=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_480x0_resize_box_2.png 480w, https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/android-eventbuts/eventSend.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android-eventbuts/eventSend.png&#34;
+				srcset=&#34;https://magren.cn/android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_480x0_resize_box_2.png 480w, https://magren.cn/android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;387&#34;
 				height=&#34;710&#34;
 				loading=&#34;lazy&#34;
@@ -3288,8 +3442,8 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;返回MainActivity：
 &lt;figure style=&#34;flex-grow: 54; flex-basis: 130px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2.png&#34;
-				srcset=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_480x0_resize_box_2.png 480w, https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/android-eventbuts/eventMain2.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android-eventbuts/eventMain2.png&#34;
+				srcset=&#34;https://magren.cn/android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_480x0_resize_box_2.png 480w, https://magren.cn/android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;387&#34;
 				height=&#34;710&#34;
 				loading=&#34;lazy&#34;
@@ -3342,8 +3496,8 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这时候我们就可以实现直接向下一个Activity发送事件并且在里面获取并使用了。&lt;/p&gt;
 &lt;p&gt;1.SendActivity
 &lt;figure style=&#34;flex-grow: 54; flex-basis: 130px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend.png&#34;
-				srcset=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_480x0_resize_box_2.png 480w, https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/android-eventbuts/eventSend.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android-eventbuts/eventSend.png&#34;
+				srcset=&#34;https://magren.cn/android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_480x0_resize_box_2.png 480w, https://magren.cn/android-eventbuts/eventSend_hu1ef4573ec9027a432fad91e40dc3ef5b_26640_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;387&#34;
 				height=&#34;710&#34;
 				loading=&#34;lazy&#34;
@@ -3353,8 +3507,8 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;2.MainActivity
 &lt;figure style=&#34;flex-grow: 54; flex-basis: 130px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2.png&#34;
-				srcset=&#34;https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_480x0_resize_box_2.png 480w, https://magren.cn/android%E7%9A%84eventbus%E4%BD%BF%E7%94%A8/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/android-eventbuts/eventMain2.png&#34; data-size=&#34;387x710&#34;&gt;&lt;img src=&#34;https://magren.cn/android-eventbuts/eventMain2.png&#34;
+				srcset=&#34;https://magren.cn/android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_480x0_resize_box_2.png 480w, https://magren.cn/android-eventbuts/eventMain2_hu1ef4573ec9027a432fad91e40dc3ef5b_27974_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;387&#34;
 				height=&#34;710&#34;
 				loading=&#34;lazy&#34;
@@ -3387,10 +3541,10 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
         </item>
         <item>
         <title>Android自定义view的定义</title>
-        <link>https://magren.cn/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/</link>
+        <link>https://magren.cn/android-custom-view/</link>
         <pubDate>Tue, 14 Apr 2020 15:16:34 +0000</pubDate>
         
-        <guid>https://magren.cn/android%E8%87%AA%E5%AE%9A%E4%B9%89view%E7%9A%84%E5%AE%9A%E4%B9%89/</guid>
+        <guid>https://magren.cn/android-custom-view/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;自定义 View 就是通过继承 View 或者 View 的子类，并在新的类里面实现相应的处理逻辑（重写相应的方法），以达到自己想要的效果。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3498,10 +3652,10 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
         </item>
         <item>
         <title>Rxjava的CompositeDisposable</title>
-        <link>https://magren.cn/rxjava%E7%9A%84compositedisposable/</link>
+        <link>https://magren.cn/rxjava-composite-disposable/</link>
         <pubDate>Sun, 29 Mar 2020 15:13:03 +0000</pubDate>
         
-        <guid>https://magren.cn/rxjava%E7%9A%84compositedisposable/</guid>
+        <guid>https://magren.cn/rxjava-composite-disposable/</guid>
         <description>&lt;p&gt;之前在学习Rxjava的时候发现仍有部分知识点自己遗漏了，不够严谨，在这里补充多一个知识点。那就是CompositeDisposable类。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;在用Rxjava配合Retorfit的时候，发送请求，拿到数据后我们要让数据显示在视图中的时候往往会刷新页面，但假如，我们发送请求出去的时候网络比较差，返回数据比较慢，然后我们又手快的关闭了当前这个Activity，那RxJava当拿到返回的数据的时候去刷新界面就会报空指针异常了。就是说，请求过程中，我们的UI层Destroy的时候，不及时取消订阅，就会造成内存泄漏。这里就要用到我们的&lt;strong&gt;CompositeDisposable&lt;/strong&gt;。&lt;/p&gt;
@@ -3562,10 +3716,10 @@ let:声明的变量只在 let 命令所在的代码块内有效。&lt;/p&gt;
         </item>
         <item>
         <title>Android的rxjava2</title>
-        <link>https://magren.cn/android%E7%9A%84rxjava2/</link>
+        <link>https://magren.cn/android-rxjava/</link>
         <pubDate>Fri, 13 Mar 2020 14:59:35 +0000</pubDate>
         
-        <guid>https://magren.cn/android%E7%9A%84rxjava2/</guid>
+        <guid>https://magren.cn/android-rxjava/</guid>
         <description>&lt;p&gt;RxJava是利用观察者模式来实现一些列的操作，所以对于观察者模式中的观察者，被观察者，以及订阅、事件需要有一个了解。&lt;/p&gt;
 &lt;p&gt;Observable：在观察者模式中称为“被观察者”；
 Observer：观察者模式中的“观察者”，可接收Observable发送的数据；
@@ -3625,8 +3779,8 @@ Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的�
 &lt;h2 id=&#34;结果&#34;&gt;结果&lt;/h2&gt;
 &lt;p&gt;先调用onSubscribe，然后走了onNext，最后以onComplete收尾：
 &lt;figure style=&#34;flex-grow: 269; flex-basis: 645px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/android%E7%9A%84rxjava2/rxjava_result.png&#34; data-size=&#34;775x288&#34;&gt;&lt;img src=&#34;https://magren.cn/android%E7%9A%84rxjava2/rxjava_result.png&#34;
-				srcset=&#34;https://magren.cn/android%E7%9A%84rxjava2/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_480x0_resize_box_2.png 480w, https://magren.cn/android%E7%9A%84rxjava2/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/android-rxjava/rxjava_result.png&#34; data-size=&#34;775x288&#34;&gt;&lt;img src=&#34;https://magren.cn/android-rxjava/rxjava_result.png&#34;
+				srcset=&#34;https://magren.cn/android-rxjava/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_480x0_resize_box_2.png 480w, https://magren.cn/android-rxjava/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;775&#34;
 				height=&#34;288&#34;
 				loading=&#34;lazy&#34;
@@ -3876,15 +4030,15 @@ Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的�
         </item>
         <item>
         <title>Android Activity生命周期</title>
-        <link>https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+        <link>https://magren.cn/android-life-cycle/</link>
         <pubDate>Fri, 06 Mar 2020 14:36:01 +0000</pubDate>
         
-        <guid>https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+        <guid>https://magren.cn/android-life-cycle/</guid>
         <description>&lt;p&gt;先上Google提供的经典图，是对Activity生命周期各个阶段之间导航转换的直观展现。&lt;br&gt;
 Activity类提供了六个核心回调：&lt;strong&gt;onCreate()&lt;/strong&gt;、&lt;strong&gt;onStart()&lt;/strong&gt;、&lt;strong&gt;onResume()&lt;/strong&gt;、&lt;strong&gt;onPause()&lt;/strong&gt;、&lt;strong&gt;onStop()&lt;strong&gt;和&lt;/strong&gt;onDestroy()&lt;/strong&gt;。&lt;br&gt;
 &lt;figure style=&#34;flex-grow: 76; flex-basis: 183px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png&#34; data-size=&#34;545x711&#34;&gt;&lt;img src=&#34;https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png&#34;
-				srcset=&#34;https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_hu7d2fa6bc8b57b5766ca8f16c90e00936_66148_480x0_resize_box_2.png 480w, https://magren.cn/android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_hu7d2fa6bc8b57b5766ca8f16c90e00936_66148_1024x0_resize_box_2.png 1024w&#34;
+		&lt;a href=&#34;https://magren.cn/android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png&#34; data-size=&#34;545x711&#34;&gt;&lt;img src=&#34;https://magren.cn/android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png&#34;
+				srcset=&#34;https://magren.cn/android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_hu7d2fa6bc8b57b5766ca8f16c90e00936_66148_480x0_resize_box_2.png 480w, https://magren.cn/android-life-cycle/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_hu7d2fa6bc8b57b5766ca8f16c90e00936_66148_1024x0_resize_box_2.png 1024w&#34;
 				width=&#34;545&#34;
 				height=&#34;711&#34;
 				loading=&#34;lazy&#34;
@@ -3968,10 +4122,10 @@ Activity类提供了六个核心回调：&lt;strong&gt;onCreate()&lt;/strong&gt;
         </item>
         <item>
         <title>说说Android的内存泄露和溢出</title>
-        <link>https://magren.cn/%E8%AF%B4%E8%AF%B4android%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E6%BA%A2%E5%87%BA/</link>
+        <link>https://magren.cn/android-memory/</link>
         <pubDate>Sun, 01 Mar 2020 14:27:13 +0000</pubDate>
         
-        <guid>https://magren.cn/%E8%AF%B4%E8%AF%B4android%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%92%8C%E6%BA%A2%E5%87%BA/</guid>
+        <guid>https://magren.cn/android-memory/</guid>
         <description>&lt;p&gt;虽然在大学以来学习了一年多的安卓，已经可以完成一部分的需求，但是在Android这方面的底层知识和一些概念我应该不算非常了解，借着这个长假的机会打算好好熟悉下。&lt;/p&gt;
 &lt;h1 id=&#34;android内存泄漏&#34;&gt;Android内存泄漏&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;内存泄漏是指保存了不可能再被访问的变量引用，导致垃圾回收器无法回收内存。&lt;/strong&gt;
@@ -4018,10 +4172,10 @@ Activity类提供了六个核心回调：&lt;strong&gt;onCreate()&lt;/strong&gt;
         </item>
         <item>
         <title>关于starTranslation</title>
-        <link>https://magren.cn/%E5%85%B3%E4%BA%8Estartranslation/</link>
+        <link>https://magren.cn/about-star-translation/</link>
         <pubDate>Mon, 03 Feb 2020 16:16:20 +0000</pubDate>
         
-        <guid>https://magren.cn/%E5%85%B3%E4%BA%8Estartranslation/</guid>
+        <guid>https://magren.cn/about-star-translation/</guid>
         <description>&lt;p&gt;这个项目其实去年就有写了，但是那时候没有用到基类，然后用的是网易云有道翻译的sdk，耦合方面也不是做的很好，在寒假这段时间便把它重构了一遍，
 同时用上了rxjava2和retorfit来进行网络的请求以及用上了ButterKnife。这个项目就当作自己的一个学习吧，后面还有什么可以优化的地方再逐步更新。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -4154,10 +4308,10 @@ Activity类提供了六个核心回调：&lt;strong&gt;onCreate()&lt;/strong&gt;
         </item>
         <item>
         <title>Android基类的设计</title>
-        <link>https://magren.cn/android%E5%9F%BA%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1/</link>
+        <link>https://magren.cn/android-base-class/</link>
         <pubDate>Thu, 09 Jan 2020 16:16:20 +0000</pubDate>
         
-        <guid>https://magren.cn/android%E5%9F%BA%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1/</guid>
+        <guid>https://magren.cn/android-base-class/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;这两天开始放寒假，在家呆着也是呆着，遂决定找星空以前Android方向大佬写的项目学习下，看看别人代码的结构以及有什么方法可以降低代码的耦合度，然后在师兄的项目里接触到了BaseActivity，在这里记录一下&lt;/p&gt;
 &lt;/blockquote&gt;

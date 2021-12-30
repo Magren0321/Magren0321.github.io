@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 10 Feb 2021 18:11:21 +0800</lastBuildDate><atom:link href="https://magren.cn/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于ChatRoom</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</link>
+      <link>https://magren.cn/about-chatroom/</link>
       <pubDate>Wed, 10 Feb 2021 18:11:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</guid>
+      <guid>https://magren.cn/about-chatroom/</guid>
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom
@@ -37,10 +37,10 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
     
     <item>
       <title>关于CloudMusic</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</link>
+      <link>https://magren.cn/about-cloudmusic/</link>
       <pubDate>Thu, 28 Jan 2021 16:33:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</guid>
+      <guid>https://magren.cn/about-cloudmusic/</guid>
       <description>前言 这个项目是我某天在宿舍听歌想到的，从16年注册网易云到现在都有五年的时间了，虽然这个平台现在越来越让我失望，但是听了五年了都听出感情来了，就在这个假期里面花了将近一个月磨磨蹭蹭写出来这个项目。至于为什么写的是移动端页面嘛，是因为那时候我听歌是用着我的手机听的……所以模仿的UI也是安卓版网易云音乐的UI。虽然功能没有全部实现，但是比较核心的播放页面还是做出来了，这篇博客也是记录一下这个项目的至今的实现过程还有一些坑。
 项目基于Vue + Typescript + Vuetify UI实现。
 项目地址：CloudMusic
@@ -70,10 +70,10 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
     
     <item>
       <title>Vue Typescript下axios的封装和使用</title>
-      <link>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</link>
+      <link>https://magren.cn/vue-ts-axios/</link>
       <pubDate>Wed, 12 Aug 2020 14:45:50 +0000</pubDate>
       
-      <guid>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://magren.cn/vue-ts-axios/</guid>
       <description>8月到了，一个莫名其妙的机遇也砸到了脸上，提着行李一个人跑到了广州跟一个毕业的师兄搞创业的项目，怀着点点的不安以及兴奋，迈出离开学校的第一步。
 由于就住在办公室的一间房里，出门即工作，开始了朝五晚九的工作生活，晚上的时候就折腾自己的项目，有点梦回星空时候夏训营的感觉，很累也充实。每天也在掉头发以及烦恼吃什么
 自己写的华广地图给自家eo发了一份玩，结果给征收了，上线成了星空的产品，并且要求再进行完善 😟 想了下干脆给每个地点的marker添加一个点击事件，点击后可以看到该地点的详细介绍，不过每个地方都要图片，放在本地太大了，可能会造成卡顿，遂决定放在服务器上，于是重新看了一遍axios同时自己学着网上的一些教程做了一个封装，并解决了跨域的问题。
@@ -82,10 +82,10 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
     
     <item>
       <title>关于HG地图</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</link>
+      <link>https://magren.cn/about-hgmap/</link>
       <pubDate>Thu, 30 Jul 2020 14:53:09 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</guid>
+      <guid>https://magren.cn/about-hgmap/</guid>
       <description>最近都在学习前端的路上缓慢前进，在了解了Vue后就开始学习Typescript，每次学习到新东西的时候都会忍不住用新的东西去做一个自己感兴趣的东西，可能自己觉得这样子很Coooooooooooool！👊
 之前偶然间也看到了吉珠的地图，觉得很优秀，碰巧我们学校没有相关的产品，只有一张画出来图片地图，稍加思索
  考虑到了便携性，决定放在移动端使用 要可以标示出学校的设施地点 校巴的路线以及上下车地点 要有产品的介绍还有学校的介绍 最好能够看到学校实景  加上自己之前学了vue，便打算结合vue来写，说干就干，起飞！✈️

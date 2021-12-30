@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 30 Jul 2021 14:00:21 +0800</lastBuildDate><atom:link href="https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于Github Report 👨‍🚀</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</link>
+      <link>https://magren.cn/about-github-report/</link>
       <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</guid>
+      <guid>https://magren.cn/about-github-report/</guid>
       <description>前言🛸  GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。
  Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，曾用它抄别人代码来度过作业的危机， 在之前使用Puppeteer尝试爬取了Github的部分数据，于是脑子一抽， 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。
 项目地址：Github Report
@@ -34,10 +34,10 @@ useState 为函数式组件引入state，这个函数返回一个数组，数组
     
     <item>
       <title>关于ChatRoom</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</link>
+      <link>https://magren.cn/about-chatroom/</link>
       <pubDate>Wed, 10 Feb 2021 18:11:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</guid>
+      <guid>https://magren.cn/about-chatroom/</guid>
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom
@@ -62,10 +62,10 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
     
     <item>
       <title>关于CloudMusic</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</link>
+      <link>https://magren.cn/about-cloudmusic/</link>
       <pubDate>Thu, 28 Jan 2021 16:33:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</guid>
+      <guid>https://magren.cn/about-cloudmusic/</guid>
       <description>前言 这个项目是我某天在宿舍听歌想到的，从16年注册网易云到现在都有五年的时间了，虽然这个平台现在越来越让我失望，但是听了五年了都听出感情来了，就在这个假期里面花了将近一个月磨磨蹭蹭写出来这个项目。至于为什么写的是移动端页面嘛，是因为那时候我听歌是用着我的手机听的……所以模仿的UI也是安卓版网易云音乐的UI。虽然功能没有全部实现，但是比较核心的播放页面还是做出来了，这篇博客也是记录一下这个项目的至今的实现过程还有一些坑。
 项目基于Vue + Typescript + Vuetify UI实现。
 项目地址：CloudMusic
@@ -95,10 +95,10 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
     
     <item>
       <title>关于HG地图</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</link>
+      <link>https://magren.cn/about-hgmap/</link>
       <pubDate>Thu, 30 Jul 2020 14:53:09 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</guid>
+      <guid>https://magren.cn/about-hgmap/</guid>
       <description>最近都在学习前端的路上缓慢前进，在了解了Vue后就开始学习Typescript，每次学习到新东西的时候都会忍不住用新的东西去做一个自己感兴趣的东西，可能自己觉得这样子很Coooooooooooool！👊
 之前偶然间也看到了吉珠的地图，觉得很优秀，碰巧我们学校没有相关的产品，只有一张画出来图片地图，稍加思索
  考虑到了便携性，决定放在移动端使用 要可以标示出学校的设施地点 校巴的路线以及上下车地点 要有产品的介绍还有学校的介绍 最好能够看到学校实景  加上自己之前学了vue，便打算结合vue来写，说干就干，起飞！✈️
@@ -117,10 +117,10 @@ Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
     
     <item>
       <title>用vue实现的期末作业</title>
-      <link>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</link>
+      <link>https://magren.cn/vue-homework/</link>
       <pubDate>Fri, 10 Jul 2020 13:28:29 +0000</pubDate>
       
-      <guid>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</guid>
+      <guid>https://magren.cn/vue-homework/</guid>
       <description>终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。
 最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。
 其实主要的还是自己没怎么听，嘿嘿。
@@ -143,10 +143,10 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.</description>
     
     <item>
       <title>关于starTranslation</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Estartranslation/</link>
+      <link>https://magren.cn/about-star-translation/</link>
       <pubDate>Mon, 03 Feb 2020 16:16:20 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Estartranslation/</guid>
+      <guid>https://magren.cn/about-star-translation/</guid>
       <description>&lt;p&gt;这个项目其实去年就有写了，但是那时候没有用到基类，然后用的是网易云有道翻译的sdk，耦合方面也不是做的很好，在寒假这段时间便把它重构了一遍，
 同时用上了rxjava2和retorfit来进行网络的请求以及用上了ButterKnife。这个项目就当作自己的一个学习吧，后面还有什么可以优化的地方再逐步更新。&lt;/p&gt;
 &lt;blockquote&gt;

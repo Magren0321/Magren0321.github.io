@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 30 Jul 2021 14:00:21 +0800</lastBuildDate><atom:link href="https://magren.cn/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于Github Report 👨‍🚀</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</link>
+      <link>https://magren.cn/about-github-report/</link>
       <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Egithub-report/</guid>
+      <guid>https://magren.cn/about-github-report/</guid>
       <description>前言🛸  GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。
  Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，曾用它抄别人代码来度过作业的危机， 在之前使用Puppeteer尝试爬取了Github的部分数据，于是脑子一抽， 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。
 项目地址：Github Report
@@ -34,10 +34,10 @@ useState 为函数式组件引入state，这个函数返回一个数组，数组
     
     <item>
       <title>Puppeteer爬取Github指北</title>
-      <link>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</link>
+      <link>https://magren.cn/puppeteer-get-github/</link>
       <pubDate>Wed, 07 Jul 2021 12:57:21 +0800</pubDate>
       
-      <guid>https://magren.cn/puppeteer%E7%88%AC%E5%8F%96github%E6%8C%87%E5%8C%97/</guid>
+      <guid>https://magren.cn/puppeteer-get-github/</guid>
       <description>介绍  puppeteer 是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景。
  使用 安装  npm install puppeteer-chromium-resolver &amp;ndash;save
  生成/关闭浏览器 const browser = await (puppeteer.launch({ args: [&amp;#39;--no-sandbox&amp;#39;, &amp;#39;--disable-setuid-sandbox&amp;#39;], //如果是访问https页面 此属性会忽略https错误  ignoreHTTPSErrors: true, headless: true, //改为true则是无头模式，不显示浏览器，在无界面的环境中运行 Chrome  })); //关闭  browser.close(); 生成新的tab并且跳转 const page = await browser.newPage(); await page.goto(&amp;#39;https://github.com/&amp;#39;+name+&amp;#39;?tab=repositories&amp;#39;); //跳转到github某个用户的仓库页 在控制台中执行函数（ evaluate() ） //获取当页的所有项目url，同时有下一页仓库的url的话也获取  const rep = await page.evaluate(()=&amp;gt;{ const url = document.querySelectorAll(&amp;#39;.wb-break-all &amp;gt; a&amp;#39;); const next = document.querySelector(&amp;#39;.BtnGroup &amp;gt; a&amp;#39;); let urlList = undefined; let nextUrl = undefined; if(url !</description>
@@ -45,10 +45,10 @@ useState 为函数式组件引入state，这个函数返回一个数组，数组
     
     <item>
       <title>将博客变成PWA</title>
-      <link>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</link>
+      <link>https://magren.cn/be-pwa/</link>
       <pubDate>Sat, 03 Apr 2021 22:14:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%B0%86%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%88%90pwa/</guid>
+      <guid>https://magren.cn/be-pwa/</guid>
       <description>我是少数派的一个读者，成为少数派已经419天。
 从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
 但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
@@ -66,10 +66,10 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
     
     <item>
       <title>代码帮我画像素画</title>
-      <link>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</link>
+      <link>https://magren.cn/pixel/</link>
       <pubDate>Thu, 25 Feb 2021 16:33:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E4%BB%A3%E7%A0%81%E5%B8%AE%E6%88%91%E7%94%BB%E5%83%8F%E7%B4%A0%E7%94%BB/</guid>
+      <guid>https://magren.cn/pixel/</guid>
       <description>这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。
 甚至把自己的电脑壁纸也换成了像素风。很有感觉😝 
 想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
@@ -81,10 +81,10 @@ const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = im
     
     <item>
       <title>关于ChatRoom</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</link>
+      <link>https://magren.cn/about-chatroom/</link>
       <pubDate>Wed, 10 Feb 2021 18:11:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Echatroom/</guid>
+      <guid>https://magren.cn/about-chatroom/</guid>
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom
@@ -109,10 +109,10 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
     
     <item>
       <title>关于CloudMusic</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</link>
+      <link>https://magren.cn/about-cloudmusic/</link>
       <pubDate>Thu, 28 Jan 2021 16:33:21 +0800</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ecloudmusic/</guid>
+      <guid>https://magren.cn/about-cloudmusic/</guid>
       <description>前言 这个项目是我某天在宿舍听歌想到的，从16年注册网易云到现在都有五年的时间了，虽然这个平台现在越来越让我失望，但是听了五年了都听出感情来了，就在这个假期里面花了将近一个月磨磨蹭蹭写出来这个项目。至于为什么写的是移动端页面嘛，是因为那时候我听歌是用着我的手机听的……所以模仿的UI也是安卓版网易云音乐的UI。虽然功能没有全部实现，但是比较核心的播放页面还是做出来了，这篇博客也是记录一下这个项目的至今的实现过程还有一些坑。
 项目基于Vue + Typescript + Vuetify UI实现。
 项目地址：CloudMusic
@@ -142,10 +142,10 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
     
     <item>
       <title>从输入URL到页面展示</title>
-      <link>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</link>
+      <link>https://magren.cn/inputUrl/</link>
       <pubDate>Sun, 08 Nov 2020 23:12:57 +0000</pubDate>
       
-      <guid>https://magren.cn/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</guid>
+      <guid>https://magren.cn/inputUrl/</guid>
       <description>最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。
 总的过程如下：
  输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束  输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
@@ -163,10 +163,10 @@ DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映�
     
     <item>
       <title>Vue下的EventBus</title>
-      <link>https://magren.cn/vue%E4%B8%8B%E7%9A%84eventbus/</link>
+      <link>https://magren.cn/vue-eventbus/</link>
       <pubDate>Mon, 12 Oct 2020 11:21:03 +0000</pubDate>
       
-      <guid>https://magren.cn/vue%E4%B8%8B%E7%9A%84eventbus/</guid>
+      <guid>https://magren.cn/vue-eventbus/</guid>
       <description>EventBus是用于Vue中组件通信的一种方式，常见的父子组件沟通方式有emit和props。
 但假如跨组件传参沟通，或者是兄弟姐妹组件之间的传参沟通，使用EventBus或者Vuex就可以避免很多重复的props和emit。
 Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBus比较适用于小型的项目，不是太复杂的事件。
@@ -181,10 +181,10 @@ created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.l
     
     <item>
       <title>Vue下监听页面滚动以及移动端触摸事件</title>
-      <link>https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</link>
+      <link>https://magren.cn/vue-roll/</link>
       <pubDate>Thu, 27 Aug 2020 23:30:42 +0000</pubDate>
       
-      <guid>https://magren.cn/vue%E4%B8%8B%E7%9B%91%E5%90%AC%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E4%BB%A5%E5%8F%8A%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/</guid>
+      <guid>https://magren.cn/vue-roll/</guid>
       <description>无聊刷知乎的时候发现了一个前端设计的宝藏网站awwwards，对上面大佬实现的网站表示望洋兴叹，
 但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
 在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
@@ -195,10 +195,10 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
     
     <item>
       <title>Vue Typescript下axios的封装和使用</title>
-      <link>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</link>
+      <link>https://magren.cn/vue-ts-axios/</link>
       <pubDate>Wed, 12 Aug 2020 14:45:50 +0000</pubDate>
       
-      <guid>https://magren.cn/vue-typescript%E4%B8%8Baxios%E7%9A%84%E5%B0%81%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://magren.cn/vue-ts-axios/</guid>
       <description>8月到了，一个莫名其妙的机遇也砸到了脸上，提着行李一个人跑到了广州跟一个毕业的师兄搞创业的项目，怀着点点的不安以及兴奋，迈出离开学校的第一步。
 由于就住在办公室的一间房里，出门即工作，开始了朝五晚九的工作生活，晚上的时候就折腾自己的项目，有点梦回星空时候夏训营的感觉，很累也充实。每天也在掉头发以及烦恼吃什么
 自己写的华广地图给自家eo发了一份玩，结果给征收了，上线成了星空的产品，并且要求再进行完善 😟 想了下干脆给每个地点的marker添加一个点击事件，点击后可以看到该地点的详细介绍，不过每个地方都要图片，放在本地太大了，可能会造成卡顿，遂决定放在服务器上，于是重新看了一遍axios同时自己学着网上的一些教程做了一个封装，并解决了跨域的问题。
@@ -207,10 +207,10 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
     
     <item>
       <title>关于HG地图</title>
-      <link>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</link>
+      <link>https://magren.cn/about-hgmap/</link>
       <pubDate>Thu, 30 Jul 2020 14:53:09 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%85%B3%E4%BA%8Ehg%E5%9C%B0%E5%9B%BE/</guid>
+      <guid>https://magren.cn/about-hgmap/</guid>
       <description>最近都在学习前端的路上缓慢前进，在了解了Vue后就开始学习Typescript，每次学习到新东西的时候都会忍不住用新的东西去做一个自己感兴趣的东西，可能自己觉得这样子很Coooooooooooool！👊
 之前偶然间也看到了吉珠的地图，觉得很优秀，碰巧我们学校没有相关的产品，只有一张画出来图片地图，稍加思索
  考虑到了便携性，决定放在移动端使用 要可以标示出学校的设施地点 校巴的路线以及上下车地点 要有产品的介绍还有学校的介绍 最好能够看到学校实景  加上自己之前学了vue，便打算结合vue来写，说干就干，起飞！✈️
@@ -229,10 +229,10 @@ Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
     
     <item>
       <title>用vue实现的期末作业</title>
-      <link>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</link>
+      <link>https://magren.cn/vue-homework/</link>
       <pubDate>Fri, 10 Jul 2020 13:28:29 +0000</pubDate>
       
-      <guid>https://magren.cn/%E7%94%A8vue%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</guid>
+      <guid>https://magren.cn/vue-homework/</guid>
       <description>终于度过了紧张刺激的期末以及三个大作业两个大作业的答辩。
 最没有把握的科目居然是这个学期唯一的开卷考——hadoop，考的东西我翻书也翻不到，虽然操作系统也挺难的，但好歹别人是46开（平时分占比6，期末考试占比4）。
 其实主要的还是自己没怎么听，嘿嘿。
@@ -255,10 +255,10 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.</description>
     
     <item>
       <title>es6中的promise</title>
-      <link>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</link>
+      <link>https://magren.cn/web-promise/</link>
       <pubDate>Wed, 27 May 2020 21:29:47 +0000</pubDate>
       
-      <guid>https://magren.cn/es6%E4%B8%AD%E7%9A%84promise/</guid>
+      <guid>https://magren.cn/web-promise/</guid>
       <description>Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。
 有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。
 Promise也有一些缺点：
@@ -273,10 +273,10 @@ promise.then(function(value) { }.then(function (comments) { console.log(&amp;#34
     
     <item>
       <title>HTML的DOM和浏览器的BOM</title>
-      <link>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</link>
+      <link>https://magren.cn/web-dom-and-bom/</link>
       <pubDate>Sat, 09 May 2020 17:52:32 +0000</pubDate>
       
-      <guid>https://magren.cn/html%E7%9A%84dom%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom/</guid>
+      <guid>https://magren.cn/web-dom-and-bom/</guid>
       <description>记录下自己最近看的知识点。
 HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
 查找HTML元素 通常，通过 JavaScript可以操作需要操作 HTML 元素。
@@ -288,10 +288,10 @@ HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创�
     
     <item>
       <title>前端基础里一些杂七杂八的知识点</title>
-      <link>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <link>https://magren.cn/web-knowledge/</link>
       <pubDate>Sat, 02 May 2020 16:34:16 +0000</pubDate>
       
-      <guid>https://magren.cn/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%87%8C%E4%B8%80%E4%BA%9B%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
+      <guid>https://magren.cn/web-knowledge/</guid>
       <description>其实在大一就有学习前端的想法，也就多多少少了解了一点html和css，但是那时候身在安卓方向，就还是以安卓为主，也没有坚持下去。
 工程师嘛，无论是什么工程师，局限于一个领域上所学到的东西肯定是有限的，it界那么大，总得看看别的地方。
 如果硬要说我想成为什么工程师，我希望我能成为一个全栈工程师吧（有能力的话
