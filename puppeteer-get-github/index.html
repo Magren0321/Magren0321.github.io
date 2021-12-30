@@ -19,7 +19,7 @@
  使用 安装  npm install puppeteer-chromium-resolver &amp;ndash;save
  生成/关闭浏览器 const browser = await (puppeteer.launch({ args: [&amp;#39;--no-sandbox&amp;#39;, &amp;#39;--disable-setuid-sandbox&amp;#39;], //如果是访问https页面 此属性会忽略https错误  ignoreHTTPSErrors: true, headless: true, //改为true则是无头模式，不显示浏览器，在无界面的环境中运行 Chrome  })); //关闭  browser.close(); 生成新的tab并且跳转 const page = await browser.newPage(); await page.goto(&amp;#39;https://github.com/&amp;#39;&#43;name&#43;&amp;#39;?tab=repositories&amp;#39;); //跳转到github某个用户的仓库页 在控制台中执行函数（ evaluate() ） //获取当页的所有项目url，同时有下一页仓库的url的话也获取  const rep = await page.evaluate(()=&amp;gt;{ const url = document.querySelectorAll(&amp;#39;.wb-break-all &amp;gt; a&amp;#39;); const next = document.querySelector(&amp;#39;.BtnGroup &amp;gt; a&amp;#39;); let urlList = undefined; let nextUrl = undefined; if(url !"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://magren.cn/puppeteer-get-github/github.jpg' />
-    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="https://magren.cn/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" />
 
         <link rel="manifest" href="/manifest.json">
     </head>

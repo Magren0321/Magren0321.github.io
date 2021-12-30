@@ -21,7 +21,7 @@
 在用Rxjava配合Retorfit的时候，发送请求，拿到数据后我们要让数据显示在视图中的时候往往会刷新页面，但假如，我们发送请求出去的时候网络比较差，返回数据比较慢，然后我们又手快的关闭了当前这个Activity，那RxJava当拿到返回的数据的时候去刷新界面就会报空指针异常了。就是说，请求过程中，我们的UI层Destroy的时候，不及时取消订阅，就会造成内存泄漏。这里就要用到我们的CompositeDisposable。
 使用 使用的方法大致就是三步：
  ui层创建的时候，实例化我们的CompositeDisposable类。 把订阅返回的disposable对象加入到我们的管理器中。 ui层销毁的时候清空订阅对象。  创建ui的时候实例化 @Override public void onStart() { if (mSubscriptions == null) { mSubscriptions = new CompositeDisposable(); } } 添加disposable对象 netWork.getInstance().getDataService() .translateYouDao(q,from,to,appID,salt,sign,signType,curtime) .subscribeOn(Schedulers.newThread()) .observeOn(AndroidSchedulers.mainThread()) .subscribe(new Observer&amp;lt;TranslationBean&amp;gt;() { @Override public void onSubscribe(Disposable d) { mSubscriptions.add(d); //这里添加到容器中  } @Override public void onNext(TranslationBean translationBean) { List&amp;lt;TranslationBean&amp;gt; list_word = new ArrayList&amp;lt;&amp;gt;(); list_word.add(translationBean); mView.showResult(list_word); } @Override public void onError(Throwable e) { mView.showConnection(); } @Override public void onComplete() { } }); ui层销毁时候解除订阅 @Override public void onDestroy() { if (mSubscriptions !">
-    <link rel="shortcut icon" href="https://magren.cn/img/red_hudb77c21b76598da1b778309e009d096e_113317_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="https://magren.cn/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" />
 
         <link rel="manifest" href="/manifest.json">
     </head>
