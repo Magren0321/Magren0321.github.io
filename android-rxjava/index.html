@@ -30,7 +30,7 @@ A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感
 其实在android中也有很多自带的观察者模式。最明显的莫过于点击事件。说个最简单的例子，点击按钮后弹一个Toast。那么，我们在点击按钮的时候，告知系统，此时，我需要弹一个吐司。那么就这么弹出来了。那么，这个时候问题来了。我是否需要实时去监听这个按钮呢？答案是不需要的。这就和前面的举例有的差距了。换句话说。我只要在此按钮进行点击时进行监听就可以了。这种操作被称为订阅。也就是说Button通过setOnClickListener对OnclickListener进行了订阅了操作，来监听onclick方法。
 基本使用 rxjava的基本实现主要是三点：
  初始化 Observable （被观察者） 初始化 Observe（观察者） 建立两者之间的订阅关系  创建Observable Observable&amp;lt;String&amp;gt; observable = Observable.create(new ObservableOnSubscribe&amp;lt;String&amp;gt;() { @Override public void subscribe(ObservableEmitter&amp;lt;String&amp;gt; e) throws Exception { e.onNext(&amp;#34;hello world&amp;#34;); e.onComplete(); //调用complete后下面将不再接受事件  } }); 创建Observe Observer&amp;lt;String&amp;gt;observer=new Observer&amp;lt;String&amp;gt;() { @Override public void onSubscribe(Disposable d) { Log.i(&amp;#34;rxjava&amp;#34;, &amp;#34;onSubscribe: &amp;#34; &#43; d); } @Override public void onNext(String string) { Log.">
-    <link rel="shortcut icon" href="https://magren.cn/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" />
 
         <link rel="manifest" href="/manifest.json">
     </head>
@@ -683,7 +683,7 @@ Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的�
         
             2020 - 
         
-        2021 Magren&#39;s Blog
+        2022 Magren&#39;s Blog
 
         
         <div id="days"></div>
