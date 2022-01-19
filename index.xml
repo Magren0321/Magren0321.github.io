@@ -3,6 +3,7 @@
     <channel>
         <title>Magren&#39;s Blog</title>
         <link>https://magren.cn/</link>
+        <icon>https://magren.cn/img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png</icon>
         <description>Recent content on Magren&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
