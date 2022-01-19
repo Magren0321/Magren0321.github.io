@@ -27,7 +27,7 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
  利用mongoose来链接MongoDB 在项目中创建db.js文件：
 &amp;#39;use strict&amp;#39;; import mongoose from &amp;#39;mongoose&amp;#39;; mongoose.connect(&amp;#39;mongodb://localhost:27017/test&amp;#39;, { useNewUrlParser: true, useUnifiedTopology: true }); const db = mongoose.connection; db.once(&amp;#39;open&amp;#39; ,() =&amp;gt; { console.log( &amp;#39;连接数据库成功&amp;#39; ); }) db.on(&amp;#39;error&amp;#39;, function(error) { console.error( &amp;#39;Error in MongoDb connection: &amp;#39; &#43; error ); mongoose.disconnect(); }); db.on(&amp;#39;close&amp;#39;, function() { console.log( &amp;#39;数据库断开，重新连接数据库&amp;#39; ); }); export default db; 创建数据模型（建一张表） 在test数据库中创建一张名为StudentSchema的表，表中有name和age字段，并且公出。
 import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.">
-    <link rel="shortcut icon" href="img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
         <link rel="manifest" href="/manifest.json">
     </head>

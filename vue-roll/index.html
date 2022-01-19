@@ -27,7 +27,7 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
 pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
 // 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
 //滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。">
-    <link rel="shortcut icon" href="img/avatar_hu111407d5e0461d1faba70731dc2cee4f_22656_300x0_resize_box_2.png" />
+    <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
         <link rel="manifest" href="/manifest.json">
     </head>
