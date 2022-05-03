@@ -61,18 +61,18 @@
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -229,50 +229,50 @@
 <li>ui层销毁的时候清空订阅对象。</li>
 </ul>
 <h2 id="创建ui的时候实例化">创建ui的时候实例化</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
-       <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-           <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompositeDisposable</span><span class="o">();</span>
-       <span class="o">}</span>
-   <span class="o">}</span>
-</code></pre></div><h2 id="添加disposable对象">添加disposable对象</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">netWork</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDataService</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">translateYouDao</span><span class="o">(</span><span class="n">q</span><span class="o">,</span><span class="n">from</span><span class="o">,</span><span class="n">to</span><span class="o">,</span><span class="n">appID</span><span class="o">,</span><span class="n">salt</span><span class="o">,</span><span class="n">sign</span><span class="o">,</span><span class="n">signType</span><span class="o">,</span><span class="n">curtime</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span>
-                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span>
-                <span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;()</span> <span class="o">{</span>
-                    <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSubscribe</span><span class="o">(</span><span class="n">Disposable</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>   <span class="c1">//这里添加到容器中
-</span><span class="c1"></span>                    <span class="o">}</span>
-
-                    <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">TranslationBean</span> <span class="n">translationBean</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">List</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;</span> <span class="n">list_word</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-                        <span class="n">list_word</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">translationBean</span><span class="o">);</span>
-                        <span class="n">mView</span><span class="o">.</span><span class="na">showResult</span><span class="o">(</span><span class="n">list_word</span><span class="o">);</span>
-                    <span class="o">}</span>
-
-                    <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">mView</span><span class="o">.</span><span class="na">showConnection</span><span class="o">();</span>
-                    <span class="o">}</span>
-
-                    <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onComplete</span><span class="o">()</span> <span class="o">{</span>
-
-                    <span class="o">}</span>
-                <span class="o">});</span>
-</code></pre></div><h2 id="ui层销毁时候解除订阅">ui层销毁时候解除订阅</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
-            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-            <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-</code></pre></div><h1 id="总结">总结</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">       <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">           <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompositeDisposable</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">       <span class="o">}</span>
+</span></span><span class="line"><span class="cl">   <span class="o">}</span>
+</span></span></code></pre></div><h2 id="添加disposable对象">添加disposable对象</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">netWork</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDataService</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">translateYouDao</span><span class="o">(</span><span class="n">q</span><span class="o">,</span><span class="n">from</span><span class="o">,</span><span class="n">to</span><span class="o">,</span><span class="n">appID</span><span class="o">,</span><span class="n">salt</span><span class="o">,</span><span class="n">sign</span><span class="o">,</span><span class="n">signType</span><span class="o">,</span><span class="n">curtime</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSubscribe</span><span class="o">(</span><span class="n">Disposable</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>   <span class="c1">//这里添加到容器中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">TranslationBean</span> <span class="n">translationBean</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">List</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;</span> <span class="n">list_word</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">list_word</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">translationBean</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">mView</span><span class="o">.</span><span class="na">showResult</span><span class="o">(</span><span class="n">list_word</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">mView</span><span class="o">.</span><span class="na">showConnection</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onComplete</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">});</span>
+</span></span></code></pre></div><h2 id="ui层销毁时候解除订阅">ui层销毁时候解除订阅</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span></code></pre></div><h1 id="总结">总结</h1>
 <p>一些细节上的地方自己没能发现，还是得多看看别人代码，遇到不知道用来干嘛的类说不定就是自己忽略掉的地方。</p>
 
 </section>

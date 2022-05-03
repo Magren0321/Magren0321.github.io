@@ -58,18 +58,18 @@ public class TestView extends View { /** * 在java代码里new的时候会用到
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -225,48 +225,48 @@ public class TestView extends View { /** * 在java代码里new的时候会用到
 </ul>
 <h1 id="构造函数">构造函数</h1>
 <p>无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestView</span> <span class="kd">extends</span> <span class="n">View</span> <span class="o">{</span>
-    <span class="cm">/**
-</span><span class="cm">     * 在java代码里new的时候会用到
-</span><span class="cm">     * @param context
-</span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 在xml布局文件中使用时自动调用
-</span><span class="cm">     * @param context
-</span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用
-</span><span class="cm">     * @param context
-</span><span class="cm">     * @param attrs
-</span><span class="cm">     * @param defStyleAttr
-</span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">);</span>
-    <span class="o">}</span>
-
-
-    <span class="cm">/**
-</span><span class="cm">     * 只有在API版本&gt;21时才会用到
-</span><span class="cm">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用
-</span><span class="cm">     * @param context
-</span><span class="cm">     * @param attrs
-</span><span class="cm">     * @param defStyleAttr
-</span><span class="cm">     * @param defStyleRes
-</span><span class="cm">     */</span>
-    <span class="nd">@RequiresApi</span><span class="o">(</span><span class="n">api</span> <span class="o">=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">LOLLIPOP</span><span class="o">)</span>
-    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleRes</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">,</span> <span class="n">defStyleRes</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h1 id="绘制过程">绘制过程</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestView</span> <span class="kd">extends</span> <span class="n">View</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 在java代码里new的时候会用到
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param context
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 在xml布局文件中使用时自动调用
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param context
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param context
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param attrs
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param defStyleAttr
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 只有在API版本&gt;21时才会用到
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param context
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param attrs
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param defStyleAttr
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param defStyleRes
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@RequiresApi</span><span class="o">(</span><span class="n">api</span> <span class="o">=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">LOLLIPOP</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">TestView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleRes</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">,</span> <span class="n">defStyleRes</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h1 id="绘制过程">绘制过程</h1>
 <ul>
 <li>测量</li>
 <li>布局</li>
@@ -292,15 +292,15 @@ public class TestView extends View { /** * 在java代码里new的时候会用到
 <li>通过 setMeasuredDimension() 保存 View 的期望尺寸（实际上是通过 setMeasuredDimension() 告知父 View 自己的期望尺寸</li>
 </ul>
 <p><strong>onMeasure() ：</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onMeasure</span><span class="o">(</span><span class="kt">int</span> <span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">heightMeasureSpec</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="n">widthsize</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getSize</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">);</span>      <span class="c1">//取出宽度的确切数值
-</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">widthmode</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">);</span>      <span class="c1">//取出宽度的测量模式
-</span><span class="c1"></span>    
-    <span class="kt">int</span> <span class="n">heightsize</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getSize</span><span class="o">(</span><span class="n">heightMeasureSpec</span><span class="o">);</span>    <span class="c1">//取出高度的确切数值
-</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">heightmode</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">heightMeasureSpec</span><span class="o">);</span>    <span class="c1">//取出高度的测量模式
-</span><span class="c1"></span><span class="o">}</span>
-</code></pre></div><p>widthMeasureSpec 和 heightMeasureSpec 这两个 int 类型的参数其实不是宽和高， 而是由宽、高和各自方向上对应的测量模式来合成的一个值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onMeasure</span><span class="o">(</span><span class="kt">int</span> <span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">heightMeasureSpec</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">widthsize</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getSize</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">);</span>      <span class="c1">//取出宽度的确切数值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">widthmode</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">);</span>      <span class="c1">//取出宽度的测量模式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">heightsize</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getSize</span><span class="o">(</span><span class="n">heightMeasureSpec</span><span class="o">);</span>    <span class="c1">//取出高度的确切数值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">heightmode</span>  <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">heightMeasureSpec</span><span class="o">);</span>    <span class="c1">//取出高度的测量模式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></div><p>widthMeasureSpec 和 heightMeasureSpec 这两个 int 类型的参数其实不是宽和高， 而是由宽、高和各自方向上对应的测量模式来合成的一个值</p>
 <h2 id="布局阶段">布局阶段</h2>
 <ol>
 <li>父View通过调用View的Layout方法将View的实际尺寸传给View</li>

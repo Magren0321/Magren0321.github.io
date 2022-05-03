@@ -70,18 +70,18 @@ public class LeakAct extends Activity { @Override protected void onCreate(Bundle
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -233,30 +233,30 @@ public class LeakAct extends Activity { @Override protected void onCreate(Bundle
 也就是说：
 在Java中有些对象的生命周期是有限的，当它们完成了特定的逻辑后会被回收，但是，如果在对象的生命周期本该被回收时，这个对象仍然还被别的对象所持有引用，那么就会导致内存泄漏。
 具体例子：</p>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LeakAct</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>  
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>    
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">aty_leak</span><span class="o">);</span>
-        <span class="n">test</span><span class="o">();</span>
-    <span class="o">}</span> 
-    
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>    
-        <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>      
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>        
-                <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>          
-                    <span class="k">try</span> <span class="o">{</span>
-                        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">1000</span><span class="o">);</span>
-                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-                    <span class="o">}</span>
-                <span class="o">}</span><span class="n">z</span>
-            <span class="o">}</span>
-        <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><p>test是一个非静态内部类，当我们finish的时候，该实例不会真正销毁，GC机制也不会进行该实例的垃圾回收，因为***匿名内部类和非静态内部类持有外部类的强引用， ***也就是说test持有外部activity的强引用，而thread内部while(true)是死循环，线程不会停止，对外部activity的强引用也不会消失。这样就造成了内存泄漏。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LeakAct</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>    
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">aty_leak</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">test</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>    
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>      
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>        
+</span></span><span class="line"><span class="cl">                <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>          
+</span></span><span class="line"><span class="cl">                    <span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">1000</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span><span class="n">z</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}).</span><span class="na">start</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>test是一个非静态内部类，当我们finish的时候，该实例不会真正销毁，GC机制也不会进行该实例的垃圾回收，因为***匿名内部类和非静态内部类持有外部类的强引用， ***也就是说test持有外部activity的强引用，而thread内部while(true)是死循环，线程不会停止，对外部activity的强引用也不会消失。这样就造成了内存泄漏。</p>
 <p><strong>解决方案</strong></p>
 <blockquote>
 <p>1.将内部类变成静态内部类;

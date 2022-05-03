@@ -61,18 +61,18 @@
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -223,132 +223,132 @@
 <p>自己写的华广地图给自家eo发了一份玩，结果给征收了，上线成了星空的产品，并且要求再进行完善 😟
 想了下干脆给每个地点的marker添加一个点击事件，点击后可以看到该地点的详细介绍，不过每个地方都要图片，放在本地太大了，可能会造成卡顿，遂决定放在服务器上，于是重新看了一遍axios同时自己学着网上的一些教程做了一个封装，并解决了跨域的问题。</p>
 <h1 id="封装axios">封装axios</h1>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">axios</span><span class="p">,</span> <span class="p">{</span> <span class="nx">AxiosRequestConfig</span><span class="p">,</span> <span class="nx">AxiosResponse</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
-
-<span class="kr">const</span> <span class="nx">showStatus</span> <span class="o">=</span> <span class="p">(</span><span class="nx">status</span><span class="o">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-  <span class="k">switch</span> <span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">400</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;请求错误(400)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">401</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;未授权，请重新登录(401)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">403</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;拒绝访问(403)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">404</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;请求出错(404)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">408</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;请求超时(408)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">500</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;服务器错误(500)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">501</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;服务未实现(501)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">502</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;网络错误(502)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">503</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;服务不可用(503)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">504</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;网络超时(504)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">case</span> <span class="mi">505</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;HTTP版本不受支持(505)&#39;</span>
-      <span class="k">break</span>
-    <span class="k">default</span><span class="o">:</span>
-      <span class="nx">message</span> <span class="o">=</span> <span class="sb">`连接出错(</span><span class="si">${</span><span class="nx">status</span><span class="si">}</span><span class="sb">)!`</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span>
-<span class="p">}</span>
-
-<span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-  <span class="c1">// 联调
-</span><span class="c1"></span>  <span class="nx">baseURL</span><span class="o">:</span> <span class="s1">&#39;https://www.wanandroid.com&#39;</span><span class="p">,</span>
-  <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">get</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/x-www-form-urlencoded;charset=utf-8&#39;</span>
-    <span class="p">},</span>
-    <span class="nx">post</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json;charset=utf-8&#39;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="c1">// 是否跨站点访问控制请求
-</span><span class="c1"></span>  <span class="nx">withCredentials</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">30000</span><span class="p">,</span> <span class="c1">//超时时间
-</span><span class="c1"></span>  <span class="nx">transformRequest</span><span class="o">:</span> <span class="p">[(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">data</span>
-  <span class="p">}],</span>
-  <span class="nx">validateStatus</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常
-</span><span class="c1"></span>    <span class="k">return</span> <span class="kc">true</span>
-  <span class="p">},</span>
-  <span class="nx">transformResponse</span><span class="o">:</span> <span class="p">[(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">))</span> <span class="p">{</span>
-      <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">data</span>
-  <span class="p">}]</span>
-<span class="p">})</span>
-
-<span class="c1">// 请求拦截器
-</span><span class="c1"></span><span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">config</span><span class="o">:</span> <span class="nx">AxiosRequestConfig</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">config</span>
-<span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// 错误抛到业务代码
-</span><span class="c1"></span>    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="s1">&#39;服务器异常&#39;</span>
-    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-<span class="p">})</span>
-
-<span class="c1">// 响应拦截器
-</span><span class="c1"></span><span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">response</span><span class="o">:</span> <span class="nx">AxiosResponse</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span>
-    <span class="kd">let</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">status</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// 处理http错误，抛到业务代码
-</span><span class="c1"></span>        <span class="nx">msg</span> <span class="o">=</span> <span class="nx">showStatus</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{</span><span class="nx">msg</span><span class="p">}</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="nx">msg</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">response</span>
-<span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// 错误抛到业务代码
-</span><span class="c1"></span>    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="s1">&#39;请求超时或服务器异常&#39;</span>
-    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-<span class="p">})</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">service</span>
-</code></pre></div><h1 id="使用">使用</h1>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="err">@</span><span class="nx">Component</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Home</span> <span class="kr">extends</span> <span class="nx">Vue</span><span class="p">{</span>
-  <span class="nx">a</span> <span class="o">=</span> <span class="p">[]</span>
-  <span class="nx">getSomeThings</span><span class="p">(){</span>
-    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
-        <span class="nx">url</span><span class="o">:</span> <span class="s2">&#34;/wxarticle/list/408/1/json&#34;</span><span class="p">,</span>
-        <span class="nx">method</span><span class="o">:</span><span class="s1">&#39;get&#39;</span>
-    <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)=&gt;{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datas</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span>
-    <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)=&gt;{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-    <span class="p">})</span>
-  <span class="p">}</span>
-
- <span class="nx">mounted</span><span class="p">(){</span>
-   <span class="k">this</span><span class="p">.</span><span class="nx">getSomeThings</span><span class="p">()</span>
- <span class="p">}</span>
-</code></pre></div><h1 id="解决跨域问题">解决跨域问题</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">axios</span><span class="p">,</span> <span class="p">{</span> <span class="nx">AxiosRequestConfig</span><span class="p">,</span> <span class="nx">AxiosResponse</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">showStatus</span> <span class="o">=</span> <span class="p">(</span><span class="nx">status</span><span class="o">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">400</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;请求错误(400)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">401</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;未授权，请重新登录(401)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">403</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;拒绝访问(403)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">404</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;请求出错(404)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">408</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;请求超时(408)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">500</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;服务器错误(500)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">501</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;服务未实现(501)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">502</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;网络错误(502)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">503</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;服务不可用(503)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">504</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;网络超时(504)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="mi">505</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;HTTP版本不受支持(505)&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">message</span> <span class="o">=</span> <span class="sb">`连接出错(</span><span class="si">${</span><span class="nx">status</span><span class="si">}</span><span class="sb">)!`</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 联调
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">baseURL</span><span class="o">:</span> <span class="s1">&#39;https://www.wanandroid.com&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">get</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/x-www-form-urlencoded;charset=utf-8&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">post</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json;charset=utf-8&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 是否跨站点访问控制请求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">withCredentials</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">30000</span><span class="p">,</span> <span class="c1">//超时时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">transformRequest</span><span class="o">:</span> <span class="p">[(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">data</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">validateStatus</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">transformResponse</span><span class="o">:</span> <span class="p">[(</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">data</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}]</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 请求拦截器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">config</span><span class="o">:</span> <span class="nx">AxiosRequestConfig</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">config</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 错误抛到业务代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="s1">&#39;服务器异常&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 响应拦截器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">response</span><span class="o">:</span> <span class="nx">AxiosResponse</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">status</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 处理http错误，抛到业务代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">msg</span> <span class="o">=</span> <span class="nx">showStatus</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">response</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{</span><span class="nx">msg</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="nx">msg</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">response</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 错误抛到业务代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">error</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="s1">&#39;请求超时或服务器异常&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">service</span>
+</span></span></code></pre></div><h1 id="使用">使用</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="err">@</span><span class="nx">Component</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Home</span> <span class="kr">extends</span> <span class="nx">Vue</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">a</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getSomeThings</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">request</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">url</span><span class="o">:</span> <span class="s2">&#34;/wxarticle/list/408/1/json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">method</span><span class="o">:</span><span class="s1">&#39;get&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)=&gt;{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">datas</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)=&gt;{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="nx">mounted</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">   <span class="k">this</span><span class="p">.</span><span class="nx">getSomeThings</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></div><h1 id="解决跨域问题">解决跨域问题</h1>
 <p>关于什么是跨域之前在ajax上已经了解过了，是由浏览器的同源策略造成的，是浏览器对js施加的安全措施。</p>
 <h2 id="axios解决跨域的思路">axios解决跨域的思路</h2>
 <blockquote>
@@ -356,29 +356,29 @@
 </blockquote>
 <h3 id="配置proxy">配置proxy</h3>
 <p>在我们的vue.config.js下配置以下内容</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">proxy</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s1">&#39;/api&#39;</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;https://www.wanandroid.com&#39;</span><span class="p">,</span><span class="c1">// 你要请求的后端接口ip+port
-</span><span class="c1"></span>                <span class="nx">changeOrigin</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">// 允许跨域，在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
-</span><span class="c1"></span>                <span class="nx">ws</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">// 开启webSocket
-</span><span class="c1"></span>                <span class="nx">pathRewrite</span><span class="o">:</span> <span class="p">{</span>
-                    <span class="s1">&#39;^/api&#39;</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span><span class="c1">// 替换成target中的地址
-</span><span class="c1"></span>                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><h3 id="配置baseurl">配置baseURL</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">proxy</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;/api&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;https://www.wanandroid.com&#39;</span><span class="p">,</span><span class="c1">// 你要请求的后端接口ip+port
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">changeOrigin</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">// 允许跨域，在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，这样服务端和服务端进行数据的交互就不会有跨域问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">ws</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">// 开启webSocket
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">pathRewrite</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;^/api&#39;</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span><span class="c1">// 替换成target中的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="配置baseurl">配置baseURL</h3>
 <p>在我们封装的axios文件里将baseURL更改为:’/api’</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-  <span class="nx">baseURL</span><span class="o">:</span> <span class="s1">&#39;/api&#39;</span><span class="p">,</span>
-
-  <span class="err">…………</span>
-
-<span class="p">})</span>
-</code></pre></div><p>所以上面两步操作是啥意思呢，其实就是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">baseURL</span><span class="o">:</span> <span class="s1">&#39;/api&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="err">…………</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><p>所以上面两步操作是啥意思呢，其实就是：</p>
 <blockquote>
 <p>我们请求/wxarticle/list/408/1/json，就相当于请求了：localhost:8080/api/wxarticle/list/408/1/json，
 然后配置的proxy拦截了/api，并把/api以及前面的所有替换成了target的内容，
@@ -474,7 +474,7 @@
         
         
             <div class="article-image">
-                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_3.png" 
                         width="250" 
                         height="150" 
                         loading="lazy" 

@@ -67,18 +67,18 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -232,134 +232,134 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
 <p>npm install mongoose &ndash;save</p>
 </blockquote>
 <p>利用mongoose来链接MongoDB 在项目中创建<strong>db.js</strong>文件：</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-
-<span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
-
-
-<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017/test&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useNewUrlParser</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="nx">useUnifiedTopology</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
-
-<span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">;</span>
-
-<span class="nx">db</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;open&#39;</span> <span class="p">,()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-    <span class="s1">&#39;连接数据库成功&#39;</span>
-  <span class="p">);</span>
-<span class="p">})</span>
-
-<span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span>
-     <span class="s1">&#39;Error in MongoDb connection: &#39;</span> <span class="o">+</span> <span class="nx">error</span>
-    <span class="p">);</span>
-    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
-<span class="p">});</span>
-
-<span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-        <span class="s1">&#39;数据库断开，重新连接数据库&#39;</span>
-    <span class="p">);</span>
-<span class="p">});</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">db</span><span class="p">;</span>
-</code></pre></div><h1 id="创建数据模型建一张表">创建数据模型（建一张表）</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017/test&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useNewUrlParser</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="nx">useUnifiedTopology</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">connection</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;open&#39;</span> <span class="p">,()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;连接数据库成功&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">     <span class="s1">&#39;Error in MongoDb connection: &#39;</span> <span class="o">+</span> <span class="nx">error</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mongoose</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;数据库断开，重新连接数据库&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">db</span><span class="p">;</span>
+</span></span></code></pre></div><h1 id="创建数据模型建一张表">创建数据模型（建一张表）</h1>
 <p>在test数据库中创建一张名为<strong>StudentSchema</strong>的表，表中有name和age字段，并且公出。</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
-
-<span class="c1">//创建schema
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">StudentSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
-    <span class="nx">age</span><span class="o">:</span> <span class="nb">Number</span>
-<span class="p">})</span>
-
-<span class="kr">const</span> <span class="nx">studentSchema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&#34;StudentSchema&#34;</span><span class="p">,</span><span class="nx">StudentSchema</span><span class="p">);</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">studentSchema</span><span class="p">;</span>
-</code></pre></div><h1 id="接口路由搭建">接口路由搭建</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">mongoose</span> <span class="nx">from</span> <span class="s1">&#39;mongoose&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//创建schema
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">StudentSchema</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span><span class="o">:</span> <span class="nb">Number</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">studentSchema</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s2">&#34;StudentSchema&#34;</span><span class="p">,</span><span class="nx">StudentSchema</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">studentSchema</span><span class="p">;</span>
+</span></span></code></pre></div><h1 id="接口路由搭建">接口路由搭建</h1>
 <p>添加body-parser依赖:</p>
 <blockquote>
 <p>npm install body-parser</p>
 </blockquote>
 <p>在app.js中引入：</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s1">&#39;body-parser&#39;</span><span class="p">;</span>
-
-<span class="c1">//使用body-parser中间件
-</span><span class="c1"></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="nx">extended</span><span class="o">:</span><span class="kc">false</span><span class="p">}));</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
-</code></pre></div><p>新建一个js文件，用于写数据接口 req.body指的是URL中的参数，req.params指的是路径</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s1">&#39;express&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">studentInfo</span> <span class="nx">from</span> <span class="s1">&#39;./studentInfo&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span>
-
-<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/test&#34;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)=&gt;{</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="nx">msg</span><span class="o">:</span><span class="s2">&#34;接收成功&#34;</span><span class="p">});</span>
-    <span class="c1">//示例：http://localhost:3000/test
-</span><span class="c1"></span><span class="p">})</span>
-
-<span class="c1">//添加一条数据
-</span><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/add&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">Student</span> <span class="o">=</span> <span class="p">{};</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">){</span>
-        <span class="nx">Student</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">){</span>
-        <span class="nx">Student</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">new</span> <span class="nx">studentInfo</span><span class="p">(</span><span class="nx">Student</span><span class="p">).</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
-  <span class="p">});</span>
-<span class="p">})</span>
-
-<span class="c1">//根据id删除一条数据
-</span><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/delete&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="mi">_</span><span class="nx">id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)=&gt;{</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
-    <span class="p">})</span>
-<span class="p">})</span>
-
-<span class="c1">//获取一条数据
-</span><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="mi">_</span><span class="nx">id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="s2">&#34;没有任何数据存在&#34;</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
-    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="p">})</span>
-<span class="p">})</span>
-
-<span class="c1">//更新一条数据
-</span><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">Student</span> <span class="o">=</span> <span class="p">{};</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">){</span>
-        <span class="nx">Student</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">){</span>
-        <span class="nx">Student</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span> <span class="mi">_</span><span class="nx">id</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="nx">Student</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="s2">&#34;数据不存在&#34;</span><span class="p">);</span>
-      <span class="p">}</span>
-     <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
-    <span class="p">})</span>
-    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">})</span>
-
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">router</span><span class="p">;</span>
-</code></pre></div><h1 id="使用">使用</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s1">&#39;body-parser&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//使用body-parser中间件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="nx">extended</span><span class="o">:</span><span class="kc">false</span><span class="p">}));</span>
+</span></span><span class="line"><span class="cl"><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+</span></span></code></pre></div><p>新建一个js文件，用于写数据接口 req.body指的是URL中的参数，req.params指的是路径</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">express</span> <span class="nx">from</span> <span class="s1">&#39;express&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">studentInfo</span> <span class="nx">from</span> <span class="s1">&#39;./studentInfo&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;/test&#34;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)=&gt;{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="nx">msg</span><span class="o">:</span><span class="s2">&#34;接收成功&#34;</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//示例：http://localhost:3000/test
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//添加一条数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/add&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">Student</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Student</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Student</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">new</span> <span class="nx">studentInfo</span><span class="p">(</span><span class="nx">Student</span><span class="p">).</span><span class="nx">save</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//根据id删除一条数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/delete&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)=&gt;{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//获取一条数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="nx">_id</span><span class="o">:</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="s2">&#34;没有任何数据存在&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//更新一条数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">Student</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Student</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Student</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">studentInfo</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="nx">Student</span> <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">400</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="s2">&#34;数据不存在&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">404</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">router</span><span class="p">;</span>
+</span></span></code></pre></div><h1 id="使用">使用</h1>
 <p>在app.js中引入：</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">test</span> <span class="nx">from</span> <span class="s1">&#39;./test&#39;</span><span class="p">;</span>
-
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span>
-</code></pre></div><h1 id="利用postman测试">利用Postman测试</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">test</span> <span class="nx">from</span> <span class="s1">&#39;./test&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span>
+</span></span></code></pre></div><h1 id="利用postman测试">利用Postman测试</h1>
 <h2 id="post测试">POST测试：</h2>
 <p>将POST的body设置成<strong>x-www-form-urlencoded</strong>，下图为更新数据的接口示例： <figure style="flex-grow: 165; flex-basis: 397px">
 		<a href="/node-express/postman_updata.png" data-size="919x555"><img src="/node-express/postman_updata.png"
-				srcset="/node-express/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_480x0_resize_box_2.png 480w, /node-express/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_1024x0_resize_box_2.png 1024w"
+				srcset="/node-express/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_480x0_resize_box_3.png 480w, /node-express/postman_updata_hu9c72df7f2faf6f2f3c330ef60174378a_33467_1024x0_resize_box_3.png 1024w"
 				width="919"
 				height="555"
 				loading="lazy"
@@ -373,7 +373,7 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
 <p>下图为根据ID获取一条数据的示例
 <figure style="flex-grow: 140; flex-basis: 337px">
 		<a href="/node-express/postman_get.png" data-size="910x647"><img src="/node-express/postman_get.png"
-				srcset="/node-express/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_480x0_resize_box_2.png 480w, /node-express/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_1024x0_resize_box_2.png 1024w"
+				srcset="/node-express/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_480x0_resize_box_3.png 480w, /node-express/postman_get_hu00c88eb32f86bf3848d688d06e08d5a9_40657_1024x0_resize_box_3.png 1024w"
 				width="910"
 				height="647"
 				loading="lazy"

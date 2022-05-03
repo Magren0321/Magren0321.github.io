@@ -70,18 +70,18 @@ A 对象（观察者）对 B 对象（被观察者）的某种变化高度敏感
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -246,36 +246,36 @@ Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的�
 <li>建立两者之间的订阅关系</li>
 </ul>
 <h2 id="创建observable">创建Observable</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Observable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">observable</span> <span class="o">=</span> <span class="n">Observable</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">ObservableOnSubscribe</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">subscribe</span><span class="o">(</span><span class="n">ObservableEmitter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">onNext</span><span class="o">(</span><span class="s">&#34;hello world&#34;</span><span class="o">);</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">onComplete</span><span class="o">();</span> <span class="c1">//调用complete后下面将不再接受事件
-</span><span class="c1"></span>            <span class="o">}</span>
-        <span class="o">});</span>
-</code></pre></div><h2 id="创建observe">创建Observe</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="n">observer</span><span class="o">=</span><span class="k">new</span> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSubscribe</span><span class="o">(</span><span class="n">Disposable</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onSubscribe: &#34;</span> <span class="o">+</span> <span class="n">d</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">String</span> <span class="n">string</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onNext: &#34;</span> <span class="o">+</span> <span class="n">string</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onError: &#34;</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
-            <span class="o">}</span>
-
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onComplete</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onComplete: &#34;</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">};</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Observable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">observable</span> <span class="o">=</span> <span class="n">Observable</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">ObservableOnSubscribe</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">subscribe</span><span class="o">(</span><span class="n">ObservableEmitter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">onNext</span><span class="o">(</span><span class="s">&#34;hello world&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">onComplete</span><span class="o">();</span> <span class="c1">//调用complete后下面将不再接受事件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">});</span>
+</span></span></code></pre></div><h2 id="创建observe">创建Observe</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="n">observer</span><span class="o">=</span><span class="k">new</span> <span class="n">Observer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSubscribe</span><span class="o">(</span><span class="n">Disposable</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onSubscribe: &#34;</span> <span class="o">+</span> <span class="n">d</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNext</span><span class="o">(</span><span class="n">String</span> <span class="n">string</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onNext: &#34;</span> <span class="o">+</span> <span class="n">string</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onError: &#34;</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onComplete</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span> <span class="s">&#34;onComplete: &#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">};</span>
+</span></span></code></pre></div><ul>
 <li>onSubscribe：它会在事件还未发送之前被调用，可以用来做一些准备操作。而里面的Disposable则是用来切断上下游的关系的。</li>
 <li>onNext：普通的事件。将要处理的事件添加到队列中。</li>
 <li>onError：事件队列异常，在事件处理过程中出现异常情况时，此方法会被调用。同时队列将会终止，也就是不允许在有事件发出。</li>
@@ -287,7 +287,7 @@ Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的�
 <p>先调用onSubscribe，然后走了onNext，最后以onComplete收尾：
 <figure style="flex-grow: 269; flex-basis: 645px">
 		<a href="/android-rxjava/rxjava_result.png" data-size="775x288"><img src="/android-rxjava/rxjava_result.png"
-				srcset="/android-rxjava/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_480x0_resize_box_2.png 480w, /android-rxjava/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_1024x0_resize_box_2.png 1024w"
+				srcset="/android-rxjava/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_480x0_resize_box_3.png 480w, /android-rxjava/rxjava_result_hu6c5fab622a9699322906c0739f3502dc_31680_1024x0_resize_box_3.png 1024w"
 				width="775"
 				height="288"
 				loading="lazy"
@@ -311,229 +311,229 @@ Subscriber：也是一种观察者，在2.0中 它与Observer没什么实质的�
 <li>AndroidSchedulers.mainThread() 代表Android的主线程</li>
 </ul>
 <h2 id="例子">例子：</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Observable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">observable</span> <span class="o">=</span> <span class="n">Observable</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">ObservableOnSubscribe</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">subscribe</span><span class="o">(</span><span class="n">ObservableEmitter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">onNext</span><span class="o">(</span><span class="s">&#34;hello world   &#34;</span><span class="o">+</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
-                <span class="n">e</span><span class="o">.</span><span class="na">onComplete</span><span class="o">();</span> <span class="c1">//调用complete后下面将不再接受事件
-</span><span class="c1"></span>            <span class="o">}</span>
-        <span class="o">}).</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span>
-                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span> <span class="c1">//切换到主线程
-</span><span class="c1"></span>                <span class="o">.</span><span class="na">doOnNext</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
-                    <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-                        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span><span class="s">&#34;主线程   &#34;</span><span class="o">+</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
-                    <span class="o">}</span>
-                <span class="o">})</span>
-                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">io</span><span class="o">())</span>
-                <span class="o">.</span><span class="na">doOnNext</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
-                    <span class="nd">@Override</span>
-                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-                        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span><span class="s">&#34;thread   &#34;</span><span class="o">+</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
-                    <span class="o">}</span>
-                <span class="o">});</span>
-</code></pre></div><h2 id="结果-1">结果</h2>
-<pre><code>2020-03-13 17:06:23.873 8760-8760/com.example.rxjava_test I/rxjava: onSubscribe: io.reactivex.internal.operators.observable.ObservableDoOnEach$DoOnEachObserver@92153c7
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Observable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">observable</span> <span class="o">=</span> <span class="n">Observable</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">ObservableOnSubscribe</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">subscribe</span><span class="o">(</span><span class="n">ObservableEmitter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">onNext</span><span class="o">(</span><span class="s">&#34;hello world   &#34;</span><span class="o">+</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                <span class="n">e</span><span class="o">.</span><span class="na">onComplete</span><span class="o">();</span> <span class="c1">//调用complete后下面将不再接受事件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}).</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span> <span class="c1">//切换到主线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="o">.</span><span class="na">doOnNext</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span><span class="s">&#34;主线程   &#34;</span><span class="o">+</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">})</span>
+</span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">io</span><span class="o">())</span>
+</span></span><span class="line"><span class="cl">                <span class="o">.</span><span class="na">doOnNext</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">&#34;rxjava&#34;</span><span class="o">,</span><span class="s">&#34;thread   &#34;</span><span class="o">+</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">});</span>
+</span></span></code></pre></div><h2 id="结果-1">结果</h2>
+<pre tabindex="0"><code>2020-03-13 17:06:23.873 8760-8760/com.example.rxjava_test I/rxjava: onSubscribe: io.reactivex.internal.operators.observable.ObservableDoOnEach$DoOnEachObserver@92153c7
 2020-03-13 17:06:23.980 8760-8760/com.example.rxjava_test I/rxjava: 主线程   main
 2020-03-13 17:06:23.982 8760-8826/com.example.rxjava_test I/rxjava: thread   RxCachedThreadScheduler-1
 2020-03-13 17:06:23.982 8760-8826/com.example.rxjava_test I/rxjava: onNext: hello world   RxNewThreadScheduler-1
 2020-03-13 17:06:23.982 8760-8826/com.example.rxjava_test I/rxjava: onComplete:
 </code></pre><h1 id="结合rxjava和retorfit">结合rxjava和retorfit</h1>
 <h2 id="创建接收服务器返回数据的类">创建接收服务器返回数据的类</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TranslationBean</span> <span class="o">{</span>
-
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">errorCode</span><span class="o">;</span> <span class="c1">//错误返回码
-</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">query</span><span class="o">;</span>     <span class="c1">//源语言
-</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">translation</span><span class="o">;</span> <span class="c1">//翻译结果
-</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">basicEntity</span> <span class="n">basic</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="n">web</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">tSpeakUrl</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">basicEntity</span> <span class="o">{</span>
-        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;us-phonetic&#34;</span><span class="o">)</span>
-        <span class="kd">private</span> <span class="n">String</span> <span class="n">usPhonetic</span><span class="o">;</span>  <span class="c1">//英式音标
-</span><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;uk-speech&#34;</span><span class="o">)</span>
-        <span class="kd">private</span> <span class="n">String</span> <span class="n">ukSpeech</span><span class="o">;</span>    <span class="c1">//美式发音
-</span><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;us-speech&#34;</span><span class="o">)</span>
-        <span class="kd">private</span> <span class="n">String</span> <span class="n">usSpeech</span><span class="o">;</span>  <span class="c1">//英式发音
-</span><span class="c1"></span>        <span class="kd">private</span> <span class="n">String</span> <span class="n">phonetic</span><span class="o">;</span>   <span class="c1">//默认音标
-</span><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;uk-phonetic&#34;</span><span class="o">)</span>
-        <span class="kd">private</span> <span class="n">String</span> <span class="n">ukPhonetic</span><span class="o">;</span>   <span class="c1">//美式英标
-</span><span class="c1"></span>
-        <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">explains</span><span class="o">;</span>  <span class="c1">//基本释义
-</span><span class="c1"></span>
-
-        <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getExplains</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">explains</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setExplains</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">explains</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">explains</span> <span class="o">=</span> <span class="n">explains</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPhonetic</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">phonetic</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">phonetic</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">phonetic</span> <span class="o">=</span> <span class="n">phonetic</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUkPhonetic</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">ukPhonetic</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUkPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">ukPhonetic</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">ukPhonetic</span> <span class="o">=</span> <span class="n">ukPhonetic</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsPhonetic</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">usPhonetic</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">usPhonetic</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">usPhonetic</span> <span class="o">=</span> <span class="n">usPhonetic</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUkSpeech</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">ukSpeech</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUkSpeech</span><span class="o">(</span><span class="n">String</span> <span class="n">ukSpeech</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">ukSpeech</span> <span class="o">=</span> <span class="n">ukSpeech</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsSpeech</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">usSpeech</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsSpeech</span><span class="o">(</span><span class="n">String</span> <span class="n">usSpeech</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">usSpeech</span> <span class="o">=</span> <span class="n">usSpeech</span><span class="o">;</span>
-        <span class="o">}</span>
-
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebEntity</span> <span class="o">{</span>
-        <span class="kd">private</span> <span class="n">String</span> <span class="n">key</span><span class="o">;</span>
-        <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">value</span><span class="o">;</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setKey</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setValue</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">key</span><span class="o">;</span>
-        <span class="o">}</span>
-
-        <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setQuery</span><span class="o">(</span><span class="n">String</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setErrorCode</span><span class="o">(</span><span class="kt">int</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">errorCode</span> <span class="o">=</span> <span class="n">errorCode</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTranslation</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">translation</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">translation</span> <span class="o">=</span> <span class="n">translation</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setWeb</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="n">web</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">web</span> <span class="o">=</span> <span class="n">web</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getQuery</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">query</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getErrorCode</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">errorCode</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getTranslation</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">translation</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="nf">getWeb</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">web</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">basicEntity</span> <span class="nf">getBasic</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">basic</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBasic</span><span class="o">(</span><span class="n">basicEntity</span> <span class="n">basic</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">basic</span> <span class="o">=</span> <span class="n">basic</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">settSpeakUrl</span><span class="o">(</span><span class="n">String</span> <span class="n">tSpeakUrl</span><span class="o">){</span> <span class="k">this</span><span class="o">.</span><span class="na">tSpeakUrl</span> <span class="o">=</span> <span class="n">tSpeakUrl</span><span class="o">;}</span>
-
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">gettSpeakUrl</span><span class="o">(){</span> <span class="k">return</span> <span class="n">tSpeakUrl</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="创建用于描述网络请求的接口">创建用于描述网络请求的接口</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">networkApi</span> <span class="o">{</span>
-    <span class="nd">@GET</span><span class="o">(</span><span class="s">&#34;api?&#34;</span><span class="o">)</span>
-    <span class="n">Observable</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;</span> <span class="nf">translateYouDao</span><span class="o">(</span>
-            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;q&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">q</span><span class="o">,</span>
-            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;from&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">from</span><span class="o">,</span>
-            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;to&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">to</span><span class="o">,</span>
-            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;appKey&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">appKey</span><span class="o">,</span> <span class="c1">//应用ID
-</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;salt&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">salt</span><span class="o">,</span>  <span class="c1">//UUID
-</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">sign</span><span class="o">,</span>  <span class="c1">//应用ID+input+salt+curtime+应用密钥 。 input= q前10个字符+q长度+q后10个字符（q的长度&gt;=20） 或input = 字符串
-</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;signType&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">signType</span><span class="o">,</span> <span class="c1">//签名类型
-</span><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;curtime&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">curtime</span> <span class="c1">//时间戳
-</span><span class="c1"></span>    <span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="创建retorfit">创建Retorfit</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">netWork</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">networkApi</span> <span class="n">sContactsApi</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">OkHttpClient</span> <span class="n">okHttpClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Converter</span><span class="o">.</span><span class="na">Factory</span> <span class="n">gsonConverterFactory</span> <span class="o">=</span> <span class="n">GsonConverterFactory</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">CallAdapter</span><span class="o">.</span><span class="na">Factory</span> <span class="n">rxJavaCallAdapterFactory</span> <span class="o">=</span> <span class="n">RxJava2CallAdapterFactory</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ApiClientHolder</span> <span class="o">{</span>
-        <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">netWork</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">netWork</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">netWork</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">ApiClientHolder</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">networkApi</span> <span class="nf">getDataService</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">sContactsApi</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">Retrofit</span> <span class="n">retrofit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Retrofit</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-                    <span class="o">.</span><span class="na">client</span><span class="o">(</span><span class="n">okHttpClient</span><span class="o">)</span>
-                    <span class="o">.</span><span class="na">baseUrl</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">BASE_URL</span><span class="o">)</span>
-                    <span class="o">.</span><span class="na">addConverterFactory</span><span class="o">(</span><span class="n">gsonConverterFactory</span><span class="o">)</span>
-                    <span class="o">.</span><span class="na">addCallAdapterFactory</span><span class="o">(</span><span class="n">rxJavaCallAdapterFactory</span><span class="o">)</span>
-                    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-            <span class="n">sContactsApi</span> <span class="o">=</span> <span class="n">retrofit</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">networkApi</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">sContactsApi</span><span class="o">;</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-</code></pre></div><h2 id="使用">使用</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@SuppressLint</span><span class="o">(</span><span class="s">&#34;CheckResult&#34;</span><span class="o">)</span>
-   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">netConnection</span><span class="o">(</span><span class="n">String</span> <span class="n">q</span><span class="o">,</span><span class="n">String</span> <span class="n">from</span><span class="o">,</span><span class="n">String</span> <span class="n">to</span><span class="o">,</span><span class="n">String</span> <span class="n">salt</span><span class="o">,</span><span class="n">String</span> <span class="n">sign</span><span class="o">,</span><span class="n">String</span> <span class="n">curtime</span><span class="o">){</span>
-       <span class="n">netWork</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDataService</span><span class="o">()</span>
-               <span class="o">.</span><span class="na">translateYouDao</span><span class="o">(</span><span class="n">q</span><span class="o">,</span><span class="n">from</span><span class="o">,</span><span class="n">to</span><span class="o">,</span><span class="n">appID</span><span class="o">,</span><span class="n">salt</span><span class="o">,</span><span class="n">sign</span><span class="o">,</span><span class="n">signType</span><span class="o">,</span><span class="n">curtime</span><span class="o">)</span>
-               <span class="o">.</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span> <span class="c1">//发起的执行在一个新的线程
-</span><span class="c1"></span>               <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span> <span class="c1">//结果的执行在主线程
-</span><span class="c1"></span>               <span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;()</span> <span class="o">{</span>
-                   <span class="nd">@Override</span>
-                   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">TranslationBean</span> <span class="n">translationBean</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-                       <span class="c1">//对接收到数据的类进行处理
-</span><span class="c1"></span>                   <span class="o">}</span>
-               <span class="o">});</span>
-   <span class="o">}</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TranslationBean</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">int</span> <span class="n">errorCode</span><span class="o">;</span> <span class="c1">//错误返回码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">query</span><span class="o">;</span>     <span class="c1">//源语言
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">translation</span><span class="o">;</span> <span class="c1">//翻译结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="n">basicEntity</span> <span class="n">basic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="n">web</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">String</span> <span class="n">tSpeakUrl</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">basicEntity</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;us-phonetic&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="n">String</span> <span class="n">usPhonetic</span><span class="o">;</span>  <span class="c1">//英式音标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;uk-speech&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="n">String</span> <span class="n">ukSpeech</span><span class="o">;</span>    <span class="c1">//美式发音
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;us-speech&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="n">String</span> <span class="n">usSpeech</span><span class="o">;</span>  <span class="c1">//英式发音
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">private</span> <span class="n">String</span> <span class="n">phonetic</span><span class="o">;</span>   <span class="c1">//默认音标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">&#34;uk-phonetic&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="n">String</span> <span class="n">ukPhonetic</span><span class="o">;</span>   <span class="c1">//美式英标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">explains</span><span class="o">;</span>  <span class="c1">//基本释义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getExplains</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">explains</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setExplains</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">explains</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">explains</span> <span class="o">=</span> <span class="n">explains</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getPhonetic</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">phonetic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">phonetic</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">phonetic</span> <span class="o">=</span> <span class="n">phonetic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUkPhonetic</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">ukPhonetic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUkPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">ukPhonetic</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">ukPhonetic</span> <span class="o">=</span> <span class="n">ukPhonetic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsPhonetic</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">usPhonetic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsPhonetic</span><span class="o">(</span><span class="n">String</span> <span class="n">usPhonetic</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">usPhonetic</span> <span class="o">=</span> <span class="n">usPhonetic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUkSpeech</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">ukSpeech</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUkSpeech</span><span class="o">(</span><span class="n">String</span> <span class="n">ukSpeech</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">ukSpeech</span> <span class="o">=</span> <span class="n">ukSpeech</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsSpeech</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">usSpeech</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsSpeech</span><span class="o">(</span><span class="n">String</span> <span class="n">usSpeech</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">usSpeech</span> <span class="o">=</span> <span class="n">usSpeech</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebEntity</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="n">String</span> <span class="n">key</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setKey</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setValue</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">key</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setQuery</span><span class="o">(</span><span class="n">String</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setErrorCode</span><span class="o">(</span><span class="kt">int</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">errorCode</span> <span class="o">=</span> <span class="n">errorCode</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTranslation</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">translation</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">translation</span> <span class="o">=</span> <span class="n">translation</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setWeb</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="n">web</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">web</span> <span class="o">=</span> <span class="n">web</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getQuery</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">query</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getErrorCode</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">errorCode</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">getTranslation</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">translation</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WebEntity</span><span class="o">&gt;</span> <span class="nf">getWeb</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">web</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">basicEntity</span> <span class="nf">getBasic</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">basic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBasic</span><span class="o">(</span><span class="n">basicEntity</span> <span class="n">basic</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">basic</span> <span class="o">=</span> <span class="n">basic</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">settSpeakUrl</span><span class="o">(</span><span class="n">String</span> <span class="n">tSpeakUrl</span><span class="o">){</span> <span class="k">this</span><span class="o">.</span><span class="na">tSpeakUrl</span> <span class="o">=</span> <span class="n">tSpeakUrl</span><span class="o">;}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">gettSpeakUrl</span><span class="o">(){</span> <span class="k">return</span> <span class="n">tSpeakUrl</span><span class="o">;</span> <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="创建用于描述网络请求的接口">创建用于描述网络请求的接口</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">networkApi</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@GET</span><span class="o">(</span><span class="s">&#34;api?&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Observable</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;</span> <span class="nf">translateYouDao</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;q&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">q</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;from&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">from</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;to&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">to</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;appKey&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">appKey</span><span class="o">,</span> <span class="c1">//应用ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;salt&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">salt</span><span class="o">,</span>  <span class="c1">//UUID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;sign&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">sign</span><span class="o">,</span>  <span class="c1">//应用ID+input+salt+curtime+应用密钥 。 input= q前10个字符+q长度+q后10个字符（q的长度&gt;=20） 或input = 字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;signType&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">signType</span><span class="o">,</span> <span class="c1">//签名类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nd">@Query</span><span class="o">(</span><span class="s">&#34;curtime&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">curtime</span> <span class="c1">//时间戳
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="创建retorfit">创建Retorfit</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">netWork</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">networkApi</span> <span class="n">sContactsApi</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">OkHttpClient</span> <span class="n">okHttpClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Converter</span><span class="o">.</span><span class="na">Factory</span> <span class="n">gsonConverterFactory</span> <span class="o">=</span> <span class="n">GsonConverterFactory</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">CallAdapter</span><span class="o">.</span><span class="na">Factory</span> <span class="n">rxJavaCallAdapterFactory</span> <span class="o">=</span> <span class="n">RxJava2CallAdapterFactory</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ApiClientHolder</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">netWork</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">netWork</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="n">netWork</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ApiClientHolder</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="n">networkApi</span> <span class="nf">getDataService</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">sContactsApi</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Retrofit</span> <span class="n">retrofit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Retrofit</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">.</span><span class="na">client</span><span class="o">(</span><span class="n">okHttpClient</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">.</span><span class="na">baseUrl</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">BASE_URL</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">.</span><span class="na">addConverterFactory</span><span class="o">(</span><span class="n">gsonConverterFactory</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">.</span><span class="na">addCallAdapterFactory</span><span class="o">(</span><span class="n">rxJavaCallAdapterFactory</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sContactsApi</span> <span class="o">=</span> <span class="n">retrofit</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">networkApi</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">sContactsApi</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="使用">使用</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@SuppressLint</span><span class="o">(</span><span class="s">&#34;CheckResult&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">netConnection</span><span class="o">(</span><span class="n">String</span> <span class="n">q</span><span class="o">,</span><span class="n">String</span> <span class="n">from</span><span class="o">,</span><span class="n">String</span> <span class="n">to</span><span class="o">,</span><span class="n">String</span> <span class="n">salt</span><span class="o">,</span><span class="n">String</span> <span class="n">sign</span><span class="o">,</span><span class="n">String</span> <span class="n">curtime</span><span class="o">){</span>
+</span></span><span class="line"><span class="cl">       <span class="n">netWork</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getDataService</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">               <span class="o">.</span><span class="na">translateYouDao</span><span class="o">(</span><span class="n">q</span><span class="o">,</span><span class="n">from</span><span class="o">,</span><span class="n">to</span><span class="o">,</span><span class="n">appID</span><span class="o">,</span><span class="n">salt</span><span class="o">,</span><span class="n">sign</span><span class="o">,</span><span class="n">signType</span><span class="o">,</span><span class="n">curtime</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">               <span class="o">.</span><span class="na">subscribeOn</span><span class="o">(</span><span class="n">Schedulers</span><span class="o">.</span><span class="na">newThread</span><span class="o">())</span> <span class="c1">//发起的执行在一个新的线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>               <span class="o">.</span><span class="na">observeOn</span><span class="o">(</span><span class="n">AndroidSchedulers</span><span class="o">.</span><span class="na">mainThread</span><span class="o">())</span> <span class="c1">//结果的执行在主线程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>               <span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">new</span> <span class="n">Consumer</span><span class="o">&lt;</span><span class="n">TranslationBean</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                   <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">                   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accept</span><span class="o">(</span><span class="n">TranslationBean</span> <span class="n">translationBean</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                       <span class="c1">//对接收到数据的类进行处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                   <span class="o">}</span>
+</span></span><span class="line"><span class="cl">               <span class="o">});</span>
+</span></span><span class="line"><span class="cl">   <span class="o">}</span>
+</span></span></code></pre></div>
 </section>
 
 

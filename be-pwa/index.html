@@ -89,18 +89,18 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -218,8 +218,8 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
     <header class="article-header">
         <div class="article-image">
             <a href="/be-pwa/">
-                <img src="/be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_800x0_resize_box_2.png"
-                        srcset="/be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_800x0_resize_box_2.png 800w, /be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_1600x0_resize_box_2.png 1600w"
+                <img src="/be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_800x0_resize_box_3.png"
+                        srcset="/be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_800x0_resize_box_3.png 800w, /be-pwa/pwa_huf7420ce1a337e90ec18894b72ee0bcce_33680_1600x0_resize_box_3.png 1600w"
                         width="800" 
                         height="388" 
                         loading="lazy"
@@ -278,98 +278,98 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
 <h2 id="添加-manifestjson">添加 manifest.json</h2>
 <p>这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下<a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest"  target="_blank" rel="noopener"
     >MDN</a>。</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
-    <span class="s2">&#34;dir&#34;</span><span class="o">:</span> <span class="s2">&#34;ltr&#34;</span><span class="p">,</span> <span class="c1">//指定名称、短名称和描述成员的主文本方向
-</span><span class="c1"></span>    <span class="s2">&#34;lang&#34;</span><span class="o">:</span> <span class="s2">&#34;zh-cn&#34;</span><span class="p">,</span> <span class="c1">//语言
-</span><span class="c1"></span>    <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;Magren&#39;s Blog&#34;</span><span class="p">,</span> <span class="c1">//名字
-</span><span class="c1"></span>    <span class="s2">&#34;short_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Magren&#39;s Blog&#34;</span><span class="p">,</span> <span class="c1">//短名称
-</span><span class="c1"></span>    <span class="s2">&#34;theme_color&#34;</span><span class="o">:</span> <span class="s2">&#34;#ffffff&#34;</span><span class="p">,</span> <span class="c1">//主题颜色
-</span><span class="c1"></span>    <span class="s2">&#34;background_color&#34;</span><span class="o">:</span> <span class="s2">&#34;#d4d4d4&#34;</span><span class="p">,</span> <span class="c1">//启动时闪屏的背景颜色
-</span><span class="c1"></span>    <span class="s2">&#34;display&#34;</span><span class="o">:</span> <span class="s2">&#34;standalone&#34;</span><span class="p">,</span> <span class="c1">//定义开发人员对Web应用程序的首选显示模式。
-</span><span class="c1"></span>    <span class="s2">&#34;start_url&#34;</span><span class="o">:</span> <span class="s2">&#34;./index.html&#34;</span><span class="p">,</span> <span class="c1">//开始加载的url
-</span><span class="c1"></span>    <span class="s2">&#34;icons&#34;</span><span class="o">:</span> <span class="p">[</span> <span class="c1">//程序图标
-</span><span class="c1"></span>      <span class="p">{</span>
-        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar152.png&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;152x152&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar192.png&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;192x192&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar384.png&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;384x384&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar512.png&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;512x512&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">&#34;splash_pages&#34;</span><span class="o">:</span> <span class="kc">null</span>
-  <span class="p">}</span>
-</code></pre></div><p>接着就要在我们的HTML文件中引入啦，如果你也是博客的话就去翻翻你的主题文件夹，在里面找下吧。</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;manifest&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;manifest.json&#34;</span> <span class="p">/&gt;</span> 
-</code></pre></div><h2 id="添加-service-worker">添加 Service Worker</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;dir&#34;</span><span class="o">:</span> <span class="s2">&#34;ltr&#34;</span><span class="p">,</span> <span class="c1">//指定名称、短名称和描述成员的主文本方向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;lang&#34;</span><span class="o">:</span> <span class="s2">&#34;zh-cn&#34;</span><span class="p">,</span> <span class="c1">//语言
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;Magren&#39;s Blog&#34;</span><span class="p">,</span> <span class="c1">//名字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;short_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Magren&#39;s Blog&#34;</span><span class="p">,</span> <span class="c1">//短名称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;theme_color&#34;</span><span class="o">:</span> <span class="s2">&#34;#ffffff&#34;</span><span class="p">,</span> <span class="c1">//主题颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;background_color&#34;</span><span class="o">:</span> <span class="s2">&#34;#d4d4d4&#34;</span><span class="p">,</span> <span class="c1">//启动时闪屏的背景颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;display&#34;</span><span class="o">:</span> <span class="s2">&#34;standalone&#34;</span><span class="p">,</span> <span class="c1">//定义开发人员对Web应用程序的首选显示模式。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;start_url&#34;</span><span class="o">:</span> <span class="s2">&#34;./index.html&#34;</span><span class="p">,</span> <span class="c1">//开始加载的url
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="s2">&#34;icons&#34;</span><span class="o">:</span> <span class="p">[</span> <span class="c1">//程序图标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar152.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;152x152&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar192.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;192x192&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar384.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;384x384&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;src&#34;</span><span class="o">:</span> <span class="s2">&#34;avatar512.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sizes&#34;</span><span class="o">:</span> <span class="s2">&#34;512x512&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;image/png&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;splash_pages&#34;</span><span class="o">:</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>接着就要在我们的HTML文件中引入啦，如果你也是博客的话就去翻翻你的主题文件夹，在里面找下吧。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;manifest&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;manifest.json&#34;</span> <span class="p">/&gt;</span> 
+</span></span></code></pre></div><h2 id="添加-service-worker">添加 Service Worker</h2>
 <p>这个API是用来实现页面缓存和离线，还有后台通知，不过因为这就是我的一个个人博客，所以我没有加上通知的功能。</p>
 <p>首先判断浏览器是否支持serviceWorker，如果支持则调用函数来注册站点的service worker，service worker 只是一个驻留在我们的 app 内的一个 JavaScript 文件。</p>
 <p>在html的页面下加上：</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">    <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="k">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">scope</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">})</span>
-                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">registration</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="c1">// 注册成功
-</span><span class="c1"></span>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ServiceWorker registration successful&#39;</span><span class="p">);</span>
-                    <span class="p">})</span>
-                    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="c1">// 注册失败:(
-</span><span class="c1"></span>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ServiceWorker registration failed&#39;</span><span class="p">);</span>
-                    <span class="p">});</span>
-            <span class="p">});</span>
-        <span class="p">}</span>
-    <span class="o">&lt;</span><span class="err">/script&gt;</span>
-</code></pre></div><p>接着是sw.js，即我们的serviceWorker，这里可以定义需要缓存的路径, 以及需要缓存的静态文件的列表, 这个列表也可以通过 Webpack 插件生成，我这里就只缓存了首页。</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//监听service worker事件
-</span><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">homePage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Request</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
-    <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
-        <span class="c1">//请求首页并将首页存入缓存
-</span><span class="c1"></span>        <span class="nx">fetch</span><span class="p">(</span><span class="nx">homePage</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">//建立cache-homePage缓存
-</span><span class="c1"></span>            <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">homePage</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
-            <span class="p">});</span>
-        <span class="p">}));</span>
-<span class="p">});</span>
-
-<span class="c1">//请求页面
-</span><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span>
-        <span class="nx">fetch</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">//请求失败，从缓存中读取缓存的页面
-</span><span class="c1"></span>            <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
-            <span class="p">});</span>
-        <span class="p">}));</span>
-<span class="p">});</span>
-
-<span class="c1">//刷新首页
-</span><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;refreshHomePage&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//将刷新后的页面缓存
-</span><span class="c1"></span>        <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">offlinePage</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
-    <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div><h1 id="最后">最后</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;serviceWorker&#39;</span> <span class="k">in</span> <span class="nx">navigator</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;/sw.js&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">scope</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">registration</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1">// 注册成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ServiceWorker registration successful&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1">// 注册失败:(
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ServiceWorker registration failed&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></div><p>接着是sw.js，即我们的serviceWorker，这里可以定义需要缓存的路径, 以及需要缓存的静态文件的列表, 这个列表也可以通过 Webpack 插件生成，我这里就只缓存了首页。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">//监听service worker事件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;install&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">homePage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Request</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">event</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//请求首页并将首页存入缓存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">fetch</span><span class="p">(</span><span class="nx">homePage</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//建立cache-homePage缓存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">homePage</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}));</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//请求页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">event</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fetch</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">).</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//请求失败，从缓存中读取缓存的页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}));</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//刷新首页
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;refreshHomePage&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">caches</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;cache-homePage&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">cache</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//将刷新后的页面缓存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nx">cache</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">offlinePage</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h1 id="最后">最后</h1>
 <p>最后说说如何使用pwa吧，在手机上，只需通过支持的浏览器（如 Chrome以及小米自带的浏览器）访问 PWA 页面地址，Chrome会在加载完页面后弹出添加页面的提示，如果没有的话（如IOS的Safari），需要手动点击浏览器的更多，然后直接添加到桌面上即可。</p>
 <p>PC端的话Chrome的右上角（网页链接的最右端）有一个下载按钮，点击后就会添加到电脑桌面。如果要卸载的话只是删除电脑桌面的快捷方式是不可以的，需要打开来然后在PWA页面的上方点击卸载按钮。
 <figure style="flex-grow: 46; flex-basis: 110px">
 		<a href="/be-pwa/blog1.png" data-size="1080x2340"><img src="/be-pwa/blog1.png"
-				srcset="/be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_480x0_resize_box_2.png 480w, /be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_1024x0_resize_box_2.png 1024w"
+				srcset="/be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_480x0_resize_box_3.png 480w, /be-pwa/blog1_hub3adc273bafaf44068859377ad11b72f_91602_1024x0_resize_box_3.png 1024w"
 				width="1080"
 				height="2340"
 				loading="lazy"
@@ -378,7 +378,7 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
 		
 	</figure><figure style="flex-grow: 46; flex-basis: 110px">
 		<a href="/be-pwa/blog2.png" data-size="1080x2340"><img src="/be-pwa/blog2.png"
-				srcset="/be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_480x0_resize_box_2.png 480w, /be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_1024x0_resize_box_2.png 1024w"
+				srcset="/be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_480x0_resize_box_3.png 480w, /be-pwa/blog2_hu575022f93cdae8544c0b589f0ba2bb2c_517263_1024x0_resize_box_3.png 1024w"
 				width="1080"
 				height="2340"
 				loading="lazy"
@@ -453,7 +453,7 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
         
         
             <div class="article-image">
-                <img src="/pixel/banner.c42fd2acc50a3c76a8e8ebb57e0503fa_hud3cc57fa5673d3672539d26f50f40c0d_44156_250x150_fill_box_smart1_2.png" 
+                <img src="/pixel/banner.c42fd2acc50a3c76a8e8ebb57e0503fa_hud3cc57fa5673d3672539d26f50f40c0d_44156_250x150_fill_box_smart1_3.png" 
                         width="250" 
                         height="150" 
                         loading="lazy" 

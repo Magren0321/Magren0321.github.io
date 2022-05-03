@@ -79,18 +79,18 @@ created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.l
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -251,37 +251,37 @@ Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBu
 <p>一般页面created的時候就注册监听，当组件销毁时取消监听。</p>
 <h2 id="创建一个eventbus">创建一个EventBus</h2>
 <p>其实就是创建一个Vue的实例</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span><span class="p">;</span>
-
-<span class="c1">// 使用 Event Bus
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">bus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">();</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="nx">bus</span><span class="p">;</span>
-</code></pre></div><p>在我们需要发送事件以及接收事件的组件中引入。</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">bus</span> <span class="nx">from</span> <span class="s1">&#39;../common/bus&#39;</span><span class="p">;</span>
-</code></pre></div><h2 id="监听">监听</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用 Event Bus
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">bus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">bus</span><span class="p">;</span>
+</span></span></code></pre></div><p>在我们需要发送事件以及接收事件的组件中引入。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">bus</span> <span class="nx">from</span> <span class="s1">&#39;../common/bus&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><h2 id="监听">监听</h2>
 <p>在需要监听的组件中的created中使用bus监听</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">created</span><span class="p">()</span> <span class="p">{</span>  
-    <span class="nx">bus</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;getSomething&#39;</span><span class="p">,</span> <span class="nx">target</span> <span class="p">=&gt;</span> <span class="p">{</span>  
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>  
-    <span class="p">});</span>  
-<span class="p">}</span> 
-</code></pre></div><h2 id="发送事件">发送事件</h2>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
-    <span class="c1">// 把事件 emit 出去
-</span><span class="c1"></span>    <span class="nx">doSomething</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">bus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;getSomething&#34;</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><h2 id="取消监听">取消监听</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">created</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="nx">bus</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;getSomething&#39;</span><span class="p">,</span> <span class="nx">target</span> <span class="p">=&gt;</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><h2 id="发送事件">发送事件</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 把事件 emit 出去
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">doSomething</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">bus</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;getSomething&#34;</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="取消监听">取消监听</h2>
 <p>EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。
 通常绑定在钩子函数 <strong>beforeDestroy()</strong> 或者 <strong>destroyed()</strong> 中</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 移除事件的监听
-</span><span class="c1"></span><span class="nx">bus</span><span class="p">.</span><span class="nx">$off</span><span class="p">(</span><span class="s1">&#39;getSomething&#39;</span><span class="p">)</span>
-
-<span class="c1">// 移除所有事件的监听
-</span><span class="c1"></span><span class="nx">bus</span><span class="p">.</span><span class="nx">$off</span><span class="p">()</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 移除事件的监听
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">bus</span><span class="p">.</span><span class="nx">$off</span><span class="p">(</span><span class="s1">&#39;getSomething&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 移除所有事件的监听
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">bus</span><span class="p">.</span><span class="nx">$off</span><span class="p">()</span>
+</span></span></code></pre></div>
 </section>
 
 
@@ -360,7 +360,7 @@ Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBu
         
         
             <div class="article-image">
-                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_3.png" 
                         width="250" 
                         height="150" 
                         loading="lazy" 

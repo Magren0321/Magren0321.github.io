@@ -27,9 +27,9 @@
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom
-项目截图： 
-
-
+项目截图：  
+ 
+ 
 后端 后端基于Node.js + Express + Socket.io + MongoDB
 Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：
 Node.js+express

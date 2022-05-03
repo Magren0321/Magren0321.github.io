@@ -67,18 +67,18 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -233,29 +233,29 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
 <h1 id="pc端鼠标滚动监听">pc端鼠标滚动监听</h1>
 <h2 id="监听">监听</h2>
 <p>根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 浏览器兼容      
-</span><span class="c1"></span> <span class="k">if</span> <span class="p">((</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;firefox&#34;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
-     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMMouseScroll&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">scrollFun</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
-   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">)</span> <span class="p">{</span>
-     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;mousewheel&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">scrollFun</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
-   <span class="p">}</span> 
- <span class="p">}</span>
-</code></pre></div><h2 id="获取滚动事件的信息">获取滚动事件的信息</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 浏览器兼容      
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="k">if</span> <span class="p">((</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;firefox&#34;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMMouseScroll&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">scrollFun</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;mousewheel&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">scrollFun</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></div><h2 id="获取滚动事件的信息">获取滚动事件的信息</h2>
 <p>通过传递的event对象获取滚动的属性</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"> <span class="c1">//滚动翻页
-</span><span class="c1"></span><span class="nx">scrollFun</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动
-</span><span class="c1"></span>  <span class="c1">// DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
-</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">delta</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span> <span class="o">||</span> <span class="p">(</span><span class="o">-</span><span class="nx">event</span><span class="p">.</span><span class="nx">wheelDelta</span><span class="p">);</span>
-     <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
-       <span class="c1">// 向下滚动
-</span><span class="c1"></span>       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;向下滚动&#34;</span><span class="p">)</span>
-     <span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-         <span class="c1">//向上滚动
-</span><span class="c1"></span>         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;向上滚动&#34;</span><span class="p">)</span>
-     <span class="p">}</span>
- <span class="p">}</span>
-</code></pre></div><h1 id="移动端的touch事件">移动端的touch事件</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"> <span class="c1">//滚动翻页
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">scrollFun</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">delta</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">detail</span> <span class="o">||</span> <span class="p">(</span><span class="o">-</span><span class="nx">event</span><span class="p">.</span><span class="nx">wheelDelta</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// 向下滚动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;向下滚动&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="c1">//向上滚动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;向上滚动&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>
+</span></span></code></pre></div><h1 id="移动端的touch事件">移动端的touch事件</h1>
 <p>移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。
 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。</p>
 <ul>
@@ -265,18 +265,18 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
 </ul>
 <h2 id="事件添加">事件添加</h2>
 <p>双引号里是调用的方法</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;main&#34;</span> <span class="err">@</span><span class="nx">touchstart</span><span class="o">=</span><span class="s2">&#34;touchstart($event)&#34;</span> <span class="err">@</span><span class="nx">touchend</span><span class="o">=</span><span class="s2">&#34;touchend($event)&#34;</span><span class="o">&gt;</span>
-</code></pre></div><h2 id="信息的获取">信息的获取</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;main&#34;</span> <span class="err">@</span><span class="nx">touchstart</span><span class="o">=</span><span class="s2">&#34;touchstart($event)&#34;</span> <span class="err">@</span><span class="nx">touchend</span><span class="o">=</span><span class="s2">&#34;touchend($event)&#34;</span><span class="o">&gt;</span>
+</span></span></code></pre></div><h2 id="信息的获取">信息的获取</h2>
 <p>通过传递的$event对象获取触摸事件的信息
 例：</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">touchstart</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">startY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span> <span class="c1">//获取触摸点的Y轴坐标
-</span><span class="c1"></span><span class="p">}</span>
-<span class="nx">touchend</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">moveEndY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span> <span class="c1">//获取松开手时Y轴的坐标
-</span><span class="c1"></span>    <span class="p">......</span>
-<span class="p">}</span>
-</code></pre></div><p>这样通过两个坐标的相减，我们通过正负即可判断用户的上下滑动。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">touchstart</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">startY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span> <span class="c1">//获取触摸点的Y轴坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">touchend</span><span class="p">(</span><span class="nx">e</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">moveEndY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">changedTouches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span> <span class="c1">//获取松开手时Y轴的坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">......</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这样通过两个坐标的相减，我们通过正负即可判断用户的上下滑动。</p>
 <p>传递过来的对象包括了三个用于跟踪触摸的属性：</p>
 <ul>
 <li>touches：表示当前跟踪的触摸操作的touch对象的数组。</li>
@@ -362,7 +362,7 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
         
         
             <div class="article-image">
-                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_3.png" 
                         width="250" 
                         height="150" 
                         loading="lazy" 

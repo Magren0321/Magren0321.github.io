@@ -12,13 +12,13 @@
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
-登陆界面
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34; style=&amp;#34;margin: 0px;&amp;#34;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+ 登陆界面 
 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({path: &#39;/Home&#39;,query: {id: res.objectId,}})接收
-this.$route.query.idparams传参以及接收 传参
-this.$router.push({name: &#39;Home&#39;,params: {id: res.'><title>用vue实现的期末作业</title>
+this.$router.push({ path: &amp;#39;/Home&amp;#39;, query: { id: res.objectId, } }) 接收
+this.$route.query.id params传参以及接收 传参
+this.$router.push({ name: &amp;#39;Home&amp;#39;, params: { id: res.'><title>用vue实现的期末作业</title>
 
 <link rel='canonical' href='https://magren.cn/vue-homework/'>
 
@@ -34,13 +34,13 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.'><title>用vue实�
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
-登陆界面
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34; style=&amp;#34;margin: 0px;&amp;#34;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+ 登陆界面 
 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({path: &#39;/Home&#39;,query: {id: res.objectId,}})接收
-this.$route.query.idparams传参以及接收 传参
-this.$router.push({name: &#39;Home&#39;,params: {id: res.'>
+this.$router.push({ path: &amp;#39;/Home&amp;#39;, query: { id: res.objectId, } }) 接收
+this.$route.query.id params传参以及接收 传参
+this.$router.push({ name: &amp;#39;Home&amp;#39;, params: { id: res.'>
 <meta property='og:url' content='https://magren.cn/vue-homework/'>
 <meta property='og:site_name' content='Magren&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='项目' /><meta property='article:tag' content='作业' /><meta property='article:published_time' content='2020-07-10T13:28:29&#43;00:00'/><meta property='article:modified_time' content='2020-07-10T13:28:29&#43;00:00'/>
@@ -56,13 +56,13 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.'>
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot; style=&amp;quot;margin: 0px;&amp;quot;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt;因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
-登陆界面
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34; style=&amp;#34;margin: 0px;&amp;#34;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+ 登陆界面 
 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({path: &#39;/Home&#39;,query: {id: res.objectId,}})接收
-this.$route.query.idparams传参以及接收 传参
-this.$router.push({name: &#39;Home&#39;,params: {id: res.">
+this.$router.push({ path: &amp;#39;/Home&amp;#39;, query: { id: res.objectId, } }) 接收
+this.$route.query.id params传参以及接收 传参
+this.$router.push({ name: &amp;#39;Home&amp;#39;, params: { id: res.">
     <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
         <link rel="manifest" href="/manifest.json">
@@ -103,18 +103,18 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.">
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -291,15 +291,15 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.">
 在index.js里面，将我们写好的组件发布成路由。</p>
 <p>以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？
 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。</p>
-<pre><code>&lt;template&gt;
-  &lt;div id=&quot;app&quot; style=&quot;margin: 0px;&quot;&gt;
+<pre tabindex="0"><code>&lt;template&gt;
+  &lt;div id=&#34;app&#34; style=&#34;margin: 0px;&#34;&gt;
     &lt;router-view/&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 </code></pre><p>因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。</p>
 <p><figure style="flex-grow: 184; flex-basis: 442px">
 		<a href="/vue-homework/vuetest_login.png" data-size="800x434"><img src="/vue-homework/vuetest_login.png"
-				srcset="/vue-homework/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_480x0_resize_box_2.png 480w, /vue-homework/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_1024x0_resize_box_2.png 1024w"
+				srcset="/vue-homework/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_480x0_resize_box_3.png 480w, /vue-homework/vuetest_login_hu22d8df8aa892e0dba54de25d91e84af0_32481_1024x0_resize_box_3.png 1024w"
 				width="800"
 				height="434"
 				loading="lazy"
@@ -313,74 +313,74 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.">
 <p>首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params</p>
 <h3 id="query传参以及接收">query传参以及接收</h3>
 <p>传参</p>
-<pre><code>this.$router.push({
-       path: '/Home',
+<pre tabindex="0"><code>this.$router.push({
+       path: &#39;/Home&#39;,
        query: {
          id: res.objectId,
        }
      })
 </code></pre><p>接收</p>
-<pre><code>this.$route.query.id
+<pre tabindex="0"><code>this.$route.query.id
 </code></pre><h3 id="params传参以及接收">params传参以及接收</h3>
 <p>传参</p>
-<pre><code>this.$router.push({
-       name: 'Home',
+<pre tabindex="0"><code>this.$router.push({
+       name: &#39;Home&#39;,
        params: {
          id: res.objectId,
        }
      })
 </code></pre><p>接收</p>
-<pre><code>this.$route.params.id
+<pre tabindex="0"><code>this.$route.params.id
 </code></pre><p><strong>params传参的时候，push里的路径只能是填写name，params只能通过name来引入路由，如果写成了path则接收参数页面会显示undefind</strong>
 另外要说的是，query相当于get请求，可以在跳转后的地址栏上看到参数，而params则相当于post，地址栏看不到传递的参数。</p>
 <p>好的那么跳转页面传参的方法我已经知道了，但是当我满怀期待的传了个对象的时候，接收到的数据却是：’[object object]’。
 啊？？？遂检查了下他的类型，就是一个String……
 我对象呢？我对象呢！</p>
 <p>也是通过谷歌后解决，在传递之前先把对象转换成json字符串：</p>
-<pre><code>JSON.stringify(res); 
+<pre tabindex="0"><code>JSON.stringify(res); 
 </code></pre><p>然后再接收的页面将json字符串转换回对象</p>
-<pre><code>JSON.parse(this.$route.query.res)
+<pre tabindex="0"><code>JSON.parse(this.$route.query.res)
 </code></pre><h2 id="关于v-bind和v-model">关于v-bind和v-model</h2>
 <p>这两个东西在我赶这个项目的时候经常出现，也让我经常把这两个搞混，毕竟都是绑定数据。</p>
 <h3 id="v-bind">v-bind</h3>
 <p>v-bind只能实现一个单向的绑定，即从model到view，无法实现双向绑定。
 可用来绑定文本：</p>
-<pre><code>&lt;p&gt;{{message}}&lt;/p&gt;
-&lt;p v-bind=&quot;message&quot;&gt;&lt;/p&gt;
+<pre tabindex="0"><code>&lt;p&gt;{{message}}&lt;/p&gt;
+&lt;p v-bind=&#34;message&#34;&gt;&lt;/p&gt;
 </code></pre><p>也可用来绑定属性：</p>
-<pre><code>&lt;img v-bind:src=&quot;res&quot;&gt;
+<pre tabindex="0"><code>&lt;img v-bind:src=&#34;res&#34;&gt;
 </code></pre><h3 id="v-model">v-model</h3>
 <p>v-model可以实现双向的绑定，但是他有个限制就是只能用于表单当中。
 绑定text：</p>
-<pre><code>&lt;input type=&quot;text&quot; v-model=&quot;val&quot; /&gt;
+<pre tabindex="0"><code>&lt;input type=&#34;text&#34; v-model=&#34;val&#34; /&gt;
 </code></pre><p>绑定radio：</p>
-<pre><code>&lt;input type=&quot;radio&quot; value=&quot;one&quot; v-model=&quot;radioResult&quot; /&gt;
-&lt;input type=&quot;radio&quot; value=&quot;two&quot; v-model=&quot;radioResult&quot; /&gt;
+<pre tabindex="0"><code>&lt;input type=&#34;radio&#34; value=&#34;one&#34; v-model=&#34;radioResult&#34; /&gt;
+&lt;input type=&#34;radio&#34; value=&#34;two&#34; v-model=&#34;radioResult&#34; /&gt;
 </code></pre><p>在这里radioResult的值，随着单选框的点击，会成one或two</p>
 <h2 id="点击图片更换图片">点击图片更换图片</h2>
 <p>这个功能有点取巧，一开始我还傻傻的转不过脑子来，后面看了别人实现才觉得妙啊……
 首先我们写一个图片的标签，以及一个文件选择的标签，同时给图片添加一个点击监听事件：</p>
-<pre><code>&lt;img  v-bind:src=&quot;icon&quot; @click=&quot;selectIcon&quot; class=&quot;icon&quot;&gt;
+<pre tabindex="0"><code>&lt;img  v-bind:src=&#34;icon&#34; @click=&#34;selectIcon&#34; class=&#34;icon&#34;&gt;
 </code></pre><p>接着我们要隐藏我们的文件选择的标签，即设置display样式，同时用ref属性注册一个引用信息，方便在方法中调用，还有设置change事件。如果需要多选的话可以设置multiple属性：</p>
-<pre><code>&lt;input type=&quot;file&quot; ref=&quot;btn_file&quot; @change=&quot;getFile&quot; style=&quot;display:none&quot;&gt;
+<pre tabindex="0"><code>&lt;input type=&#34;file&#34; ref=&#34;btn_file&#34; @change=&#34;getFile&#34; style=&#34;display:none&#34;&gt;
 </code></pre><p>这个时候是只能看见我们的图片但是看不到我们的文件选择按钮的，在图片点击后触发的方法中，我们通过$refs引用我们的文件选择按钮，同时触发它：</p>
-<pre><code>selectIcon: function(){
+<pre tabindex="0"><code>selectIcon: function(){
           let selectFile = this.$refs.btn_file;
           selectFile.click();
       }
 </code></pre><p>这个时候我们的文件选择就会触发，选择我们的图片后会触发其change事件：</p>
-<pre><code>getFile: function(){
+<pre tabindex="0"><code>getFile: function(){
            this.file = event.target.files[0];
            //判断选中文件的格式
-           if(this.file.type!=&quot;image/png&quot;&amp;&amp;this.file.type!=&quot;image/bmp&quot;&amp;&amp;this.file.type!=&quot;image/jpeg&quot;&amp;&amp;this.file.type!=&quot;image/jpg&quot;){
-               window.alert(&quot;仅支持png、bmp、jpeg、jpg文件&quot;);
+           if(this.file.type!=&#34;image/png&#34;&amp;&amp;this.file.type!=&#34;image/bmp&#34;&amp;&amp;this.file.type!=&#34;image/jpeg&#34;&amp;&amp;this.file.type!=&#34;image/jpg&#34;){
+               window.alert(&#34;仅支持png、bmp、jpeg、jpg文件&#34;);
                return;
            }
            //该方法返回一个DOMString包含了一个对象URL，该URL指定文件的内容。
            this.icon = window.URL.createObjectURL(this.file);
        }
 </code></pre><p>限制文件上传的类型其实也可以在标签中添加accept属性，即：<strong>accept=“image/gif, image/jpeg”</strong>。
-假如不限制图像格式的话也可以写成： <strong>accept=&ldquo;image/*&quot;</strong>
+假如不限制图像格式的话也可以写成： <strong>accept=&ldquo;image/*&rdquo;</strong>
 但是accept这个属性并不建议使用，因为一方面在部分浏览器上会响应很慢或者不支持，并且有时候还是可以选择到指定格式之外的文件。
 应通过js验证或者后台服务器判断。</p>
 <h2 id="组件中引用别的组件同时传递数据">组件中引用别的组件同时传递数据</h2>
@@ -388,26 +388,26 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.">
 写好一个组件后，我首先得把它引用到当前的组件中：
 <strong>import selectClass from &lsquo;…/components/selectClass’</strong>
 接着在components声明：</p>
-<pre><code>components: {
+<pre tabindex="0"><code>components: {
   selectClass
 },
 </code></pre><p>在data中声明：</p>
-<pre><code>data(){
+<pre tabindex="0"><code>data(){
   return{
     ···
-    selectClass:'selectClass',
+    selectClass:&#39;selectClass&#39;,
     ···
   }
 }
 </code></pre><p>在需要的地方中用is引入就好了：</p>
-<pre><code>&lt;div :is=&quot;contentView&quot; &gt;&lt;/div&gt;
+<pre tabindex="0"><code>&lt;div :is=&#34;contentView&#34; &gt;&lt;/div&gt;
 </code></pre><p>接下来就是要从父组件中传参到子组件，有几种传递方式，我这里选用的是props
 通过v-bind将动态props绑定到父组件的数据，父组件的数据发生改变，子组件也会随之改变：</p>
-<pre><code>&lt;div :is=&quot;contentView&quot;   v-bind:objectId=&quot;objectId&quot;&gt;&lt;/div&gt;
+<pre tabindex="0"><code>&lt;div :is=&#34;contentView&#34;   v-bind:objectId=&#34;objectId&#34;&gt;&lt;/div&gt;
 </code></pre><p>接着在子组件中，用props获取：</p>
-<pre><code>&lt;script&gt;
+<pre tabindex="0"><code>&lt;script&gt;
   export default{
-    props:['objectId']
+    props:[&#39;objectId&#39;]
     data(){
       return{
 
@@ -489,7 +489,7 @@ this.$router.push({name: &#39;Home&#39;,params: {id: res.">
         
         
             <div class="article-image">
-                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_3.png" 
                         width="250" 
                         height="150" 
                         loading="lazy" 

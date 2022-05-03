@@ -91,18 +91,18 @@ Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -287,188 +287,188 @@ Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
 <h1 id="vue-和-typescript的使用">Vue 和 Typescript的使用</h1>
 <h2 id="前提">前提</h2>
 <p>script标签加入 : lang=“ts”</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
-   <span class="err">···</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-</code></pre></div><h2 id="创建组件">创建组件</h2>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">Prop</span><span class="p">,</span> <span class="nx">Vue</span><span class="p">,</span> <span class="nx">Watch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Component</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Test</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
-
-<span class="p">}</span>
-</code></pre></div><h2 id="组件的引入">组件的引入</h2>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Mapmenu</span> <span class="nx">from</span> <span class="s1">&#39;@/components/Mapmenu.vue&#39;</span>
-
-<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
- <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
-   <span class="nx">Mapmenu</span>
-<span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div><h2 id="data对象">data对象</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="err">···</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></div><h2 id="创建组件">创建组件</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">Prop</span><span class="p">,</span> <span class="nx">Vue</span><span class="p">,</span> <span class="nx">Watch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="nx">Component</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Test</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="组件的引入">组件的引入</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Mapmenu</span> <span class="nx">from</span> <span class="s1">&#39;@/components/Mapmenu.vue&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">Mapmenu</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><h2 id="data对象">data对象</h2>
 <p>boolean或者string等简单类型typescript会自动识别，不需要告知类型,不然运行的时候它还给我个报错……</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">Prop</span><span class="p">,</span> <span class="nx">Vue</span><span class="p">,</span> <span class="nx">Watch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Map</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
- <span class="nx">map</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kc">null</span>
- <span class="nx">dialog</span> <span class="o">=</span> <span class="kc">false</span>
- <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;MAGREN&#34;</span>
-<span class="p">}</span>
-</code></pre></div><h2 id="method-方法">method 方法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">Prop</span><span class="p">,</span> <span class="nx">Vue</span><span class="p">,</span> <span class="nx">Watch</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Map</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">map</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">dialog</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;MAGREN&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="method-方法">method 方法</h2>
 <p>可不用逗号隔开，直接写在export default里，需要注明返回类型</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span><span class="p">,</span><span class="nx">Prop</span><span class="p">,</span><span class="nx">Emit</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">markers</span> <span class="nx">from</span> <span class="s1">&#39;@/config/markers.ts&#39;</span>
-
-<span class="err">@</span><span class="nx">Component</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Mapmenu</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
- 
- <span class="nx">show</span> <span class="o">=</span> <span class="kc">true</span>
- <span class="c1">// methods
-</span><span class="c1"></span> <span class="c1">//学校介绍
-</span><span class="c1"></span> <span class="nx">toPageSchoolInfo</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
-   <span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-     <span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/schoolinfo&#39;</span>
-  <span class="p">})</span>
-<span class="p">}</span>
- 
-    <span class="err">………………</span>
-<span class="p">}</span>
-</code></pre></div><h2 id="prop以及emit-用于父子组件传参">Prop以及Emit 用于父子组件传参</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span><span class="p">,</span><span class="nx">Prop</span><span class="p">,</span><span class="nx">Emit</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">markers</span> <span class="nx">from</span> <span class="s1">&#39;@/config/markers.ts&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="nx">Component</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Mapmenu</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="nx">show</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">// methods
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//学校介绍
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nx">toPageSchoolInfo</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="k">this</span><span class="p">.</span><span class="nx">$router</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/schoolinfo&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="err">………………</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="prop以及emit-用于父子组件传参">Prop以及Emit 用于父子组件传参</h2>
 <h3 id="父组件">父组件</h3>
 <p>:map = &lsquo;map’表示将父组件的map参数传入子组件，并且命名为map。
 @show-dialog=“handleChildValue” 表示将子组件传来的值在handleChildValue方法中处理。</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nx">Mapmenu</span> <span class="o">:</span><span class="nx">map</span><span class="o">=</span><span class="s1">&#39;map&#39;</span> <span class="err">@</span><span class="nx">show</span><span class="o">-</span><span class="nx">dialog</span><span class="o">=</span><span class="s2">&#34;handleChildValue&#34;</span><span class="o">&gt;&lt;</span><span class="err">/Mapmenu&gt;</span>
-<span class="o">&lt;</span><span class="err">/template&gt;</span>
-
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
-<span class="c1">// @ is an alias to /src
-</span><span class="c1"></span><span class="kr">import</span> <span class="nx">AMap</span> <span class="nx">from</span> <span class="s1">&#39;@/config/amap.ts&#39;</span>
-<span class="kr">import</span> <span class="nx">Mapmenu</span> <span class="nx">from</span> <span class="s1">&#39;@/components/Mapmenu.vue&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
-
-<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
- <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
-   <span class="nx">Mapmenu</span>
-<span class="p">}</span>
-<span class="p">})</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Map</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
-  <span class="nx">dialog</span> <span class="o">=</span> <span class="kc">false</span> 
-  <span class="err">……</span>
-   
-  <span class="kr">private</span> <span class="nx">handleChildValue</span><span class="p">(</span><span class="nx">val</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">)</span> <span class="p">{</span>
-       <span class="c1">// val: 子组件传过来的值
-</span><span class="c1"></span>     <span class="k">this</span><span class="p">.</span><span class="nx">dialog</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><h3 id="子组件">子组件</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">Mapmenu</span> <span class="o">:</span><span class="nx">map</span><span class="o">=</span><span class="s1">&#39;map&#39;</span> <span class="err">@</span><span class="nx">show</span><span class="o">-</span><span class="nx">dialog</span><span class="o">=</span><span class="s2">&#34;handleChildValue&#34;</span><span class="o">&gt;&lt;</span><span class="err">/Mapmenu&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/template&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @ is an alias to /src
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">AMap</span> <span class="nx">from</span> <span class="s1">&#39;@/config/amap.ts&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Mapmenu</span> <span class="nx">from</span> <span class="s1">&#39;@/components/Mapmenu.vue&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">Mapmenu</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Map</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">dialog</span> <span class="o">=</span> <span class="kc">false</span> 
+</span></span><span class="line"><span class="cl">  <span class="err">……</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">  <span class="kr">private</span> <span class="nx">handleChildValue</span><span class="p">(</span><span class="nx">val</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// val: 子组件传过来的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="k">this</span><span class="p">.</span><span class="nx">dialog</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="子组件">子组件</h3>
 <p>调用父组件传过来的参数直接使用this.xxx
 需要向父组件传递参数直接调用@Emit注解里的方法。</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
-<span class="c1">//引入Prop和Emit
-</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span><span class="p">,</span><span class="nx">Prop</span><span class="p">,</span><span class="nx">Emit</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span> 
-<span class="kr">import</span> <span class="nx">markers</span> <span class="nx">from</span> <span class="s1">&#39;@/config/markers.ts&#39;</span>
-
-<span class="err">@</span><span class="nx">Component</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Mapmenu</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
- 
- <span class="nx">show</span> <span class="o">=</span> <span class="kc">true</span>
-
- <span class="c1">//接收父组件传来的值
-</span><span class="c1"></span> <span class="err">@</span><span class="nx">Prop</span><span class="p">()</span>
- <span class="kr">private</span> <span class="nx">map</span><span class="o">:</span> <span class="nx">any</span>
-
- <span class="c1">//向父组件传值
-</span><span class="c1"></span> <span class="err">@</span><span class="nx">Emit</span><span class="p">()</span>
- <span class="kr">private</span> <span class="nx">showDialog</span><span class="p">(){</span>
-   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">show</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><h1 id="高德地图加载和使用">高德地图加载和使用</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//引入Prop和Emit
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span><span class="p">,</span><span class="nx">Prop</span><span class="p">,</span><span class="nx">Emit</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">markers</span> <span class="nx">from</span> <span class="s1">&#39;@/config/markers.ts&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="nx">Component</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Mapmenu</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="nx">show</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1">//接收父组件传来的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="err">@</span><span class="nx">Prop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">private</span> <span class="nx">map</span><span class="o">:</span> <span class="nx">any</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1">//向父组件传值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="err">@</span><span class="nx">Emit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> <span class="kr">private</span> <span class="nx">showDialog</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">show</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h1 id="高德地图加载和使用">高德地图加载和使用</h1>
 <h2 id="高德地图加载">高德地图加载</h2>
 <p>封装地图，并通过Promise进行一个异步加载，TypeScript在编译时对window类型做了判断,不允许直接调用window.xx，改成any类型即可使用。加载前先判断是否已经存在。</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">MapLoader</span><span class="p">()</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span><span class="p">{</span>
- <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-   <span class="kr">const</span> <span class="nx">win</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="nb">window</span>  
-   <span class="k">if</span> <span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">)</span> <span class="p">{</span>
-     <span class="nx">resolve</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">)</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-     <span class="kr">const</span> <span class="nx">url</span><span class="o">=</span><span class="s1">&#39;高德地图api&#39;</span>
-     <span class="kr">const</span> <span class="nx">script</span><span class="o">:</span> <span class="nx">HTMLScriptElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)</span>
-     <span class="nx">script</span><span class="p">.</span><span class="nx">charset</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
-     <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span>
-     <span class="nx">script</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">reject</span>
-     <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">)</span>
-  <span class="p">}</span>
-   <span class="nx">win</span><span class="p">.</span><span class="nx">onLoad</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-     <span class="nx">resolve</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-<span class="p">}</span>
-</code></pre></div><p>在需要的地方调用</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
- <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;map&#34;</span><span class="o">&gt;</span>
-   <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;container&#34;</span><span class="o">&gt;</span>
-    
-   <span class="o">&lt;</span><span class="err">/div&gt;</span>
- <span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="o">&lt;</span><span class="err">/template&gt;</span>
-
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
-<span class="kr">import</span> <span class="nx">AMap</span> <span class="nx">from</span> <span class="s1">&#39;@/config/amap.ts&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
-
-<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Map</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
- <span class="nx">map</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kc">null</span>
-
- <span class="c1">//初始化地图
-</span><span class="c1"></span> <span class="kr">async</span> <span class="nx">initAMap</span><span class="p">()</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
-  <span class="k">try</span> <span class="p">{</span>
-   <span class="kr">const</span> <span class="nx">res</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">AMap</span><span class="p">();</span>
-   <span class="k">this</span><span class="p">.</span><span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">res</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s2">&#34;container&#34;</span><span class="p">,</span> <span class="p">{</span>  <span class="c1">//装载在id为container的div
-</span><span class="c1"></span>     <span class="nx">viewMode</span><span class="o">:</span><span class="s1">&#39;3D&#39;</span><span class="p">,</span> <span class="c1">// 地图模式,手机下只有2d效果
-</span><span class="c1"></span>     <span class="nx">resizeEnable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//是否监控地图容器尺寸变化
-</span><span class="c1"></span>     <span class="nx">zoom</span><span class="o">:</span> <span class="mi">17</span><span class="p">,</span> <span class="c1">//初始化地图层级，
-</span><span class="c1"></span>     <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">113.172847</span><span class="p">,</span><span class="mf">23.43399</span><span class="p">],</span> <span class="c1">//初始化地图中心点，
-</span><span class="c1"></span>     <span class="nx">pitch</span><span class="o">:</span><span class="mi">40</span><span class="p">,</span> <span class="c1">// 地图俯仰角度，有效范围 0 度- 83 度
-</span><span class="c1"></span>     <span class="nx">buildingAnimation</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="c1">//3d地图显示动画
-</span><span class="c1"></span>    <span class="p">});</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">personOptions</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">,</span><span class="kc">true</span><span class="p">)</span>
-  <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
-  <span class="p">}</span> 
-<span class="p">}</span>
- 
- <span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">initAMap</span><span class="p">();</span>
-<span class="p">}</span>
-<span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-</code></pre></div><h2 id="给地图添加marker">给地图添加marker</h2>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">win</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="nb">window</span>
-<span class="kr">const</span> <span class="nx">marker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
-         <span class="nx">position</span><span class="o">:</span> <span class="k">new</span> <span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">.</span><span class="nx">LngLat</span><span class="p">(</span><span class="mf">113.171688</span><span class="p">,</span><span class="mf">23.433279</span><span class="p">),</span>  <span class="c1">//marker的坐标 
-</span><span class="c1"></span><span class="p">})</span>
-</code></pre></div><p>在marker上方添加文本:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">marker</span><span class="p">.</span><span class="nx">setLabel</span><span class="p">({</span> <span class="c1">//label默认蓝框白底左上角显示l
-</span><span class="c1"></span>         <span class="nx">offset</span><span class="o">:</span> <span class="k">new</span> <span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">.</span><span class="nx">Pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span>  <span class="c1">//设置文本标注偏移量
-</span><span class="c1"></span>         <span class="nx">content</span><span class="o">:</span><span class="s2">&#34;商业街&#34;</span><span class="p">,</span> <span class="c1">//设置文本标注内容
-</span><span class="c1"></span>         <span class="nx">direction</span><span class="o">:</span> <span class="s1">&#39;top&#39;</span> <span class="c1">//设置文本标注方位
-</span><span class="c1"></span><span class="p">});</span> 
-</code></pre></div><p>修改样式：
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">MapLoader</span><span class="p">()</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kr">const</span> <span class="nx">win</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="nb">window</span>  
+</span></span><span class="line"><span class="cl">   <span class="k">if</span> <span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">resolve</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="kr">const</span> <span class="nx">url</span><span class="o">=</span><span class="s1">&#39;高德地图api&#39;</span>
+</span></span><span class="line"><span class="cl">     <span class="kr">const</span> <span class="nx">script</span><span class="o">:</span> <span class="nx">HTMLScriptElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">script</span><span class="p">.</span><span class="nx">charset</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">script</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">reject</span>
+</span></span><span class="line"><span class="cl">     <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">win</span><span class="p">.</span><span class="nx">onLoad</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">resolve</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>在需要的地方调用</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;map&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;container&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">   <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/template&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">AMap</span> <span class="nx">from</span> <span class="s1">&#39;@/config/amap.ts&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span><span class="nx">Vue</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;vue-property-decorator&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Map</span> <span class="kr">extends</span> <span class="nx">Vue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">map</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="c1">//初始化地图
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="kr">async</span> <span class="nx">initAMap</span><span class="p">()</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kr">const</span> <span class="nx">res</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">AMap</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="k">this</span><span class="p">.</span><span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">res</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s2">&#34;container&#34;</span><span class="p">,</span> <span class="p">{</span>  <span class="c1">//装载在id为container的div
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="nx">viewMode</span><span class="o">:</span><span class="s1">&#39;3D&#39;</span><span class="p">,</span> <span class="c1">// 地图模式,手机下只有2d效果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="nx">resizeEnable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//是否监控地图容器尺寸变化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="nx">zoom</span><span class="o">:</span> <span class="mi">17</span><span class="p">,</span> <span class="c1">//初始化地图层级，
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">113.172847</span><span class="p">,</span><span class="mf">23.43399</span><span class="p">],</span> <span class="c1">//初始化地图中心点，
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="nx">pitch</span><span class="o">:</span><span class="mi">40</span><span class="p">,</span> <span class="c1">// 地图俯仰角度，有效范围 0 度- 83 度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="nx">buildingAnimation</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span> <span class="c1">//3d地图显示动画
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">personOptions</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">,</span><span class="kc">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> <span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">initAMap</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></div><h2 id="给地图添加marker">给地图添加marker</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">win</span><span class="o">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="nb">window</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">marker</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">position</span><span class="o">:</span> <span class="k">new</span> <span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">.</span><span class="nx">LngLat</span><span class="p">(</span><span class="mf">113.171688</span><span class="p">,</span><span class="mf">23.433279</span><span class="p">),</span>  <span class="c1">//marker的坐标 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">})</span>
+</span></span></code></pre></div><p>在marker上方添加文本:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">marker</span><span class="p">.</span><span class="nx">setLabel</span><span class="p">({</span> <span class="c1">//label默认蓝框白底左上角显示l
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="nx">offset</span><span class="o">:</span> <span class="k">new</span> <span class="nx">win</span><span class="p">.</span><span class="nx">AMap</span><span class="p">.</span><span class="nx">Pixel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span>  <span class="c1">//设置文本标注偏移量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="nx">content</span><span class="o">:</span><span class="s2">&#34;商业街&#34;</span><span class="p">,</span> <span class="c1">//设置文本标注内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>         <span class="nx">direction</span><span class="o">:</span> <span class="s1">&#39;top&#39;</span> <span class="c1">//设置文本标注方位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span> 
+</span></span></code></pre></div><p>修改样式：
 此时css标签中不能打 scoped ，否则无法生效，这个问题关乎css的作用域</p>
-<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">amap-marker-label</span><span class="p">{</span> 
- <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
- <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
- <span class="k">border-color</span><span class="p">:</span> <span class="mh">#54B7E7</span><span class="p">;</span>
- <span class="k">border-width</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
- <span class="k">color</span><span class="p">:</span><span class="mh">#54B7E7</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>最后调用add方法添加：</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">marker</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">amap-marker-label</span><span class="p">{</span> 
+</span></span><span class="line"><span class="cl"> <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="k">border-color</span><span class="p">:</span> <span class="mh">#54B7E7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="k">border-width</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"> <span class="k">color</span><span class="p">:</span><span class="mh">#54B7E7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>最后调用add方法添加：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">marker</span><span class="p">)</span>
+</span></span></code></pre></div>
 </section>
 
 
@@ -539,7 +539,7 @@ Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
         
         
             <div class="article-image">
-                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_2.png" 
+                <img src="/about-cloudmusic/banner.f8dce768d27b89960c7983019578db16_hu0ea77f992d92db75b170bc4f02a95d6f_316874_250x150_fill_box_smart1_3.png" 
                         width="250" 
                         height="150" 
                         loading="lazy" 

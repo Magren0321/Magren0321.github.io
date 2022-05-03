@@ -55,18 +55,18 @@
                     
                     
                         
-                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_2.png" width="300"
+                        <img src="/img/avatar_hu117ae63ff7eaed7f027e849e561f5037_176691_300x0_resize_box_3.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
 
                 
-                    <span class="emoji">🛸</span>
+                    <span class="emoji">🌟</span>
                 
             </figure>
         
         <h1 class="site-name"><a href="https://magren.cn">Magren&#39;s Blog</a></h1>
-        <h2 class="site-description">Idealist &amp; Garbage maker</h2>
+        <h2 class="site-description">Idealist &amp; Garbage maker🛸</h2>
     </header>
 
     <ol class="menu" id="main-menu">
@@ -232,534 +232,534 @@
 </ul>
 <h1 id="具体基类的封装">具体基类的封装</h1>
 <h2 id="baseactivity">BaseActivity</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseActivity</span><span class="o">&lt;</span><span class="n">P</span> <span class="kd">extends</span> <span class="n">BasePresenter</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span>
-        <span class="kd">implements</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
-
-    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">)</span>
-    <span class="n">Toolbar</span> <span class="n">mToolbar</span><span class="o">;</span>
-
-    <span class="n">Unbinder</span> <span class="n">bind</span><span class="o">;</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 进度对话框
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="n">ProgressDialog</span> <span class="n">mProgressDialog</span><span class="o">;</span>
-    <span class="cm">/**
-</span><span class="cm">     * 泛型确定Presenter
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="n">P</span> <span class="n">mPresenter</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="c1">// 设置为竖屏
-</span><span class="c1"></span>        <span class="n">setRequestedOrientation</span><span class="o">(</span><span class="n">ActivityInfo</span><span class="o">.</span><span class="na">SCREEN_ORIENTATION_PORTRAIT</span><span class="o">);</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">bindLayout</span><span class="o">());</span>
-        <span class="c1">// ButterKnife绑定布局
-</span><span class="c1"></span>        <span class="n">bind</span> <span class="o">=</span> <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-
-        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">createPresenter</span><span class="o">();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">// 调用Presenter初始化方法
-</span><span class="c1"></span>            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
-        <span class="o">}</span>
-
-        <span class="c1">// 准备数据
-</span><span class="c1"></span>        <span class="n">prepareData</span><span class="o">();</span>
-        <span class="c1">// 初始化标题栏
-</span><span class="c1"></span>        <span class="n">initToolbar</span><span class="o">();</span>
-        <span class="c1">// 初始化视图
-</span><span class="c1"></span>        <span class="n">initView</span><span class="o">();</span>
-        <span class="c1">// 初始化数据
-</span><span class="c1"></span>        <span class="n">initData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="c1">// 初始化事件监听
-</span><span class="c1"></span>        <span class="n">initEvent</span><span class="o">();</span>
-    <span class="o">}</span>
-
-
-    <span class="cm">/**
-</span><span class="cm">     * 创建Presenter
-</span><span class="cm">     *
-</span><span class="cm">     * @return 泛型Presenter
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">P</span> <span class="nf">createPresenter</span><span class="o">();</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 实现BasePresenter接口的setPresenter方法
-</span><span class="cm">     *
-</span><span class="cm">     * @param presenter createPresenter()创建的Presenter
-</span><span class="cm">     */</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">presenter</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化Toolbar
-</span><span class="cm">     */</span>
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initToolbar</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">setSupportActionBar</span><span class="o">(</span><span class="n">mToolbar</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 设置Toolbar标题
-</span><span class="cm">     *
-</span><span class="cm">     * @param title 标题
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarTitle</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">getSupportActionBar</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 设置Toolbar显示返回按钮及标题
-</span><span class="cm">     *
-</span><span class="cm">     * @param title 标题
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarBackEnable</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">getSupportActionBar</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setDisplayHomeAsUpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setHomeAsUpIndicator</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_arrow_white_24dp</span><span class="o">);</span>
-            <span class="n">setToolbarTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
-        <span class="o">}</span>
-
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 绑定布局
-</span><span class="cm">     *
-</span><span class="cm">     * @return 布局文件的资源ID
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">();</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 准备数据（从Intent获取上一个界面传过来的数据或其他需要初始化的数据）
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">();</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化视图，findViewById等等
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">();</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化数据，从本地或服务器开始获取数据
-</span><span class="cm">     *
-</span><span class="cm">     * @param savedInstanceState 界面非正常销毁时保存的数据
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化事件监听，setOnClickListener等等
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">();</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 实现BaseView的showToast(CharSequence msg)
-</span><span class="cm">     *
-</span><span class="cm">     * @param msg 吐司显示的信息
-</span><span class="cm">     */</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 实现BaseView的showToast(int msgId)
-</span><span class="cm">     *
-</span><span class="cm">     * @param msgId 吐司显示的字符串资源id
-</span><span class="cm">     */</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">msgId</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 实现BaseView的showLoadingDialog(CharSequence msg)
-</span><span class="cm">     * 显示加载对话框
-</span><span class="cm">     *
-</span><span class="cm">     * @param msg 对话框的提示内容
-</span><span class="cm">     */</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mProgressDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgressDialog</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
-            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 实现BaseView的hideLoadingDialog()
-</span><span class="cm">     * 隐藏加载对话框
-</span><span class="cm">     */</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">isShowing</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * Activity销毁时清理资源
-</span><span class="cm">     */</span>
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// ButterKnife解除绑定
-</span><span class="c1"></span>        <span class="n">bind</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span>
-        <span class="c1">// 销毁Presenter
-</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 隐藏键盘
-</span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideKeyboard</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">getCurrentFocus</span><span class="o">();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">view</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="o">((</span><span class="n">InputMethodManager</span><span class="o">)</span> <span class="n">getSystemService</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">INPUT_METHOD_SERVICE</span><span class="o">)).</span>
-                    <span class="n">hideSoftInputFromWindow</span><span class="o">(</span><span class="n">view</span><span class="o">.</span><span class="na">getWindowToken</span><span class="o">(),</span> <span class="n">InputMethodManager</span><span class="o">.</span><span class="na">HIDE_NOT_ALWAYS</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
-        <span class="c1">// （仅有Activity的应用中SDK自动调用，不需要单独写）
-</span><span class="c1"></span>        <span class="c1">// 保证 onPageEnd 在onPause之前调用,因为 onPause 中会保存信息。
-</span><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageEnd</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
-        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPause</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
-        <span class="c1">//统计页面(仅有Activity的应用中SDK自动调用，不需要单独写。)
-</span><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageStart</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
-        <span class="c1">//统计时长
-</span><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onResume</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onOptionsItemSelected</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getItemId</span><span class="o">()</span> <span class="o">==</span> <span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">home</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">finish</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onOptionsItemSelected</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="basefragment">BaseFragment</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseFragment</span><span class="o">&lt;</span><span class="n">P</span> <span class="kd">extends</span> <span class="n">BasePresenter</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Fragment</span>
-        <span class="kd">implements</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
-
-    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">)</span>
-    <span class="n">Toolbar</span> <span class="n">mToolbar</span><span class="o">;</span>
-
-    <span class="kd">private</span> <span class="n">Unbinder</span> <span class="n">mUnbinder</span><span class="o">;</span>
-    <span class="kd">protected</span> <span class="n">P</span> <span class="n">mPresenter</span><span class="o">;</span>
-
-    <span class="kd">protected</span> <span class="n">ProgressDialog</span> <span class="n">mProgressDialog</span><span class="o">;</span>
-
-    <span class="kd">private</span> <span class="n">ActionBar</span> <span class="n">mActionbar</span><span class="o">;</span>
-
-    <span class="nd">@Nullable</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kd">final</span> <span class="n">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="n">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">ViewGroup</span> <span class="n">container</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">createPresenter</span><span class="o">();</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="n">View</span> <span class="n">root</span> <span class="o">=</span> <span class="n">inflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">bindLayout</span><span class="o">(),</span> <span class="n">container</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
-        <span class="n">mUnbinder</span> <span class="o">=</span> <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">root</span><span class="o">);</span>
-        <span class="n">prepareData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">initToolbar</span><span class="o">();</span>
-        <span class="c1">// 初始化视图
-</span><span class="c1"></span>        <span class="n">initView</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
-        <span class="n">initData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">initEvent</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
-    <span class="o">}</span>
-
-
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">P</span> <span class="nf">createPresenter</span><span class="o">();</span>
-
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">presenter</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 准备数据
-</span><span class="cm">     *
-</span><span class="cm">     * @param savedInstanceState
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 绑定fragment的布局文件
-</span><span class="cm">     *
-</span><span class="cm">     * @return
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">();</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化数据
-</span><span class="cm">     *
-</span><span class="cm">     * @param savedInstanceState
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化界面
-</span><span class="cm">     *
-</span><span class="cm">     * @param rootView
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">(</span><span class="n">View</span> <span class="n">rootView</span><span class="o">);</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化事件监听器
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">();</span>
-
-
-    <span class="cm">/**
-</span><span class="cm">     * 初始化Toolbar
-</span><span class="cm">     */</span>
-    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initToolbar</span><span class="o">()</span> <span class="o">{</span>
-        <span class="o">((</span><span class="n">AppCompatActivity</span><span class="o">)</span> <span class="n">getActivity</span><span class="o">()).</span><span class="na">setSupportActionBar</span><span class="o">(</span><span class="n">mToolbar</span><span class="o">);</span>
-        <span class="n">mActionbar</span> <span class="o">=</span> <span class="o">((</span><span class="n">AppCompatActivity</span><span class="o">)</span> <span class="n">getActivity</span><span class="o">()).</span><span class="na">getSupportActionBar</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 设置Toolbar标题
-</span><span class="cm">     *
-</span><span class="cm">     * @param title 标题
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarTitle</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mActionbar</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 设置Toolbar显示返回按钮及标题
-</span><span class="cm">     *
-</span><span class="cm">     * @param title 标题
-</span><span class="cm">     */</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarBackEnable</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mActionbar</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setDisplayHomeAsUpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setHomeAsUpIndicator</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_arrow_white_24dp</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">APP</span><span class="o">.</span><span class="na">getAppContext</span><span class="o">(),</span> <span class="n">msg</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">APP</span><span class="o">.</span><span class="na">getAppContext</span><span class="o">(),</span> <span class="n">msgId</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mProgressDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgressDialog</span><span class="o">(</span><span class="n">getContext</span><span class="o">());</span>
-            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">isShowing</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDetach</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">mUnbinder</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onDetach</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroyView</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroyView</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
-        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageStart</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
-        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageEnd</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-</code></pre></div><h2 id="basepresenter">BasePresenter</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BasePresenter</span> <span class="o">{</span>
-
-    <span class="kt">void</span> <span class="nf">onStart</span><span class="o">();</span>
-
-    <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">();</span>
-
-<span class="o">}</span>
-</code></pre></div><h2 id="baseview">BaseView</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
-
-    <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">);</span>
-
-    <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">);</span>
-
-    <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">);</span>
-
-    <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">);</span>
-
-    <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">();</span>
-
-<span class="o">}</span>
-</code></pre></div><h2 id="impl类">Impl类</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BasePresenterImpl</span> <span class="kd">implements</span> <span class="n">BasePresenter</span> <span class="o">{</span>
-    <span class="kd">protected</span> <span class="n">CompositeDisposable</span> <span class="n">mSubscriptions</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompositeDisposable</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
-            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="app类">APP类</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseActivity</span><span class="o">&lt;</span><span class="n">P</span> <span class="kd">extends</span> <span class="n">BasePresenter</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">implements</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Toolbar</span> <span class="n">mToolbar</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Unbinder</span> <span class="n">bind</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 进度对话框
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="n">ProgressDialog</span> <span class="n">mProgressDialog</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 泛型确定Presenter
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="n">P</span> <span class="n">mPresenter</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">final</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 设置为竖屏
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">setRequestedOrientation</span><span class="o">(</span><span class="n">ActivityInfo</span><span class="o">.</span><span class="na">SCREEN_ORIENTATION_PORTRAIT</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setContentView</span><span class="o">(</span><span class="n">bindLayout</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// ButterKnife绑定布局
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">bind</span> <span class="o">=</span> <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">createPresenter</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 调用Presenter初始化方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 准备数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">prepareData</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始化标题栏
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">initToolbar</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始化视图
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">initView</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始化数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">initData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始化事件监听
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">initEvent</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 创建Presenter
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return 泛型Presenter
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">P</span> <span class="nf">createPresenter</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 实现BasePresenter接口的setPresenter方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param presenter createPresenter()创建的Presenter
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">presenter</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化Toolbar
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initToolbar</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setSupportActionBar</span><span class="o">(</span><span class="n">mToolbar</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 设置Toolbar标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param title 标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarTitle</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">getSupportActionBar</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 设置Toolbar显示返回按钮及标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param title 标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarBackEnable</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">getSupportActionBar</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setDisplayHomeAsUpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">getSupportActionBar</span><span class="o">().</span><span class="na">setHomeAsUpIndicator</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_arrow_white_24dp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">setToolbarTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 绑定布局
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return 布局文件的资源ID
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 准备数据（从Intent获取上一个界面传过来的数据或其他需要初始化的数据）
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化视图，findViewById等等
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化数据，从本地或服务器开始获取数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param savedInstanceState 界面非正常销毁时保存的数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化事件监听，setOnClickListener等等
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 实现BaseView的showToast(CharSequence msg)
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param msg 吐司显示的信息
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 实现BaseView的showToast(int msgId)
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param msgId 吐司显示的字符串资源id
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">msgId</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 实现BaseView的showLoadingDialog(CharSequence msg)
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 显示加载对话框
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param msg 对话框的提示内容
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgressDialog</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 实现BaseView的hideLoadingDialog()
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 隐藏加载对话框
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">isShowing</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * Activity销毁时清理资源
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// ButterKnife解除绑定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">bind</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 销毁Presenter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 隐藏键盘
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideKeyboard</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">getCurrentFocus</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">view</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="o">((</span><span class="n">InputMethodManager</span><span class="o">)</span> <span class="n">getSystemService</span><span class="o">(</span><span class="n">Context</span><span class="o">.</span><span class="na">INPUT_METHOD_SERVICE</span><span class="o">)).</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">hideSoftInputFromWindow</span><span class="o">(</span><span class="n">view</span><span class="o">.</span><span class="na">getWindowToken</span><span class="o">(),</span> <span class="n">InputMethodManager</span><span class="o">.</span><span class="na">HIDE_NOT_ALWAYS</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// （仅有Activity的应用中SDK自动调用，不需要单独写）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 保证 onPageEnd 在onPause之前调用,因为 onPause 中会保存信息。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageEnd</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPause</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//统计页面(仅有Activity的应用中SDK自动调用，不需要单独写。)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageStart</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//统计时长
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onResume</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onOptionsItemSelected</span><span class="o">(</span><span class="n">MenuItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getItemId</span><span class="o">()</span> <span class="o">==</span> <span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">home</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">finish</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onOptionsItemSelected</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="basefragment">BaseFragment</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseFragment</span><span class="o">&lt;</span><span class="n">P</span> <span class="kd">extends</span> <span class="n">BasePresenter</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">Fragment</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">implements</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">toolbar</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Toolbar</span> <span class="n">mToolbar</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">Unbinder</span> <span class="n">mUnbinder</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="n">P</span> <span class="n">mPresenter</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="n">ProgressDialog</span> <span class="n">mProgressDialog</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="n">ActionBar</span> <span class="n">mActionbar</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Nullable</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">final</span> <span class="n">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="n">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">ViewGroup</span> <span class="n">container</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">createPresenter</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onStart</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">View</span> <span class="n">root</span> <span class="o">=</span> <span class="n">inflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">bindLayout</span><span class="o">(),</span> <span class="n">container</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mUnbinder</span> <span class="o">=</span> <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">root</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">prepareData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">initToolbar</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 初始化视图
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">initView</span><span class="o">(</span><span class="n">root</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">initData</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">initEvent</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="n">P</span> <span class="nf">createPresenter</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mPresenter</span> <span class="o">=</span> <span class="n">presenter</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 准备数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param savedInstanceState
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 绑定fragment的布局文件
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param savedInstanceState
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化界面
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param rootView
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">(</span><span class="n">View</span> <span class="n">rootView</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化事件监听器
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 初始化Toolbar
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">initToolbar</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">((</span><span class="n">AppCompatActivity</span><span class="o">)</span> <span class="n">getActivity</span><span class="o">()).</span><span class="na">setSupportActionBar</span><span class="o">(</span><span class="n">mToolbar</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mActionbar</span> <span class="o">=</span> <span class="o">((</span><span class="n">AppCompatActivity</span><span class="o">)</span> <span class="n">getActivity</span><span class="o">()).</span><span class="na">getSupportActionBar</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 设置Toolbar标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param title 标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarTitle</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mActionbar</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 设置Toolbar显示返回按钮及标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @param title 标题
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">setToolbarBackEnable</span><span class="o">(</span><span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mActionbar</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setDisplayHomeAsUpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mActionbar</span><span class="o">.</span><span class="na">setHomeAsUpIndicator</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_arrow_white_24dp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">APP</span><span class="o">.</span><span class="na">getAppContext</span><span class="o">(),</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">APP</span><span class="o">.</span><span class="na">getAppContext</span><span class="o">(),</span> <span class="n">msgId</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgressDialog</span><span class="o">(</span><span class="n">getContext</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setMessage</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">title_dialog_tips</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mProgressDialog</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">isShowing</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mProgressDialog</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDetach</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mUnbinder</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onDetach</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroyView</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mPresenter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mPresenter</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroyView</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageStart</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">MobclickAgent</span><span class="o">.</span><span class="na">onPageEnd</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="basepresenter">BasePresenter</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BasePresenter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">onStart</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="baseview">BaseView</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">BaseView</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setPresenter</span><span class="o">(</span><span class="n">P</span> <span class="n">presenter</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">showToast</span><span class="o">(</span><span class="kt">int</span> <span class="n">msgId</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">showLoadingDialog</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">msg</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">hideLoadingDialog</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="impl类">Impl类</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BasePresenterImpl</span> <span class="kd">implements</span> <span class="n">BasePresenter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="n">CompositeDisposable</span> <span class="n">mSubscriptions</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mSubscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CompositeDisposable</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">mSubscriptions</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mSubscriptions</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="app类">APP类</h2>
 <blockquote>
 <p>用于获取全局的context</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">APP</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
-
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Context</span> <span class="n">appContext</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">exitTime</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 获取Application的Context
-</span><span class="cm">     *
-</span><span class="cm">     * @return 全局Context
-</span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Context</span> <span class="nf">getAppContext</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">appContext</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
-        <span class="n">appContext</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 退出APP
-</span><span class="cm">     */</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">exitApp</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">exitTime</span> <span class="o">&gt;</span> <span class="n">2000</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">getAppContext</span><span class="o">(),</span> <span class="n">appContext</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">text_press_again</span><span class="o">));</span>
-            <span class="n">exitTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Process</span><span class="o">.</span><span class="na">killProcess</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Process</span><span class="o">.</span><span class="na">myPid</span><span class="o">());</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h1 id="具体使用">具体使用</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">APP</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Context</span> <span class="n">appContext</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">exitTime</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 获取Application的Context
+</span></span></span><span class="line"><span class="cl"><span class="cm">     *
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * @return 全局Context
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Context</span> <span class="nf">getAppContext</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">appContext</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">appContext</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 退出APP
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">exitApp</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">exitTime</span> <span class="o">&gt;</span> <span class="n">2000</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ToastUtils</span><span class="o">.</span><span class="na">shortToast</span><span class="o">(</span><span class="n">getAppContext</span><span class="o">(),</span> <span class="n">appContext</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">text_press_again</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">            <span class="n">exitTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Process</span><span class="o">.</span><span class="na">killProcess</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Process</span><span class="o">.</span><span class="na">myPid</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h1 id="具体使用">具体使用</h1>
 <h2 id="contract-契约类">Contract 契约类</h2>
 <blockquote>
 <p>契约类用于定义同一个界面的view和presenter的接口，通过规范的方法命名或注释，可以清晰的看到整个页面的逻辑。</p>
 </blockquote>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">myContract</span> <span class="o">{</span>
-
-    <span class="kd">interface</span> <span class="nc">View</span> <span class="kd">extends</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">Presenter</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="o">}</span>
-
-    <span class="kd">interface</span> <span class="nc">Presenter</span> <span class="kd">extends</span> <span class="n">BasePresenter</span> <span class="o">{</span>
-
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="presenter">Presenter</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SamplePresenter</span> <span class="kd">extends</span> <span class="n">BasePresenterImpl</span> <span class="kd">implements</span> <span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span> <span class="o">{</span>
-
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="n">mView</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">SamplePresenter</span><span class="o">(</span><span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">mView</span> <span class="o">=</span> <span class="n">view</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">mView</span><span class="o">.</span><span class="na">setPresenter</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div><h2 id="activiy">Activiy</h2>
-<div class="highlight"><pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleActivity</span> <span class="kd">extends</span> <span class="n">BaseActivity</span><span class="o">&lt;</span><span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="o">{</span>
-
-    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_sample_text</span><span class="o">)</span>
-    <span class="n">TextView</span> <span class="n">mTvSample</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span> <span class="nf">createPresenter</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">SamplePresenter</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">//TODO:添加视图，记得添加androidmanifest
-</span><span class="c1"></span>        <span class="k">return</span> <span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_sample</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">//TODO:准备数据 比如：从数据库加载数据，或者网络请求数据等等
-</span><span class="c1"></span>    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">//TODO:初始化视图 比如：recycleview的准备，添加adapter等等
-</span><span class="c1"></span>        <span class="n">mTvSample</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&#34;这是一个sample&#34;</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">//TODO:初始化数据 比如：将数据加入到view中
-</span><span class="c1"></span>    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">//TODO:初始化事件监听 比如：增加监听器，下拉刷新，加载更多等等
-</span><span class="c1"></span>    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">myContract</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">interface</span> <span class="nc">View</span> <span class="kd">extends</span> <span class="n">BaseView</span><span class="o">&lt;</span><span class="n">Presenter</span><span class="o">&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">interface</span> <span class="nc">Presenter</span> <span class="kd">extends</span> <span class="n">BasePresenter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="presenter">Presenter</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SamplePresenter</span> <span class="kd">extends</span> <span class="n">BasePresenterImpl</span> <span class="kd">implements</span> <span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">final</span> <span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="n">mView</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="nf">SamplePresenter</span><span class="o">(</span><span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mView</span> <span class="o">=</span> <span class="n">view</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="o">.</span><span class="na">mView</span><span class="o">.</span><span class="na">setPresenter</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h2 id="activiy">Activiy</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SampleActivity</span> <span class="kd">extends</span> <span class="n">BaseActivity</span><span class="o">&lt;</span><span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">myContract</span><span class="o">.</span><span class="na">View</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_sample_text</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TextView</span> <span class="n">mTvSample</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="n">myContract</span><span class="o">.</span><span class="na">Presenter</span> <span class="nf">createPresenter</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="n">SamplePresenter</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">int</span> <span class="nf">bindLayout</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//TODO:添加视图，记得添加androidmanifest
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_sample</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">prepareData</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//TODO:准备数据 比如：从数据库加载数据，或者网络请求数据等等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initView</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//TODO:初始化视图 比如：recycleview的准备，添加adapter等等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">mTvSample</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">&#34;这是一个sample&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initData</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//TODO:初始化数据 比如：将数据加入到view中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">initEvent</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//TODO:初始化事件监听 比如：增加监听器，下拉刷新，加载更多等等
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div>
 </section>
 
 
