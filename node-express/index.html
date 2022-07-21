@@ -3,30 +3,30 @@
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='前一段时间学习了node.js操作mongoDB数据库，现在追加一篇写接口的记录。
 链接数据库 在项目根目录下安装Mongoose
- npm install mongoose &amp;ndash;save
- 利用mongoose来链接MongoDB 在项目中创建db.js文件：
+npm install mongoose &amp;ndash;save
+利用mongoose来链接MongoDB 在项目中创建db.js文件：
 &amp;#39;use strict&amp;#39;; import mongoose from &amp;#39;mongoose&amp;#39;; mongoose.connect(&amp;#39;mongodb://localhost:27017/test&amp;#39;, { useNewUrlParser: true, useUnifiedTopology: true }); const db = mongoose.connection; db.once(&amp;#39;open&amp;#39; ,() =&amp;gt; { console.log( &amp;#39;连接数据库成功&amp;#39; ); }) db.on(&amp;#39;error&amp;#39;, function(error) { console.error( &amp;#39;Error in MongoDb connection: &amp;#39; &#43; error ); mongoose.disconnect(); }); db.on(&amp;#39;close&amp;#39;, function() { console.log( &amp;#39;数据库断开，重新连接数据库&amp;#39; ); }); export default db; 创建数据模型（建一张表） 在test数据库中创建一张名为StudentSchema的表，表中有name和age字段，并且公出。
-import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.'><title>node.js&#43;express写接口</title>
+import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.Schema({ name: String, age: Number }) const studentSchema = mongoose.'><title>node.js&#43;express写接口</title>
 
 <link rel='canonical' href='https://magren.cn/node-express/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='node.js&#43;express写接口'>
 <meta property='og:description' content='前一段时间学习了node.js操作mongoDB数据库，现在追加一篇写接口的记录。
 链接数据库 在项目根目录下安装Mongoose
- npm install mongoose &amp;ndash;save
- 利用mongoose来链接MongoDB 在项目中创建db.js文件：
+npm install mongoose &amp;ndash;save
+利用mongoose来链接MongoDB 在项目中创建db.js文件：
 &amp;#39;use strict&amp;#39;; import mongoose from &amp;#39;mongoose&amp;#39;; mongoose.connect(&amp;#39;mongodb://localhost:27017/test&amp;#39;, { useNewUrlParser: true, useUnifiedTopology: true }); const db = mongoose.connection; db.once(&amp;#39;open&amp;#39; ,() =&amp;gt; { console.log( &amp;#39;连接数据库成功&amp;#39; ); }) db.on(&amp;#39;error&amp;#39;, function(error) { console.error( &amp;#39;Error in MongoDb connection: &amp;#39; &#43; error ); mongoose.disconnect(); }); db.on(&amp;#39;close&amp;#39;, function() { console.log( &amp;#39;数据库断开，重新连接数据库&amp;#39; ); }); export default db; 创建数据模型（建一张表） 在test数据库中创建一张名为StudentSchema的表，表中有name和age字段，并且公出。
-import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.'>
+import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.Schema({ name: String, age: Number }) const studentSchema = mongoose.'>
 <meta property='og:url' content='https://magren.cn/node-express/'>
 <meta property='og:site_name' content='Magren&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='node.js' /><meta property='article:tag' content='后端' /><meta property='article:tag' content='mongodb' /><meta property='article:published_time' content='2020-10-19T23:17:34&#43;00:00'/><meta property='article:modified_time' content='2020-10-19T23:17:34&#43;00:00'/>
 <meta name="twitter:title" content="node.js&#43;express写接口">
 <meta name="twitter:description" content="前一段时间学习了node.js操作mongoDB数据库，现在追加一篇写接口的记录。
 链接数据库 在项目根目录下安装Mongoose
- npm install mongoose &amp;ndash;save
- 利用mongoose来链接MongoDB 在项目中创建db.js文件：
+npm install mongoose &amp;ndash;save
+利用mongoose来链接MongoDB 在项目中创建db.js文件：
 &amp;#39;use strict&amp;#39;; import mongoose from &amp;#39;mongoose&amp;#39;; mongoose.connect(&amp;#39;mongodb://localhost:27017/test&amp;#39;, { useNewUrlParser: true, useUnifiedTopology: true }); const db = mongoose.connection; db.once(&amp;#39;open&amp;#39; ,() =&amp;gt; { console.log( &amp;#39;连接数据库成功&amp;#39; ); }) db.on(&amp;#39;error&amp;#39;, function(error) { console.error( &amp;#39;Error in MongoDb connection: &amp;#39; &#43; error ); mongoose.disconnect(); }); db.on(&amp;#39;close&amp;#39;, function() { console.log( &amp;#39;数据库断开，重新连接数据库&amp;#39; ); }); export default db; 创建数据模型（建一张表） 在test数据库中创建一张名为StudentSchema的表，表中有name和age字段，并且公出。
-import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.">
+import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.Schema({ name: String, age: Number }) const studentSchema = mongoose.">
     <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
         <link rel="manifest" href="/manifest.json">

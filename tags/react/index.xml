@@ -13,13 +13,9 @@
       <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
       
       <guid>https://magren.cn/about-github-report/</guid>
-      <description>前言🛸  GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。
- Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，曾用它抄别人代码来度过作业的危机， 在之前使用Puppeteer尝试爬取了Github的部分数据，于是脑子一抽， 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。
+      <description>前言🛸 GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。
+Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，曾用它抄别人代码来度过作业的危机， 在之前使用Puppeteer尝试爬取了Github的部分数据，于是脑子一抽， 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。
 项目地址：Github Report
- 
- 
- 
- 
 NES.css🚀 NES是20世纪80年代末、90年代初进入中国，是80后最早接触的游戏机，俗称红白机，这是一台使用8位处理器的游戏主机，而NES.css是一款NES风格（8位机）的CSS框架，也是一款像素风的CSS元件库,它没有任何 JavaScript 依赖,只包含CSS。
 NES.css提供的组件样式很对我胃口，它还提供了一些很好玩的像素icon。NES.css在默认里只有英文字体是像素风格的，如果是需要别的语言也是像素风格的话，需要自行去下载字体。
 👀具体使用参考看官方文档：NES.css
@@ -41,23 +37,21 @@ useState 为函数式组件引入state，这个函数返回一个数组，数组
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom
-项目截图：  
- 
- 
-后端 后端基于Node.js + Express + Socket.io + MongoDB
+项目截图： 后端 后端基于Node.js + Express + Socket.io + MongoDB
 Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：
 Node.js+express
 Node.Js操作MongoDB
 这次用的新东西就是Socket.io。
-前人的工作👇  Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
- 即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
+前人的工作👇 Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
+即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
 在连接Socket.io的之前还得先知道WebSocket，在WebSocket问世之前，在创建拥有双向通信机制的 web 应用程序时，就只能利用 HTTP 轮询的方式，由此产生了 “短轮询” 和 “长轮询”。
- 短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
+短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
 长轮询是对短轮询的优化，需要服务端做相应的修改来支持。但是每次请求还是都要带上HTTP请求头部，而且在长轮询的连接结束之后，服务器端积累的新消息要等到下次客户端连接时才能传递。
- Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
+Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
 接着是Socket.io，Socket.io底层基于engine.io，封装了WebSocket，其屏蔽了底层细节，让顶层调用非常简单。同时它还支持许多种轮询机制以及其他通信方式，当环境不支持WebSocket的时候它能自动选择最佳的方式来实现网络的实时通信。
 使用 引入io设置端口后监听connect事件：
-const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001  io.</description>
+const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001 io.on((&amp;#39;connection&amp;#39;, socket=&amp;gt;{ ……………… }) 接着通过最重要的两个api，emit和on来发送以及监听事件
+socket.emit(eventName,[ &amp;hellip;args])：发射（触发）一个事件 socket.on(eventName, callback)：监听一个 emit 发射的事件 //监听xxx事件，输出传进来的data对象 socket.</description>
     </item>
     
   </channel>

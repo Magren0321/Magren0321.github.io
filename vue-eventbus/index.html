@@ -5,12 +5,12 @@
 但假如跨组件传参沟通，或者是兄弟姐妹组件之间的传参沟通，使用EventBus或者Vuex就可以避免很多重复的props和emit。
 Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBus比较适用于小型的项目，不是太复杂的事件。
 使用 EventBus实际上只是一个Vue的实例，接着分别调用这个实例的事件触发和监听来实现通信和参数传递。主要是下面四种方法：
- $on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件  一般页面created的時候就注册监听，当组件销毁时取消监听。
+$on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件 一般页面created的時候就注册监听，当组件销毁时取消监听。
 创建一个EventBus 其实就是创建一个Vue的实例
 import Vue from &amp;#39;vue&amp;#39;; // 使用 Event Bus const bus = new Vue(); export default bus; 在我们需要发送事件以及接收事件的组件中引入。
 import bus from &amp;#39;../common/bus&amp;#39;; 监听 在需要监听的组件中的created中使用bus监听
-created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去  doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
-// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.'><title>Vue下的EventBus</title>
+created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去 doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
+// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.$off() '><title>Vue下的EventBus</title>
 
 <link rel='canonical' href='https://magren.cn/vue-eventbus/'>
 
@@ -19,12 +19,12 @@ created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.l
 但假如跨组件传参沟通，或者是兄弟姐妹组件之间的传参沟通，使用EventBus或者Vuex就可以避免很多重复的props和emit。
 Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBus比较适用于小型的项目，不是太复杂的事件。
 使用 EventBus实际上只是一个Vue的实例，接着分别调用这个实例的事件触发和监听来实现通信和参数传递。主要是下面四种方法：
- $on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件  一般页面created的時候就注册监听，当组件销毁时取消监听。
+$on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件 一般页面created的時候就注册监听，当组件销毁时取消监听。
 创建一个EventBus 其实就是创建一个Vue的实例
 import Vue from &amp;#39;vue&amp;#39;; // 使用 Event Bus const bus = new Vue(); export default bus; 在我们需要发送事件以及接收事件的组件中引入。
 import bus from &amp;#39;../common/bus&amp;#39;; 监听 在需要监听的组件中的created中使用bus监听
-created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去  doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
-// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.'>
+created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去 doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
+// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.$off() '>
 <meta property='og:url' content='https://magren.cn/vue-eventbus/'>
 <meta property='og:site_name' content='Magren&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='Vue' /><meta property='article:published_time' content='2020-10-12T11:21:03&#43;00:00'/><meta property='article:modified_time' content='2020-10-12T11:21:03&#43;00:00'/>
@@ -33,12 +33,12 @@ created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.l
 但假如跨组件传参沟通，或者是兄弟姐妹组件之间的传参沟通，使用EventBus或者Vuex就可以避免很多重复的props和emit。
 Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBus比较适用于小型的项目，不是太复杂的事件。
 使用 EventBus实际上只是一个Vue的实例，接着分别调用这个实例的事件触发和监听来实现通信和参数传递。主要是下面四种方法：
- $on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件  一般页面created的時候就注册监听，当组件销毁时取消监听。
+$on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件 一般页面created的時候就注册监听，当组件销毁时取消监听。
 创建一个EventBus 其实就是创建一个Vue的实例
 import Vue from &amp;#39;vue&amp;#39;; // 使用 Event Bus const bus = new Vue(); export default bus; 在我们需要发送事件以及接收事件的组件中引入。
 import bus from &amp;#39;../common/bus&amp;#39;; 监听 在需要监听的组件中的created中使用bus监听
-created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去  doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
-// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.">
+created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去 doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
+// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.$off() ">
     <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
         <link rel="manifest" href="/manifest.json">

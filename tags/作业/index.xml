@@ -18,19 +18,18 @@
 其实主要的还是自己没怎么听，嘿嘿。
 零 这个学期我们有一门课是软件工程，幸运的是这门课没有期末考，不幸的是这个老师要我们写6000字的论文（6000字啊！）。 论文是从几个题目里面挑一个来写，基于好写容易理解同时谷歌/百度后有很多样板以方便我们copy的原则，我们小组选了学生学籍管理系统。 老师：“这次作业不查重，你们也不用把这个项目实现，只要模仿我给你们的样板把他写出来就好了” 前面6000字给我带来的冲击小了一半，虽然我文笔挺差，但是我复制粘贴起来真的不含糊。
 就这样我殚精竭虑地想着方法来混过这一次作业。 但是人有时候偷着懒，却又对别人的努力感到惶恐不安。 快到截止的时间我准备动手的时候，舍友突然在我们的舍友群里信息轰炸。 “xx真的把他们选的项目做出来了喂！” “什么东西？” “就是软件工程那个” 我也可以赞叹一句，然后就接着躺在床上刷手机，安稳混过这个期末。退一步海阔天空，但是忍一时越想越气。
- Somebody has to win, so why not be me?
- 我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
+Somebody has to win, so why not be me?
+我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
 一、面向搜索引擎编程 说实话，因为这是第一次是实际上手，所以我早就想到肯定会踩到很多坑，但是我没想到一上来就给了我一个下马威。
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
-&amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34; style=&amp;#34;margin: 0px;&amp;#34;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
- 登陆界面 
-传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
+&amp;lt;template&amp;gt;&amp;lt;div id=&amp;#34;app&amp;#34; style=&amp;#34;margin: 0px;&amp;#34;&amp;gt;&amp;lt;router-view/&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
+登陆界面传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
-this.$router.push({ path: &amp;#39;/Home&amp;#39;, query: { id: res.objectId, } }) 接收
+this.$router.push({path: &amp;#39;/Home&amp;#39;,query: {id: res.objectId,}}) 接收
 this.$route.query.id params传参以及接收 传参
-this.$router.push({ name: &amp;#39;Home&amp;#39;, params: { id: res.</description>
+this.$router.push({name: &amp;#39;Home&amp;#39;,params: {id: res.objectId,}}) 接收</description>
     </item>
     
   </channel>
