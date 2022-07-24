@@ -3,16 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://magren.cn/categories/</loc>
-    <lastmod>2022-05-03T10:14:21+08:00</lastmod>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/</loc>
-    <lastmod>2022-05-03T10:14:21+08:00</lastmod>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/node.js/</loc>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/categories/node.js/</loc>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/post/</loc>
-    <lastmod>2022-05-03T10:14:21+08:00</lastmod>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/</loc>
-    <lastmod>2022-05-03T10:14:21+08:00</lastmod>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/typescript/</loc>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/about-yuan-bot/</loc>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
+  </url><url>
+    <loc>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2022-07-24T00:30:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/tags/%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2022-05-03T10:14:21+08:00</lastmod>
@@ -47,18 +65,6 @@
     <loc>https://magren.cn/about-github-report/</loc>
     <lastmod>2021-07-30T14:00:21+08:00</lastmod>
   </url><url>
-    <loc>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2021-07-30T14:00:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/node.js/</loc>
-    <lastmod>2021-07-07T12:57:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/categories/node.js/</loc>
-    <lastmod>2021-07-07T12:57:21+08:00</lastmod>
-  </url><url>
     <loc>https://magren.cn/puppeteer-get-github/</loc>
     <lastmod>2021-07-07T12:57:21+08:00</lastmod>
   </url><url>
@@ -76,9 +82,6 @@
   </url><url>
     <loc>https://magren.cn/pixel/</loc>
     <lastmod>2021-02-25T16:33:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/tags/typescript/</loc>
-    <lastmod>2021-02-10T18:11:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/about-chatroom/</loc>
     <lastmod>2021-02-10T18:11:21+08:00</lastmod>

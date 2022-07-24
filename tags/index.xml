@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Magren&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 03 May 2022 10:14:21 +0800</lastBuildDate><atom:link href="https://magren.cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Jul 2022 00:30:21 +0800</lastBuildDate><atom:link href="https://magren.cn/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>node.js</title>
+      <link>https://magren.cn/tags/node.js/</link>
+      <pubDate>Sun, 24 Jul 2022 00:30:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/tags/node.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Typescript</title>
+      <link>https://magren.cn/tags/typescript/</link>
+      <pubDate>Sun, 24 Jul 2022 00:30:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>前端</title>
+      <link>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Sun, 24 Jul 2022 00:30:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>项目</title>
+      <link>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Sun, 24 Jul 2022 00:30:21 +0800</pubDate>
+      
+      <guid>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>日常</title>
       <link>https://magren.cn/tags/%E6%97%A5%E5%B8%B8/</link>
@@ -44,47 +80,11 @@
     </item>
     
     <item>
-      <title>前端</title>
-      <link>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</link>
-      <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
-      
-      <guid>https://magren.cn/tags/%E5%89%8D%E7%AB%AF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>项目</title>
-      <link>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</link>
-      <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
-      
-      <guid>https://magren.cn/tags/%E9%A1%B9%E7%9B%AE/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>node.js</title>
-      <link>https://magren.cn/tags/node.js/</link>
-      <pubDate>Wed, 07 Jul 2021 12:57:21 +0800</pubDate>
-      
-      <guid>https://magren.cn/tags/node.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>博客</title>
       <link>https://magren.cn/tags/%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 03 Apr 2021 22:14:21 +0800</pubDate>
       
       <guid>https://magren.cn/tags/%E5%8D%9A%E5%AE%A2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Typescript</title>
-      <link>https://magren.cn/tags/typescript/</link>
-      <pubDate>Wed, 10 Feb 2021 18:11:21 +0800</pubDate>
-      
-      <guid>https://magren.cn/tags/typescript/</guid>
       <description></description>
     </item>
     
