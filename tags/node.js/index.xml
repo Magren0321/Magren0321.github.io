@@ -44,9 +44,9 @@ yuan-bot是基于oicq并使用TS编写以及使用MongoDB作为数据库的QQ机
       <pubDate>Wed, 07 Jul 2021 12:57:21 +0800</pubDate>
       
       <guid>https://magren.cn/puppeteer-get-github/</guid>
-      <description>介绍 puppeteer 是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景。
-使用 安装 npm install puppeteer-chromium-resolver &amp;ndash;save
-生成/关闭浏览器 const browser = await (puppeteer.launch({ args: [&amp;#39;--no-sandbox&amp;#39;, &amp;#39;--disable-setuid-sandbox&amp;#39;], //如果是访问https页面 此属性会忽略https错误 ignoreHTTPSErrors: true, headless: true, //改为true则是无头模式，不显示浏览器，在无界面的环境中运行 Chrome })); //关闭 browser.close(); 生成新的tab并且跳转 const page = await browser.newPage(); await page.goto(&amp;#39;https://github.com/&amp;#39;+name+&amp;#39;?tab=repositories&amp;#39;); //跳转到github某个用户的仓库页 在控制台中执行函数（ evaluate() ） //获取当页的所有项目url，同时有下一页仓库的url的话也获取 const rep = await page.evaluate(()=&amp;gt;{ const url = document.querySelectorAll(&amp;#39;.wb-break-all &amp;gt; a&amp;#39;); const next = document.querySelector(&amp;#39;.BtnGroup &amp;gt; a&amp;#39;); let urlList = undefined; let nextUrl = undefined; if(url !</description>
+      <description>介绍  puppeteer 是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景。
+ 使用 安装  npm install puppeteer-chromium-resolver &amp;ndash;save
+ 生成/关闭浏览器 const browser = await (puppeteer.launch({ args: [&amp;#39;--no-sandbox&amp;#39;, &amp;#39;--disable-setuid-sandbox&amp;#39;], //如果是访问https页面 此属性会忽略https错误  ignoreHTTPSErrors: true, headless: true, //改为true则是无头模式，不显示浏览器，在无界面的环境中运行 Chrome  })); //关闭  browser.close(); 生成新的tab并且跳转 const page = await browser.newPage(); await page.goto(&amp;#39;https://github.com/&amp;#39;+name+&amp;#39;?tab=repositories&amp;#39;); //跳转到github某个用户的仓库页 在控制台中执行函数（ evaluate() ） //获取当页的所有项目url，同时有下一页仓库的url的话也获取  const rep = await page.evaluate(()=&amp;gt;{ const url = document.querySelectorAll(&amp;#39;.wb-break-all &amp;gt; a&amp;#39;); const next = document.querySelector(&amp;#39;.BtnGroup &amp;gt; a&amp;#39;); let urlList = undefined; let nextUrl = undefined; if(url !</description>
     </item>
     
     <item>
@@ -58,21 +58,23 @@ yuan-bot是基于oicq并使用TS编写以及使用MongoDB作为数据库的QQ机
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom
-项目截图： 后端 后端基于Node.js + Express + Socket.io + MongoDB
+项目截图：  
+ 
+ 
+后端 后端基于Node.js + Express + Socket.io + MongoDB
 Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：
 Node.js+express
 Node.Js操作MongoDB
 这次用的新东西就是Socket.io。
-前人的工作👇 Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
-即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
+前人的工作👇  Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
+ 即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
 在连接Socket.io的之前还得先知道WebSocket，在WebSocket问世之前，在创建拥有双向通信机制的 web 应用程序时，就只能利用 HTTP 轮询的方式，由此产生了 “短轮询” 和 “长轮询”。
-短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
+ 短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
 长轮询是对短轮询的优化，需要服务端做相应的修改来支持。但是每次请求还是都要带上HTTP请求头部，而且在长轮询的连接结束之后，服务器端积累的新消息要等到下次客户端连接时才能传递。
-Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
+ Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
 接着是Socket.io，Socket.io底层基于engine.io，封装了WebSocket，其屏蔽了底层细节，让顶层调用非常简单。同时它还支持许多种轮询机制以及其他通信方式，当环境不支持WebSocket的时候它能自动选择最佳的方式来实现网络的实时通信。
 使用 引入io设置端口后监听connect事件：
-const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001 io.on((&amp;#39;connection&amp;#39;, socket=&amp;gt;{ ……………… }) 接着通过最重要的两个api，emit和on来发送以及监听事件
-socket.emit(eventName,[ &amp;hellip;args])：发射（触发）一个事件 socket.on(eventName, callback)：监听一个 emit 发射的事件 //监听xxx事件，输出传进来的data对象 socket.</description>
+const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001  io.</description>
     </item>
     
     <item>
@@ -83,10 +85,10 @@ socket.emit(eventName,[ &amp;hellip;args])：发射（触发）一个事件 sock
       <guid>https://magren.cn/node-express/</guid>
       <description>前一段时间学习了node.js操作mongoDB数据库，现在追加一篇写接口的记录。
 链接数据库 在项目根目录下安装Mongoose
-npm install mongoose &amp;ndash;save
-利用mongoose来链接MongoDB 在项目中创建db.js文件：
+ npm install mongoose &amp;ndash;save
+ 利用mongoose来链接MongoDB 在项目中创建db.js文件：
 &amp;#39;use strict&amp;#39;; import mongoose from &amp;#39;mongoose&amp;#39;; mongoose.connect(&amp;#39;mongodb://localhost:27017/test&amp;#39;, { useNewUrlParser: true, useUnifiedTopology: true }); const db = mongoose.connection; db.once(&amp;#39;open&amp;#39; ,() =&amp;gt; { console.log( &amp;#39;连接数据库成功&amp;#39; ); }) db.on(&amp;#39;error&amp;#39;, function(error) { console.error( &amp;#39;Error in MongoDb connection: &amp;#39; + error ); mongoose.disconnect(); }); db.on(&amp;#39;close&amp;#39;, function() { console.log( &amp;#39;数据库断开，重新连接数据库&amp;#39; ); }); export default db; 创建数据模型（建一张表） 在test数据库中创建一张名为StudentSchema的表，表中有name和age字段，并且公出。
-import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.Schema({ name: String, age: Number }) const studentSchema = mongoose.</description>
+import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.</description>
     </item>
     
     <item>
@@ -102,18 +104,16 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
 但行好事，莫问前程
 我也纠结过是学习用node.js还是Java去操作后端数据库。 有的人说学node.js，前端工程师都要会这个；也有的人说学java，去学ssm，学spring全家桶；还有的人说node.js没有前途； 最后在网上看到了一个答案， 他说：程序员本身不该受语言的约束，更不该受框架的约束。什么样的场景用什么样的工具。 所谓的没有前途一直都是错误的使用正确的工具。 你得有一颗拿c++造宇宙飞船的心。🚀
 node.js是什么？ 根据官方的说法：
-Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
-Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。 Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也可以执行JavaScript。
+ Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
+ Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。 Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也可以执行JavaScript。
 环境安装 node.js安装 下载地址：Node.js官网下载
 MongoDB数据库 下载地址：MongoDB官网下载
 启动服务 在MongoDB文件夹下的bin目录下用命令行输入：.\mongo 来启动服务
 可视化工具 Robo3T 用于可视化操作MongoDB数据库，下载地址：Robo3T
 express Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
 express脚手架 express脚手架安装：
-npm install -g express-generator
-创建express项目：
-express test
-cd test</description>
+ npm install -g express-generator
+ 创建express项目：</description>
     </item>
     
   </channel>

@@ -4,16 +4,16 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我是少数派的一个读者，成为少数派已经419天。
 从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
 但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
-继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+ 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
 好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
-关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+ 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
 关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
 PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
 纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
 好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
 将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
 添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
-{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向 &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言 &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字 &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称 &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色 &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色 &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。 &amp;#34;start_url&amp;#34;: &amp;#34;.'><title>将博客变成PWA</title>
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;.'><title>将博客变成PWA</title>
 
 <link rel='canonical' href='https://magren.cn/be-pwa/'>
 
@@ -21,16 +21,16 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
 <meta property='og:description' content='我是少数派的一个读者，成为少数派已经419天。
 从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
 但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
-继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+ 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
 好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
-关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+ 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
 关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
 PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
 纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
 好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
 将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
 添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
-{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向 &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言 &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字 &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称 &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色 &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色 &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。 &amp;#34;start_url&amp;#34;: &amp;#34;.'>
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;.'>
 <meta property='og:url' content='https://magren.cn/be-pwa/'>
 <meta property='og:site_name' content='Magren&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='博客' /><meta property='article:published_time' content='2021-04-03T22:14:21&#43;08:00'/><meta property='article:modified_time' content='2021-04-03T22:14:21&#43;08:00'/><meta property='og:image' content='https://magren.cn/be-pwa/pwa.png' />
@@ -38,16 +38,16 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
 <meta name="twitter:description" content="我是少数派的一个读者，成为少数派已经419天。
 从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
 但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
-继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+ 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
 好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
-关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+ 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
 关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
 PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
 纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
 好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
 将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
 添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
-{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向 &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言 &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字 &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称 &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色 &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色 &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。 &amp;#34;start_url&amp;#34;: &amp;#34;."><meta name="twitter:card" content="summary_large_image">
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://magren.cn/be-pwa/pwa.png' />
     <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
