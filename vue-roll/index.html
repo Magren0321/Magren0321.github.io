@@ -5,8 +5,9 @@
 但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
 在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
 pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
-// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
-//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。'><title>Vue下监听页面滚动以及移动端触摸事件</title>
+// 浏览器兼容 if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动 // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动 const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动 console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动 console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。
+touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。 touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间，调用preventDefault()事件可以阻止滚动。 touchend事件：当手指从屏幕上离开的时候触发。 事件添加 双引号里是调用的方法'><title>Vue下监听页面滚动以及移动端触摸事件</title>
 
 <link rel='canonical' href='https://magren.cn/vue-roll/'>
 
@@ -15,8 +16,9 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
 但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
 在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
 pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
-// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
-//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。'>
+// 浏览器兼容 if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动 // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动 const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动 console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动 console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。
+touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。 touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间，调用preventDefault()事件可以阻止滚动。 touchend事件：当手指从屏幕上离开的时候触发。 事件添加 双引号里是调用的方法'>
 <meta property='og:url' content='https://magren.cn/vue-roll/'>
 <meta property='og:site_name' content='Magren&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:tag' content='Vue' /><meta property='article:published_time' content='2020-08-27T23:30:42&#43;00:00'/><meta property='article:modified_time' content='2020-08-27T23:30:42&#43;00:00'/>
@@ -25,8 +27,9 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
 但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
 在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
 pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
-// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
-//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。">
+// 浏览器兼容 if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动 // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动 const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动 console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动 console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。
+touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。 touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间，调用preventDefault()事件可以阻止滚动。 touchend事件：当手指从屏幕上离开的时候触发。 事件添加 双引号里是调用的方法">
     <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
         <link rel="manifest" href="/manifest.json">

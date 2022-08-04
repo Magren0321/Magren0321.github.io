@@ -15,10 +15,10 @@
       <guid>https://magren.cn/node-express/</guid>
       <description>前一段时间学习了node.js操作mongoDB数据库，现在追加一篇写接口的记录。
 链接数据库 在项目根目录下安装Mongoose
- npm install mongoose &amp;ndash;save
- 利用mongoose来链接MongoDB 在项目中创建db.js文件：
+npm install mongoose &amp;ndash;save
+利用mongoose来链接MongoDB 在项目中创建db.js文件：
 &amp;#39;use strict&amp;#39;; import mongoose from &amp;#39;mongoose&amp;#39;; mongoose.connect(&amp;#39;mongodb://localhost:27017/test&amp;#39;, { useNewUrlParser: true, useUnifiedTopology: true }); const db = mongoose.connection; db.once(&amp;#39;open&amp;#39; ,() =&amp;gt; { console.log( &amp;#39;连接数据库成功&amp;#39; ); }) db.on(&amp;#39;error&amp;#39;, function(error) { console.error( &amp;#39;Error in MongoDb connection: &amp;#39; + error ); mongoose.disconnect(); }); db.on(&amp;#39;close&amp;#39;, function() { console.log( &amp;#39;数据库断开，重新连接数据库&amp;#39; ); }); export default db; 创建数据模型（建一张表） 在test数据库中创建一张名为StudentSchema的表，表中有name和age字段，并且公出。
-import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.</description>
+import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSchema = new mongoose.Schema({ name: String, age: Number }) const studentSchema = mongoose.</description>
     </item>
     
     <item>
@@ -34,16 +34,18 @@ import mongoose from &amp;#39;mongoose&amp;#39;; //创建schema const StudentSch
 但行好事，莫问前程
 我也纠结过是学习用node.js还是Java去操作后端数据库。 有的人说学node.js，前端工程师都要会这个；也有的人说学java，去学ssm，学spring全家桶；还有的人说node.js没有前途； 最后在网上看到了一个答案， 他说：程序员本身不该受语言的约束，更不该受框架的约束。什么样的场景用什么样的工具。 所谓的没有前途一直都是错误的使用正确的工具。 你得有一颗拿c++造宇宙飞船的心。🚀
 node.js是什么？ 根据官方的说法：
- Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
- Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。 Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也可以执行JavaScript。
+Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
+Node.js 就是一個能执行 JavaScript 的环境，而 V8 则是主流浏览器 - Google Chrome 的 JavaScript 引擎，负责、执行 JavaScript。 Node.js再加上一系列的c/c++套件，成功的让我们的服务器端也可以执行JavaScript。
 环境安装 node.js安装 下载地址：Node.js官网下载
 MongoDB数据库 下载地址：MongoDB官网下载
 启动服务 在MongoDB文件夹下的bin目录下用命令行输入：.\mongo 来启动服务
 可视化工具 Robo3T 用于可视化操作MongoDB数据库，下载地址：Robo3T
 express Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
 express脚手架 express脚手架安装：
- npm install -g express-generator
- 创建express项目：</description>
+npm install -g express-generator
+创建express项目：
+express test
+cd test</description>
     </item>
     
   </channel>

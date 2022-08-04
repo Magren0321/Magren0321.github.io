@@ -15,16 +15,14 @@
       <guid>https://magren.cn/about-yuan-bot/</guid>
       <description>oicq是基于Node.js实现QQ(安卓)协议，提供了QQ内常用的功能操作
 yuan-bot是基于oicq并使用TS编写以及使用MongoDB作为数据库的QQ机器人。目前项目刚创建，只针对了Q群的精华消息，后续内容会慢慢丰富。
- Github地址：yuan-bot
- 这篇文章是该项目的非正经开发日志的历程记录。
+Github地址：yuan-bot
+这篇文章是该项目的非正经开发日志的历程记录。
 背景 我的QQ里面有着一个群，这是我高中以及大学时间玩剑三时候的游戏群。
 里面的人个个会玩说话又好听。为了铭记每个小伙伴的一言一语，我们活用了QQ的精华消息功能，将每一句 骚话 经典名言裱在了这个精华消息列表上。
-此时精华消息的内容不再是精华， 我们心照不宣地称其为糟粕  
-因为自己一时的年少轻狂而给装裱在列表上的小伙伴都叫苦连天（当然也有人以此为乐，是谁我不说，大家懂得都懂），纷纷控诉管理员这里面有着管理员的黑幕！应群友得而诛之！
+此时精华消息的内容不再是精华， 我们心照不宣地称其为糟粕 因为自己一时的年少轻狂而给装裱在列表上的小伙伴都叫苦连天（当然也有人以此为乐，是谁我不说，大家懂得都懂），纷纷控诉管理员这里面有着管理员的黑幕！应群友得而诛之！
 但道高一尺魔高一丈，卑鄙的群管理不仅无视群友控诉，甚至在前一阵群成立八周年之日推出糟粕周边（有幸本人也拿到了一个），同时为糟粕数量最多的群友颁发了奖杯，大力推行糟粕文化，加上群友民心涣散，群里反对的声音逐渐消失，人人都成乐子人。
-至此，糟粕文化达到了群成立以来的一个高潮。   
-在糟粕文化逐渐流行的同时，糟粕的数量也不断拔高，群管理发现了一些问题
- 糟粕数量最多达到1000，必须删掉部分糟粕消息才可以继续添加，这样会损失一些群历史的糟粕 在这么庞大的数量下，QQ群的精华消息并没有统计或者以时间查看等功能，每次统计都由人工统计，耗费人力 ……  Yuan-Bot 就是为了 糟粕以及乐子 解决上述的问题而生。
+至此，糟粕文化达到了群成立以来的一个高潮。 在糟粕文化逐渐流行的同时，糟粕的数量也不断拔高，群管理发现了一些问题
+糟粕数量最多达到1000，必须删掉部分糟粕消息才可以继续添加，这样会损失一些群历史的糟粕 在这么庞大的数量下，QQ群的精华消息并没有统计或者以时间查看等功能，每次统计都由人工统计，耗费人力 …… Yuan-Bot 就是为了 糟粕以及乐子 解决上述的问题而生。
 启动 git clone https://github.com/Magren0321/yuan-bot.git pnpm install pnpm run serve 过程 作为一个前端，所以技术的选用下意识地就选择了Node.js，找到了 oicq 这个库，它是基于Node.js实现的Android QQ，同时是我感觉功能较为全面的库，具体的使用听我说不如参考其 Api reference
 精华数据 oicq其本身封装的群对象里面并没有封装群精华数据（不如说好像还没有开源的库做到了这个，或许是受众太小了使用的频率也不高，所以都没有考虑），所以我得自己动手，丰衣足食。
 用Fiddler抓包了PC端的QQ，抓到了精华数据的接口，然后通过 oicq 提供的登录接口获取到Cookie，将其丢进请求头来获取精华消息的数据。
@@ -32,10 +30,11 @@ yuan-bot是基于oicq并使用TS编写以及使用MongoDB作为数据库的QQ机
 然后又又又碰上了一个问题就是，当群里有新增精华消息的时候我并无法通过 oicq 监听到群里的tips，发现这个已经有人在去年8月就提了issues，但是至今没有解决的样子。
 原本的计划是打算监听到添加精华消息后，服务器的数据库实时存储新的精华消息，但是现在只能换一种方案，改成了间隔定时器，每隔一定时间对数据进行请求，记录好最新消息的时间戳，以此筛选掉旧的内容。
 这个办法虽然我觉得很笨，但是现状我暂时没想到别的办法来实现这个功能。
-命令 这个比较容易解决，只需要监听指定群的消息，封装一个类，以字符串作为类中的key，对应的方法作为value，在收到消息后将消息作为key传入，如果class中存在则执行对应的方法就好。  
-大概实现就是这样，可以说是平平无奇，毫无亮点🤡
+命令 这个比较容易解决，只需要监听指定群的消息，封装一个类，以字符串作为类中的key，对应的方法作为value，在收到消息后将消息作为key传入，如果class中存在则执行对应的方法就好。 大概实现就是这样，可以说是平平无奇，毫无亮点🤡
 最后（或许也还不是最后？ yuan-bot的功能后续还会继续丰富还有迭代(不过现在上班了，估摸进度会推进的比较缓慢)
-🙏感谢 oicq 提供的接口以及文档</description>
+🙏感谢 oicq 提供的接口以及文档
+🛸Power by Magren and made with love
+To Be Continued.</description>
     </item>
     
     <item>
@@ -44,13 +43,9 @@ yuan-bot是基于oicq并使用TS编写以及使用MongoDB作为数据库的QQ机
       <pubDate>Fri, 30 Jul 2021 14:00:21 +0800</pubDate>
       
       <guid>https://magren.cn/about-github-report/</guid>
-      <description>前言🛸  GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。
- Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，曾用它抄别人代码来度过作业的危机， 在之前使用Puppeteer尝试爬取了Github的部分数据，于是脑子一抽， 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。
+      <description>前言🛸 GitHub是通过Git进行版本控制的软件源代码托管服务平台，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、P. J. Hyett和汤姆·普雷斯顿·沃纳使用Ruby on Rails编写而成。截止到2020年1月，GitHub已经有超过4000万注册用户和1.9亿代码库（包括至少2800万开源代码库），事实上已经成为了世界上最大的代码存放网站和开源社区。
+Github作为世界上最大的开源社区，对我编程的学习可以说是举足轻重的，曾用它抄别人代码来度过作业的危机， 在之前使用Puppeteer尝试爬取了Github的部分数据，于是脑子一抽， 灵光一闪，决定配合之前写的后台，结合下自己想尝试的react函数式组件去写一个页面来展示一个人Github的一些数据。
 项目地址：Github Report
- 
- 
- 
- 
 NES.css🚀 NES是20世纪80年代末、90年代初进入中国，是80后最早接触的游戏机，俗称红白机，这是一台使用8位处理器的游戏主机，而NES.css是一款NES风格（8位机）的CSS框架，也是一款像素风的CSS元件库,它没有任何 JavaScript 依赖,只包含CSS。
 NES.css提供的组件样式很对我胃口，它还提供了一些很好玩的像素icon。NES.css在默认里只有英文字体是像素风格的，如果是需要别的语言也是像素风格的话，需要自行去下载字体。
 👀具体使用参考看官方文档：NES.css
@@ -69,9 +64,9 @@ useState 为函数式组件引入state，这个函数返回一个数组，数组
       <pubDate>Wed, 07 Jul 2021 12:57:21 +0800</pubDate>
       
       <guid>https://magren.cn/puppeteer-get-github/</guid>
-      <description>介绍  puppeteer 是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景。
- 使用 安装  npm install puppeteer-chromium-resolver &amp;ndash;save
- 生成/关闭浏览器 const browser = await (puppeteer.launch({ args: [&amp;#39;--no-sandbox&amp;#39;, &amp;#39;--disable-setuid-sandbox&amp;#39;], //如果是访问https页面 此属性会忽略https错误  ignoreHTTPSErrors: true, headless: true, //改为true则是无头模式，不显示浏览器，在无界面的环境中运行 Chrome  })); //关闭  browser.close(); 生成新的tab并且跳转 const page = await browser.newPage(); await page.goto(&amp;#39;https://github.com/&amp;#39;+name+&amp;#39;?tab=repositories&amp;#39;); //跳转到github某个用户的仓库页 在控制台中执行函数（ evaluate() ） //获取当页的所有项目url，同时有下一页仓库的url的话也获取  const rep = await page.evaluate(()=&amp;gt;{ const url = document.querySelectorAll(&amp;#39;.wb-break-all &amp;gt; a&amp;#39;); const next = document.querySelector(&amp;#39;.BtnGroup &amp;gt; a&amp;#39;); let urlList = undefined; let nextUrl = undefined; if(url !</description>
+      <description>介绍 puppeteer 是一个Chrome官方出品的headless Chrome node库。它提供了一系列的API, 可以在无UI的情况下调用Chrome的功能, 适用于爬虫、自动化处理等各种场景。
+使用 安装 npm install puppeteer-chromium-resolver &amp;ndash;save
+生成/关闭浏览器 const browser = await (puppeteer.launch({ args: [&amp;#39;--no-sandbox&amp;#39;, &amp;#39;--disable-setuid-sandbox&amp;#39;], //如果是访问https页面 此属性会忽略https错误 ignoreHTTPSErrors: true, headless: true, //改为true则是无头模式，不显示浏览器，在无界面的环境中运行 Chrome })); //关闭 browser.close(); 生成新的tab并且跳转 const page = await browser.newPage(); await page.goto(&amp;#39;https://github.com/&amp;#39;+name+&amp;#39;?tab=repositories&amp;#39;); //跳转到github某个用户的仓库页 在控制台中执行函数（ evaluate() ） //获取当页的所有项目url，同时有下一页仓库的url的话也获取 const rep = await page.evaluate(()=&amp;gt;{ const url = document.querySelectorAll(&amp;#39;.wb-break-all &amp;gt; a&amp;#39;); const next = document.querySelector(&amp;#39;.BtnGroup &amp;gt; a&amp;#39;); let urlList = undefined; let nextUrl = undefined; if(url !</description>
     </item>
     
     <item>
@@ -83,16 +78,16 @@ useState 为函数式组件引入state，这个函数返回一个数组，数组
       <description>我是少数派的一个读者，成为少数派已经419天。
 从少数派里面学到了很多东西，也丰富了自己的眼界，所以少数派APP也是我手机上的常用应用之一，在去年将手机换成了Android后，发现到现在为止Android的APP已经很久没有更新过了，Android客户端一直处于一个“年久失修”的状态，反倒是IOS的一直在更新迭代，更新了UI以及一些新的功能，这让我十分眼红。
 但是在少数派3月31号发布的文章中，他们为Android客户端做出了一个解释，并且提出了一个更优解。
- 继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
+继去年少数派网站改版升级后，更符合新版设计的少数派 iOS 客户端 2.0 也在不久前正式上线。可惜由于开发能力实在有限，Android 平台繁杂的机型适配和兼容性问题也着实令人头疼，少数派的 Android 客户端此前一直处于「年久失修」的状态。
 好在少数派最终为 Android 客户端找到了一个「更优解」——渐进式网页应用（以下简称 PWA）。在保证内容呈现完整的前提下，PWA 有着比客户端应用更轻量、比网页版功能更强大的全新体验，同时还能兼容 Android、iOS 甚至 Windows 等多个平台。
- 关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
+关于PWA这个概念我是第一次知道，抱着新奇的态度开始Google……
 关于PWA PWA 是 Google 于 2016 年提出的概念，于 2017 年正式落地，于 2018 年迎来重大突破，全球顶级的浏览器厂商，Google、Microsoft、Apple 已经全数宣布支持 PWA 技术。
 PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是通过各种 Web 技术实现与原生 App 相近的用户体验。
 纵观现有 Web 应用与原生应用的对比差距，如离线缓存、沉浸式体验等等，可以通过已经实现的 Web 技术去弥补这些差距，最终达到与原生应用相近的用户体验效果。
 好吧说完上面的官方发言，地道一点说下我自己的体验，就是一个Web页面拿掉了浏览器的壳子，以一个近似app的形式存在手机桌面，与一般的将网页添加到桌面不同，它还有本地通知的能力以及一个缓存的能力，除此以外它可以兼容Android、IOS以及Windows多个平台，对我来说它在打开的时候还有一个页面logo闪屏，很有吸引力。
 将自己的博客变成PWA 在体验过少数派的PWA后，我萌生了能否把自己的博客变成PWA的想法，在网上查询了资料后发现入门意外的简单，接下来说说我自己的操作。
 添加 manifest.json 这里新建一个manifest.json文件，主要是配置应用图标以及名称等信息，然后这里分享下我的配置，具体的配置介绍可以参考下MDN。
-{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向  &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言  &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字  &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称  &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色  &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色  &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。  &amp;#34;start_url&amp;#34;: &amp;#34;.</description>
+{ &amp;#34;dir&amp;#34;: &amp;#34;ltr&amp;#34;, //指定名称、短名称和描述成员的主文本方向 &amp;#34;lang&amp;#34;: &amp;#34;zh-cn&amp;#34;, //语言 &amp;#34;name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //名字 &amp;#34;short_name&amp;#34;: &amp;#34;Magren&amp;#39;s Blog&amp;#34;, //短名称 &amp;#34;theme_color&amp;#34;: &amp;#34;#ffffff&amp;#34;, //主题颜色 &amp;#34;background_color&amp;#34;: &amp;#34;#d4d4d4&amp;#34;, //启动时闪屏的背景颜色 &amp;#34;display&amp;#34;: &amp;#34;standalone&amp;#34;, //定义开发人员对Web应用程序的首选显示模式。 &amp;#34;start_url&amp;#34;: &amp;#34;.</description>
     </item>
     
     <item>
@@ -102,12 +97,11 @@ PWA 全称为 Progressive Web App，中文译为渐进式 Web APP，其目的是
       
       <guid>https://magren.cn/pixel/</guid>
       <description>这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。
-甚至把自己的电脑壁纸也换成了像素风。很有感觉😝  
-想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
-思路⭐  使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点  其实就是小的图片放大，会感觉到糊的效果。
+甚至把自己的电脑壁纸也换成了像素风。很有感觉😝 想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
+思路⭐ 使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点 其实就是小的图片放大，会感觉到糊的效果。
 Code💻 禁止浏览器的平滑处理其实就是是否抗锯齿。
 用正则表达式限制输入框只能输入0-100，意味着让图片缩放的百分比（100就是没有缩放，达不到像素化的效果）
-const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小  let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理  ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来  ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小  ctx.</description>
+const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小 let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理 ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来 ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小 ctx.drawImage(canvas, 0, 0, scaledW, scaledH, 0, 0, canvas.</description>
     </item>
     
     <item>
@@ -119,23 +113,21 @@ const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = im
       <description>学习新东西👋 最近这几天在学习React，所以这个项目主要目的是给我熟悉React，我个人是喜欢边学习一样新东西边动手，只有输出才会让我记忆更深刻，其次也会踩到一些光看是不会碰到的坑，加上之前学习node.js好像也没有做什么，于是就想到了结合在一块做一个聊天室。✌
 因为是第一次做React，如果觉得有什么需要修改的欢迎提出Issuse，也欢迎你的star⭐
 项目地址：ChatRoom
-项目截图：  
- 
- 
-后端 后端基于Node.js + Express + Socket.io + MongoDB
+项目截图： 后端 后端基于Node.js + Express + Socket.io + MongoDB
 Node.js操作MongoDB以及用express写接口之前都有在博客中大致的总结过：
 Node.js+express
 Node.Js操作MongoDB
 这次用的新东西就是Socket.io。
-前人的工作👇  Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
- 即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
+前人的工作👇 Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server
+即是说Socket.io可以实现服务器与客户端之间的一个实时的双向通信。
 在连接Socket.io的之前还得先知道WebSocket，在WebSocket问世之前，在创建拥有双向通信机制的 web 应用程序时，就只能利用 HTTP 轮询的方式，由此产生了 “短轮询” 和 “长轮询”。
- 短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
+短轮询通过客户端定期轮询来询问服务端是否有新的信息产生，缺点也是显而易见，轮询间隔大了则信息不够实时，轮询间隔过小又会消耗过多的流量，增加服务器的负担。
 长轮询是对短轮询的优化，需要服务端做相应的修改来支持。但是每次请求还是都要带上HTTP请求头部，而且在长轮询的连接结束之后，服务器端积累的新消息要等到下次客户端连接时才能传递。
- Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
+Websocket协议就是为了解决长轮询的痛点而诞生的，其基于TCP协议，是一种双全工通信技术、复用HTTP握手通道。它与HTTP协议的唯一关系就是它的握手请求可以作为一个Upgrade request经由HTTP服务器解析，且与HTTP使用一样的端口。
 接着是Socket.io，Socket.io底层基于engine.io，封装了WebSocket，其屏蔽了底层细节，让顶层调用非常简单。同时它还支持许多种轮询机制以及其他通信方式，当环境不支持WebSocket的时候它能自动选择最佳的方式来实现网络的实时通信。
 使用 引入io设置端口后监听connect事件：
-const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001  io.</description>
+const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&amp;#39;socket.io&amp;#39;)(server); server.listen(3001); //端口设置3001 io.on((&amp;#39;connection&amp;#39;, socket=&amp;gt;{ ……………… }) 接着通过最重要的两个api，emit和on来发送以及监听事件
+socket.emit(eventName,[ &amp;hellip;args])：发射（触发）一个事件 socket.on(eventName, callback)：监听一个 emit 发射的事件 //监听xxx事件，输出传进来的data对象 socket.</description>
     </item>
     
     <item>
@@ -148,18 +140,15 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
 项目基于Vue + Typescript + Vuetify UI实现。
 项目地址：CloudMusic
 已经实现的功能：
- 登录 获取歌单 创建歌单 删除/取消收藏歌单 播放歌曲 排行榜 每日推荐 推荐歌单  项目截图：    
-  
-播放 这个可以说是核心功能，毕竟一个听歌的平台不能听歌就说不过去了。
+登录 获取歌单 创建歌单 删除/取消收藏歌单 播放歌曲 排行榜 每日推荐 推荐歌单 项目截图： 播放 这个可以说是核心功能，毕竟一个听歌的平台不能听歌就说不过去了。
 首先歌曲的选择可以来自歌单，可以来自发现页的轮播图，还可以来自播放页面的选择，然后控制歌曲的播放暂停既可以从其他页面下方的播放tab控制，又可以在播放的页面进行控制，如果使用Prop和Emit实在是太多太乱了，所以我这里使用了Vuex。
- Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
- 其实就是把我们需要的组件共享状态抽取出来，以一个全局单例模式管理，然后我们可以在任何一个组件下通过Vuex来修改其状态或者值。
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+其实就是把我们需要的组件共享状态抽取出来，以一个全局单例模式管理，然后我们可以在任何一个组件下通过Vuex来修改其状态或者值。
 于是我将所选的歌曲ID，以及当前播放的歌单信息，ID传进了Vuex，在播放页面只需要监听Vuex中歌曲id的变化，即可播放新的歌曲；监听Vuex中是否暂停的状态，来控制audio组件暂停或者播放。
 播放进度 进度条我用的是Vuetify UI中的slider组件，通过v-model来设定其值。
 在audio中通过 @timeupdate 来监听audio当前的播放时间戳，接着与播放总时长相除并乘以100得到当前播放进度的百分比，接着赋值给slider组件即可，进度条左边的时间也是通过当前播放的时间戳转换成的时间。
 但是这里会有个问题，就是需要通过移动滑块来修改播放的进度，在刚刚@timeupdate绑定的方法中只是单向的将进度赋值给滑块，并且在音乐播放的时候这个方法是一直在运行的，这样无论我怎样移动滑块，滑块都会立马就瞬移到了当前的播放位置，所以这里还得加一个监听是否正在移动滑块的方法，当移动滑块的时候不将当前播放的进度赋值给滑块，然后当我松手的时候将滑块当前的进度转换成时间戳赋值回给audio的播放时间。
 我的解决办法是给滑块组件引入了 @mousedown 和 @mouseup，当鼠标按下的时候将一个变量赋值为true，抬起的时候为false，修改@timeupdate中的方法，设定其只有在该变量为false的时候才会对滑块组件赋值，但是滑动滑块的时候也得修改当前的播放时间，所以给滑块组件引入了 @change ，当手动更改了滑块的值的时候会触发该方法，在这个方法里面对audio的播放进度进行修改。
- 
 歌词实现 从后台获取的歌词是一个字符串，但是每行歌词都用了\n标识，所以将字符串以\n分割可以得到每行的歌词，每行歌词里中括号里面的是时间，还得将每句歌词以中括号进行分割，最后将时间转换成时间戳，与歌词放在一块做为一个类放入数组中。
 设置一个索引，用于记录是第几行歌词，通过offsetHeight获取到歌词组件的高度来确认歌词中线所在的位置，通过索引乘以每行歌词的高度来判断是否滚动。
 其实就是给外部的div设置超出隐藏，然后通过修改mragin-top来实现一个滚动的效果，而margin-top的值是由中线的高度减去索引乘以每行歌词的高度来决定。同时可以通过transition属性来设定其改变的时间。
@@ -168,7 +157,8 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
 关于Vue的自定义指令 在制作的过程中我想实现个功能就是点击某个组件以外的位置的时候隐藏该组件，即点击的不是该组件的时候会执行一个方法。
 我查资料的时候发现vue并没有这么一个指令，但是我可以通过自己去自定义这么一个指令来实现这个功能。
 首先看看一个自定义的指令对象的钩子函数：
- bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。 inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。 update：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下) componentUpdated：指令所在组件的 VNode 及其子 VNode 全部更新后调用。 unbind：只调用一次，指令与元素解绑时调用。  接着钩子函数中都有以下几个参数：</description>
+bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。 inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。 update：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下) componentUpdated：指令所在组件的 VNode 及其子 VNode 全部更新后调用。 unbind：只调用一次，指令与元素解绑时调用。 接着钩子函数中都有以下几个参数：
+el：指令所绑定的元素，可以用来直接操作 DOM。 binding：一个对象，包含以下 property： name：指令名，不包括 v- 前缀。 value：指令的绑定值，例如：v-my-directive=&amp;ldquo;1 + 1&amp;rdquo; 中，绑定值为 2。 oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。 expression：字符串形式的指令表达式。例如 v-my-directive=&amp;ldquo;1 + 1&amp;rdquo; 中，表达式为 &amp;ldquo;1 + 1&amp;rdquo;。 arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 &amp;ldquo;foo&amp;rdquo;。 modifiers：一个包含修饰符的对象。例如：v-my-directive.</description>
     </item>
     
     <item>
@@ -179,17 +169,20 @@ const server = require(&amp;#39;http&amp;#39;).Server(app); const io = require(&
       <guid>https://magren.cn/inputUrl/</guid>
       <description>最近在准备着前端的面试，这个问题基本是必考题，稍微去网上查阅了一些资料，并且自己整理了下。
 总的过程如下：
- 输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束  输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
+输入URL DNS解析 建立TCP链接 发送HTTP请求 服务器永久重定向 服务器处理请求并返回一个HTTP响应 浏览器显示HTML 链接结束 输入URL URL的中文名叫统一资源定位符，用于得到资源的位置和访问方法。 其组成为：协议：//主机名:端口号/路径/;参数?查询#信息片段
 DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，得到主机名对应的IP地址的过程就叫做域名解析。 DNS解析的过程其实就是为了寻找哪台机器上有需要的资源，实际上充当了一个翻译的身份，将输入的网址转换成IP地址。 以下是DNS的一个查找顺序：
- 浏览器缓存：向浏览器缓存中读取访问记录 操作系统缓存：查找在系统运行内存中的缓存 host文件：查找本地硬盘的host文件 路由器缓存：部分路由器会缓存访问过的域名 ISP（互联网服务提供商）DNS缓存：在本地查找不到的情况下，ISP会在当前服务器的缓存中查找 根DNS服务器：根域名收到请求，判断是哪台服务器管理，并返回顶级DNS服务器的IP给请求者。  在查找完以后本地DNS服务器向域名的解析服务器发起请求，本地服务器将IP地址返回给电脑，并将对应关系保存在缓存中。
+浏览器缓存：向浏览器缓存中读取访问记录 操作系统缓存：查找在系统运行内存中的缓存 host文件：查找本地硬盘的host文件 路由器缓存：部分路由器会缓存访问过的域名 ISP（互联网服务提供商）DNS缓存：在本地查找不到的情况下，ISP会在当前服务器的缓存中查找 根DNS服务器：根域名收到请求，判断是哪台服务器管理，并返回顶级DNS服务器的IP给请求者。 在查找完以后本地DNS服务器向域名的解析服务器发起请求，本地服务器将IP地址返回给电脑，并将对应关系保存在缓存中。
 拓展： DNS的查询方式：
- 递归：局部DNS服务器负责向其他DNS服务器查询（一般先向该域名的根域服务器查询，接着一级一级向下查询），结果返回给局部DNS服务器后再由其返回个客户端。 迭代：局部DNS服务器把能解析该域名的其他DNS服务器的IP地址给客户端DNS程序，再由该程序向这些DNS服务器查询（用于局部DNS服务器不能回答客户机DNS查询时）。  DNS优化方法：
- DNS缓存 DNS负载均衡  为啥需要：当每次请求的资源都在同一台机器上时，机器可能承受不过来而崩掉。 原理：为一个主机名配置多个IP地址，在应答查询饿时候对每个查询以DNS文件中记录的IP地址按顺序返回不同的结果，将访问引导到不同的机器上去。    建立TCP链接 拿到IP地址后就是通过三次握手来建立TCP链接了。
- 第一次握手：客户端发送SYN（同步序列编号）包到服务器，并且进入SYN_SENT状态，等待服务器确认。 第二次握手：服务器收到SYN包后确认，同时自己也发送一个SYN包，即SYN+ACK包，服务器进入SYN_RECE状态 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送一个确认包ACK，发送完毕后客户端和服务器进入ESTABLISHED状态。  拓展： 为啥三次握手：为了防止已经失效的链接请求报文突然传送到了服务端因而产生错误。
+递归：局部DNS服务器负责向其他DNS服务器查询（一般先向该域名的根域服务器查询，接着一级一级向下查询），结果返回给局部DNS服务器后再由其返回个客户端。 迭代：局部DNS服务器把能解析该域名的其他DNS服务器的IP地址给客户端DNS程序，再由该程序向这些DNS服务器查询（用于局部DNS服务器不能回答客户机DNS查询时）。 DNS优化方法：
+DNS缓存 DNS负载均衡 为啥需要：当每次请求的资源都在同一台机器上时，机器可能承受不过来而崩掉。 原理：为一个主机名配置多个IP地址，在应答查询饿时候对每个查询以DNS文件中记录的IP地址按顺序返回不同的结果，将访问引导到不同的机器上去。 建立TCP链接 拿到IP地址后就是通过三次握手来建立TCP链接了。
+第一次握手：客户端发送SYN（同步序列编号）包到服务器，并且进入SYN_SENT状态，等待服务器确认。 第二次握手：服务器收到SYN包后确认，同时自己也发送一个SYN包，即SYN+ACK包，服务器进入SYN_RECE状态 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送一个确认包ACK，发送完毕后客户端和服务器进入ESTABLISHED状态。 拓展： 为啥三次握手：为了防止已经失效的链接请求报文突然传送到了服务端因而产生错误。
 发送HTTP请求 建立TCP连接后客户端发起HTTP请求，HTTP报文包含三个部分：
- 请求行：请求方法+URL+协议/版本 请求报头：传递请求的附加信息和客户端自身的信息 请求正文：需要传递的数据  服务器永久重定向 服务器给浏览器响应一个301永久重定向响应，例如访问http://google.com/ 会自动跳转到 http://www.google.com/
+请求行：请求方法+URL+协议/版本 请求报头：传递请求的附加信息和客户端自身的信息 请求正文：需要传递的数据 服务器永久重定向 服务器给浏览器响应一个301永久重定向响应，例如访问http://google.com/ 会自动跳转到 http://www.google.com/
 目的：
- 这样就会把访问带www的和不带www的地址归到同一个网站排名下，网站在搜索链接的排名下就不会降低。 用不同的地址会导致缓存的良好性变差，一个页面有多个名字的时候可能会在缓存中出现多次。  服务器处理请求并且返回HTTP报文 后端从固定的端口接收到TCP报文后，会对TCP进行处理，对HTTP协议进行解析，按照报文格式进一步封装成HTTP Request对象，供上层使用。 HTTP响应由4个部分组成：</description>
+这样就会把访问带www的和不带www的地址归到同一个网站排名下，网站在搜索链接的排名下就不会降低。 用不同的地址会导致缓存的良好性变差，一个页面有多个名字的时候可能会在缓存中出现多次。 服务器处理请求并且返回HTTP报文 后端从固定的端口接收到TCP报文后，会对TCP进行处理，对HTTP协议进行解析，按照报文格式进一步封装成HTTP Request对象，供上层使用。 HTTP响应由4个部分组成：
+状态行：协议版本、状态代码、状态描述 响应头：由键值对组成，每行一对，用“:”分割 空行： 分割请求数据 响应正文 拓展： 在大一点的网站中会将请求到反向代理中，将同一应用部署到多台服务器上，将大量用户请求分配给多台机器处理。 即客户端先请求到Nginx，Nginx再请求应用服务器，最后将结果返回客户端。
+浏览器显示HTML 浏览器显示HTMl是一个边解析边渲染的过程，大致的过程为：
+解析HTML文件构建DOM树 解析CSS文件构建渲染树 浏览器开始布局渲染树并将其绘制到屏幕上 拓展： 关于reflow(回流)和repaint(重绘)：</description>
     </item>
     
     <item>
@@ -202,12 +195,12 @@ DNS解析 DNS（域名系统），因特网上作为域名和IP地址相互映�
 但假如跨组件传参沟通，或者是兄弟姐妹组件之间的传参沟通，使用EventBus或者Vuex就可以避免很多重复的props和emit。
 Vuex适合的场景是中大型的项目，管理全站共用的状态。EventBus比较适用于小型的项目，不是太复杂的事件。
 使用 EventBus实际上只是一个Vue的实例，接着分别调用这个实例的事件触发和监听来实现通信和参数传递。主要是下面四种方法：
- $on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件  一般页面created的時候就注册监听，当组件销毁时取消监听。
+$on：注册监听 $once：监听一次 $off：取消监听 $emit：发送事件 一般页面created的時候就注册监听，当组件销毁时取消监听。
 创建一个EventBus 其实就是创建一个Vue的实例
 import Vue from &amp;#39;vue&amp;#39;; // 使用 Event Bus const bus = new Vue(); export default bus; 在我们需要发送事件以及接收事件的组件中引入。
 import bus from &amp;#39;../common/bus&amp;#39;; 监听 在需要监听的组件中的created中使用bus监听
-created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去  doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
-// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.</description>
+created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.log(target); }); } 发送事件 methods: { // 把事件 emit 出去 doSomething(target) { bus.$emit(&amp;#34;getSomething&amp;#34;, target); } } 取消监听 EventBus的监听不会自动关闭，接着会导致的一个情况就是监听会触发多次，所以需要我们用$off取消下绑定。 通常绑定在钩子函数 beforeDestroy() 或者 destroyed() 中
+// 移除事件的监听 bus.$off(&amp;#39;getSomething&amp;#39;) // 移除所有事件的监听 bus.$off() </description>
     </item>
     
     <item>
@@ -220,8 +213,9 @@ created() { bus.$on(&amp;#39;getSomething&amp;#39;, target =&amp;gt; { console.l
 但同时自己也跃跃欲试，我也想整一个，万一整出来了呢。
 在上面看到了Rally大佬写的GlobeKit,感觉是通过监听滚动事件来进行一个样式的切换，便去了解了一下如何监听页面的滚动事件。
 pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面添加一个滚动监听事件，其中的scrollFun是监听到滚动时候执行的方法
-// 浏览器兼容  if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
-//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动  // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动  const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动  console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动  console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。</description>
+// 浏览器兼容 if ((navigator.userAgent.toLowerCase().indexOf(&amp;#34;firefox&amp;#34;) != -1)) { document.addEventListener(&amp;#34;DOMMouseScroll&amp;#34;, this.scrollFun, false) } else if (document.addEventListener) { document.addEventListener(&amp;#34;mousewheel&amp;#34;, this.scrollFun, false) } } 获取滚动事件的信息 通过传递的event对象获取滚动的属性
+//滚动翻页 scrollFun(event: any) { // mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动 // DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动 const delta = event.detail || (-event.wheelDelta); if (delta &amp;gt; 0 ) { // 向下滚动 console.log(&amp;#34;向下滚动&amp;#34;) }else if (delta &amp;lt; 0) { //向上滚动 console.log(&amp;#34;向上滚动&amp;#34;) } } 移动端的touch事件 移动端的上下滚动并不能用上面的方法监听，是因为手机没鼠标吧。 为了实现我想要的效果，我都是直接把滚动条隐藏，然后监听touch事件来自行判断用户是否进行一个上滑下滑的操作。
+touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。 touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间，调用preventDefault()事件可以阻止滚动。 touchend事件：当手指从屏幕上离开的时候触发。 事件添加 双引号里是调用的方法</description>
     </item>
     
     <item>
@@ -244,16 +238,16 @@ pc端鼠标滚动监听 监听 根据不同的浏览器，在mounted中给页面
       <guid>https://magren.cn/about-hgmap/</guid>
       <description>最近都在学习前端的路上缓慢前进，在了解了Vue后就开始学习Typescript，每次学习到新东西的时候都会忍不住用新的东西去做一个自己感兴趣的东西，可能自己觉得这样子很Coooooooooooool！👊
 之前偶然间也看到了吉珠的地图，觉得很优秀，碰巧我们学校没有相关的产品，只有一张画出来图片地图，稍加思索
- 考虑到了便携性，决定放在移动端使用 要可以标示出学校的设施地点 校巴的路线以及上下车地点 要有产品的介绍还有学校的介绍 最好能够看到学校实景  加上自己之前学了vue，便打算结合vue来写，说干就干，起飞！✈️
+考虑到了便携性，决定放在移动端使用 要可以标示出学校的设施地点 校巴的路线以及上下车地点 要有产品的介绍还有学校的介绍 最好能够看到学校实景 加上自己之前学了vue，便打算结合vue来写，说干就干，起飞！✈️
 然后第一天就翻车在了创建项目上。
 一开始装的Vue的版本是2.x版本，创建新项目的webpack版本是3.6的，使用Typescript的时候会提示需要升级webpack到4.x版本，一开始并没有考虑太多，它提示啥问题就Google啥问题怎么解决（面向搜索引擎编程），大致看了一圈，都是卸载旧版的依赖装新的依赖，同时修改配置，但是他们的教程基本都不一样，唯一一样的地方就是都很复杂，也不知道咋选，就挑了个顺眼的就开始照着写，结果失败了……后面发现Vue3.x版本开始都已经开始适配Typescript了，即创建项目的时候就可以选择是否使用Typescript，同时自动给你配置好……啊这。
 旧版本Vue卸载！
- npm uninstall vue-cli -g
- 最新版本Vue安装！
- npm install -g @vue/cli
- 再来一遍，起飞！✈️
+npm uninstall vue-cli -g
+最新版本Vue安装！
+npm install -g @vue/cli
+再来一遍，起飞！✈️
 项目地址：HgMap 地图链接：华广地图
-环境依赖  vue/cli 4.4.6 typescript element-ui：ui组件 vue-class-component：类装饰器 vue-property-decorator：基于 vue 组织里 vue-class-component 所做的拓展 vue2-svg-icon：SVG图标组件 地图资源来自高德地图api  注：由于vue-cli 4版本不自带vue.config.js，故需自行在根目录创建并且配置，否则打包项目会找不到静态资源。
+环境依赖 vue/cli 4.4.6 typescript element-ui：ui组件 vue-class-component：类装饰器 vue-property-decorator：基于 vue 组织里 vue-class-component 所做的拓展 vue2-svg-icon：SVG图标组件 地图资源来自高德地图api 注：由于vue-cli 4版本不自带vue.config.js，故需自行在根目录创建并且配置，否则打包项目会找不到静态资源。
 Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
 &amp;lt;script lang=&amp;#34;ts&amp;#34;&amp;gt; ··· &amp;lt;/script&amp;gt; 创建组件 import { Component, Prop, Vue, Watch } from &amp;#39;vue-property-decorator&amp;#39;; @Component export default class Test extends Vue { } 组件的引入 import Mapmenu from &amp;#39;@/components/Mapmenu.</description>
     </item>
@@ -269,19 +263,18 @@ Vue 和 Typescript的使用 前提 script标签加入 : lang=“ts”
 其实主要的还是自己没怎么听，嘿嘿。
 零 这个学期我们有一门课是软件工程，幸运的是这门课没有期末考，不幸的是这个老师要我们写6000字的论文（6000字啊！）。 论文是从几个题目里面挑一个来写，基于好写容易理解同时谷歌/百度后有很多样板以方便我们copy的原则，我们小组选了学生学籍管理系统。 老师：“这次作业不查重，你们也不用把这个项目实现，只要模仿我给你们的样板把他写出来就好了” 前面6000字给我带来的冲击小了一半，虽然我文笔挺差，但是我复制粘贴起来真的不含糊。
 就这样我殚精竭虑地想着方法来混过这一次作业。 但是人有时候偷着懒，却又对别人的努力感到惶恐不安。 快到截止的时间我准备动手的时候，舍友突然在我们的舍友群里信息轰炸。 “xx真的把他们选的项目做出来了喂！” “什么东西？” “就是软件工程那个” 我也可以赞叹一句，然后就接着躺在床上刷手机，安稳混过这个期末。退一步海阔天空，但是忍一时越想越气。
- Somebody has to win, so why not be me?
- 我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
+Somebody has to win, so why not be me?
+我也得动手搞一个，前一阵子看了下vue，就当作拿来练练手了，这样就算失败也是有理由的了吧（自我安慰
 一、面向搜索引擎编程 说实话，因为这是第一次是实际上手，所以我早就想到肯定会踩到很多坑，但是我没想到一上来就给了我一个下马威。
 页面最上方存在白条问题 我开始写好了一个登陆注册的页面，但是无论我怎么更改css属性，最上方都存在一个白条，特地去谷歌搜索也是搜索出来一堆css的属性设置（虽然的确是样式的问题）。 最后钻牛角尖的我不停的翻找答案，最后在一个与这个问题毫不相干的文章上找出了解决的办法，同时真的给我科普了一波。
 首先index.html是项目的运行入口，在body体中只有一个div标签，其id为app，这个id将会连接到src/main.js内容， 然后main.js中又初始化vue的实例，也就是说通过main.js我们关联到App.vue组件。 接着在App.vue组件中，标签将会把路由相关内容渲染在这个div里，而路由的内容，则在index.js里。 在index.js里面，将我们写好的组件发布成路由。
 以上就是vue项目的运行加载过程，接着在网页上F12查看我的页面属性，发现是一个body设置了外边距8px，但是我写的登陆页面（组件）已经设置了背景铺满，而我们的组件是渲染到App.vue里的div，那么是不是我给div添加一个外边距为0的样式就可以解决？ 于是我在App.vue里面的div添加样式，让它的外边距为0，成功显示了我想要的结果。
 &amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34; style=&amp;#34;margin: 0px;&amp;#34;&amp;gt; &amp;lt;router-view/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 因为最终所有的路由都会给加载到index.html里面，所以在html里的body添加一个外边距为0的样式也可以解决这个问题。
- 登陆界面 
-传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
+登陆界面 传参问题 首先说说我了解到的页面之间跳转传参的方式，一个是query，另一个是params
 query传参以及接收 传参
 this.$router.push({ path: &amp;#39;/Home&amp;#39;, query: { id: res.objectId, } }) 接收
 this.$route.query.id params传参以及接收 传参
-this.$router.push({ name: &amp;#39;Home&amp;#39;, params: { id: res.</description>
+this.$router.push({ name: &amp;#39;Home&amp;#39;, params: { id: res.objectId, } }) 接收</description>
     </item>
     
     <item>
@@ -293,13 +286,13 @@ this.$router.push({ name: &amp;#39;Home&amp;#39;, params: { id: res.</descriptio
       <description>Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。
 有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。
 Promise也有一些缺点：
- 首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。 如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。 当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。  promise的特点  对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。 一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise的对象状态改变，要么是成功，要么就是失败，只要发生这两种情况，状态就会凝固，称为resolvd（已定型）。改变发生后，再添加回调函数，也是会得到这个结果。  用法 创造Promise实例 Promise对象是一个构造函数，用来生成Promise实例。
-const promise = new Promise(function(resolve, reject) { if (/* 异步操作成功 */){ resolve(value); } else { reject(error); } });  resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
-  reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
- then方法 接着用then方法指定resolved状态和rejected状态的回调函数：
+首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。 如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。 当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。 promise的特点 对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。 一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise的对象状态改变，要么是成功，要么就是失败，只要发生这两种情况，状态就会凝固，称为resolvd（已定型）。改变发生后，再添加回调函数，也是会得到这个结果。 用法 创造Promise实例 Promise对象是一个构造函数，用来生成Promise实例。
+const promise = new Promise(function(resolve, reject) { if (/* 异步操作成功 */){ resolve(value); } else { reject(error); } }); resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
+reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+then方法 接着用then方法指定resolved状态和rejected状态的回调函数：
 promise.then(function(value) { // success }, function(error) { // failure }); 第一个函数是状态对象变为rejected的调用，第二个是resolved的调用，第二个函数是可选的。
 then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。因此可以采用链式写法，即then方法后面再调用另一个then方法。
-promise.then(function(value) { }.then(function (comments) { console.log(&amp;#34;resolved: &amp;#34;, comments); }, function (err){ console.</description>
+promise.then(function(value) { }.then(function (comments) { console.log(&amp;#34;resolved: &amp;#34;, comments); }, function (err){ console.log(&amp;#34;rejected: &amp;#34;, err); }); catch方法 用于指定发生错误时的回调函数。</description>
     </item>
     
     <item>
@@ -312,7 +305,7 @@ promise.then(function(value) { }.then(function (comments) { console.log(&amp;#34
 HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。
 查找HTML元素 通常，通过 JavaScript可以操作需要操作 HTML 元素。
 为了做到这件事情，必须首先找到该元素。有三种方法来做这件事：
- 通过 id 找到 HTML 元素：var x=document.getElementById(“intro”); 通过标签名找到 HTML 元素：var y=document.getElementsByTagName(“p”); 通过类名找到 HTML 元素：var x=document.getElementsByClassName(“intro”);  改变HTML内容 使用 innerHTML 属性。
+通过 id 找到 HTML 元素：var x=document.getElementById(“intro”); 通过标签名找到 HTML 元素：var y=document.getElementsByTagName(“p”); 通过类名找到 HTML 元素：var x=document.getElementsByClassName(“intro”); 改变HTML内容 使用 innerHTML 属性。
 &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p1&amp;#34;).innerHTML=&amp;#34;新文本!&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 改变HTML样式 使用style
 &amp;lt;body&amp;gt; &amp;lt;p id=&amp;#34;p1&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;p id=&amp;#34;p2&amp;#34;&amp;gt;Hello World!&amp;lt;/p&amp;gt; &amp;lt;script&amp;gt; document.getElementById(&amp;#34;p2&amp;#34;).style.color=&amp;#34;blue&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontFamily=&amp;#34;Arial&amp;#34;; document.getElementById(&amp;#34;p2&amp;#34;).style.fontSize=&amp;#34;larger&amp;#34;; &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; 使用事件 &amp;lt;body&amp;gt; &amp;lt;h1 id=&amp;#34;id1&amp;#34;&amp;gt;我的标题 1&amp;lt;/h1&amp;gt; &amp;lt;button type=&amp;#34;button&amp;#34; onclick=&amp;#34;document.getElementById(&amp;#39;id1&amp;#39;).style.color=&amp;#39;red&amp;#39;&amp;#34;&amp;gt; 按钮&amp;lt;/button&amp;gt; &amp;lt;/body&amp;gt; JS中定义函数绑定事件 var funcc = function () { alert(&amp;#34;hello world&amp;#34;) } var aa = document.</description>
     </item>
@@ -328,14 +321,12 @@ HTML DOM (文档对象模型) 概述： 当网页被加载时，浏览器会创�
 如果硬要说我想成为什么工程师，我希望我能成为一个全栈工程师吧（有能力的话
 杂七杂八的要点 这里主要是记了一些我需要重要理解或者容易忘记的知识点。没有一个固定的逻辑顺序。
 定位問題 最常用的两个：absolute 和 relative
- absolut: 脱离原来的位置定位。对最近有定位的父级进行定位，假如没有则相对文档进行定位。 relative: 保留原来的位置进行定位。相对自己原来的位置定位。  z-index: 改变元素的层面，代表该元素的Z轴，默认是0。
+absolut: 脱离原来的位置定位。对最近有定位的父级进行定位，假如没有则相对文档进行定位。 relative: 保留原来的位置进行定位。相对自己原来的位置定位。 z-index: 改变元素的层面，代表该元素的Z轴，默认是0。
 当元素使用float属性定义元素往哪个方向浮动的时候，需要后面的元素不再继续浮动在后面的时候，可用：
-.nav::after{ content:&amp;#34;&amp;#34;; display:block; clear:both; } 字体  当字体超出长度，为了页面整洁美观，多余的字体用……表示：  .product-buyer-name { overflow: hidden; /*隐藏超出单元格的部分。*/ text-overflow: ellipsis; /*文字超出部分用省略号*/ white-space: nowrap; /*保证无论单元格（TD）中文本内容有多少，都不会自动换行，此时多余的内容会在水平方向撑破单元格*/ }   网页上的一些小图标 我一直以为，在网页上的一些小图标是通过插入img来显示的，但是再深入一点了解到，类似淘宝网上的tab栏的小图标是通过一个自定义显示出来的。 这里我规划到了字体类是因为当我们需要显示部分字体，但是电脑上没有该字体的时候是无法显示的，这里我们就要用一样的方法，将这个字体的资源加载进去，达到一个显示他人电脑字体不存在也依然可以看到该字体的效果。
- 淘宝网tab栏 
-  那么这种字体资源还有图标资源该怎么来呢，当然是， Google或者百度啦 在阿里巴巴矢量图标库上有挺多资源，我们在里面挑选我们需要的资源并且加入购物车后下载源码
- 阿里巴巴矢量图标库   加入购物车 
-下载到的源码里有资源的文件以及他一个css的demo，在使用上我们先拷贝资源文件后。
- 拷贝项目下面生成的font-face  @font-face {font-family: &amp;#39;iconfont&amp;#39;; src: url(&amp;#39;iconfont.eot&amp;#39;); src: url(&amp;#39;iconfont.eot?#iefix&amp;#39;) format(&amp;#39;embedded-opentype&amp;#39;), url(&amp;#39;iconfont.</description>
+.nav::after{ content:&amp;#34;&amp;#34;; display:block; clear:both; } 字体 当字体超出长度，为了页面整洁美观，多余的字体用……表示： .product-buyer-name { overflow: hidden; /*隐藏超出单元格的部分。*/ text-overflow: ellipsis; /*文字超出部分用省略号*/ white-space: nowrap; /*保证无论单元格（TD）中文本内容有多少，都不会自动换行，此时多余的内容会在水平方向撑破单元格*/ } 网页上的一些小图标 我一直以为，在网页上的一些小图标是通过插入img来显示的，但是再深入一点了解到，类似淘宝网上的tab栏的小图标是通过一个自定义显示出来的。 这里我规划到了字体类是因为当我们需要显示部分字体，但是电脑上没有该字体的时候是无法显示的，这里我们就要用一样的方法，将这个字体的资源加载进去，达到一个显示他人电脑字体不存在也依然可以看到该字体的效果。
+淘宝网tab栏 那么这种字体资源还有图标资源该怎么来呢，当然是， Google或者百度啦 在阿里巴巴矢量图标库上有挺多资源，我们在里面挑选我们需要的资源并且加入购物车后下载源码
+阿里巴巴矢量图标库 加入购物车 下载到的源码里有资源的文件以及他一个css的demo，在使用上我们先拷贝资源文件后。
+拷贝项目下面生成的font-face @font-face {font-family: &amp;#39;iconfont&amp;#39;; src: url(&amp;#39;iconfont.eot&amp;#39;); src: url(&amp;#39;iconfont.eot?#iefix&amp;#39;) format(&amp;#39;embedded-opentype&amp;#39;), url(&amp;#39;iconfont.woff&amp;#39;) format(&amp;#39;woff&amp;#39;), url(&amp;#39;iconfont.ttf&amp;#39;) format(&amp;#39;truetype&amp;#39;), url(&amp;#39;iconfont.svg#iconfont&amp;#39;) format(&amp;#39;svg&amp;#39;); } 定义使用的iconfont使用样式 .iconfont{ font-family:&amp;#34;iconfont&amp;#34; !important; font-size:16px;font-style:normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;} 挑选相应图标并获取字体编码，应用于页面 &amp;lt;i class=&amp;#34;iconfont&amp;#34;&amp;gt;&amp;amp;#x33;&amp;lt;/i&amp;gt; JavaScript 中 var,let,const的区别 const:声明一个只读的常量，一旦声明，常量的值就不能改变。 let:声明的变量只在 let 命令所在的代码块内有效。</description>
     </item>
     
   </channel>

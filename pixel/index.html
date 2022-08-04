@@ -2,34 +2,31 @@
 <html lang="zh-CN">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。
-甚至把自己的电脑壁纸也换成了像素风。很有感觉😝  
-想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
-思路⭐  使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点  其实就是小的图片放大，会感觉到糊的效果。
+甚至把自己的电脑壁纸也换成了像素风。很有感觉😝 想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
+思路⭐ 使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点 其实就是小的图片放大，会感觉到糊的效果。
 Code💻 禁止浏览器的平滑处理其实就是是否抗锯齿。
 用正则表达式限制输入框只能输入0-100，意味着让图片缩放的百分比（100就是没有缩放，达不到像素化的效果）
-const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小  let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理  ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来  ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小  ctx.'><title>代码帮我画像素画</title>
+const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小 let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理 ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来 ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小 ctx.drawImage(canvas, 0, 0, scaledW, scaledH, 0, 0, canvas.'><title>代码帮我画像素画</title>
 
 <link rel='canonical' href='https://magren.cn/pixel/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='代码帮我画像素画'>
 <meta property='og:description' content='这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。
-甚至把自己的电脑壁纸也换成了像素风。很有感觉😝  
-想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
-思路⭐  使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点  其实就是小的图片放大，会感觉到糊的效果。
+甚至把自己的电脑壁纸也换成了像素风。很有感觉😝 想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
+思路⭐ 使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点 其实就是小的图片放大，会感觉到糊的效果。
 Code💻 禁止浏览器的平滑处理其实就是是否抗锯齿。
 用正则表达式限制输入框只能输入0-100，意味着让图片缩放的百分比（100就是没有缩放，达不到像素化的效果）
-const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小  let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理  ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来  ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小  ctx.'>
+const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小 let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理 ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来 ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小 ctx.drawImage(canvas, 0, 0, scaledW, scaledH, 0, 0, canvas.'>
 <meta property='og:url' content='https://magren.cn/pixel/'>
 <meta property='og:site_name' content='Magren&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='前端' /><meta property='article:published_time' content='2021-02-25T16:33:21&#43;08:00'/><meta property='article:modified_time' content='2021-02-25T16:33:21&#43;08:00'/><meta property='og:image' content='https://magren.cn/pixel/banner.png' />
 <meta name="twitter:title" content="代码帮我画像素画">
 <meta name="twitter:description" content="这一阵子迷上了像素风格，很有复古的味道，加上小时候玩宝可梦的时候还是像素风格，牵扯出了太多情怀。
-甚至把自己的电脑壁纸也换成了像素风。很有感觉😝  
-想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
-思路⭐  使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点  其实就是小的图片放大，会感觉到糊的效果。
+甚至把自己的电脑壁纸也换成了像素风。很有感觉😝 想自己在像素风上创作，但是感觉自己是没有那种艺术细胞……所以就在想，能不能自己把一张正常的图片转换成像素风？🤔
+思路⭐ 使用canvas将图片缩小，使其丢失部分像素信息 再将缩小的图片绘制出来 将缩小的图片放大，使能看到其像素点 其实就是小的图片放大，会感觉到糊的效果。
 Code💻 禁止浏览器的平滑处理其实就是是否抗锯齿。
 用正则表达式限制输入框只能输入0-100，意味着让图片缩放的百分比（100就是没有缩放，达不到像素化的效果）
-const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小  let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理  ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来  ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小  ctx."><meta name="twitter:card" content="summary_large_image">
+const pixel = (canvas, image, scale)=&amp;gt; { scale *= 0.01; canvas.width = image.width; canvas.height = image.height; // 将图片缩小 let scaledW = canvas.width * scale; let scaledH = canvas.height * scale; let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); // 禁止浏览器的平滑处理 ctx.imageSmoothingEnabled = false; ctx.mozImageSmoothingEnabled = false; ctx.webkitImageSmoothingEnabled = false; ctx.msImageSmoothingEnabled = false; //将缩小后的图片绘制出来 ctx.drawImage(image, 0, 0, scaledW, scaledH); //将缩小后的图片还原到原来的大小 ctx.drawImage(canvas, 0, 0, scaledW, scaledH, 0, 0, canvas."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://magren.cn/pixel/banner.png' />
     <link rel="shortcut icon" href="https://magren.cn/favicon.ico" />
 
