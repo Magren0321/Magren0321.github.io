@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://magren.cn/2021-summary/</loc>
+    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
+  </url><url>
     <loc>https://magren.cn/categories/</loc>
     <lastmod>2022-07-24T00:30:21+08:00</lastmod>
   </url><url>
@@ -40,9 +43,6 @@
   </url><url>
     <loc>https://magren.cn/before-graduation/</loc>
     <lastmod>2022-05-03T10:14:21+08:00</lastmod>
-  </url><url>
-    <loc>https://magren.cn/2021-summary/</loc>
-    <lastmod>2021-12-30T10:14:21+08:00</lastmod>
   </url><url>
     <loc>https://magren.cn/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2021-12-30T10:14:21+08:00</lastmod>

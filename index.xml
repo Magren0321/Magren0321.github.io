@@ -8,154 +8,16 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
         <lastBuildDate>Sun, 24 Jul 2022 00:30:21 +0800</lastBuildDate><atom:link href="https://magren.cn/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>关于Yuan-bot🤖</title>
-        <link>https://magren.cn/about-yuan-bot/</link>
-        <pubDate>Sun, 24 Jul 2022 00:30:21 +0800</pubDate>
-        
-        <guid>https://magren.cn/about-yuan-bot/</guid>
-        <description>&lt;img src="https://magren.cn/about-yuan-bot/background.jpg" alt="Featured image of post 关于Yuan-bot🤖" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;oicq&lt;/a&gt;是基于Node.js实现QQ(安卓)协议，提供了QQ内常用的功能操作&lt;br&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/yuan-bot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;yuan-bot&lt;/a&gt;是基于&lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;oicq&lt;/a&gt;并使用TS编写以及使用MongoDB作为数据库的QQ机器人。目前项目刚创建，只针对了Q群的精华消息，后续内容会慢慢丰富。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Github地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/yuan-bot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;yuan-bot&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这篇文章是该项目的非正经开发日志的历程记录。&lt;/p&gt;
-&lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;
-&lt;p&gt;我的QQ里面有着一个群，这是我高中以及大学时间玩剑三时候的游戏群。&lt;br&gt;
-里面的人个个会玩说话又好听。为了铭记每个小伙伴的一言一语，我们活用了QQ的精华消息功能，将每一句 &lt;del&gt;骚话&lt;/del&gt; 经典名言裱在了这个精华消息列表上。&lt;br&gt;
-&lt;strong&gt;此时精华消息的内容不再是精华， 我们心照不宣地称其为糟粕&lt;/strong&gt;
-&lt;figure style=&#34;flex-grow: 126; flex-basis: 302px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/about-yuan-bot/message.png&#34; data-size=&#34;812x644&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/message.png&#34;
-				srcset=&#34;https://magren.cn/about-yuan-bot/message_hu63eb54c35ad5026dc6fa201413798adf_35398_480x0_resize_box_3.png 480w, https://magren.cn/about-yuan-bot/message_hu63eb54c35ad5026dc6fa201413798adf_35398_1024x0_resize_box_3.png 1024w&#34;
-				width=&#34;812&#34;
-				height=&#34;644&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;因为自己一时的年少轻狂而给装裱在列表上的小伙伴都叫苦连天（当然也有人以此为乐，是谁我不说，大家懂得都懂），纷纷控诉管理员这里面有着管理员的黑幕！应群友得而诛之！&lt;/p&gt;
-&lt;p&gt;但道高一尺魔高一丈，卑鄙的群管理不仅无视群友控诉，甚至在前一阵群成立八周年之日推出糟粕周边（有幸本人也拿到了一个），同时为糟粕数量最多的群友颁发了奖杯，大力推行糟粕文化，加上群友民心涣散，群里反对的声音逐渐消失，人人都成乐子人。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;至此，糟粕文化达到了群成立以来的一个高潮。&lt;/strong&gt;
-&lt;figure style=&#34;flex-grow: 75; flex-basis: 180px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/about-yuan-bot/bag.jpg&#34; data-size=&#34;1600x2133&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/bag.jpg&#34;
-				srcset=&#34;https://magren.cn/about-yuan-bot/bag_hud3f34a980a17a3f46eaddc996acef366_595099_480x0_resize_q75_box.jpg 480w, https://magren.cn/about-yuan-bot/bag_hud3f34a980a17a3f46eaddc996acef366_595099_1024x0_resize_q75_box.jpg 1024w&#34;
-				width=&#34;1600&#34;
-				height=&#34;2133&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;figure style=&#34;flex-grow: 75; flex-basis: 180px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/about-yuan-bot/medal.jpg&#34; data-size=&#34;1600x2133&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/medal.jpg&#34;
-				srcset=&#34;https://magren.cn/about-yuan-bot/medal_hu9eb9df321295e2a44059cf4b5863b240_539277_480x0_resize_q75_box.jpg 480w, https://magren.cn/about-yuan-bot/medal_hu9eb9df321295e2a44059cf4b5863b240_539277_1024x0_resize_q75_box.jpg 1024w&#34;
-				width=&#34;1600&#34;
-				height=&#34;2133&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;在糟粕文化逐渐流行的同时，糟粕的数量也不断拔高，群管理发现了一些&lt;strong&gt;问题&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;糟粕数量最多达到1000，必须删掉部分糟粕消息才可以继续添加，这样会损失一些群历史的糟粕&lt;/li&gt;
-&lt;li&gt;在这么庞大的数量下，QQ群的精华消息并没有统计或者以时间查看等功能，每次统计都由人工统计，耗费人力&lt;/li&gt;
-&lt;li&gt;……&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Yuan-Bot 就是为了 &lt;del&gt;糟粕以及乐子&lt;/del&gt; 解决上述的问题而生。&lt;/p&gt;
-&lt;h1 id=&#34;启动&#34;&gt;启动&lt;/h1&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/Magren0321/yuan-bot.git
-
-pnpm install
-
-pnpm run serve
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;过程&#34;&gt;过程&lt;/h1&gt;
-&lt;p&gt;作为一个前端，所以技术的选用下意识地就选择了Node.js，找到了 &lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;oicq&lt;/a&gt; 这个库，它是基于Node.js实现的Android QQ，同时是我感觉功能较为全面的库，具体的使用听我说不如参考其 &lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq#api-reference&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Api reference&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;精华数据&#34;&gt;精华数据&lt;/h2&gt;
-&lt;p&gt;oicq其本身封装的群对象里面并没有封装群精华数据（不如说好像还没有开源的库做到了这个，或许是受众太小了使用的频率也不高，所以都没有考虑），所以我得自己动手，丰衣足食。&lt;br&gt;
-用Fiddler抓包了PC端的QQ，抓到了精华数据的接口，然后通过 oicq 提供的登录接口获取到Cookie，将其丢进请求头来获取精华消息的数据。&lt;br&gt;
-顺便给 oicq 提了个PR（又水了一个PR&lt;/p&gt;
-&lt;p&gt;然后又又又碰上了一个问题就是，当群里有新增精华消息的时候我并无法通过 oicq 监听到群里的tips，发现这个已经有人在去年8月就提了issues，但是至今没有解决的样子。&lt;br&gt;
-原本的计划是打算监听到添加精华消息后，服务器的数据库实时存储新的精华消息，但是现在只能换一种方案，改成了间隔定时器，每隔一定时间对数据进行请求，记录好最新消息的时间戳，以此筛选掉旧的内容。&lt;br&gt;
-这个办法虽然我觉得很笨，但是现状我暂时没想到别的办法来实现这个功能。&lt;/p&gt;
-&lt;h2 id=&#34;命令&#34;&gt;命令&lt;/h2&gt;
-&lt;p&gt;这个比较容易解决，只需要监听指定群的消息，封装一个类，以字符串作为类中的key，对应的方法作为value，在收到消息后将消息作为key传入，如果class中存在则执行对应的方法就好。
-&lt;figure style=&#34;flex-grow: 81; flex-basis: 195px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/about-yuan-bot/image.jpg&#34; data-size=&#34;462x566&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/image.jpg&#34;
-				srcset=&#34;https://magren.cn/about-yuan-bot/image_huc9fd3c3d634d84b5a6a0db65a59faabb_39035_480x0_resize_q75_box.jpg 480w, https://magren.cn/about-yuan-bot/image_huc9fd3c3d634d84b5a6a0db65a59faabb_39035_1024x0_resize_q75_box.jpg 1024w&#34;
-				width=&#34;462&#34;
-				height=&#34;566&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;大概实现就是这样，可以说是平平无奇，毫无亮点🤡&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&#34;最后或许也还不是最后&#34;&gt;最后（或许也还不是最后？&lt;/h1&gt;
-&lt;p&gt;yuan-bot的功能后续还会继续丰富还有迭代(不过现在上班了，估摸进度会推进的比较缓慢)&lt;br&gt;
-🙏感谢 &lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;oicq&lt;/a&gt; 提供的接口以及文档&lt;br&gt;
-🛸Power by &lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Magren&lt;/a&gt; and made with love&lt;/p&gt;
-&lt;p&gt;To Be Continued.&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>毕业前夕</title>
-        <link>https://magren.cn/before-graduation/</link>
-        <pubDate>Tue, 03 May 2022 10:14:21 +0800</pubDate>
-        
-        <guid>https://magren.cn/before-graduation/</guid>
-        <description>&lt;img src="https://magren.cn/before-graduation/background.jpg" alt="Featured image of post 毕业前夕" /&gt;&lt;p&gt;距离上一篇博文已经过去四个月多了，近期一直在忙着自己的毕设、论文和答辩&lt;del&gt;以及摆烂打游戏&lt;/del&gt;😵&lt;/p&gt;
-&lt;p&gt;兜兜转转忙忙碌碌，历经给打回来五次终于交上去的论文、自己误删了自己后台代码花了一天时间重写（不上传Github的代价），完成了因为一些事故导致尬到整个人无地自容的毕设答辩。最后终于在前一阵子提交了自己的论文最终稿并且通过。&lt;br&gt;
-学校到现在也没有通知毕业典礼以及毕业照的安排，想必是因为广州的疫情学校决定取消了（上上届就因为疫情取消了），抱着免掉一些麻烦的庆幸，自己内心又夹杂着一丝可惜😞&lt;br&gt;
-但无论怎样现在自己只差一张毕业证就毕业了，大学四年悄然而逝，不禁感慨时光飞快。&lt;/p&gt;
-&lt;p&gt;受一位朋友（大佬）的影响，自己也想给开源做一些贡献，当然也有提升自己能力的原因，于是在前几天向&lt;a class=&#34;link&#34; href=&#34;https://github.com/open-jike/jike-sdk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;jike-sdk&lt;/a&gt;提出了自己职业生涯中的第一个PR，经历了两三次修改后终于merged，在成就感充满自身的同时也发现自己的代码质量有点低😅，还是得继续努力，为开源做一些贡献。希望有一天自己的能力能被许多人认可，在Github上有许多的followers以及stars（做梦&lt;/p&gt;
-&lt;p&gt;3月底到的霍春阳大佬写的Vue.js设计与实现，现在依旧在断断续续地看，感觉自己有一点囫囵吞枣了，初看这本书对Vue的设计思路以及实现都讲得挺好的，谁让他才是最懂Vue的那个男人呢？🐶
-&lt;figure style=&#34;flex-grow: 135; flex-basis: 325px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/before-graduation/zhihu.png&#34; data-size=&#34;754x556&#34;&gt;&lt;img src=&#34;https://magren.cn/before-graduation/zhihu.png&#34;
-				srcset=&#34;https://magren.cn/before-graduation/zhihu_hud5452ed9f871aeb60546c4c3a52d7395_108426_480x0_resize_box_3.png 480w, https://magren.cn/before-graduation/zhihu_hud5452ed9f871aeb60546c4c3a52d7395_108426_1024x0_resize_box_3.png 1024w&#34;
-				width=&#34;754&#34;
-				height=&#34;556&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;发现无论什么时候都得好好学英语，阅读国外的技术文档以及跟别人在Github、discord交流的时候，英语底子就显得极为重要，不然就只能在中文频道吹水🤪。以前阅读技术文档的时候都是直接右键翻译，现在尝试着生啃😵，还有根据小伙伴的建议，听听英文歌，看美剧。敲代码或许不用特别好的英语，但是我想英语是突破职业瓶颈的一个契机，更重要的是我想在General频道吹水，能跟全世界各地的人吹水在我看来是一件很cooooooooool的事（跟别人吹水聊天成了第一生产力）。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;我语言的边界，就是我 &lt;del&gt;吹水&lt;/del&gt; 世界的边界。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我是一个缺乏仪式感的人，毕业于我没有太大的感觉，只是遗憾快乐的时光总是过去的那么快。&lt;/p&gt;
-&lt;p&gt;大一刚入学过了两三个月，那时候舍友都熟络到了父子关系的地步，我们在宿舍开黑打LOL并叫了一顿烧烤外卖做宵夜，我们还特地下楼去超市买了一大瓶可乐拿上来，一边吃一边吹水聊天，那时候入秋，天气微凉，手中的鸡翅很香。&lt;br&gt;
-那是我吃的最香的一顿烧烤，后面总感觉欠缺了什么。希望以后还能常聚，也谢谢他们经常拉着我打游戏，差点把我整成了个老废物
-&lt;figure style=&#34;flex-grow: 101; flex-basis: 242px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/before-graduation/garbage.jpg&#34; data-size=&#34;400x396&#34;&gt;&lt;img src=&#34;https://magren.cn/before-graduation/garbage.jpg&#34;
-				srcset=&#34;https://magren.cn/before-graduation/garbage_hub5d7bc50f721ee078a302b0f07e8c1b8_155654_480x0_resize_q75_box.jpg 480w, https://magren.cn/before-graduation/garbage_hub5d7bc50f721ee078a302b0f07e8c1b8_155654_1024x0_resize_q75_box.jpg 1024w&#34;
-				width=&#34;400&#34;
-				height=&#34;396&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;何德何能，在这大学四年里所遇之人皆不偏不倚，亦师亦友。&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;抱着心中的侥幸还有一些遗憾，静静等待自己拿到毕业证书后毕业那一刻，希望我的小伙伴万事胜意，未来可期。&lt;del&gt;苟富贵！勿&lt;/del&gt;&lt;/strong&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>2021 , 否极泰来</title>
         <link>https://magren.cn/2021-summary/</link>
         <pubDate>Thu, 30 Dec 2021 10:14:21 +0800</pubDate>
         
         <guid>https://magren.cn/2021-summary/</guid>
-        <description>&lt;img src="https://magren.cn/2021-summary/background.jpg" alt="Featured image of post 2021 , 否极泰来" /&gt;&lt;h1 id=&#34;写在前面&#34;&gt;写在前面&lt;/h1&gt;
+        <description>&lt;img src="https://magren.cn/2021-summary/background.jpg" alt="Featured image of post 2021 , 否极泰来" /&gt;&lt;blockquote&gt;
+&lt;p&gt;2020的总结：&lt;a class=&#34;link&#34; href=&#34;https://magren.cn/2020-summary/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;2020，遗憾是惊喜的序曲&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;写在前面&#34;&gt;写在前面&lt;/h1&gt;
 &lt;p&gt;或许是今年的经历比较简单，没有比去年丰富，所以感觉今年过的特别快，然后自己的总结也是不知道从哪里下笔比较好，索性想到什么就写什么吧。&lt;/p&gt;
 &lt;p&gt;在讲今年的事情之前，先看看去年立的flag完成了几个吧（虽然都忘记的差不多，处于随缘完成状态了&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2020立的flag&lt;/strong&gt;&lt;/p&gt;
@@ -301,6 +163,148 @@ pnpm run serve
 &lt;/blockquote&gt;
 &lt;p&gt;希望新的一年大家都能平安顺利。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;谨以此文献给自己&lt;/em&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>关于Yuan-bot🤖</title>
+        <link>https://magren.cn/about-yuan-bot/</link>
+        <pubDate>Sun, 24 Jul 2022 00:30:21 +0800</pubDate>
+        
+        <guid>https://magren.cn/about-yuan-bot/</guid>
+        <description>&lt;img src="https://magren.cn/about-yuan-bot/background.jpg" alt="Featured image of post 关于Yuan-bot🤖" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;oicq&lt;/a&gt;是基于Node.js实现QQ(安卓)协议，提供了QQ内常用的功能操作&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/yuan-bot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;yuan-bot&lt;/a&gt;是基于&lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;oicq&lt;/a&gt;并使用TS编写以及使用MongoDB作为数据库的QQ机器人。目前项目刚创建，只针对了Q群的精华消息，后续内容会慢慢丰富。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Github地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321/yuan-bot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;yuan-bot&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这篇文章是该项目的非正经开发日志的历程记录。&lt;/p&gt;
+&lt;h1 id=&#34;背景&#34;&gt;背景&lt;/h1&gt;
+&lt;p&gt;我的QQ里面有着一个群，这是我高中以及大学时间玩剑三时候的游戏群。&lt;br&gt;
+里面的人个个会玩说话又好听。为了铭记每个小伙伴的一言一语，我们活用了QQ的精华消息功能，将每一句 &lt;del&gt;骚话&lt;/del&gt; 经典名言裱在了这个精华消息列表上。&lt;br&gt;
+&lt;strong&gt;此时精华消息的内容不再是精华， 我们心照不宣地称其为糟粕&lt;/strong&gt;
+&lt;figure style=&#34;flex-grow: 126; flex-basis: 302px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/about-yuan-bot/message.png&#34; data-size=&#34;812x644&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/message.png&#34;
+				srcset=&#34;https://magren.cn/about-yuan-bot/message_hu63eb54c35ad5026dc6fa201413798adf_35398_480x0_resize_box_3.png 480w, https://magren.cn/about-yuan-bot/message_hu63eb54c35ad5026dc6fa201413798adf_35398_1024x0_resize_box_3.png 1024w&#34;
+				width=&#34;812&#34;
+				height=&#34;644&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;因为自己一时的年少轻狂而给装裱在列表上的小伙伴都叫苦连天（当然也有人以此为乐，是谁我不说，大家懂得都懂），纷纷控诉管理员这里面有着管理员的黑幕！应群友得而诛之！&lt;/p&gt;
+&lt;p&gt;但道高一尺魔高一丈，卑鄙的群管理不仅无视群友控诉，甚至在前一阵群成立八周年之日推出糟粕周边（有幸本人也拿到了一个），同时为糟粕数量最多的群友颁发了奖杯，大力推行糟粕文化，加上群友民心涣散，群里反对的声音逐渐消失，人人都成乐子人。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;至此，糟粕文化达到了群成立以来的一个高潮。&lt;/strong&gt;
+&lt;figure style=&#34;flex-grow: 75; flex-basis: 180px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/about-yuan-bot/bag.jpg&#34; data-size=&#34;1600x2133&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/bag.jpg&#34;
+				srcset=&#34;https://magren.cn/about-yuan-bot/bag_hud3f34a980a17a3f46eaddc996acef366_595099_480x0_resize_q75_box.jpg 480w, https://magren.cn/about-yuan-bot/bag_hud3f34a980a17a3f46eaddc996acef366_595099_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1600&#34;
+				height=&#34;2133&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;figure style=&#34;flex-grow: 75; flex-basis: 180px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/about-yuan-bot/medal.jpg&#34; data-size=&#34;1600x2133&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/medal.jpg&#34;
+				srcset=&#34;https://magren.cn/about-yuan-bot/medal_hu9eb9df321295e2a44059cf4b5863b240_539277_480x0_resize_q75_box.jpg 480w, https://magren.cn/about-yuan-bot/medal_hu9eb9df321295e2a44059cf4b5863b240_539277_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;1600&#34;
+				height=&#34;2133&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在糟粕文化逐渐流行的同时，糟粕的数量也不断拔高，群管理发现了一些&lt;strong&gt;问题&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;糟粕数量最多达到1000，必须删掉部分糟粕消息才可以继续添加，这样会损失一些群历史的糟粕&lt;/li&gt;
+&lt;li&gt;在这么庞大的数量下，QQ群的精华消息并没有统计或者以时间查看等功能，每次统计都由人工统计，耗费人力&lt;/li&gt;
+&lt;li&gt;……&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Yuan-Bot 就是为了 &lt;del&gt;糟粕以及乐子&lt;/del&gt; 解决上述的问题而生。&lt;/p&gt;
+&lt;h1 id=&#34;启动&#34;&gt;启动&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/Magren0321/yuan-bot.git
+
+pnpm install
+
+pnpm run serve
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;过程&#34;&gt;过程&lt;/h1&gt;
+&lt;p&gt;作为一个前端，所以技术的选用下意识地就选择了Node.js，找到了 &lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;oicq&lt;/a&gt; 这个库，它是基于Node.js实现的Android QQ，同时是我感觉功能较为全面的库，具体的使用听我说不如参考其 &lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq#api-reference&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Api reference&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;精华数据&#34;&gt;精华数据&lt;/h2&gt;
+&lt;p&gt;oicq其本身封装的群对象里面并没有封装群精华数据（不如说好像还没有开源的库做到了这个，或许是受众太小了使用的频率也不高，所以都没有考虑），所以我得自己动手，丰衣足食。&lt;br&gt;
+用Fiddler抓包了PC端的QQ，抓到了精华数据的接口，然后通过 oicq 提供的登录接口获取到Cookie，将其丢进请求头来获取精华消息的数据。&lt;br&gt;
+顺便给 oicq 提了个PR（又水了一个PR&lt;/p&gt;
+&lt;p&gt;然后又又又碰上了一个问题就是，当群里有新增精华消息的时候我并无法通过 oicq 监听到群里的tips，发现这个已经有人在去年8月就提了issues，但是至今没有解决的样子。&lt;br&gt;
+原本的计划是打算监听到添加精华消息后，服务器的数据库实时存储新的精华消息，但是现在只能换一种方案，改成了间隔定时器，每隔一定时间对数据进行请求，记录好最新消息的时间戳，以此筛选掉旧的内容。&lt;br&gt;
+这个办法虽然我觉得很笨，但是现状我暂时没想到别的办法来实现这个功能。&lt;/p&gt;
+&lt;h2 id=&#34;命令&#34;&gt;命令&lt;/h2&gt;
+&lt;p&gt;这个比较容易解决，只需要监听指定群的消息，封装一个类，以字符串作为类中的key，对应的方法作为value，在收到消息后将消息作为key传入，如果class中存在则执行对应的方法就好。
+&lt;figure style=&#34;flex-grow: 81; flex-basis: 195px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/about-yuan-bot/image.jpg&#34; data-size=&#34;462x566&#34;&gt;&lt;img src=&#34;https://magren.cn/about-yuan-bot/image.jpg&#34;
+				srcset=&#34;https://magren.cn/about-yuan-bot/image_huc9fd3c3d634d84b5a6a0db65a59faabb_39035_480x0_resize_q75_box.jpg 480w, https://magren.cn/about-yuan-bot/image_huc9fd3c3d634d84b5a6a0db65a59faabb_39035_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;462&#34;
+				height=&#34;566&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;大概实现就是这样，可以说是平平无奇，毫无亮点🤡&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;最后或许也还不是最后&#34;&gt;最后（或许也还不是最后？&lt;/h1&gt;
+&lt;p&gt;yuan-bot的功能后续还会继续丰富还有迭代(不过现在上班了，估摸进度会推进的比较缓慢)&lt;br&gt;
+🙏感谢 &lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;oicq&lt;/a&gt; 提供的接口以及文档&lt;br&gt;
+🛸Power by &lt;a class=&#34;link&#34; href=&#34;https://github.com/Magren0321&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Magren&lt;/a&gt; and made with love&lt;/p&gt;
+&lt;p&gt;To Be Continued.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>毕业前夕</title>
+        <link>https://magren.cn/before-graduation/</link>
+        <pubDate>Tue, 03 May 2022 10:14:21 +0800</pubDate>
+        
+        <guid>https://magren.cn/before-graduation/</guid>
+        <description>&lt;img src="https://magren.cn/before-graduation/background.jpg" alt="Featured image of post 毕业前夕" /&gt;&lt;p&gt;距离上一篇博文已经过去四个月多了，近期一直在忙着自己的毕设、论文和答辩&lt;del&gt;以及摆烂打游戏&lt;/del&gt;😵&lt;/p&gt;
+&lt;p&gt;兜兜转转忙忙碌碌，历经给打回来五次终于交上去的论文、自己误删了自己后台代码花了一天时间重写（不上传Github的代价），完成了因为一些事故导致尬到整个人无地自容的毕设答辩。最后终于在前一阵子提交了自己的论文最终稿并且通过。&lt;br&gt;
+学校到现在也没有通知毕业典礼以及毕业照的安排，想必是因为广州的疫情学校决定取消了（上上届就因为疫情取消了），抱着免掉一些麻烦的庆幸，自己内心又夹杂着一丝可惜😞&lt;br&gt;
+但无论怎样现在自己只差一张毕业证就毕业了，大学四年悄然而逝，不禁感慨时光飞快。&lt;/p&gt;
+&lt;p&gt;受一位朋友（大佬）的影响，自己也想给开源做一些贡献，当然也有提升自己能力的原因，于是在前几天向&lt;a class=&#34;link&#34; href=&#34;https://github.com/open-jike/jike-sdk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;jike-sdk&lt;/a&gt;提出了自己职业生涯中的第一个PR，经历了两三次修改后终于merged，在成就感充满自身的同时也发现自己的代码质量有点低😅，还是得继续努力，为开源做一些贡献。希望有一天自己的能力能被许多人认可，在Github上有许多的followers以及stars（做梦&lt;/p&gt;
+&lt;p&gt;3月底到的霍春阳大佬写的Vue.js设计与实现，现在依旧在断断续续地看，感觉自己有一点囫囵吞枣了，初看这本书对Vue的设计思路以及实现都讲得挺好的，谁让他才是最懂Vue的那个男人呢？🐶
+&lt;figure style=&#34;flex-grow: 135; flex-basis: 325px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/before-graduation/zhihu.png&#34; data-size=&#34;754x556&#34;&gt;&lt;img src=&#34;https://magren.cn/before-graduation/zhihu.png&#34;
+				srcset=&#34;https://magren.cn/before-graduation/zhihu_hud5452ed9f871aeb60546c4c3a52d7395_108426_480x0_resize_box_3.png 480w, https://magren.cn/before-graduation/zhihu_hud5452ed9f871aeb60546c4c3a52d7395_108426_1024x0_resize_box_3.png 1024w&#34;
+				width=&#34;754&#34;
+				height=&#34;556&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;发现无论什么时候都得好好学英语，阅读国外的技术文档以及跟别人在Github、discord交流的时候，英语底子就显得极为重要，不然就只能在中文频道吹水🤪。以前阅读技术文档的时候都是直接右键翻译，现在尝试着生啃😵，还有根据小伙伴的建议，听听英文歌，看美剧。敲代码或许不用特别好的英语，但是我想英语是突破职业瓶颈的一个契机，更重要的是我想在General频道吹水，能跟全世界各地的人吹水在我看来是一件很cooooooooool的事（跟别人吹水聊天成了第一生产力）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;我语言的边界，就是我 &lt;del&gt;吹水&lt;/del&gt; 世界的边界。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我是一个缺乏仪式感的人，毕业于我没有太大的感觉，只是遗憾快乐的时光总是过去的那么快。&lt;/p&gt;
+&lt;p&gt;大一刚入学过了两三个月，那时候舍友都熟络到了父子关系的地步，我们在宿舍开黑打LOL并叫了一顿烧烤外卖做宵夜，我们还特地下楼去超市买了一大瓶可乐拿上来，一边吃一边吹水聊天，那时候入秋，天气微凉，手中的鸡翅很香。&lt;br&gt;
+那是我吃的最香的一顿烧烤，后面总感觉欠缺了什么。希望以后还能常聚，也谢谢他们经常拉着我打游戏，差点把我整成了个老废物
+&lt;figure style=&#34;flex-grow: 101; flex-basis: 242px&#34;&gt;
+		&lt;a href=&#34;https://magren.cn/before-graduation/garbage.jpg&#34; data-size=&#34;400x396&#34;&gt;&lt;img src=&#34;https://magren.cn/before-graduation/garbage.jpg&#34;
+				srcset=&#34;https://magren.cn/before-graduation/garbage_hub5d7bc50f721ee078a302b0f07e8c1b8_155654_480x0_resize_q75_box.jpg 480w, https://magren.cn/before-graduation/garbage_hub5d7bc50f721ee078a302b0f07e8c1b8_155654_1024x0_resize_q75_box.jpg 1024w&#34;
+				width=&#34;400&#34;
+				height=&#34;396&#34;
+				loading=&#34;lazy&#34;
+				&gt;
+		&lt;/a&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;何德何能，在这大学四年里所遇之人皆不偏不倚，亦师亦友。&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;抱着心中的侥幸还有一些遗憾，静静等待自己拿到毕业证书后毕业那一刻，希望我的小伙伴万事胜意，未来可期。&lt;del&gt;苟富贵！勿&lt;/del&gt;&lt;/strong&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
