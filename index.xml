@@ -360,7 +360,6 @@ pnpm run serve
 		
 	&lt;/figure&gt;&lt;/p&gt;
 &lt;h1 id=&#34;实习&#34;&gt;实习&lt;/h1&gt;
-&lt;p&gt;这里要感谢女朋友在我封校期间不能出来看房子的时候帮我看好了要租的房子，不然就太难顶了😓&lt;/p&gt;
 &lt;p&gt;刚来的时候在公司报道，按着公司的教程装了一些内部用的工具，&lt;br&gt;
 结果后面告诉我我的工位不在这边……遂又跑路，跑去了黄埔，发现刚刚装的东西都用不上，怒删😤&lt;/p&gt;
 &lt;p&gt;来到工位简单认了下一起工作的小伙伴后，接收了项目的地址还有一些文档，还蹭了我们老大的一杯奶茶，欸嘿&lt;/p&gt;
@@ -921,16 +920,6 @@ pnpm run serve
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;生活明朗，万物可爱，人间值得，未来可期。&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/my-21st-birthday/gift1.png&#34; data-size=&#34;2048x1538&#34;&gt;&lt;img src=&#34;https://magren.cn/my-21st-birthday/gift1.png&#34;
-				srcset=&#34;https://magren.cn/my-21st-birthday/gift1_hufd61b876a3f6d3187059f3b8f24e9c4b_444508_480x0_resize_box_3.png 480w, https://magren.cn/my-21st-birthday/gift1_hufd61b876a3f6d3187059f3b8f24e9c4b_444508_1024x0_resize_box_3.png 1024w&#34;
-				width=&#34;2048&#34;
-				height=&#34;1538&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;figure style=&#34;flex-grow: 133; flex-basis: 319px&#34;&gt;
 		&lt;a href=&#34;https://magren.cn/my-21st-birthday/gift2.png&#34; data-size=&#34;2048x1538&#34;&gt;&lt;img src=&#34;https://magren.cn/my-21st-birthday/gift2.png&#34;
 				srcset=&#34;https://magren.cn/my-21st-birthday/gift2_hue1995d1ec3da82607485807992a0369d_434513_480x0_resize_box_3.png 480w, https://magren.cn/my-21st-birthday/gift2_hue1995d1ec3da82607485807992a0369d_434513_1024x0_resize_box_3.png 1024w&#34;
 				width=&#34;2048&#34;
@@ -1455,21 +1444,6 @@ Node.js操作MongoDB以及用express写接口之前都有在博客中大致的�
 				srcset=&#34;https://magren.cn/2020-summary/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_480x0_resize_box_3.png 480w, https://magren.cn/2020-summary/iphone5s_huc7f1f42d813fcc43ddb37ff089174922_134693_1024x0_resize_box_3.png 1024w&#34;
 				width=&#34;269&#34;
 				height=&#34;269&#34;
-				loading=&#34;lazy&#34;
-				&gt;
-		&lt;/a&gt;
-		
-	&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&#34;感情&#34;&gt;感情&lt;/h2&gt;
-&lt;p&gt;突然就一年多了。
-越来越了解彼此，
-这一年里一起去了挺多地方，也在一起努力着
-还是希望能好好的一直在一块🌟&lt;/p&gt;
-&lt;p&gt;&lt;figure style=&#34;flex-grow: 101; flex-basis: 243px&#34;&gt;
-		&lt;a href=&#34;https://magren.cn/2020-summary/33.png&#34; data-size=&#34;271x267&#34;&gt;&lt;img src=&#34;https://magren.cn/2020-summary/33.png&#34;
-				srcset=&#34;https://magren.cn/2020-summary/33_hu20b35df017a50075406828d44e0e539e_107745_480x0_resize_box_3.png 480w, https://magren.cn/2020-summary/33_hu20b35df017a50075406828d44e0e539e_107745_1024x0_resize_box_3.png 1024w&#34;
-				width=&#34;271&#34;
-				height=&#34;267&#34;
 				loading=&#34;lazy&#34;
 				&gt;
 		&lt;/a&gt;
